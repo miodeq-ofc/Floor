@@ -1,0 +1,440 @@
+{
+  "generated": "2026-11-14T15:47:55.015784Z",
+  "target": 90,
+  "report": [
+    {
+      "id": "autobusy",
+      "name": "Autobusy",
+      "before": 11,
+      "after": 10,
+      "added": 0
+    },
+    {
+      "id": "formula-1",
+      "name": "Formuła 1",
+      "before": 10,
+      "after": 8,
+      "added": 0
+    },
+    {
+      "id": "marki-samochodow",
+      "name": "Marki samochodów",
+      "before": 51,
+      "after": 51,
+      "added": 0
+    },
+    {
+      "id": "motocykle",
+      "name": "Motocykle",
+      "before": 33,
+      "after": 32,
+      "added": 0
+    },
+    {
+      "id": "samochody",
+      "name": "Samochody",
+      "before": 49,
+      "after": 48,
+      "added": 0
+    },
+    {
+      "id": "ciezarowki",
+      "name": "Samochody ciężarowe",
+      "before": 14,
+      "after": 14,
+      "added": 0
+    },
+    {
+      "id": "samochody-wyscigowe",
+      "name": "Samochody wyścigowe",
+      "before": 30,
+      "after": 24,
+      "added": 0
+    },
+    {
+      "id": "ciasta-deserowe",
+      "name": "Ciasta deserowe",
+      "before": 84,
+      "after": 84,
+      "added": 0
+    },
+    {
+      "id": "ciasta-wytrawne",
+      "name": "Ciasta wytrawne",
+      "before": 21,
+      "after": 20,
+      "added": 0
+    },
+    {
+      "id": "herbaty",
+      "name": "Herbaty",
+      "before": 33,
+      "after": 30,
+      "added": 0
+    },
+    {
+      "id": "koktajle",
+      "name": "Koktajle",
+      "before": 47,
+      "after": 47,
+      "added": 0
+    },
+    {
+      "id": "miesa",
+      "name": "Mięsa i wędliny",
+      "before": 30,
+      "after": 30,
+      "added": 0
+    },
+    {
+      "id": "napoje-bezalkoholowe",
+      "name": "Napoje bezalkoholowe",
+      "before": 52,
+      "after": 48,
+      "added": 0
+    },
+    {
+      "id": "owoce-jadalne",
+      "name": "Owoce jadalne",
+      "before": 45,
+      "after": 45,
+      "added": 0
+    },
+    {
+      "id": "owoce-morza",
+      "name": "Owoce morza",
+      "before": 27,
+      "after": 23,
+      "added": 0
+    },
+    {
+      "id": "pierogi",
+      "name": "Pierogi",
+      "before": 33,
+      "after": 33,
+      "added": 0
+    },
+    {
+      "id": "piwo",
+      "name": "Piwo",
+      "before": 63,
+      "after": 60,
+      "added": 0
+    },
+    {
+      "id": "przekaski",
+      "name": "Przekąski",
+      "before": 59,
+      "after": 58,
+      "added": 0
+    },
+    {
+      "id": "przyprawy",
+      "name": "Przyprawy",
+      "before": 82,
+      "after": 81,
+      "added": 0
+    },
+    {
+      "id": "slodycze",
+      "name": "Słodycze",
+      "before": 56,
+      "after": 56,
+      "added": 0
+    },
+    {
+      "id": "wina",
+      "name": "Wina",
+      "before": 48,
+      "after": 43,
+      "added": 0
+    },
+    {
+      "id": "wedliny",
+      "name": "Wędliny",
+      "before": 30,
+      "after": 30,
+      "added": 0
+    },
+    {
+      "id": "kaktusy",
+      "name": "Kaktusy",
+      "before": 25,
+      "after": 25,
+      "added": 0
+    },
+    {
+      "id": "motyle",
+      "name": "Motyle",
+      "before": 66,
+      "after": 66,
+      "added": 0
+    },
+    {
+      "id": "owady",
+      "name": "Owady",
+      "before": 51,
+      "after": 51,
+      "added": 0
+    },
+    {
+      "id": "rasy-golebi",
+      "name": "Rasy gołębi",
+      "before": 32,
+      "after": 32,
+      "added": 0
+    },
+    {
+      "id": "rasy-kotow",
+      "name": "Rasy kotów",
+      "before": 65,
+      "after": 65,
+      "added": 0
+    },
+    {
+      "id": "skamienialosci",
+      "name": "Skamieniałości",
+      "before": 18,
+      "after": 18,
+      "added": 0
+    },
+    {
+      "id": "gory",
+      "name": "Góry",
+      "before": 85,
+      "after": 85,
+      "added": 0
+    },
+    {
+      "id": "jaskinie",
+      "name": "Jaskinie",
+      "before": 52,
+      "after": 51,
+      "added": 0
+    },
+    {
+      "id": "parki-narodowe",
+      "name": "Parki narodowe",
+      "before": 48,
+      "after": 43,
+      "added": 0
+    },
+    {
+      "id": "plaze",
+      "name": "Plaże",
+      "before": 17,
+      "after": 17,
+      "added": 0
+    },
+    {
+      "id": "pustynie",
+      "name": "Pustynie",
+      "before": 11,
+      "after": 11,
+      "added": 0
+    },
+    {
+      "id": "muzea",
+      "name": "Muzea",
+      "before": 27,
+      "after": 20,
+      "added": 0
+    },
+    {
+      "id": "pomniki",
+      "name": "Pomniki",
+      "before": 26,
+      "after": 26,
+      "added": 0
+    },
+    {
+      "id": "prezydenci-usa",
+      "name": "Prezydenci USA",
+      "before": 56,
+      "after": 56,
+      "added": 0
+    },
+    {
+      "id": "wladcy-polski",
+      "name": "Władcy Polski",
+      "before": 69,
+      "after": 69,
+      "added": 0
+    },
+    {
+      "id": "dyrygenci",
+      "name": "Dyrygenci",
+      "before": 14,
+      "after": 14,
+      "added": 0
+    },
+    {
+      "id": "gatunki-muzyczne",
+      "name": "Gatunki muzyczne",
+      "before": 30,
+      "after": 30,
+      "added": 0
+    },
+    {
+      "id": "kompozytorzy",
+      "name": "Kompozytorzy",
+      "before": 11,
+      "after": 10,
+      "added": 0
+    },
+    {
+      "id": "tance",
+      "name": "Tańce",
+      "before": 56,
+      "after": 56,
+      "added": 0
+    },
+    {
+      "id": "lokomotywy",
+      "name": "Lokomotywy",
+      "before": 18,
+      "after": 18,
+      "added": 0
+    },
+    {
+      "id": "maszyny",
+      "name": "Maszyny",
+      "before": 41,
+      "after": 41,
+      "added": 0
+    },
+    {
+      "id": "pociagi",
+      "name": "Pociągi",
+      "before": 65,
+      "after": 65,
+      "added": 0
+    },
+    {
+      "id": "roboty",
+      "name": "Roboty",
+      "before": 32,
+      "after": 32,
+      "added": 0
+    },
+    {
+      "id": "rowery",
+      "name": "Rowery",
+      "before": 69,
+      "after": 68,
+      "added": 0
+    },
+    {
+      "id": "silniki",
+      "name": "Silniki",
+      "before": 23,
+      "after": 19,
+      "added": 0
+    },
+    {
+      "id": "mineraly",
+      "name": "Minerały",
+      "before": 19,
+      "after": 18,
+      "added": 0
+    },
+    {
+      "id": "pierwiastki",
+      "name": "Pierwiastki chemiczne",
+      "before": 88,
+      "after": 88,
+      "added": 0
+    },
+    {
+      "id": "skaly",
+      "name": "Skały",
+      "before": 51,
+      "after": 48,
+      "added": 0
+    },
+    {
+      "id": "hotele",
+      "name": "Hotele",
+      "before": 64,
+      "after": 63,
+      "added": 0
+    },
+    {
+      "id": "marki-kosmetykow",
+      "name": "Marki kosmetyków",
+      "before": 9,
+      "after": 9,
+      "added": 0
+    },
+    {
+      "id": "marki-napojow",
+      "name": "Marki napojów",
+      "before": 31,
+      "after": 28,
+      "added": 0
+    },
+    {
+      "id": "marki-odziezowe",
+      "name": "Marki odzieżowe",
+      "before": 25,
+      "after": 25,
+      "added": 0
+    },
+    {
+      "id": "restauracje",
+      "name": "Restauracje",
+      "before": 25,
+      "after": 20,
+      "added": 0
+    },
+    {
+      "id": "sieci-handlowe",
+      "name": "Sieci handlowe",
+      "before": 86,
+      "after": 86,
+      "added": 0
+    },
+    {
+      "id": "gry-planszowe",
+      "name": "Gry planszowe",
+      "before": 67,
+      "after": 67,
+      "added": 0
+    },
+    {
+      "id": "zabawki",
+      "name": "Zabawki",
+      "before": 84,
+      "after": 78,
+      "added": 0
+    },
+    {
+      "id": "drzwi",
+      "name": "Drzwi i bramy",
+      "before": 17,
+      "after": 16,
+      "added": 0
+    },
+    {
+      "id": "odznaczenia",
+      "name": "Odznaczenia",
+      "before": 17,
+      "after": 17,
+      "added": 0
+    },
+    {
+      "id": "zegarki",
+      "name": "Zegarki",
+      "before": 27,
+      "after": 23,
+      "added": 0
+    },
+    {
+      "id": "znaczki",
+      "name": "Znaczki pocztowe",
+      "before": 14,
+      "after": 8,
+      "added": 0
+    }
+  ]
+}

@@ -652,7 +652,19 @@ async function startDuel(sourceTile, targetTile) {
     const pack = await loadPack(targetTile.cat);
     if (token !== H.token) return;
     H.duel.pack = pack;
-    const next = makeQueue(pack, H.used);
+    let next = makeQueue(pack, H.used);
+    // Zanim zacznie się odliczanie, upewnij się, że na cały pojedynek
+    // (20 rund) wystarczy pytań — nawet gdy kategoria ma tylko kilka.
+    if (next.queue.length < 20) {
+      try {
+        const extra = await loadMorePack(pack, 40);
+        if (extra.length) {
+          pack.items.push(...extra);
+          next = makeQueue(pack, H.used);
+        }
+      } catch {}
+    }
+    if (token !== H.token) return;
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
     H.phase = 'duelIntro';
@@ -686,14 +698,47 @@ async function beginDuel() {
   sendState();
 }
 
+let topupPromise = null;
+
+/** Dociąga pytania w tle, zanim skończy się kolejka. */
+function ensureMore(min = 12) {
+  if (!H.duel?.pack) return Promise.resolve();
+  const d = H.duel;
+  if (d.queue.length - d.queuePos >= min) return Promise.resolve();
+  if (topupPromise) return topupPromise;
+  const token = H.token;
+  topupPromise = (async () => {
+    try {
+      const extra = await loadMorePack(d.pack, Math.max(30, min));
+      if (token !== H.token || !H.duel || H.duel !== d) return;
+      const known = new Set(d.pack.items.map((q) => String(q.a).toLowerCase()));
+      const add = extra.filter(
+        (q) =>
+          q?.a &&
+          !known.has(String(q.a).toLowerCase()) &&
+          !H.used.has(d.pack.id + '|' + q.a),
+      );
+      if (!add.length) return;
+      d.pack.items.push(...add);
+      d.queue.push(...shuffle(add));
+    } catch {
+      // Brak internetu / limit Wikipedii — zostaje to, co już mamy.
+    } finally {
+      topupPromise = null;
+    }
+  })();
+  return topupPromise;
+}
+
 async function advanceQuestion() {
   if (!H.duel?.pack) return;
+  await ensureMore(12);
   if (H.duel.queuePos >= H.duel.queue.length) {
     let next = makeQueue(H.duel.pack, H.used);
     const hasUnused = next.queue.some((q) => !H.used.has(H.duel.pack.id + '|' + q.a));
     if (!hasUnused) {
       try {
-        const extra = await loadMorePack(H.duel.pack);
+        const extra = await loadMorePack(H.duel.pack, 40);
         if (extra.length) {
           H.duel.pack.items.push(...extra);
           next = makeQueue(H.duel.pack, H.used);

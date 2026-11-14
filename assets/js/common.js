@@ -238,39 +238,194 @@ export function makeQueue(pack, used = null) {
   return { queue: shuffle(fresh), total: pack.items.length };
 }
 
-/** Doczytuje kolejne pytania z kategorii Wikipedii, gdy pula się skończy. */
-export async function loadMorePack(cat) {
-  const source = cat?.source || (cat?.name ? 'Kategoria:' + cat.name : '');
+const GENERIC_ANSWERS = new Set(
+  [
+    'owoce', 'owoce jadalne', 'warzywa', 'grzyby', 'grzyby jadalne', 'grzyby trujące',
+    'desery', 'zupy', 'ciasta', 'ciasta deserowe', 'ciasta wytrawne', 'przekąski',
+    'słodycze', 'koktajle', 'napoje', 'napoje bezalkoholowe', 'herbaty', 'wina', 'piwo',
+    'owoce morza', 'wędliny', 'mięsa', 'mięso', 'pierogi', 'ryby', 'ryby akwariowe',
+    'psy', 'rasy psów', 'koty', 'rasy kotów', 'konie', 'rasy koni', 'gołębie', 'rasy gołębi',
+    'motyle', 'owady', 'kaktusy', 'jaskinie', 'góry', 'pustynie', 'zamki', 'plaże',
+    'parki narodowe', 'władcy', 'władcy polski', 'prezydenci', 'prezydenci usa',
+    'cesarze rzymscy', 'pomniki', 'muzea', 'gatunki muzyczne', 'tańce', 'kompozytorzy',
+    'dyrygenci', 'aktorzy', 'polscy aktorzy', 'teleturnieje', 'smartfony', 'procesory',
+    'karty graficzne', 'telefony', 'lokomotywy', 'pociągi', 'rowery', 'silniki', 'roboty',
+    'maszyny', 'pierwiastki', 'pierwiastki chemiczne', 'minerały', 'skały', 'sieci',
+    'marki odzieżowe', 'marki kosmetyków', 'marki napojów', 'marki piwa', 'hotele',
+    'restauracje', 'zabawki', 'gry planszowe', 'monety', 'znaczki', 'znaczki pocztowe',
+    'odznaczenia', 'zegarki', 'drzwi', 'drzwi i bramy', 'samochody', 'motocykle',
+    'ciężarówki', 'samochody ciężarowe', 'autobusy', 'samochody terenowe',
+    'samochody wyścigowe', 'formuła 1', 'samoloty', 'statki', 'budynki', 'drzewa',
+    'kwiaty', 'zwierzęta', 'rośliny', 'marki samochodów', 'aplikacje',
+    'aplikacje internetowe', 'logotypy', 'logotypy znanych marek', 'flagi',
+    'flagi państw', 'herby', 'herby państw', 'skamieniałości', 'owoc', 'warzywo',
+    'grzyb', 'deser', 'zupa', 'ciasto', 'przekąska', 'słodycz', 'koktajl', 'napój',
+    'herbata', 'wino', 'owoc morza', 'wędlina', 'pieróg', 'pies', 'kot', 'koń',
+    'gołąb', 'motyl', 'owad', 'kaktus', 'jaskinia', 'góra', 'pustynia', 'zamek',
+    'plaża', 'park narodowy', 'władca', 'prezydent', 'cesarz', 'pomnik', 'muzeum',
+    'gatunek', 'taniec', 'kompozytor', 'dyrygent', 'aktor', 'teleturniej', 'smartfon',
+    'procesor', 'karta graficzna', 'telefon', 'lokomotywa', 'pociąg', 'rower', 'silnik',
+    'robot', 'maszyna', 'pierwiastek', 'minerał', 'skała', 'sieć', 'marka odzieżowa',
+    'marka kosmetyków', 'marka napoju', 'marka piwa', 'hotel', 'restauracja', 'zabawka',
+    'gra planszowa', 'moneta', 'znaczek', 'odznaczenie', 'zegarek', 'drzwi', 'samochód',
+    'motocykl', 'ciężarówka', 'autobus', 'samochód terenowy', 'samochód wyścigowy',
+    'samolot', 'statek', 'budynek', 'drzewo', 'kwiat', 'zwierzę', 'roślina',
+    'marka samochodu', 'aplikacja', 'logotyp', 'flaga', 'herb', 'skamieniałość',
+  ].map((s) => s.toLowerCase()),
+);
+
+function moreTitleOk(cat, title) {
+  const raw = String(title || '').trim();
+  const answer = cleanTitle(raw);
+  const low = answer.toLowerCase();
+  if (!answer || answer.length < 2 || answer.length > 65) return false;
+  if (GENERIC_ANSWERS.has(low) || low === String(cat?.name || '').toLowerCase()) return false;
+  if (/^lista\b/i.test(raw) || /\(ujednoznacznienie\)/i.test(raw) || /^\d{1,4}$/.test(raw)) return false;
+  if (/^(Galeria|Kategoria|Szablon|Plik|Wikiprojekt|Wikipedia|Portal):/i.test(raw)) return false;
+  if (/\b(wykaz|spis|lista|galeria)\b/i.test(raw)) return false;
+  return true;
+}
+
+function moreImageOk(cat, img) {
+  if (!img) return false;
+  if (cat?.id === 'aplikacje-internetowe' && /^https:\/\/cdn\.simpleicons\.org\//i.test(img)) return true;
+  if (!/^https:\/\/(upload|thumb)\.wikimedia\.org\//i.test(img)) return false;
+  let file = '';
+  try {
+    file = decodeURIComponent(new URL(img).pathname.split('/').pop() || '').toLowerCase();
+  } catch {
+    return false;
+  }
+  if (!/\.(jpe?g|png|webp|gif|svg)$/i.test(file)) return false;
+  const special = new Set(['loga-firm', 'flagi-panstw', 'herby-panstw', 'aplikacje-internetowe']).has(cat?.id);
+  if (!special && /\.svg$/i.test(file)) return false;
+  const documentImage =
+    /(screenshot|zrzut|diagram|schemat|wykres|chart|mapa|map_|_map|plan\b|logo|logotyp|icon|ikona|cover|okładka|poster|plakat|sheet|score|partytura|nuty|rag|schallplatte|record|album|naczynia|kuchenne|menu|ulotka|reklama)/i.test(
+      file,
+    );
+  if (!special && documentImage) return false;
+  if (special && /(screenshot|diagram|schemat|wykres|chart|mapa|sheet|score|naczynia|kuchenne|poster|plakat)/i.test(file)) return false;
+  return true;
+}
+
+function moreCategory(cat) {
+  let source = String(cat?.source || '').replace(/\s*\(.*$/, '').trim();
+  if (source.startsWith('Kategoria:')) return source;
+  return 'Kategoria:' + String(cat?.name || '').trim();
+}
+
+function addMorePage(cat, page, known, knownImages, items) {
+  if (!page || page.missing || !page.thumbnail?.source) return;
+  if (!moreTitleOk(cat, page.title)) return;
+  const answer = cleanTitle(page.title);
+  const key = answer.toLowerCase();
+  if (known.has(key)) return;
+  const img = page.thumbnail.source.split('?')[0];
+  if (knownImages.has(img) || !moreImageOk(cat, img)) return;
+  known.add(key);
+  knownImages.add(img);
+  items.push({ a: answer, img });
+}
+
+async function restSearchMore(cat, target, known, knownImages, items) {
+  const url = new URL('https://pl.wikipedia.org/w/rest.php/v1/search/page');
+  url.searchParams.set('q', String(cat?.name || '').trim());
+  url.searchParams.set('limit', '50');
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return;
+    const data = await res.json();
+    for (const page of data?.pages || []) {
+      if (items.length >= target) break;
+      let img = page?.thumbnail?.url;
+      if (!img) continue;
+      img = img.startsWith('//') ? 'https:' + img : img;
+      img = img.replace(/\/\d+px-/, '/800px-');
+      addMorePage(
+        cat,
+        { title: page.title, thumbnail: { source: img } },
+        known,
+        knownImages,
+        items,
+      );
+    }
+  } catch {}
+}
+
+/** Doczytuje pytania z Wikipedii: kategoria + podkategorie + wyszukiwanie. */
+export async function loadMorePack(cat, target = 50) {
+  const source = moreCategory(cat);
   if (!source) return [];
   const known = new Set((cat.items || []).map((q) => String(q.a).toLowerCase()));
+  const knownImages = new Set((cat.items || []).map((q) => q.img));
   const items = [];
-  let cont = null;
-  for (let round = 0; round < 2 && items.length < 40; round++) {
-    const data = await wikiJson({
-      action: 'query',
-      generator: 'categorymembers',
-      gcmtitle: source,
-      gcmtype: 'page',
-      gcmlimit: '50',
-      ...(cont || {}),
-      prop: 'pageimages',
-      pilimit: '50',
-      piprop: 'thumbnail',
-      pithumbsize: '800',
-    });
-    const pages = Object.values(data?.query?.pages || {});
-    for (const page of pages) {
-      if (!page.thumbnail?.source) continue;
-      if (!titleOk(page.title)) continue;
-      const answer = cleanTitle(page.title);
-      const key = answer.toLowerCase();
-      if (!answer || known.has(key)) continue;
-      known.add(key);
-      items.push({ a: answer, img: page.thumbnail.source.split('?')[0] });
+
+  const queue = [{ title: source, depth: 0 }];
+  const visited = new Set();
+  let categoriesRead = 0;
+  while (queue.length && items.length < target && categoriesRead < 10) {
+    const { title, depth } = queue.shift();
+    if (!title || visited.has(title)) continue;
+    visited.add(title);
+    categoriesRead += 1;
+    try {
+      const data = await wikiJson({
+        action: 'query',
+        generator: 'categorymembers',
+        gcmtitle: title,
+        gcmtype: 'page',
+        gcmlimit: '500',
+        prop: 'pageimages',
+        pilimit: '500',
+        piprop: 'thumbnail',
+        pithumbsize: '1000',
+      });
+      for (const page of Object.values(data?.query?.pages || {})) {
+        addMorePage(cat, page, known, knownImages, items);
+        if (items.length >= target) break;
+      }
+    } catch (err) {
+      if (String(err.message || err).includes('ogranicza')) break;
     }
-    cont = data?.continue ? { gcmcontinue: data.continue.gcmcontinue } : null;
-    if (!cont) break;
-    await new Promise((r) => setTimeout(r, 300));
+    if (depth < 2 && categoriesRead < 10 && items.length < target) {
+      try {
+        const subs = await wikiJson({
+          action: 'query',
+          list: 'categorymembers',
+          cmtitle: title,
+          cmtype: 'subcat',
+          cmlimit: '100',
+        });
+        for (const sub of subs?.query?.categorymembers || []) {
+          if (sub.title && !visited.has(sub.title)) queue.push({ title: sub.title, depth: depth + 1 });
+        }
+      } catch {}
+    }
+    await new Promise((r) => setTimeout(r, 150));
+  }
+
+  if (items.length < target) {
+    // REST search ma osobny limit i działa nawet gdy action=query zwraca 429.
+    await restSearchMore(cat, target, known, knownImages, items);
+  }
+  if (items.length < target) {
+    try {
+      const data = await wikiJson({
+        action: 'query',
+        generator: 'search',
+        gsrsearch: String(cat?.name || '').trim(),
+        gsrnamespace: '0',
+        gsrlimit: '50',
+        prop: 'pageimages',
+        pilimit: '50',
+        piprop: 'thumbnail',
+        pithumbsize: '1000',
+      });
+      for (const page of Object.values(data?.query?.pages || {})) {
+        addMorePage(cat, page, known, knownImages, items);
+        if (items.length >= target) break;
+      }
+    } catch {}
   }
   return items;
 }
