@@ -119,10 +119,9 @@ export function shortCategory(name) {
   if (!name) return '';
   if (SHORT_CATEGORY[name]) return SHORT_CATEGORY[name];
   const clean = String(name).replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
-  if (clean.length <= 15) return clean;
-  const words = clean.split(' ');
-  if (words.length > 2) return words.slice(0, 2).join(' ');
-  return clean.slice(0, 14).trim() + '…';
+  // Nie ucinamy nazw typu „Znaczki pocztowe”. Kafelek ma do 3 linii
+  // i wyśrodkowany tekst, więc dłuższe kategorie po prostu się zawijają.
+  return clean;
 }
 
 export function allCells(rows, cols) {

@@ -14,15 +14,15 @@ Gra w stylu *The Floor* dla **2–8 graczy**: losowa plansza z kategorii, pojedy
    - startujesz grę.
 3. **Przebieg pojedynku**
    - **Tura krąży po kolei** (1 → 2 → 3 → 1…). Aktualny gracz wybiera najpierw **własne pole**, potem **sąsiednie pole przeciwnika** (góra, dół, lewo lub prawo). Może wybrać dowolne swoje pole z frontierem, nie tylko jedno.
-   - Pojedynek odbywa się **zawsze w kategorii atakowanego pola**. Po wygranej **kategoria atakującego wchodzi na jedno zdobyte pole** — reszta pól przegranego zostaje u niego, a plansza nie ma pustych miejsc.
+   - Pojedynek odbywa się w **kategorii pola, z którego atakujesz**. Po zakończeniu **oba pola — atakujące i atakowane — przyjmują kategorię atakowanego**, a zwycięzca ma oba. Reszta pól przegranego zostaje u niego, a plansza nie ma pustych miejsc.
    - Każdy gracz ma **własny zegar**. Pretendent zaczyna; tylko aktywny zegar leci.
    - **DOBRZE** — odpowiedź poprawna; przez ok. 3 s widać tylko poprawną odpowiedź, a **zegar stoi**. Dopiero po zniknięciu odpowiedzi startuje zegar przeciwnika.
    - **PASS** — **bez kary**: zegar nadal leci, a poprawna odpowiedź jest widoczna ok. 3 s. Nic nie ubywa.
-   - **ŹLE** — kończy pojedynek, ale przegrany oddaje **jedno pole**, nie całe terytorium. Nie odpada od razu, dopiero po utracie ostatniego pola. Po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
+   - **Koniec pojedynku wyznacza tylko czas** — nie ma przycisku błędnej odpowiedzi. Gdy czyjś zegar dobiegnie zera, drugi gracz wygrywa i przejmuje pole. Po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
    - Gra kończy się, gdy jedna osoba ma całą planszę. Może mieć przy tym kilka różnych kategorii — to jest zamierzone.
-4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS/ŹLE na ok. 3 s pojawia się **tylko odpowiedź** na kolorowym tle — bez dopisków o karze; w trakcie odpytywania ekran nie dostaje jej w synchronizacji. Dźwięki (tik zegara, odliczanie, dobra/zła odpowiedź, PASS) są generowane przez Web Audio i można je wyłączyć przyciskiem 🔊.
+4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS na ok. 3 s pojawia się **tylko odpowiedź** na kolorowym tle — bez dopisków o karze; w trakcie odpytywania ekran nie dostaje jej w synchronizacji. Dźwięki (tik zegara, odliczanie, dobra/zła odpowiedź, PASS) są generowane przez Web Audio i można je wyłączyć przyciskiem 🔊.
 
-Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS, **X** = ŹLE.
+Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS.
 
 ### Dwa okna / dwa ekrany
 
@@ -40,7 +40,7 @@ Jeżeli przeglądarka zablokuje okno ekranu graczy, bieżąca karta i tak zostaj
 - **Plansza** ma od 4×4 do 7×8 pól; wymiary są dobierane tak, aby liczba pól dzieliła się przez liczbę graczy (6–10 pól na osobę). Przykładowo: 2 → 4×4 (po 8), 3 → 5×6 (po 10), 4 → 6×6 (po 9), 5 → 6×5 (po 6), 6 → 6×6 (po 6), 7 → 7×7 (po 7), 8 → 7×8 (po 7). To najbliższe równe podziały — plansza nigdy nie ma pustych pól.
 - **Terytoria nie muszą być ciągłe**: losowanie przydziela pola równo, ale rozrzuca je po całej planszy. Możesz mieć pole w lewym górnym rogu i drugie w prawym dolnym.
 - **Sąsiednie pola tego samego gracza i tej samej kategorii łączą się w jeden kształt** (poligon): wspólne krawędzie znikają, a etykieta kategorii jest tylko raz. Łączą się wyłącznie pola stykające się bokiem — góra/dół lub lewo/prawo; pola po skosie i oddalone zostają osobne.
-- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 gotowych paczek** i **4451 pytań** oraz **96 dodatkowych kategorii z Wikipedii** (m.in. ptaki, sery, kawa, instrumenty, architektura, ludzie) — łącznie **174 kategorie**. Gotowe paczki są uzupełniane do **90 pytań**; kategorie z Wikipedii dociągają pytania przy pierwszym pojedynku i zostają w pamięci przeglądarki.
+- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 gotowych paczek** i **4483 pytania** oraz **93 dodatkowe kategorie z Wikipedii** (m.in. ptaki, ssaki, architektura, ludzie i miejsca) — łącznie **171 kategorii**. Większe paczki są uzupełniane do **90 pytań**, a kategorie z Wikipedii dociągają pytania przy pierwszym pojedynku i zostają w pamięci przeglądarki.
 - Pula jest wyszukiwalna; można zaznaczyć tylko wybrane kategorie. Pole na planszy też ma wyszukiwarkę kategorii.
 - Losowanie bez powtórek w całej grze: każde pytanie z kategorii jest oznaczone jako użyte, a kolejka nie resetuje się w środku pojedynku. Przed startem pojedynku gra sprawdza, czy jest co najmniej 20 pytań; jeśli nie — **dociąga je z Wikipedii** (`loadMorePack`: kategoria + podkategorie + wyszukiwanie). W trakcie pojedynku, gdy zostaje mało pytań, robi to samo w tle.
 - Źródłem nie jest wyłącznie plik z paczką: nowe pytania są pobierane automatycznie z kategorii Wikipedii, a nie tylko z gotowej listy. Kategorie oznaczone jako „na żywo” nie mają sztywnej listy — pierwszy pojedynek pobiera strony i zdjęcia, a potem korzysta z cache.
@@ -134,6 +134,6 @@ data/packs/quality-report.json  raport automatycznej walidacji
 
 - Dwa ekrany muszą być w **tej samej przeglądarce** (jeden komputer). Osobne urządzenia wymagają WebRTC lub backendu.
 - Przeglądarki blokują wyskakujące okna — zezwól tej stronie na ich otwieranie.
-- Jakość zdjęć z Wikipedii bywa nierówna. Paczki **owoce jadalne**, **aplikacje internetowe** i **marki samochodów** są kuratorowane; resztę można podmienić w edytorze pola. Jest **PASS** i zmiana kategorii.
-- Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS/ŹLE jako sam napis na kolorowym tle (wtedy widać ją też na TV).
+- Jakość zdjęć z Wikipedii bywa nierówna. Paczki **owoce jadalne**, **aplikacje internetowe**, **marki samochodów**, **kompozytorzy**, **minerały** i **samochody** są kuratorowane pod kątem rozpoznawalnych nazw; resztę można podmienić w edytorze pola. Jest **PASS** i zmiana kategorii.
+- Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS jako sam napis na kolorowym tle (wtedy widać ją też na TV).
 - Gra jest zaprojektowana na jeden komputer z dwoma oknami; nie ma pokoi online.

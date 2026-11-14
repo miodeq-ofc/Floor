@@ -120,7 +120,7 @@ function cacheEls() {
   els.controls = $('#duel-controls');
   els.btnOk = $('#btn-ok');
   els.btnPass = $('#btn-pass');
-  els.btnWrong = $('#btn-wrong');
+  els.duelPrompt = $('#duel-host-prompt');
   els.overlay = $('#overlay');
   els.overlayCard = $('#overlay-card');
   els.phaseKicker = $('#phase-kicker');
@@ -270,7 +270,6 @@ function bind() {
   });
   els.btnOk.addEventListener('click', correct);
   els.btnPass.addEventListener('click', pass);
-  els.btnWrong.addEventListener('click', wrong);
   document.addEventListener('keydown', (event) => {
     if (event.repeat) return;
     if (event.target.matches('input, textarea, select')) return;
@@ -281,9 +280,6 @@ function bind() {
     } else if (H.phase === 'duel' && (key === 'p' || key === 'arrowleft' || key === ' ')) {
       event.preventDefault();
       pass();
-    } else if (H.phase === 'duel' && (key === 'x' || key === 'backspace')) {
-      event.preventDefault();
-      wrong();
     }
   });
   window.addEventListener('beforeunload', () => bus?.close());
@@ -646,10 +642,12 @@ async function startDuel(sourceTile, targetTile) {
     sourceKey: keyOf(sourceTile),
     challengerId: challenger.id,
     defenderId: defender.id,
-    // Pytania zawsze z kategorii obrońcy (atakowanego pola).
-    category: { ...targetTile.cat },
-    // Kategoria, która rozleje się po wygranej challengera.
+    // Pytania są z kategorii pola, z którego atakuje pretendent.
+    category: { ...sourceTile.cat },
     sourceCat: { ...sourceTile.cat },
+    // Kategoria atakowanego pola jest nagrodą: po pojedynku przyjmują ją
+    // oba pola — atakujące i atakowane.
+    targetCat: { ...targetTile.cat },
     clocks: { [challenger.id]: H.turnSeconds * 1000, [defender.id]: H.turnSeconds * 1000 },
     active: challenger.id,
     deadline: null,
@@ -664,7 +662,7 @@ async function startDuel(sourceTile, targetTile) {
   sendState();
 
   try {
-    const pack = await loadPack(targetTile.cat);
+    const pack = await loadPack(sourceTile.cat);
     if (token !== H.token) return;
     H.duel.pack = pack;
     let next = makeQueue(pack, H.used);
@@ -839,30 +837,6 @@ function pass() {
   }, 3000);
 }
 
-function wrong() {
-  if (H.phase !== 'duel' || H.busy || !H.duel?.q || H.duel.reveal) return;
-  const d = H.duel;
-  const left = d.deadline ? d.deadline - Date.now() : d.clocks[d.active];
-  if (left <= 0) {
-    endDuel(d.active);
-    return;
-  }
-  d.clocks[d.active] = left;
-  d.deadline = null;
-  d.reveal = { answer: d.q.a, type: 'wrong', until: Date.now() + 3000, key: Date.now() };
-  H.busy = true;
-  renderAll();
-  sendState();
-
-  const revealKey = d.reveal.key;
-  const loserId = d.active;
-  setTimeout(() => {
-    if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
-    H.duel.reveal = null;
-    endDuel(loserId);
-  }, 3000);
-}
-
 function endDuel(loserId) {
   if (!H.duel || !['duel', 'duelIntro', 'duelLoading'].includes(H.phase)) return;
   const d = H.duel;
@@ -870,21 +844,20 @@ function endDuel(loserId) {
   const winner = H.players.find((p) => p.id === (loserId === d.challengerId ? d.defenderId : d.challengerId));
   if (!loser || !winner) return;
 
-  // Przegrany oddaje tylko jedno pole — atakowane albo to, z którego atakował.
-  // Reszta terytorium zostaje u niego; gra toczy się przez wiele ruchów.
-  const winnerCategory = winner.id === d.challengerId ? d.sourceCat : d.category;
-  let lostTile =
-    H.tiles.find((tile) => keyOf(tile) === (loser.id === d.defenderId ? d.tileKey : d.sourceKey)) || null;
-  if (!lostTile || lostTile.owner !== loser.id) {
-    lostTile = territory(H.tiles, loser.id)[0] || null;
-  }
-  if (lostTile) {
-    lostTile.owner = winner.id;
-    lostTile.cat = { ...winnerCategory };
-  }
+  // Pojedynek toczy się w kategorii pola atakującego, ale nagrodą jest
+  // kategoria pola atakowanego. Po zakończeniu oba pola (atakujące oraz
+  // atakowane) przyjmują kategorię atakowanego i należą do zwycięzcy.
+  const sourceTile = H.tiles.find((tile) => keyOf(tile) === d.sourceKey) || null;
+  const targetTile = H.tiles.find((tile) => keyOf(tile) === d.tileKey) || null;
+  if (!sourceTile || !targetTile) return;
+  const prizeCategory = { ...(d.targetCat || d.category) };
+  sourceTile.cat = { ...prizeCategory };
+  targetTile.cat = { ...prizeCategory };
+  if (winner.id === d.challengerId) targetTile.owner = winner.id;
+  else sourceTile.owner = winner.id;
   const remaining = territory(H.tiles, loser.id).length;
   loser.alive = remaining > 0;
-  const gained = lostTile ? 1 : 0;
+  const gained = 1;
   H.result = null;
   H.challengerId = winner.id;
   H.duel = null;
@@ -896,8 +869,8 @@ function endDuel(loserId) {
     winnerId: winner.id,
     loserId: loser.id,
     gained,
-    category: { ...winnerCategory },
-    cells: lostTile ? [keyOf(lostTile)] : [],
+    category: { ...prizeCategory },
+    cells: [d.tileKey, d.sourceKey],
     at: Date.now(),
     until: Date.now() + 2600,
   };
@@ -1040,7 +1013,7 @@ function renderAction() {
     );
     if (source) {
       const hint = el('div', 'duel-hint');
-      hint.textContent = 'Pytania będą z kategorii atakowanego pola. Zwycięzca bierze jedno pole, a nie całe terytorium.';
+      hint.textContent = 'Pytania są z kategorii pola, z którego atakujesz. Po pojedynku oba pola przyjmą kategorię atakowanego pola, a zwycięzca będzie miał oba.';
       box.appendChild(hint);
       const change = el('button', 'btn wide', 'Zmień pole atakujące');
       change.addEventListener('click', () => {
@@ -1065,11 +1038,11 @@ function renderAction() {
       el(
         'p',
         'action-text',
-        'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE zatrzymuje twój zegar na 3 s i przekazuje pytanie. PASS nie zabiera czasu — zegar leci dalej. ŹLE kończy pojedynek, ale przeciwnik bierze tylko jedno pole.'
+        'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE zatrzymuje twój zegar na 3 s i przekazuje pytanie. PASS nie zabiera czasu — zegar leci dalej. Pojedynek kończy się dopiero, gdy czyjś zegar dobiegnie zera.'
       )
     );
     const note = el('div', 'duel-hint');
-    note.textContent = 'Po DOBRZE odpowiedź jest widoczna 3 s. Po PASS czas nie staje. Błąd nie eliminuje gracza od razu — zabiera mu jedno pole.';
+    note.textContent = 'Odpowiadasz DOBRZE albo PASS. Pojedynek kończy się tylko wtedy, gdy komuś skończy się czas — wtedy drugi gracz wygrywa.';
     box.appendChild(note);
     renderPlayerList();
     return;
@@ -1084,7 +1057,7 @@ function renderAction() {
       el(
         'p',
         'action-text',
-        'Kategoria „' + H.conquest.category.name + '” wchodzi na zdobyte pole. ' + (loser?.name || '') + ' zachowuje resztę terytorium — gra toczy się dalej.'
+        'Kategoria „' + H.conquest.category.name + '” przechodzi na oba pola: atakujące i atakowane. ' + (loser?.name || '') + ' zachowuje resztę terytorium — gra toczy się dalej.'
       )
     );
     const note = el('div', 'duel-hint');
@@ -1126,6 +1099,7 @@ function renderDuelCard() {
   if (!H.duel) return;
   const d = H.duel;
   els.duelCat.textContent = d.category.name;
+  if (els.duelPrompt) els.duelPrompt.textContent = d.category.prompt || 'Co to jest?';
   const q = d.q;
   if (!q) {
     els.duelImg.hidden = true;

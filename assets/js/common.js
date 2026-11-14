@@ -6,7 +6,7 @@ export const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 export const CONFIG_KEY = 'floor:config';
 export const SEEN_PREFIX = 'floor:seen:';
-export const LIVE_PREFIX = 'floor:live:';
+export const LIVE_PREFIX = 'floor:live:v2:';
 
 export function shuffle(list) {
   const a = [...list];
@@ -118,7 +118,25 @@ const packCache = new Map();
 // Kategorie, w których zdjęcie musi pokazywać produkt/obiekt, a nie siedzibę
 // firmy, sklep, wnętrze albo dokument. To najczęstszy powód „pustych” lub
 // niepasujących obrazków w materiale pobranym automatycznie z Wikipedii.
+// W kategoriach przedmiotów/ludzi zdjęcie muzeum, wystawy, parkingu albo
+// sklepu nie jest odpowiedzią, nawet jeśli samo zdjęcie jest ładne.
+const OBJECT_IMAGE = /(museum|muzeum|gallery|galeria|exhibition|wystawa|collection|kolekcja|showroom|salon|factory|fabryka|warehouse|magazyn|depot|zajezdnia|parking|rack|stojak|shop|store|sklep)/i;
+const OBJECT_ANSWER = /(muzeum|museum|gallery|galeria|wystaw|exhibition|kolekcj|collection|showroom|sklep|shop|factory|fabryk|warehouse|magazyn|parking|depot|zajezdnia|siedzib|headquarter|hall of fame|motocyklista)/i;
+
 const IMAGE_RULES = {
+  'motocykle': OBJECT_IMAGE,
+  'rowery': OBJECT_IMAGE,
+  'rasy-kotow': OBJECT_IMAGE,
+  'autobusy': OBJECT_IMAGE,
+  'ciezarowki': OBJECT_IMAGE,
+  'samochody-terenowe': OBJECT_IMAGE,
+  'pociagi': OBJECT_IMAGE,
+  'lokomotywy': OBJECT_IMAGE,
+  'maszyny': OBJECT_IMAGE,
+  'roboty': OBJECT_IMAGE,
+  'silniki': OBJECT_IMAGE,
+  'live-samoloty': OBJECT_IMAGE,
+  'live-statki': OBJECT_IMAGE,
   'marki-napojow': /(headquarter|headquarters|hq[a-z]|office|store|shop|factory|building|distribution|shelf|mollinsburn|sugarland|warehouse|market|restaurant|street|avenue|advertisement)/i,
   'napoje-bezalkoholowe': /(shelf|shop|store|factory|building|headquarter|hq[a-z]|market|restaurant|\bbar\b|collecting|birch|tree|forest|plantation|walmart|wallmart|cafe|coffeehouse|kiosk)/i,
   'samochody': /(museum|factory|interior|navigation|\boil\b|industry|assembly|plant|headquarter|hq[a-z]|engine|showroom|dealership|street_food|car_wash|wash|detailing|parking|dashboard|electronics|radio|display|screen|bots?|robot)/i,
@@ -141,6 +159,23 @@ const IMAGE_RULES = {
 // w pytaniu „Jaki to samochód?”), odpadają jeszcze przed losowaniem.
 const ANSWER_RULES = {
   'samochody': /(face ?lifting|tuning|samochodzik|elektronika|muzeum|auto detailing|g-power|navigation|radio navigation|przemysł|dynamiczna wymiana oleju|historia samochodu|oklejanie)/i,
+  'motocykle': OBJECT_ANSWER,
+  'rowery': OBJECT_ANSWER,
+  'rasy-kotow': OBJECT_ANSWER,
+  'autobusy': OBJECT_ANSWER,
+  'ciezarowki': OBJECT_ANSWER,
+  'samochody-terenowe': OBJECT_ANSWER,
+  'pociagi': OBJECT_ANSWER,
+  'lokomotywy': OBJECT_ANSWER,
+  'maszyny': OBJECT_ANSWER,
+  'roboty': OBJECT_ANSWER,
+  'silniki': OBJECT_ANSWER,
+  'tance': /^(zespół|grupa|teatr|szkoła|akademia)\b/i,
+  'live-samoloty': OBJECT_ANSWER,
+  'live-statki': OBJECT_ANSWER,
+  'live-kawa': /(kawowiec|tiramisu|ekspres|filiżank|kubek|młynek|spieniacz|dripper|kawiarka)/i,
+  'live-sery': /^(sery|ser\s+(topiony|żółty|pleśniowy|solanowy|zwarowy))\b/i,
+  'live-instrumenty-muzyczne': /^(instrument muzyczny|plektron|wiatrownica|mostek|struna|klawisz|pedał|ustnik|stroik|pałeczka|smyczek|klucz)\b/i,
   'samochody-wyscigowe': /^(speed tape|formuła 1|scg)$/i,
   'napoje-bezalkoholowe': /^(napój bezalkoholowy|napój|fusy)$/i,
   'herbaty': /^(kamelia|herbatka bostońska|japońska ceremonia picia herbaty|chashitsu)$/i,
@@ -160,6 +195,10 @@ function imageFile(url) {
 function answerLooksUsable(cat, answer) {
   const value = String(answer || '').trim();
   if (!value) return false;
+  // Tytuły filmów, albumów i innych dzieł potrafią trafić do kategorii
+  // „Kompozytorzy” przez kategorię Wikipedii. To nie jest odpowiedź na
+  // pytanie o osobę/rzecz z planszy.
+  if (/^(kopia mistrza|film|serial|album|piosenka|singel|utwór|utwor|gra komputerowa)$/i.test(value)) return false;
   const rule = ANSWER_RULES[cat?.id];
   return !rule || !rule.test(value);
 }
@@ -394,31 +433,6 @@ function addMorePage(cat, page, known, knownImages, items) {
   items.push({ a: answer, img });
 }
 
-async function restSearchMore(cat, target, known, knownImages, items) {
-  const url = new URL('https://pl.wikipedia.org/w/rest.php/v1/search/page');
-  url.searchParams.set('q', String(cat?.name || '').trim());
-  url.searchParams.set('limit', '50');
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return;
-    const data = await res.json();
-    for (const page of data?.pages || []) {
-      if (items.length >= target) break;
-      let img = page?.thumbnail?.url;
-      if (!img) continue;
-      img = img.startsWith('//') ? 'https:' + img : img;
-      img = img.replace(/\/\d+px-/, '/800px-');
-      addMorePage(
-        cat,
-        { title: page.title, thumbnail: { source: img } },
-        known,
-        knownImages,
-        items,
-      );
-    }
-  } catch {}
-}
-
 /** Doczytuje pytania z Wikipedii: kategoria + podkategorie + wyszukiwanie. */
 export async function loadMorePack(cat, target = 50) {
   const source = moreCategory(cat);
@@ -471,28 +485,5 @@ export async function loadMorePack(cat, target = 50) {
     await new Promise((r) => setTimeout(r, 150));
   }
 
-  if (items.length < target) {
-    // REST search ma osobny limit i działa nawet gdy action=query zwraca 429.
-    await restSearchMore(cat, target, known, knownImages, items);
-  }
-  if (items.length < target) {
-    try {
-      const data = await wikiJson({
-        action: 'query',
-        generator: 'search',
-        gsrsearch: String(cat?.name || '').trim(),
-        gsrnamespace: '0',
-        gsrlimit: '50',
-        prop: 'pageimages',
-        pilimit: '50',
-        piprop: 'thumbnail',
-        pithumbsize: '1000',
-      });
-      for (const page of Object.values(data?.query?.pages || {})) {
-        addMorePage(cat, page, known, knownImages, items);
-        if (items.length >= target) break;
-      }
-    } catch {}
-  }
   return items;
 }

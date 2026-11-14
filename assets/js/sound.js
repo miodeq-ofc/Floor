@@ -93,12 +93,6 @@ export const Sound = {
     tone(1320, 0.22, { type: 'sine', gain: 0.035, when: 0.22 });
   },
 
-  wrong() {
-    tone(190, 0.32, { type: 'sawtooth', gain: 0.045, slideTo: 85 });
-    tone(125, 0.34, { type: 'square', gain: 0.025, when: 0.03, slideTo: 70 });
-    noise(0.16, 0.018);
-  },
-
   pass() {
     tone(440, 0.1, { type: 'triangle', gain: 0.035 });
     tone(554, 0.14, { type: 'triangle', gain: 0.03, when: 0.09 });

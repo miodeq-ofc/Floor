@@ -134,10 +134,10 @@
   padding: clamp(4px, 0.45vw, 6px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 2px;
-  text-align: left;
+  text-align: center;
   transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
   font: inherit;
 }
@@ -402,7 +402,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .clock-card.low .clock-time { color: var(--red); animation: clockPulse 0.8s ease-in-out infinite; }
 @keyframes clockPulse { 50% { opacity: 0.65; } }
 
-.duel-controls { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 10px; padding: 10px clamp(12px, 1.6vw, 20px) 14px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
+.duel-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px clamp(12px, 1.6vw, 20px) 14px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
 .duel-controls .judge { min-height: clamp(58px, 9vh, 88px); border-radius: 15px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; font-family: var(--display); font-size: clamp(20px, 2.2vw, 31px); letter-spacing: 0.05em; }
 .duel-controls .judge span { display: block; }
 .duel-controls .judge small { display: block; font-family: var(--sans); font-size: 9.5px; letter-spacing: 0.1em; opacity: 0.65; margin-top: 2px; }
@@ -663,7 +663,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 }
 @media (max-width: 720px) {
   .duel-controls { grid-template-columns: 1fr 1fr; }
-  .duel-controls #btn-wrong { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
   .game-top { gap: 7px; padding: 9px 12px; }
@@ -695,9 +694,17 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .tile-cat {
   font-size: clamp(11px, 1.85cqh, 18px);
   line-height: 1.12;
-  -webkit-line-clamp: 2;
+  width: 100%;
+  -webkit-line-clamp: 3;
   overflow-wrap: anywhere;
   text-wrap: balance;
+  text-align: center;
+}
+.duel-host-prompt {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text);
+  margin-top: -2px;
 }
 .floor-tile { padding: clamp(5px, 0.65vw, 9px); }
 .floor-tile.same-cat:not(.merged) {
@@ -747,10 +754,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .answer-banner[data-type='correct'] {
   background: linear-gradient(180deg, #b9ffd8, #59e39a 55%, #20b96a);
   color: #052015;
-}
-.answer-banner[data-type='wrong'] {
-  background: linear-gradient(180deg, #ffc2c7, #ff6975 55%, #d53243);
-  color: #26050a;
 }
 .answer-banner[data-type='correct'] .answer-banner-kicker,
 .answer-banner[data-type='correct'] .answer-banner-note { color: rgba(5, 32, 21, 0.68); }

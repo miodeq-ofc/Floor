@@ -380,7 +380,7 @@ function renderConquest() {
   const winner = s.players.find((p) => p.id === s.conquest.winnerId);
   els.conquest.style.setProperty('--pc', winner?.color || '#f6c453');
   els.conquestTitle.textContent = (winner?.name || '') + ' zdobywa ' + s.conquest.gained + ' ' + pluralPoles(s.conquest.gained);
-  els.conquestNote.textContent = 'Kategoria „' + s.conquest.category.name + '” wchodzi na zdobyte pole. Reszta terytorium zostaje u przeciwnika.';
+  els.conquestNote.textContent = 'Kategoria „' + s.conquest.category.name + '” przechodzi na oba pola: atakujące i atakowane. Reszta terytorium zostaje u przeciwnika.';
   els.conquest.classList.remove('hidden');
 }
 
@@ -428,7 +428,6 @@ function renderAnswerBanner() {
   if (key !== B.lastRevealKey) {
     B.lastRevealKey = key;
     if (reveal.type === 'correct') Sound.correct();
-    else if (reveal.type === 'wrong') Sound.wrong();
     else Sound.pass();
   }
   els.bannerText.textContent = reveal.answer;
