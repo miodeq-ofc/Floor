@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T23:43:51.168Z",
+  "generated": "2026-11-14T23:51:50.947Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -391,7 +391,7 @@
       "group": "Nauka",
       "icon": "🧪",
       "prompt": "Jaki to pierwiastek?",
-      "count": 84
+      "count": 81
     },
     {
       "id": "hotele",
@@ -415,7 +415,7 @@
       "group": "Marki",
       "icon": "🥤",
       "prompt": "Jaka to marka napoju?",
-      "count": 21
+      "count": 29
     },
     {
       "id": "marki-odziezowe",

@@ -278,7 +278,7 @@ function renderSetupPlayers(s) {
     const name = document.createElement('b');
     name.textContent = player.name || 'Gracz ' + (index + 1);
     const role = document.createElement('span');
-    role.textContent = 'Gracz ' + (index + 1);
+    role.textContent = name.textContent === 'Gracz ' + (index + 1) ? 'Zawodnik' : 'Gracz ' + (index + 1);
     card.append(dot, name, role);
     grid.appendChild(card);
   });

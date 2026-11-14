@@ -1302,7 +1302,9 @@ function startClockLoop() {
     els.connDot.classList.toggle('off', !connected);
     els.connText.textContent = connected ? 'Ekran graczy połączony' : 'Brak ekranu graczy';
 
-    if (Date.now() - H.lastSent > 600 && H.phase !== 'setup') sendState();
+    // Podczas konfiguracji ekran graczy ma od razu pokazywać wybrana
+    // liczbę zawodników, nawet jeśli pojedyncza wiadomość się zgubi.
+    if (Date.now() - H.lastSent > (H.phase === 'setup' ? 1000 : 600)) sendState();
   }, 100);
 }
 

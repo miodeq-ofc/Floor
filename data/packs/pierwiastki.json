@@ -394,25 +394,25 @@
     {
       "a": "Argon",
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/Argon-glow.jpg",
-      "hint": "",
+      "hint": "Ar",
       "q": "Jaki to pierwiastek?"
     },
     {
       "a": "Krypton",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Krypton-glow.jpg",
-      "hint": "",
+      "hint": "Kr",
       "q": "Jaki to pierwiastek?"
     },
     {
       "a": "Ksenon",
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Xenon-glow.jpg",
-      "hint": "",
+      "hint": "Xe",
       "q": "Jaki to pierwiastek?"
     },
     {
       "a": "Astat",
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Glow_from_a_sample_of_astatine_%28cropped%29.jpg",
-      "hint": "",
+      "hint": "At",
       "q": "Jaki to pierwiastek?"
     }
   ]
