@@ -1,4 +1,8 @@
 import { $, Bus, fmtTime } from './common.js';
+import { shortCategory, sameCategoryNeighbor } from './game.js';
+
+const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
+const BLUR_PACKS = new Set(['loga-firm']);
 
 const B = {
   state: null,
@@ -41,7 +45,12 @@ function cache() {
   els.mini = $('#mini-floor');
   els.miniLegend = $('#mini-legend');
   els.banner = $('#answer-banner');
+  els.bannerKicker = $('#answer-banner-kicker');
   els.bannerText = $('#answer-banner-text');
+  els.bannerNote = $('#answer-banner-note');
+  els.conquest = $('#conquest-banner');
+  els.conquestTitle = $('#conquest-title');
+  els.conquestNote = $('#conquest-note');
   els.overlay = $('#board-overlay');
   els.overlayCard = $('#board-overlay-card');
   els.waiting = $('#waiting-card');
@@ -76,6 +85,7 @@ function render() {
   renderScreens();
   renderOverlay();
   renderAnswerBanner();
+  renderConquest();
   tick();
 }
 
@@ -99,7 +109,7 @@ function renderHeader() {
     duelLoading: ['POJEDYNEK', 'Za chwilę'],
     duelIntro: ['POJEDYNEK', 'Przygotujcie się'],
     duel: ['POJEDYNEK', s.duel?.category?.name || 'Walka'],
-    duelEnd: ['POJEDYNEK', 'Koniec starcia'],
+    conquest: ['POJEDYNEK', 'Przejęcie terenu'],
     gameOver: ['KONIEC GRY', 'Zwycięzca'],
   };
   const [kick, title] = labels[s.phase] || labels.setup;
@@ -107,7 +117,7 @@ function renderHeader() {
   els.title.textContent = title;
   const showCat = s.duel && ['duelLoading', 'duelIntro', 'duel'].includes(s.phase);
   els.cat.hidden = !showCat;
-  if (showCat) els.cat.textContent = (s.duel.category.icon || '') + ' ' + s.duel.category.name;
+  if (showCat) els.cat.textContent = s.duel.category.name;
 }
 
 function renderScreens() {
@@ -127,7 +137,10 @@ function renderBoard() {
   const sig = JSON.stringify([
     s.phase,
     s.challengerId,
+    s.sourceKey,
+    s.sources,
     s.targets,
+    s.conquest?.at,
     s.tiles.map((t) => [t.r, t.c, t.owner, t.cat.id]),
   ]);
   if (sig !== B.lastFloorSig) {
@@ -137,27 +150,37 @@ function renderBoard() {
     els.floor.innerHTML = '';
     s.tiles.forEach((tile) => {
       const player = s.players.find((p) => p.id === tile.owner);
+      const key = tile.r + ':' + tile.c;
       const node = document.createElement('div');
       node.className = 'floor-tile';
       node.style.setProperty('--pc', player?.color || '#667');
-      if (s.phase === 'board' && tile.owner === s.challengerId) node.classList.add('challenger');
-      if (s.phase === 'board' && s.targets.includes(tile.r + ':' + tile.c)) {
-        node.classList.add('target');
-        const attack = document.createElement('span');
-        attack.className = 'tile-attack';
-        attack.textContent = '⚔';
-        node.appendChild(attack);
+      node.title = tile.cat.name + ' · ' + (player?.name || '');
+
+      if (sameCategoryNeighbor(s.tiles, tile, s.rows, s.cols)) node.classList.add('same-cat');
+
+      if (s.phase === 'board') {
+        if (tile.owner === s.challengerId && (s.sources || []).includes(key)) node.classList.add('source-option');
+        if (s.sourceKey === key) node.classList.add('source');
+        if ((s.targets || []).includes(key)) {
+          node.classList.add('target');
+          const attack = document.createElement('span');
+          attack.className = 'tile-attack';
+          attack.textContent = '!';
+          node.appendChild(attack);
+        }
       }
-      if (s.phase === 'gameOver' && s.winnerId === tile.owner) node.classList.add('winner');
-      const emoji = document.createElement('span');
-      emoji.className = 'tile-emoji';
-      emoji.textContent = tile.cat.icon || '🎯';
+
+      if (s.phase === 'conquest' && s.conquest?.cells?.includes(key)) node.classList.add('conquered');
+      if ((s.phase === 'conquest' && s.conquest?.winnerId === tile.owner) || (s.phase === 'gameOver' && s.winnerId === tile.owner)) {
+        node.classList.add('winner');
+      }
+
       const name = document.createElement('span');
       name.className = 'tile-cat';
-      name.textContent = tile.cat.name;
+      name.textContent = tile.cat.short || shortCategory(tile.cat.name);
       const dot = document.createElement('span');
       dot.className = 'tile-dot';
-      node.append(emoji, name, dot);
+      node.append(name, dot);
       els.floor.appendChild(node);
     });
   }
@@ -166,12 +189,15 @@ function renderBoard() {
     els.caption.textContent = 'Prowadzący ustawia grę…';
   } else if (s.phase === 'board') {
     const ch = s.players.find((p) => p.id === s.challengerId);
-    els.caption.textContent = ch
-      ? 'Challenger: ' + ch.name + ' — prowadzący wybiera sąsiednie pole'
-      : 'Losowanie challengera…';
-  } else if (s.phase === 'duelEnd') {
-    const w = s.players.find((p) => p.id === s.result?.winnerId);
-    els.caption.textContent = w ? w.name + ' przejmuje terytorium' : 'Koniec pojedynku';
+    const source = s.tiles.find((t) => t.r + ':' + t.c === s.sourceKey);
+    els.caption.textContent = !ch
+      ? 'Tura'
+      : source
+        ? 'Tura: ' + ch.name + ' · atak z „' + source.cat.name + '”'
+        : 'Tura: ' + ch.name + ' — wybierz swoje pole';
+  } else if (s.phase === 'conquest' && s.conquest) {
+    const w = s.players.find((p) => p.id === s.conquest.winnerId);
+    els.caption.textContent = (w?.name || '') + ' zdobywa ' + s.conquest.gained + ' pól · ' + s.conquest.category.name;
   } else if (s.phase === 'gameOver') {
     const w = s.players.find((p) => p.id === s.winnerId);
     els.caption.textContent = w ? 'Cała plansza należy do ' + w.name : 'Koniec gry';
@@ -179,6 +205,7 @@ function renderBoard() {
     els.caption.textContent = 'The Floor';
   }
   renderLegend();
+  renderConquest();
 }
 
 function renderLegend() {
@@ -224,8 +251,8 @@ function renderDuel() {
     };
     els.image.src = d.q.img;
   }
-  const isLogo = d.category.id === 'loga-firm';
-  const blur = isLogo && s.logoBlur;
+  const isLogo = LOGO_PACKS.has(d.category.id);
+  const blur = BLUR_PACKS.has(d.category.id) && s.logoBlur;
   els.stage.classList.toggle('logo-stage', isLogo);
   els.image.classList.toggle('blurred', blur);
   els.prompt.textContent = d.category.prompt || 'Co to jest?';
@@ -292,45 +319,52 @@ function renderMini() {
   els.mini.innerHTML = '';
   s.tiles.forEach((tile) => {
     const player = s.players.find((p) => p.id === tile.owner);
+    const key = tile.r + ':' + tile.c;
     const node = document.createElement('div');
     node.className = 'floor-tile mini-tile';
     node.style.setProperty('--pc', player?.color || '#667');
     if (tile.owner === d.challengerId) node.classList.add('challenger');
     if (tile.owner === d.defenderId) node.classList.add('defender');
     if (tile.owner !== d.challengerId && tile.owner !== d.defenderId) node.classList.add('dim');
-    if (tile.r + ':' + tile.c === d.tileKey) node.classList.add('duel-tile');
+    if (key === d.tileKey) node.classList.add('duel-tile');
     els.mini.appendChild(node);
   });
+}
+
+function renderConquest() {
+  if (!els.conquest) return;
+  const s = B.state;
+  if (!s || s.phase !== 'conquest' || !s.conquest) {
+    els.conquest.classList.add('hidden');
+    return;
+  }
+  const winner = s.players.find((p) => p.id === s.conquest.winnerId);
+  els.conquest.style.setProperty('--pc', winner?.color || '#f6c453');
+  els.conquestTitle.textContent = (winner?.name || '') + ' zdobywa ' + s.conquest.gained + ' pól';
+  els.conquestNote.textContent = 'Kategoria „' + s.conquest.category.name + '” rozlewa się na zdobyte pola.';
+  els.conquest.classList.remove('hidden');
 }
 
 function renderOverlay() {
   const s = B.state;
   let html = '';
-  let key = s.phase + '|' + (s.result?.winnerId || '') + '|' + (s.winnerId || '') + '|' + (s.duel?.tileKey || '');
+  let key = s.phase + '|' + (s.winnerId || '') + '|' + (s.duel?.tileKey || '') + '|' + (s.conquest?.at || '');
   if (s.phase === 'duelLoading') {
     html = '<div class="overlay-kicker">The Floor</div><div class="overlay-title">GOTUJEMY</div><div class="wait-card"><div class="spinner"></div><p>Wczytuję kategorię…</p></div>';
   } else if (s.phase === 'duelIntro') {
     const ch = s.players.find((p) => p.id === s.duel?.challengerId);
     const de = s.players.find((p) => p.id === s.duel?.defenderId);
     html =
-      '<div class="overlay-kicker">Pojedynek o „' +
-      escapeHtml(s.duel?.category?.name || '') +
-      '”</div><div class="overlay-title">' +
-      escapeHtml(ch?.name || '') +
-      '</div><p class="overlay-sub">vs ' +
-      escapeHtml(de?.name || '') +
-      '</p><div class="countdown" id="big-countdown">3</div>';
-  } else if (s.phase === 'duelEnd' && s.result) {
-    const winner = s.players.find((p) => p.id === s.result.winnerId);
-    const loser = s.players.find((p) => p.id === s.result.loserId);
-    html =
-      '<div class="overlay-kicker">Koniec pojedynku</div><div class="overlay-title">WYGRYWA ' +
-      escapeHtml(winner?.name || '') +
-      '</div><p class="overlay-sub">' +
-      escapeHtml(loser?.name || '') +
-      ' odpada · ' +
-      s.result.gained +
-      ' pól przejętych</p>';
+      '<div class="overlay-kicker">Pojedynek o „' + escapeHtml(s.duel?.category?.name || '') + '”</div>' +
+      '<div class="vs-intro">' +
+      '<div class="vs-side challenger" style="--pc:' + escapeHtml(ch?.color || '#f6c453') + '">' +
+      '<span class="vs-role">CHALLENGER</span><b class="vs-name">' + escapeHtml(ch?.name || '') + '</b>' +
+      '<small class="vs-tiles">' + (ch?.tiles || 0) + ' pól</small></div>' +
+      '<div class="vs-center">VS</div>' +
+      '<div class="vs-side defender" style="--pc:' + escapeHtml(de?.color || '#63a4ff') + '">' +
+      '<span class="vs-role">OBROŃCA</span><b class="vs-name">' + escapeHtml(de?.name || '') + '</b>' +
+      '<small class="vs-tiles">' + (de?.tiles || 0) + ' pól</small></div>' +
+      '</div><div class="countdown" id="big-countdown">3</div>';
   } else if (s.phase === 'gameOver') {
     const winner = s.players.find((p) => p.id === s.winnerId);
     html =
@@ -351,6 +385,13 @@ function renderAnswerBanner() {
     return;
   }
   els.bannerText.textContent = reveal.answer;
+  els.banner.dataset.type = reveal.type || 'pass';
+  if (els.bannerKicker) els.bannerKicker.textContent = reveal.type === 'correct' ? 'DOBRZE · ODPOWIEDŹ' : 'PASS · −3 s';  
+  if (els.bannerNote) {
+    els.bannerNote.textContent = reveal.type === 'correct'
+      ? 'Zegar zatrzymany — za chwilę odpowiada przeciwnik'
+      : 'Zegar nadal leci';
+  }
   els.banner.classList.remove('hidden');
 }
 

@@ -111,18 +111,10 @@
       }
 
       $('#open-both').addEventListener('click', () => {
-        const host = window.open('host.html', 'floor-host', 'popup=yes,width=1280,height=900');
-        if (!host) {
-          // Drugie okno często jest blokowane — wtedy jedno widok zostaje w tej karcie.
-          window.open('board.html', 'floor-board', 'popup=yes,width=1360,height=820');
-          window.location.href = 'host.html';
-          return;
-        }
-        const board = window.open('board.html', 'floor-board', 'popup=yes,width=1360,height=820');
-        if (!board) {
-          // Zamiast pokazywać błąd, otwieramy ekran graczy w bieżącej karcie.
-          window.location.href = 'board.html';
-        }
+        // Ekran graczy otwieramy jako pierwszy — to on ma wylądować na TV.
+        // Bieżąca karta staje się ekranem prowadzącego, więc od razu można ustawiać grę.
+        window.open('board.html', 'floor-board', 'popup=yes,width=1360,height=820');
+        window.location.href = 'host.html';
       });
     </script>
   </body>

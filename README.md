@@ -4,24 +4,23 @@ Gra w stylu *The Floor* dla **2–8 graczy**: losowa plansza z kategorii, pojedy
 
 ## Jak to działa
 
-1. **Launcher (`index.html`)** — jedno kliknięcie otwiera **dwa okna**: ekran prowadzącego i ekran graczy. Najpierw ustawiasz grę, dopiero potem startujesz.
+1. **Launcher (`index.html`)** — jedno kliknięcie otwiera **najpierw ekran graczy** w nowym oknie (na TV), a **bieżącą kartę zamienia w ekran prowadzącego**. Od razu widzisz konfigurację gry.
 2. **Ekran prowadzącego (`host.html`)**
    - wpisujesz liczbę graczy (2–8) i imiona,
    - wybierasz zegar pojedynku (30/45/60/75 s na gracza),
-   - losujesz planszę — wymiary dobierają się tak, żeby **każdy gracz dostał tyle samo pól** (np. 4 graczy → 8×7 = 56 pól, po 14),
+   - losujesz planszę — wymiary dobierają się tak, żeby **każdy gracz dostał tyle samo pól** (np. 4 graczy → 6×6 = 36 pól, po 9), a terytoria są rozproszone po całej planszy,
    - w każdym polu losuje się inna kategoria z wybranej puli,
    - klikasz pole, żeby zmienić jego **właściciela** albo **wyszukać inną kategorię**,
    - startujesz grę.
 3. **Przebieg pojedynku**
-   - Losowany jest **challenger**. Podświetlone są pola sąsiadów (wspólna krawędź) — prowadzący klika jedno z nich.
-   - Pojedynek odbywa się **zawsze w kategorii atakowanego pola**.
+   - **Tura krąży po kolei** (1 → 2 → 3 → 1…). Aktualny gracz wybiera najpierw **własne pole**, potem **sąsiednie pole przeciwnika** (góra, dół, lewo lub prawo). Może wybrać dowolne swoje pole z frontierem, nie tylko jedno.
+   - Pojedynek odbywa się **zawsze w kategorii atakowanego pola**. Po wygranej **kategoria atakującego rozlewa się** na wszystkie pola przegranego — kategoria przegranego znika, a plansza nie ma pustych miejsc.
    - Każdy gracz ma **własny zegar**. Challenger zaczyna; tylko aktywny zegar leci.
-   - **DOBRZE** — odpowiedź poprawna, zegar zatrzymuje się, kontrolę i zegar przejmuje przeciwnik.
-   - **PASS** — −3 s dla aktywnego gracza, na chwilę pokazuje się odpowiedź, ale zegar **nadal leci**.
-   - Kto pierwszy spali swój zegar, **odpada**; zwycięzca przejmuje **wszystkie jego pola**.
-   - Zwycięzca może atakować dalej albo prowadzący może wylosować nowego challengera.
-   - Gra kończy się, gdy jedna osoba ma całą planszę.
-4. **Ekran graczy (`board.html`)** — plansza z kategoriami i właścicielami, a w pojedynku: dwa zegary, zdjęcie, pytanie i pasek odpowiedzi po PASS. **Nie dostaje prawidłowej odpowiedzi** w komunikacie synchronizacji — widać ją dopiero po PASS.
+   - **DOBRZE** — odpowiedź poprawna; przez ok. 3 s widać poprawną odpowiedź, a **zegar stoi**. Dopiero po zniknięciu odpowiedzi startuje zegar przeciwnika.
+   - **PASS** — −3 s dla aktywnego gracza; poprawna odpowiedź też jest widoczna ok. 3 s, ale **zegar nadal leci**.
+   - Kto pierwszy spali swój zegar, **odpada**. Zwycięzca przejmuje wszystkie pola przegranego i jego kategorię; po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
+   - Gra kończy się, gdy jedna osoba ma całą planszę. Może mieć przy tym kilka różnych kategorii — to jest zamierzone.
+4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS na ok. 3 s pojawia się **poprawna odpowiedź**; w trakcie odpytywania ekran nie dostaje jej w synchronizacji.
 
 Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS.
 
@@ -30,18 +29,19 @@ Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS.
 Okna dogadują się przez `BroadcastChannel` (z fallbackiem na `localStorage`). Działa to **w obrębie jednej przeglądarki na jednym urządzeniu**:
 
 1. Podłącz TV przez HDMI i ustaw **rozszerz ekran** (nie duplikuj).
-2. Na stronie głównej kliknij **„Otwórz 2 ekrany”** i zezwól na wyskakujące okna.
+2. Na stronie głównej kliknij **„Otwórz 2 ekrany”** i zezwól na wyskakujące okna. **Najpierw otworzy się ekran graczy**, a bieżąca karta od razu stanie się ekranem prowadzącego.
 3. Przeciągnij okno **ekranu graczy** na TV i wciśnij pełny ekran (⛶ albo F11).
-4. Wróć do okna prowadzącego, ustaw graczy i planszę, kliknij **Start gry**.
+4. Wróć do okna prowadzącego (bieżąca karta), ustaw graczy i planszę, kliknij **Start gry**.
 
-Jeżeli przeglądarka zablokuje drugie okno, launcher otwiera **ekran graczy w bieżącej karcie**, a prowadzącego w osobnym oknie. Dodatkowo na ekranie prowadzącego jest przycisk **„🖥️ Ekran graczy”**.
+Jeżeli przeglądarka zablokuje okno ekranu graczy, bieżąca karta i tak zostaje **ekranem prowadzącego** — ekran graczy otworzysz przyciskiem **„Ekran graczy”** w nagłówku (albo osobną kartą `board.html`).
 
 ## Plansza i kategorie
 
-- **Plansza** ma od 4×4 do 9×10 pól; wymiary są dobierane tak, aby liczba pól dzieliła się przez liczbę graczy (4–16 pól na osobę). Przykładowo: 2 → 6×5 (po 15), 4 → 8×7 (po 14), 6 → 7×6 (po 7), 7 → 7×7 (po 7), 8 → 8×7 (po 7).
-- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **77 kategorii** i **ponad 3500 pytań**.
+- **Plansza** ma od 4×4 do 7×8 pól; wymiary są dobierane tak, aby liczba pól dzieliła się przez liczbę graczy (6–10 pól na osobę). Przykładowo: 2 → 4×4 (po 8), 3 → 5×6 (po 10), 4 → 6×6 (po 9), 5 → 6×5 (po 6), 6 → 6×6 (po 6), 7 → 7×7 (po 7), 8 → 7×8 (po 7). To najbliższe równe podziały — plansza nigdy nie ma pustych pól.
+- **Terytoria nie muszą być ciągłe**: losowanie przydziela pola równo, ale rozrzuca je po całej planszy. Możesz mieć pole w lewym górnym rogu i drugie w prawym dolnym.
+- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 kategorii** i **3447 pytań**.
 - Pula jest wyszukiwalna; można zaznaczyć tylko wybrane kategorie. Pole na planszy też ma wyszukiwarkę kategorii.
-- Losowanie bez powtórek: użyte pytania są zapamiętywane w `localStorage`; po wyczerpaniu pula tasuje się od nowa.
+- Losowanie bez powtórek w całej grze: każde pytanie z kategorii jest oznaczone jako użyte, a kolejka nie resetuje się w środku pojedynku. Jeśli pack się wyczerpie (np. po 20 rundach), doładowujemy świeże pytania z Wikipedii (`loadMorePack`), zamiast powtarzać te same.
 
 ### Jakość danych
 
@@ -50,7 +50,11 @@ Baza jest generowana z polskiej Wikipedii i Wikidata (`tools/build-packs.mjs`), 
 - **logotypy** — tylko znane marki (≥20 wersji językowych), polskie nazwy, bez zdjęć i szerokich wordmarków; w ustawieniach jest **„Zamazuj logotypy”** (domyślnie włączone),
 - **rasy psów** — 150 najpopularniejszych ras (filtr liczby wersji językowych), a nie wszystkie 350 pozycji z kategorii,
 - **mięsa** — kuratorowana lista normalnych cuts i wędlin zamiast „Bushmeat” i „mięso in vitro”,
-- **telefony / podzespoły** — usunięte pytania o konkretne modele („Samsung Galaxy S5 Mini”); nie ma ich już w bazie.
+- **telefony / podzespoły** — usunięte pytania o konkretne modele („Samsung Galaxy S5 Mini”); nie ma ich już w bazie,
+- **owoce jadalne** — 30 naprawdę jadalnych owoców (bez „przemysłu owocowo-warzywnego” i orzecha laskowego), zdjęcia z jasnym tłem,
+- **aplikacje internetowe** — 23 popularne usługi (X, YouTube, Facebook, Google, Instagram…), a nie wszystkie aplikacje z Wikipedii,
+- **marki samochodów** — 30 modeli spotykanych w Polsce, zdjęcia aut z przodu lub z boku; usunięty Brabus i logotypy na ciemnym tle,
+- **tłumaczenia** — poprawione m.in. „baba wielkanocna” → **„babka wielkanocna”**.
 
 Źródła: Wikipedia (CC BY-SA), Wikidata (CC0), zdjęcia z Wikimedia Commons. Do gry prywatnej bez problemu; przy publicznej publikacji zachowaj informację o źródle i licencjach.
 
@@ -93,14 +97,16 @@ assets/js/game.js       plansza, terytoria, sąsiedztwo, zegary
 assets/js/host.js       konfiguracja + przebieg pojedynków
 assets/js/board.js      render ekranu graczy
 data/packs/             baza pytań (index.json + kategorie)
-tools/build-packs.mjs   generator z Wikipedii/Wikidata
-tools/refine-packs.mjs  filtr jakości (psy, logotypy, mięsa, modele)
+tools/build-packs.mjs     generator z Wikipedii/Wikidata
+tools/refine-packs.mjs    filtr jakości (psy, logotypy, mięsa, modele)
+tools/curate-popular.py   kurator popularnych nazw (owoce, aplikacje, auta)
+tools/curate-popular-en.py kurator angielskich nazw i zdjęć
 ```
 
 ## Ograniczenia
 
 - Dwa ekrany muszą być w **tej samej przeglądarce** (jeden komputer). Osobne urządzenia wymagają WebRTC lub backendu.
 - Przeglądarki blokują wyskakujące okna — zezwól tej stronie na ich otwieranie.
-- Jakość zdjęć z Wikipedii bywa nierówna; dlatego jest **PASS** i możliwość zmiany kategorii w polu.
-- Ekran graczy nie dostaje odpowiedzi w komunikacie synchronizacji — nie da się jej „podejrzeć” w narzędziach przeglądarki przed czasem. Wyjątkiem jest celowy, krótki reveal po PASS.
+- Jakość zdjęć z Wikipedii bywa nierówna. Paczki **owoce jadalne**, **aplikacje internetowe** i **marki samochodów** są kuratorowane; resztę można podmienić w edytorze pola. Jest **PASS** i zmiana kategorii.
+- Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS (wtedy widać ją też na TV).
 - Gra jest zaprojektowana na jeden komputer z dwoma oknami; nie ma pokoi online.

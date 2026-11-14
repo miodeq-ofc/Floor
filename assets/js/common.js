@@ -227,12 +227,50 @@ export function resetSeen(packId) {
   storeSet(SEEN_PREFIX + packId, []);
 }
 
-export function makeQueue(pack) {
+export function makeQueue(pack, used = null) {
   const seen = seenSet(pack.id);
-  let fresh = pack.items.filter((q) => !seen.has(q.a));
-  if (fresh.length < 8) {
-    resetSeen(pack.id);
-    fresh = [...pack.items];
-  }
+  const isUsed = (q) => seen.has(q.a) || (used && used.has(pack.id + '|' + q.a));
+  let fresh = pack.items.filter((q) => !isUsed(q));
+  // Jeśli localStorage pamięta poprzednią grę, nie resetuj całej puli w środku
+  // bieżącej rozgrywki — najpierw wykorzystaj pytania nieużyte w tej grze.
+  if (!fresh.length) fresh = pack.items.filter((q) => !used || !used.has(pack.id + '|' + q.a));
+  if (!fresh.length) fresh = [...pack.items];
   return { queue: shuffle(fresh), total: pack.items.length };
+}
+
+/** Doczytuje kolejne pytania z kategorii Wikipedii, gdy pula się skończy. */
+export async function loadMorePack(cat) {
+  const source = cat?.source || (cat?.name ? 'Kategoria:' + cat.name : '');
+  if (!source) return [];
+  const known = new Set((cat.items || []).map((q) => String(q.a).toLowerCase()));
+  const items = [];
+  let cont = null;
+  for (let round = 0; round < 2 && items.length < 40; round++) {
+    const data = await wikiJson({
+      action: 'query',
+      generator: 'categorymembers',
+      gcmtitle: source,
+      gcmtype: 'page',
+      gcmlimit: '50',
+      ...(cont || {}),
+      prop: 'pageimages',
+      pilimit: '50',
+      piprop: 'thumbnail',
+      pithumbsize: '800',
+    });
+    const pages = Object.values(data?.query?.pages || {});
+    for (const page of pages) {
+      if (!page.thumbnail?.source) continue;
+      if (!titleOk(page.title)) continue;
+      const answer = cleanTitle(page.title);
+      const key = answer.toLowerCase();
+      if (!answer || known.has(key)) continue;
+      known.add(key);
+      items.push({ a: answer, img: page.thumbnail.source.split('?')[0] });
+    }
+    cont = data?.continue ? { gcmcontinue: data.continue.gcmcontinue } : null;
+    if (!cont) break;
+    await new Promise((r) => setTimeout(r, 300));
+  }
+  return items;
 }

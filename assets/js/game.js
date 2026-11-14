@@ -5,6 +5,81 @@ export const COLORS = ['#f6c453', '#63a4ff', '#2fd67c', '#ff7a90', '#b18cff', '#
 // w teleturnieju pytania są o rozpoznawalne rzeczy, nie o model telefonu.
 export const EXCLUDED = new Set(['smartfony', 'telefony', 'procesory', 'karty-graficzne']);
 
+// Docelowe, w miarę kwadratowe plansze. Jeżeli liczba pól nie dzieli się
+// przez liczbę graczy, używamy najbliższego sensownego prostokąta.
+export const GRIDS = {
+  2: [4, 4], // 16 pól, po 8
+  3: [5, 6], // 30 pól, po 10
+  4: [6, 6], // 36 pól, po 9
+  5: [6, 5], // 30 pól, po 6
+  6: [6, 6], // 36 pól, po 6
+  7: [7, 7], // 49 pól, po 7
+  8: [8, 7], // 56 pól, po 7
+};
+
+export const SHORT_CATEGORY = {
+  'Samochody wyścigowe': 'Wyścigowe',
+  'Napoje bezalkoholowe': 'Napoje',
+  'Marki samochodów': 'Marki aut',
+  'Owoce jadalne': 'Owoce',
+  'Marki kosmetyków': 'Kosmetyki',
+  'Sieci handlowe': 'Sieci',
+  'Gry planszowe': 'Planszówki',
+  'Polscy aktorzy': 'Aktorzy',
+  'Polscy politycy': 'Politycy',
+  'Prezydenci USA': 'Prezydenci',
+  'Władcy Polski': 'Władcy',
+  'Rasy psów': 'Psy',
+  'Rasy koni': 'Konie',
+  'Gatunki muzyczne': 'Muzyka',
+  'Zespoły muzyczne': 'Zespoły',
+  'Instrumenty muzyczne': 'Instrumenty',
+  'Mięsa i wędliny': 'Mięsa',
+  'Ryby akwariowe': 'Ryby',
+  'Samochody terenowe': 'Terenowe',
+  'Samochody ciężarowe': 'Ciężarowe',
+  'Aplikacje internetowe': 'Aplikacje',
+  'Logotypy znanych marek': 'Logotypy',
+  'Zamki w Polsce': 'Zamki',
+  'Zamki': 'Zamki',
+  'Zabytki': 'Zabytki',
+  'Zwierzęta': 'Zwierzęta',
+  'Kwiaty': 'Kwiaty',
+  'Drzewa': 'Drzewa',
+  'Ptaki': 'Ptaki',
+  'Owady': 'Owady',
+  'Grzyby jadalne': 'Grzyby',
+  'Przyprawy': 'Przyprawy',
+  'Zupy': 'Zupy',
+  'Ciasta deserowe': 'Ciasta',
+  'Pieczywo': 'Pieczywo',
+  'Sery': 'Sery',
+  'Wina': 'Wina',
+  'Piwo': 'Piwo',
+  'Herbaty': 'Herbaty',
+  'Kawa': 'Kawa',
+  'Słodycze': 'Słodycze',
+  'Zabawki': 'Zabawki',
+  'Pociągi': 'Pociągi',
+  'Rowery': 'Rowery',
+  'Motocykle': 'Motocykle',
+  'Samoloty': 'Samoloty',
+  'Statki': 'Statki',
+  'Kosmos': 'Kosmos',
+  'Planety': 'Planety',
+  'Kraje': 'Kraje',
+  'Flagi państw': 'Flagi',
+  'Herby państw': 'Herby',
+  'Języki': 'Języki',
+  'Waluty': 'Waluty',
+  'Instrumenty': 'Instrumenty',
+  'Tańce': 'Tańce',
+  'Filmy': 'Filmy',
+  'Seriale': 'Seriale',
+  'Gry komputerowe': 'Gry',
+  'Bohaterowie': 'Bohaterowie',
+};
+
 export function uid(prefix = 'p') {
   return prefix + Math.random().toString(36).slice(2, 8);
 }
@@ -24,29 +99,25 @@ export function fmtClock(ms) {
 }
 
 export function pickGrid(playerCount) {
-  let best = null;
-  for (let rows = 4; rows <= 9; rows++) {
-    for (let cols = 4; cols <= 10; cols++) {
-      const total = rows * cols;
-      if (total % playerCount !== 0) continue;
-      const per = total / playerCount;
-      if (per < 4 || per > 16) continue;
-      const score =
-        Math.abs(rows - 7) +
-        Math.abs(cols - 7) +
-        Math.abs(total - 49) * 0.12 +
-        (rows > cols ? 0.4 : 0);
-      if (!best || score < best.score) best = { rows, cols, total, per, score };
-    }
-  }
-  return best || { rows: 7, cols: 7, total: 49, per: Math.floor(49 / playerCount) };
+  const pair = GRIDS[playerCount] || [7, 7];
+  const [rows, cols] = pair;
+  return { rows, cols, total: rows * cols, per: (rows * cols) / playerCount };
 }
 
-export function snakeCells(rows, cols) {
+export function shortCategory(name) {
+  if (!name) return '';
+  if (SHORT_CATEGORY[name]) return SHORT_CATEGORY[name];
+  const clean = String(name).replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+  if (clean.length <= 15) return clean;
+  const words = clean.split(' ');
+  if (words.length > 2) return words.slice(0, 2).join(' ');
+  return clean.slice(0, 14).trim() + '…';
+}
+
+export function allCells(rows, cols) {
   const cells = [];
   for (let r = 0; r < rows; r++) {
-    const colsOrder = r % 2 === 0 ? [...Array(cols).keys()] : [...Array(cols).keys()].reverse();
-    for (const c of colsOrder) cells.push({ r, c });
+    for (let c = 0; c < cols; c++) cells.push({ r, c });
   }
   return cells;
 }
@@ -56,17 +127,26 @@ export function buildTiles(players, pool, rows, cols) {
   if (!players.length) throw new Error('Brak graczy.');
   if (total % players.length !== 0) throw new Error('Plansza nie dzieli się równo między graczy.');
   if (pool.length < total) throw new Error('Za mało kategorii: potrzebujesz ' + total + ', masz ' + pool.length + '.');
+
   const cats = shuffle(pool).slice(0, total);
-  const cells = snakeCells(rows, cols);
+  const cells = allCells(rows, cols);
   const per = total / players.length;
-  const assignedPlayers = shuffle(players);
-  const tiles = cells.map((cell, index) => ({
+
+  // Ważne: terytoria są losowe i mogą być rozproszone. Gracz może mieć pole
+  // w lewym górnym rogu i drugie w prawym dolnym — jak w prawdziwym The Floor
+  // z wieloma polami na osobę.
+  const ownerSlots = [];
+  players.forEach((player) => {
+    for (let i = 0; i < per; i++) ownerSlots.push(player.id);
+  });
+  const shuffledSlots = shuffle(ownerSlots);
+
+  return cells.map((cell, index) => ({
     r: cell.r,
     c: cell.c,
     cat: cats[index],
-    owner: assignedPlayers[Math.floor(index / per)].id,
+    owner: shuffledSlots[index],
   }));
-  return tiles;
 }
 
 export function keyOf(tile) {
@@ -88,6 +168,34 @@ export function neighbors(r, c, rows, cols) {
 
 export function territory(tiles, ownerId) {
   return tiles.filter((t) => t.owner === ownerId);
+}
+
+/** Pola gracza, z których można zaatakować — mają sąsiada przeciwnika. */
+export function sourceOptions(tiles, ownerId, rows, cols) {
+  return tiles.filter((tile) => {
+    if (tile.owner !== ownerId) return false;
+    return neighbors(tile.r, tile.c, rows, cols).some(([r, c]) => {
+      const next = tileAt(tiles, r, c);
+      return next && next.owner !== ownerId;
+    });
+  });
+}
+
+/** Sąsiedzi przeciwnika wybranego pola atakującego. */
+export function targetsFrom(tiles, ownerId, sourceKey, rows, cols) {
+  const source = tiles.find((t) => keyOf(t) === sourceKey);
+  if (!source) return [];
+  return neighbors(source.r, source.c, rows, cols)
+    .map(([r, c]) => tileAt(tiles, r, c))
+    .filter((tile) => tile && tile.owner !== ownerId);
+}
+
+/** Zgodność pól tego samego właściciela i kategorii — do efektu scalenia. */
+export function sameCategoryNeighbor(tiles, tile, rows, cols) {
+  return neighbors(tile.r, tile.c, rows, cols).some(([r, c]) => {
+    const next = tileAt(tiles, r, c);
+    return next && next.owner === tile.owner && next.cat?.id === tile.cat?.id;
+  });
 }
 
 export function frontier(tiles, ownerId) {

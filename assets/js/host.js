@@ -1,4 +1,4 @@
-import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast } from './common.js';
+import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast, loadMorePack } from './common.js';
 import {
   COLORS,
   EXCLUDED,
@@ -6,14 +6,20 @@ import {
   shuffle,
   pickGrid,
   buildTiles,
-  frontier,
+  sourceOptions,
+  targetsFrom,
   territory,
   tileAt,
   keyOf,
   tileCounts,
   alive,
   fmtClock,
+  shortCategory,
+  sameCategoryNeighbor,
 } from './game.js';
+
+const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
+const BLUR_PACKS = new Set(['loga-firm']);
 
 const SETTINGS_KEY = 'floor:settings';
 const H = {
@@ -34,6 +40,10 @@ const H = {
   duel: null,
   result: null,
   winnerId: null,
+  turnIndex: -1,
+  sourceKey: null,
+  conquest: null,
+  used: new Set(),
   introUntil: 0,
   lastSent: 0,
   boardSeen: 0,
@@ -227,9 +237,33 @@ function bind() {
     if (H.phase !== 'board') return;
     const cell = event.target.closest('.floor-tile');
     if (!cell) return;
-    if (!H.targets.includes(cell.dataset.key)) return;
-    const tile = H.tiles.find((t) => keyOf(t) === cell.dataset.key);
-    if (tile) startDuel(tile);
+    const key = cell.dataset.key;
+    const tile = H.tiles.find((t) => keyOf(t) === key);
+    if (!tile) return;
+
+    if (tile.owner === H.challengerId) {
+      const options = sourceOptions(H.tiles, H.challengerId, H.rows, H.cols);
+      if (!options.some((t) => keyOf(t) === key)) {
+        toast('To pole nie sąsiaduje z żadnym polem przeciwnika.', true);
+        return;
+      }
+      H.sourceKey = key;
+      H.targets = targetsFrom(H.tiles, H.challengerId, key, H.rows, H.cols).map(keyOf);
+      renderAll();
+      sendState();
+      return;
+    }
+
+    if (!H.sourceKey) {
+      toast('Najpierw wybierz swoje pole, z którego atakujesz.', true);
+      return;
+    }
+    if (!H.targets.includes(key)) {
+      toast('To pole nie sąsiaduje z wybranym polem atakującym.', true);
+      return;
+    }
+    const source = H.tiles.find((t) => keyOf(t) === H.sourceKey);
+    if (source) startDuel(source, tile);
   });
   els.btnOk.addEventListener('click', correct);
   els.btnPass.addEventListener('click', pass);
@@ -353,44 +387,57 @@ function renderSetup() {
 
 function makeTile(tile, opts = {}) {
   const player = H.players.find((p) => p.id === tile.owner);
+  const key = keyOf(tile);
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'floor-tile';
-  btn.dataset.key = keyOf(tile);
+  btn.dataset.key = key;
   btn.style.setProperty('--pc', player?.color || '#667');
   btn.title = tile.cat.name + ' · ' + (player?.name || '');
   const cat = document.createElement('span');
   cat.className = 'tile-cat';
-  cat.textContent = tile.cat.name;
-  const emoji = document.createElement('span');
-  emoji.className = 'tile-emoji';
-  emoji.textContent = tile.cat.icon || '🎯';
+  cat.textContent = shortCategory(tile.cat.name);
   const dot = document.createElement('span');
   dot.className = 'tile-dot';
-  btn.append(emoji, cat, dot);
+  btn.append(cat, dot);
+
   if (opts.setup) {
-    if (H.selectedKey === keyOf(tile)) btn.classList.add('selected');
+    if (H.selectedKey === key) btn.classList.add('selected');
     return btn;
   }
-  if (H.challengerId === tile.owner) btn.classList.add('challenger');
-  if (H.phase === 'board' && H.targets.includes(keyOf(tile))) {
-    btn.classList.add('target');
-    const attack = document.createElement('span');
-    attack.className = 'tile-attack';
-    attack.textContent = '⚔';
-    btn.appendChild(attack);
+
+  if (sameCategoryNeighbor(H.tiles, tile, H.rows, H.cols)) btn.classList.add('same-cat');
+
+  if (H.phase === 'board') {
+    const ownSources = sourceOptions(H.tiles, H.challengerId, H.rows, H.cols);
+    if (tile.owner === H.challengerId && ownSources.some((t) => keyOf(t) === key)) {
+      btn.classList.add('source-option');
+    }
+    if (H.sourceKey === key) btn.classList.add('source');
+    if (H.targets.includes(key)) {
+      btn.classList.add('target');
+      const attack = document.createElement('span');
+      attack.className = 'tile-attack';
+      attack.textContent = '!';
+      btn.appendChild(attack);
+    }
   }
+
   if (H.duel) {
     const isA = tile.owner === H.duel.challengerId;
     const isB = tile.owner === H.duel.defenderId;
     if (isA) btn.classList.add('challenger');
     if (isB) btn.classList.add('defender');
     if (!isA && !isB) btn.classList.add('dim');
-    if (keyOf(tile) === H.duel.tileKey) btn.classList.add('duel-tile');
+    if (key === H.duel.tileKey) btn.classList.add('duel-tile');
   }
-  if (H.phase === 'duelEnd' || H.phase === 'gameOver') {
-    if (H.result && tile.owner === H.result.winnerId) btn.classList.add('challenger');
+
+  if (H.conquest) {
+    if (H.conquest.cells.includes(key)) btn.classList.add('conquered');
+    if (tile.owner === H.conquest.winnerId) btn.classList.add('winner');
   }
+
+  if (H.phase === 'gameOver' && tile.owner === H.winnerId) btn.classList.add('winner');
   return btn;
 }
 
@@ -524,44 +571,69 @@ function startGame() {
   H.duel = null;
   H.selectedKey = null;
   H.challengerId = null;
+  H.sourceKey = null;
   H.targets = [];
+  H.conquest = null;
+  H.used = new Set();
   H.overlayKey = '';
-  chooseChallenger();
-  renderAll();
-  sendState();
+  H.turnIndex = Math.floor(Math.random() * H.players.length) - 1;
+  nextTurn();
 }
 
 /* ---------------- game / duel ---------------- */
-function chooseChallenger() {
+function nextTurn() {
   if (H.phase === 'gameOver') return;
-  const candidates = alive(H.players).filter((p) => frontier(H.tiles, p.id).length > 0);
-  if (!candidates.length) {
+  if (alive(H.players).length <= 1) {
     finishGame();
     return;
   }
-  H.challengerId = candidates[Math.floor(Math.random() * candidates.length)].id;
-  H.targets = frontier(H.tiles, H.challengerId).map(keyOf);
-  H.phase = 'board';
-  H.duel = null;
-  renderAll();
-  sendState();
+  const start = Number.isInteger(H.turnIndex) ? H.turnIndex : -1;
+  for (let step = 1; step <= H.players.length; step++) {
+    const idx = (start + step) % H.players.length;
+    const player = H.players[idx];
+    if (player.alive === false) continue;
+    const sources = sourceOptions(H.tiles, player.id, H.rows, H.cols);
+    if (!sources.length) continue;
+    H.turnIndex = idx;
+    H.challengerId = player.id;
+    H.sourceKey = null;
+    H.targets = [];
+    H.phase = 'board';
+    H.duel = null;
+    H.result = null;
+    H.conquest = null;
+    H.introUntil = 0;
+    H.overlayKey = '';
+    renderAll();
+    sendState();
+    return;
+  }
+  finishGame();
 }
 
-async function startDuel(tile) {
+async function startDuel(sourceTile, targetTile) {
   if (H.phase !== 'board' || !H.challengerId) return;
-  if (tile.owner === H.challengerId) return;
+  if (!sourceTile || !targetTile) return;
+  if (sourceTile.owner !== H.challengerId) return;
+  if (targetTile.owner === H.challengerId) return;
+  if (Math.abs(sourceTile.r - targetTile.r) + Math.abs(sourceTile.c - targetTile.c) !== 1) return;
+
   const token = ++H.token;
   const challenger = H.players.find((p) => p.id === H.challengerId);
-  const defender = H.players.find((p) => p.id === tile.owner);
+  const defender = H.players.find((p) => p.id === targetTile.owner);
   if (!challenger || !defender) return;
 
   H.phase = 'duelLoading';
   H.targets = [];
   H.duel = {
-    tileKey: keyOf(tile),
+    tileKey: keyOf(targetTile),
+    sourceKey: keyOf(sourceTile),
     challengerId: challenger.id,
     defenderId: defender.id,
-    category: { ...tile.cat },
+    // Pytania zawsze z kategorii obrońcy (atakowanego pola).
+    category: { ...targetTile.cat },
+    // Kategoria, która rozleje się po wygranej challengera.
+    sourceCat: { ...sourceTile.cat },
     clocks: { [challenger.id]: H.turnSeconds * 1000, [defender.id]: H.turnSeconds * 1000 },
     active: challenger.id,
     deadline: null,
@@ -577,10 +649,10 @@ async function startDuel(tile) {
   sendState();
 
   try {
-    const pack = await loadPack(tile.cat);
+    const pack = await loadPack(targetTile.cat);
     if (token !== H.token) return;
     H.duel.pack = pack;
-    const next = makeQueue(pack);
+    const next = makeQueue(pack, H.used);
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
     H.phase = 'duelIntro';
@@ -594,34 +666,50 @@ async function startDuel(tile) {
     if (token !== H.token) return;
     H.phase = 'board';
     H.duel = null;
+    H.sourceKey = null;
+    H.targets = [];
     renderAll();
     sendState();
     toast('Nie udało się wczytać kategorii: ' + error.message, true);
   }
 }
 
-function beginDuel() {
+async function beginDuel() {
   if (!H.duel || H.phase !== 'duelIntro') return;
   H.phase = 'duel';
   H.introUntil = 0;
-  advanceQuestion();
+  await advanceQuestion();
+  if (!H.duel) return;
   H.duel.deadline = Date.now() + H.duel.clocks[H.duel.active];
   H.busy = false;
   renderAll();
   sendState();
 }
 
-function advanceQuestion() {
+async function advanceQuestion() {
   if (!H.duel?.pack) return;
   if (H.duel.queuePos >= H.duel.queue.length) {
-    const next = makeQueue(H.duel.pack);
+    let next = makeQueue(H.duel.pack, H.used);
+    const hasUnused = next.queue.some((q) => !H.used.has(H.duel.pack.id + '|' + q.a));
+    if (!hasUnused) {
+      try {
+        const extra = await loadMorePack(H.duel.pack);
+        if (extra.length) {
+          H.duel.pack.items.push(...extra);
+          next = makeQueue(H.duel.pack, H.used);
+        }
+      } catch {}
+    }
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
   }
-  H.duel.q = H.duel.queue[H.duel.queuePos++] || null;
-  if (!H.duel.q) return;
+  const pack = H.duel.pack;
+  const q = H.duel.queue[H.duel.queuePos++] || null;
+  H.duel.q = q;
+  if (!q) return;
   H.duel.qNumber += 1;
-  markSeen(H.duel.pack.id, H.duel.q.a);
+  H.used.add(pack.id + '|' + q.a);
+  markSeen(pack.id, q.a);
   preloadNext();
 }
 
@@ -642,16 +730,27 @@ function correct() {
     return;
   }
   d.clocks[d.active] = left;
-  const other = d.active === d.challengerId ? d.defenderId : d.challengerId;
-  d.active = other;
-  d.deadline = Date.now() + d.clocks[other];
-  d.reveal = null;
+  d.deadline = null;
   d.penalty = null;
-  advanceQuestion();
+  d.reveal = { answer: d.q.a, type: 'correct', until: Date.now() + 3000, key: Date.now() };
   H.busy = true;
-  setTimeout(() => (H.busy = false), 350);
   renderAll();
   sendState();
+
+  const revealKey = d.reveal.key;
+  const other = d.active === d.challengerId ? d.defenderId : d.challengerId;
+  setTimeout(async () => {
+    if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
+    H.duel.reveal = null;
+    H.duel.penalty = null;
+    H.duel.active = other;
+    // Dopiero teraz zaczyna lecieć zegar przeciwnika.
+    H.duel.deadline = Date.now() + H.duel.clocks[other];
+    await advanceQuestion();
+    H.busy = false;
+    renderAll();
+    sendState();
+  }, 3000);
 }
 
 function pass() {
@@ -665,7 +764,7 @@ function pass() {
   d.clocks[d.active] = Math.max(0, left - 3000);
   d.deadline = Date.now() + d.clocks[d.active];
   d.penalty = { playerId: d.active, at: Date.now() };
-  d.reveal = { answer: d.q.a, type: 'pass', until: Date.now() + 1400, key: Date.now() };
+  d.reveal = { answer: d.q.a, type: 'pass', until: Date.now() + 3000, key: Date.now() };
   if (d.clocks[d.active] <= 0) {
     endDuel(d.active);
     return;
@@ -673,16 +772,17 @@ function pass() {
   H.busy = true;
   renderAll();
   sendState();
+
   const revealKey = d.reveal.key;
-  setTimeout(() => {
+  setTimeout(async () => {
     if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
     H.duel.reveal = null;
     H.duel.penalty = null;
-    advanceQuestion();
+    await advanceQuestion();
     H.busy = false;
     renderAll();
     sendState();
-  }, 1400);
+  }, 3000);
 }
 
 function endDuel(loserId) {
@@ -693,43 +793,46 @@ function endDuel(loserId) {
   if (!loser || !winner) return;
 
   const loserTiles = territory(H.tiles, loser.id);
-  loserTiles.forEach((tile) => (tile.owner = winner.id));
+  // Zwycięzca rozlewa swoją kategorię na całe terytorium przegranego.
+  // Kategoria przegranego znika, a zwycięzca zachowuje swoje pozostałe pola.
+  const winnerCategory = winner.id === d.challengerId ? d.sourceCat : d.category;
+  loserTiles.forEach((tile) => {
+    tile.owner = winner.id;
+    tile.cat = { ...winnerCategory };
+  });
   loser.alive = false;
   const gained = loserTiles.length;
-  H.result = {
+  H.result = null;
+  H.challengerId = winner.id;
+  H.duel = null;
+  H.sourceKey = null;
+  H.targets = [];
+  H.busy = false;
+  H.phase = 'conquest';
+  H.conquest = {
     winnerId: winner.id,
     loserId: loser.id,
     gained,
-    category: { name: d.category.name, icon: d.category.icon },
+    category: { ...winnerCategory },
+    cells: loserTiles.map(keyOf),
+    at: Date.now(),
+    until: Date.now() + 2600,
   };
-  H.challengerId = winner.id;
-  H.targets = [];
-  H.duel = null;
-  H.busy = false;
-  H.phase = 'duelEnd';
   H.overlayKey = '';
-  if (alive(H.players).length <= 1) {
-    H.phase = 'gameOver';
-    H.winnerId = winner.id;
-  }
   renderAll();
   sendState();
-}
 
-function afterDuel() {
-  if (H.phase === 'gameOver') return;
-  H.result = null;
-  H.duel = null;
-  H.phase = 'board';
-  const targets = frontier(H.tiles, H.challengerId);
-  if (!targets.length) {
-    chooseChallenger();
-    return;
-  }
-  H.targets = targets.map(keyOf);
-  H.overlayKey = '';
-  renderAll();
-  sendState();
+  const at = H.conquest.at;
+  setTimeout(() => {
+    if (H.phase !== 'conquest' || H.conquest?.at !== at) return;
+    H.conquest = null;
+    H.overlayKey = '';
+    if (alive(H.players).length <= 1) finishGame();
+    else {
+      H.phase = 'board';
+      nextTurn();
+    }
+  }, 2600);
 }
 
 function finishGame() {
@@ -738,6 +841,8 @@ function finishGame() {
   H.winnerId = remaining[0]?.id || H.players[0]?.id;
   H.result = null;
   H.duel = null;
+  H.conquest = null;
+  H.sourceKey = null;
   H.targets = [];
   renderAll();
   sendState();
@@ -767,7 +872,7 @@ function renderHeader() {
     duelLoading: ['POJEDYNEK', 'Wczytywanie'],
     duelIntro: ['POJEDYNEK', 'Za chwilę'],
     duel: ['POJEDYNEK', 'Walka na zegary'],
-    duelEnd: ['POJEDYNEK', 'Koniec starcia'],
+    conquest: ['POJEDYNEK', 'Przejęcie terenu'],
     gameOver: ['KONIEC GRY', 'Zwycięzca'],
   };
   const pair = labels[H.phase] || labels.setup;
@@ -809,7 +914,15 @@ function renderStatus() {
     els.floorStatus.textContent = ch && de ? ch.name + ' vs ' + de.name + ' · ' + (H.duel?.category?.name || '') : 'Pojedynek';
   } else if (H.phase === 'board') {
     const ch = H.players.find((p) => p.id === H.challengerId);
-    els.floorStatus.textContent = ch ? 'Challenger: ' + ch.name + ' — wybierz sąsiednie pole' : 'Losowanie challengera';
+    const source = H.tiles.find((t) => keyOf(t) === H.sourceKey);
+    els.floorStatus.textContent = !ch
+      ? 'Tura'
+      : source
+        ? 'Tura: ' + ch.name + ' · atak z „' + source.cat.name + '”'
+        : 'Tura: ' + ch.name + ' — wybierz swoje pole';
+  } else if (H.phase === 'conquest' && H.conquest) {
+    const w = H.players.find((p) => p.id === H.conquest.winnerId);
+    els.floorStatus.textContent = (w?.name || '') + ' przejmuje ' + H.conquest.gained + ' pól · ' + H.conquest.category.name;
   } else if (H.phase === 'gameOver') {
     const w = H.players.find((p) => p.id === H.winnerId);
     els.floorStatus.textContent = w ? 'Wygrywa ' + w.name : 'Koniec gry';
@@ -821,23 +934,39 @@ function renderStatus() {
 function renderAction() {
   const box = els.actionContent;
   box.innerHTML = '';
+
   if (H.phase === 'board') {
     const ch = H.players.find((p) => p.id === H.challengerId);
     if (!ch) {
-      const btn = el('button', 'btn btn-primary btn-lg wide', '🎲 Losuj challengera');
-      btn.addEventListener('click', chooseChallenger);
-      box.append(el('div', 'eyebrow', 'Losowanie'), el('h3', 'action-title', 'Kto atakuje?'), btn);
+      box.append(el('div', 'eyebrow', 'Tura'), el('h3', 'action-title', 'Wybierz gracza'));
       renderPlayerList();
       return;
     }
+    const source = H.tiles.find((t) => keyOf(t) === H.sourceKey);
     box.append(
-      el('div', 'eyebrow', 'Challenger'),
+      el('div', 'eyebrow', 'Tura ' + (H.turnIndex + 1)),
       el('h3', 'action-title', ch.name),
-      el('p', 'action-text', 'Kliknij podświetlone pole sąsiada. Pojedynek odbędzie się w kategorii tego pola.')
+      el(
+        'p',
+        'action-text',
+        source
+          ? 'Atakujesz z pola o kategorii „' + source.cat.name + '”. Kliknij podświetlone sąsiednie pole przeciwnika.'
+          : 'Kliknij jedno ze swoich podświetlonych pól, z którego chcesz zaatakować. Potem wybierz sąsiednie pole przeciwnika (góra, dół, lewo, prawo).'
+      )
     );
-    const reroll = el('button', 'btn wide', '🎲 Losuj innego');
-    reroll.addEventListener('click', chooseChallenger);
-    box.append(reroll);
+    if (source) {
+      const hint = el('div', 'duel-hint');
+      hint.textContent = 'Pytania będą z kategorii atakowanego pola. Twoja kategoria rozleje się na wygrane pola.';
+      box.appendChild(hint);
+      const change = el('button', 'btn wide', 'Zmień pole atakujące');
+      change.addEventListener('click', () => {
+        H.sourceKey = null;
+        H.targets = [];
+        renderAll();
+        sendState();
+      });
+      box.appendChild(change);
+    }
     renderPlayerList();
     return;
   }
@@ -849,35 +978,30 @@ function renderAction() {
     box.append(
       el('div', 'eyebrow', 'Pojedynek'),
       el('h3', 'action-title', (ch?.name || '?') + ' vs ' + (de?.name || '?')),
-      el('p', 'action-text', 'Kategoria: ' + (d?.category?.name || '—') + '. Zła odpowiedź? Nic nie klikaj — zegar leci. PASS = −3 s i następne pytanie.')
+      el('p', 'action-text', 'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE pokazuje odpowiedź i zatrzymuje zegar; PASS pokazuje odpowiedź, a zegar leci dalej.')
     );
     const note = el('div', 'duel-hint');
-    note.textContent = 'Dobra odpowiedź przełącza kontrolę i zegar na przeciwnika.';
+    note.textContent = 'Po DOBRZE odpowiedź jest widoczna 3 s, dopiero potem startuje zegar przeciwnika. Po PASS zegar nie staje.';
     box.appendChild(note);
     renderPlayerList();
     return;
   }
 
-  if (H.phase === 'duelEnd' && H.result) {
-    const winner = H.players.find((p) => p.id === H.result.winnerId);
-    const loser = H.players.find((p) => p.id === H.result.loserId);
+  if (H.phase === 'conquest' && H.conquest) {
+    const winner = H.players.find((p) => p.id === H.conquest.winnerId);
+    const loser = H.players.find((p) => p.id === H.conquest.loserId);
     box.append(
-      el('div', 'eyebrow', 'Koniec pojedynku'),
-      el('h3', 'action-title', 'Wygrywa ' + (winner?.name || '')),
+      el('div', 'eyebrow', 'Teren zdobyty'),
+      el('h3', 'action-title', (winner?.name || '') + ' bierze ' + H.conquest.gained + ' pól'),
       el(
         'p',
         'action-text',
-        (loser?.name || '') + ' odpada. ' + (winner?.name || '') + ' przejmuje ' + H.result.gained + ' pól i kategorię „' + H.result.category.name + '”.'
+        'Kategoria „' + H.conquest.category.name + '” rozlewa się na pola ' + (loser?.name || '') + '. Kategoria przegranego znika — plansza nie ma pustych miejsc.'
       )
     );
-    const cont = el('button', 'btn btn-primary wide', '▶ Atakuj dalej');
-    cont.addEventListener('click', afterDuel);
-    const fresh = el('button', 'btn wide', '🎲 Losuj nowego challengera');
-    fresh.addEventListener('click', () => {
-      H.result = null;
-      chooseChallenger();
-    });
-    box.append(cont, fresh);
+    const note = el('div', 'duel-hint');
+    note.textContent = 'Za chwilę tura następnego gracza. Nikt nie dostaje dodatkowego ataku.';
+    box.appendChild(note);
     renderPlayerList();
     return;
   }
@@ -887,11 +1011,8 @@ function renderAction() {
     box.append(
       el('div', 'eyebrow', 'Koniec gry'),
       el('h3', 'action-title', (winner?.name || '') + ' ma całą planszę'),
-      el('p', 'action-text', 'Wszystkie pola należą do zwycięzcy. Możesz zagrać jeszcze raz z tymi samymi ustawieniami.')
+      el('p', 'action-text', 'Wszystkie pola należą do zwycięzcy. To koniec rozgrywki.')
     );
-    const again = el('button', 'btn btn-primary wide', '↻ Nowa gra');
-    again.addEventListener('click', resetToSetup);
-    box.appendChild(again);
     renderPlayerList();
   }
 }
@@ -916,7 +1037,7 @@ function renderPlayerList() {
 function renderDuelCard() {
   if (!H.duel) return;
   const d = H.duel;
-  els.duelCat.textContent = (d.category.icon || '') + ' ' + d.category.name;
+  els.duelCat.textContent = d.category.name;
   const q = d.q;
   if (!q) {
     els.duelImg.hidden = true;
@@ -938,14 +1059,17 @@ function renderDuelCard() {
     };
     els.duelImg.src = q.img;
   }
-  els.duelImg.parentElement.classList.toggle('logo', d.category.id === 'loga-firm');
-  els.duelImg.classList.toggle('blurred', d.category.id === 'loga-firm' && H.logoBlur);
+  els.duelImg.parentElement.classList.toggle('logo', LOGO_PACKS.has(d.category.id));
+  els.duelImg.classList.toggle('blurred', BLUR_PACKS.has(d.category.id) && H.logoBlur);
   els.duelAnswer.textContent = q.a;
-  els.duelAnswer.style.fontSize = q.a.length > 40 ? '28px' : q.a.length > 26 ? '38px' : '';
+  els.duelAnswer.style.fontSize = q.a.length > 40 ? 'clamp(28px, 3vw, 44px)' : q.a.length > 26 ? 'clamp(32px, 3.4vw, 50px)' : '';
   els.duelMeta.textContent = 'Pytanie ' + d.qNumber + ' · pula ' + Math.max(0, d.queue.length - d.queuePos);
   if (d.reveal?.answer) {
     els.hostPass.hidden = false;
-    els.hostPass.textContent = 'PASS · poprzednia odpowiedź: ' + d.reveal.answer;
+    els.hostPass.textContent =
+      d.reveal.type === 'correct'
+        ? 'DOBRZE · odpowiedź: ' + d.reveal.answer + ' · zegar zatrzymany'
+        : 'PASS · odpowiedź: ' + d.reveal.answer + ' · zegar nadal leci';
   } else {
     els.hostPass.hidden = true;
   }
@@ -996,8 +1120,9 @@ function updateClockValues() {
 }
 
 function renderOverlay() {
-  const key = H.phase + '|' + (H.result ? H.result.winnerId + H.result.loserId : '') + '|' + (H.duel?.tileKey || '') + '|' + (H.winnerId || '');
+  const key = H.phase + '|' + (H.duel?.tileKey || '') + '|' + (H.winnerId || '') + '|' + (H.conquest?.at || '');
   if (key === H.overlayKey) return;
+
   H.overlayKey = key;
   const card = els.overlayCard;
   card.innerHTML = '';
@@ -1019,20 +1144,6 @@ function renderOverlay() {
     );
     return;
   }
-  if (H.phase === 'duelEnd' && H.result) {
-    els.overlay.classList.remove('hidden');
-    const winner = H.players.find((p) => p.id === H.result.winnerId);
-    const loser = H.players.find((p) => p.id === H.result.loserId);
-    card.append(
-      el('div', 'overlay-kicker', 'Koniec pojedynku'),
-      el('div', 'overlay-title', 'WYGRYWA ' + (winner?.name || '')),
-      el('p', 'overlay-sub', (loser?.name || '') + ' odpada · ' + H.result.gained + ' pól przejętych')
-    );
-    const next = el('button', 'btn btn-primary btn-lg', '▶ Dalej');
-    next.addEventListener('click', afterDuel);
-    card.appendChild(next);
-    return;
-  }
   if (H.phase === 'gameOver') {
     els.overlay.classList.remove('hidden');
     const winner = H.players.find((p) => p.id === H.winnerId);
@@ -1041,9 +1152,6 @@ function renderOverlay() {
       el('div', 'overlay-title', 'WYGRYWA ' + (winner?.name || '')),
       el('p', 'overlay-sub', 'Ostatni gracz na The Floor.')
     );
-    const again = el('button', 'btn btn-primary btn-lg', '↻ Nowa gra');
-    again.addEventListener('click', resetToSetup);
-    card.appendChild(again);
     return;
   }
 
@@ -1102,6 +1210,7 @@ function onBus(message) {
 function publicState() {
   const counts = tileCounts(H.tiles);
   const d = H.duel;
+  const sources = H.phase === 'board' ? sourceOptions(H.tiles, H.challengerId, H.rows, H.cols).map(keyOf) : [];
   return {
     phase: H.phase,
     rows: H.rows,
@@ -1117,13 +1226,22 @@ function publicState() {
       r: t.r,
       c: t.c,
       owner: t.owner,
-      cat: { id: t.cat.id, name: t.cat.name, group: t.cat.group, icon: t.cat.icon },
+      cat: {
+        id: t.cat.id,
+        name: t.cat.name,
+        short: shortCategory(t.cat.name),
+        group: t.cat.group,
+        icon: t.cat.icon,
+      },
     })),
     challengerId: H.challengerId,
+    sourceKey: H.sourceKey,
+    sources,
     targets: H.phase === 'board' ? H.targets : [],
     duel: d
       ? {
           tileKey: d.tileKey,
+          sourceKey: d.sourceKey,
           challengerId: d.challengerId,
           defenderId: d.defenderId,
           category: { id: d.category.id, name: d.category.name, icon: d.category.icon, prompt: d.category.prompt },
@@ -1136,7 +1254,7 @@ function publicState() {
           penalty: d.penalty,
         }
       : null,
-    result: H.result,
+    conquest: H.conquest,
     winnerId: H.winnerId,
     turnSeconds: H.turnSeconds,
     logoBlur: H.logoBlur,
