@@ -107,6 +107,14 @@ export function pickGrid(playerCount) {
   return { rows, cols, total: rows * cols, per: (rows * cols) / playerCount };
 }
 
+export function pluralPoles(n) {
+  const abs = Math.abs(Number(n) || 0);
+  if (abs === 1) return 'pole';
+  const mod10 = abs % 10;
+  const mod100 = abs % 100;
+  return mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14) ? 'pola' : 'pól';
+}
+
 export function shortCategory(name) {
   if (!name) return '';
   if (SHORT_CATEGORY[name]) return SHORT_CATEGORY[name];

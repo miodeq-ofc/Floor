@@ -328,7 +328,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .duel-question-wrap.logo .duel-question-img { padding: 8px; }
 .duel-answer { font-size: clamp(24px, 2.7vw, 38px); }
 .answer-meta { font-size: 10.5px; }
-.host-pass-note { border: 1px solid rgba(246, 196, 83, 0.3); background: rgba(246, 196, 83, 0.09); color: #ffe3a1; border-radius: 8px; padding: 7px 9px; font-size: 11px; font-weight: 700; line-height: 1.35; }
 
 .clock-card {
   --pc: var(--muted);
@@ -351,12 +350,10 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .clock-card.active { border-color: color-mix(in srgb, var(--pc) 75%, white); background: linear-gradient(150deg, color-mix(in srgb, var(--pc) 18%, transparent), rgba(255, 255, 255, 0.02)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pc) 35%, transparent), 0 10px 26px rgba(0, 0, 0, 0.25); }
 .clock-card.active .clock-role { color: color-mix(in srgb, var(--pc) 80%, white); }
 .clock-card.low .clock-time { color: var(--red); animation: clockPulse 0.8s ease-in-out infinite; }
-.clock-card.penalty { animation: penaltyFlash 0.5s ease; }
 @keyframes clockPulse { 50% { opacity: 0.65; } }
-@keyframes penaltyFlash { 0% { border-color: var(--red); background: rgba(255, 93, 100, 0.2); } 100% { border-color: var(--line); } }
 
-.duel-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px clamp(12px, 1.6vw, 20px) 14px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
-.duel-controls .judge { min-height: clamp(58px, 9vh, 88px); border-radius: 15px; display: flex; align-items: center; justify-content: center; gap: 12px; border: 0; font-family: var(--display); font-size: clamp(23px, 2.6vw, 34px); letter-spacing: 0.05em; }
+.duel-controls { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 10px; padding: 10px clamp(12px, 1.6vw, 20px) 14px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
+.duel-controls .judge { min-height: clamp(58px, 9vh, 88px); border-radius: 15px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; font-family: var(--display); font-size: clamp(20px, 2.2vw, 31px); letter-spacing: 0.05em; }
 .duel-controls .judge span { display: block; }
 .duel-controls .judge small { display: block; font-family: var(--sans); font-size: 9.5px; letter-spacing: 0.1em; opacity: 0.65; margin-top: 2px; }
 .duel-controls .kbd { margin-left: auto; margin-right: 6px; }
@@ -571,6 +568,10 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   .board-legend { display: none; }
   .duel-prompt { white-space: normal; text-align: center; }
 }
+@media (max-width: 720px) {
+  .duel-controls { grid-template-columns: 1fr 1fr; }
+  .duel-controls #btn-wrong { grid-column: 1 / -1; }
+}
 @media (max-width: 640px) {
   .game-top { gap: 7px; padding: 9px 12px; }
   .game-top .brand-sub, .conn span:not(.dot) { display: none; }
@@ -640,7 +641,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 
 .duel-answer { font-size: clamp(30px, 3.2vw, 46px); }
 .answer-meta { font-size: 12px; }
-.host-pass-note { font-size: 12.5px; padding: 9px 11px; }
 
 .answer-banner {
   min-width: min(680px, 92vw);
@@ -653,6 +653,10 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .answer-banner[data-type='correct'] {
   background: linear-gradient(180deg, #b9ffd8, #59e39a 55%, #20b96a);
   color: #052015;
+}
+.answer-banner[data-type='wrong'] {
+  background: linear-gradient(180deg, #ffc2c7, #ff6975 55%, #d53243);
+  color: #26050a;
 }
 .answer-banner[data-type='correct'] .answer-banner-kicker,
 .answer-banner[data-type='correct'] .answer-banner-note { color: rgba(5, 32, 21, 0.68); }

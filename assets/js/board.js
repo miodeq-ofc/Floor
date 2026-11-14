@@ -1,5 +1,6 @@
 import { $, Bus, fmtTime } from './common.js';
-import { shortCategory, sameCategoryNeighbor } from './game.js';
+import { shortCategory, sameCategoryNeighbor, pluralPoles } from './game.js';
+import { Sound } from './sound.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
 const BLUR_PACKS = new Set(['loga-firm']);
@@ -12,6 +13,10 @@ const B = {
   seenAt: 0,
   hostSeenAt: 0,
   timer: 0,
+  lastRevealKey: '',
+  lastActiveId: null,
+  lastTickSecond: null,
+  lastIntroSecond: 0,
 };
 
 const els = {};
@@ -45,9 +50,8 @@ function cache() {
   els.mini = $('#mini-floor');
   els.miniLegend = $('#mini-legend');
   els.banner = $('#answer-banner');
-  els.bannerKicker = $('#answer-banner-kicker');
   els.bannerText = $('#answer-banner-text');
-  els.bannerNote = $('#answer-banner-note');
+  els.sound = $('#board-sound');
   els.conquest = $('#conquest-banner');
   els.conquestTitle = $('#conquest-title');
   els.conquestNote = $('#conquest-note');
@@ -56,11 +60,28 @@ function cache() {
   els.waiting = $('#waiting-card');
 }
 
+function updateSoundButton() {
+  if (!els.sound) return;
+  const on = Sound.isEnabled();
+  els.sound.textContent = on ? '🔊' : '🔇';
+  els.sound.title = on ? 'Wyłącz dźwięk' : 'Włącz dźwięk';
+  els.sound.setAttribute('aria-pressed', String(on));
+}
+
 function bind() {
   $('#board-fullscreen').addEventListener('click', () => {
     if (document.fullscreenElement) document.exitFullscreen();
     else document.documentElement.requestFullscreen?.().catch(() => {});
   });
+  const unlock = () => Sound.unlock();
+  document.addEventListener('pointerdown', unlock, { once: true });
+  document.addEventListener('keydown', unlock, { once: true });
+  els.sound?.addEventListener('click', () => {
+    Sound.unlock();
+    Sound.toggle();
+    updateSoundButton();
+  });
+  updateSoundButton();
   window.addEventListener('beforeunload', () => bus.close());
 }
 
@@ -197,7 +218,7 @@ function renderBoard() {
         : 'Tura: ' + ch.name + ' — wybierz swoje pole';
   } else if (s.phase === 'conquest' && s.conquest) {
     const w = s.players.find((p) => p.id === s.conquest.winnerId);
-    els.caption.textContent = (w?.name || '') + ' zdobywa ' + s.conquest.gained + ' pól · ' + s.conquest.category.name;
+    els.caption.textContent = (w?.name || '') + ' zdobywa ' + s.conquest.gained + ' ' + pluralPoles(s.conquest.gained) + ' · ' + s.conquest.category.name;
   } else if (s.phase === 'gameOver') {
     const w = s.players.find((p) => p.id === s.winnerId);
     els.caption.textContent = w ? 'Cała plansza należy do ' + w.name : 'Koniec gry';
@@ -217,7 +238,7 @@ function renderLegend() {
       const chip = document.createElement('span');
       chip.className = 'legend-chip';
       chip.style.setProperty('--pc', player.color);
-      chip.textContent = player.name + ' · ' + player.tiles + ' pól';
+      chip.textContent = player.name + ' · ' + player.tiles + ' ' + pluralPoles(player.tiles);
       els.legend.appendChild(chip);
     });
 }
@@ -232,7 +253,7 @@ function renderDuel() {
   if (key !== B.lastDuelKey) {
     B.lastDuelKey = key;
     els.players.innerHTML = '';
-    els.players.append(clockCard(ch, 'CHALLENGER', d, 'a'), clockCard(de, 'OBROŃCA', d, 'b'));
+    els.players.append(clockCard(ch, 'PRETENDENT', d, 'a'), clockCard(de, 'OBROŃCA', d, 'b'));
   }
   if (!d.q) {
     els.image.hidden = true;
@@ -278,7 +299,7 @@ function renderMiniLegend() {
       name.textContent = player.name;
       const count = document.createElement('span');
       count.className = 'mini-legend-count';
-      count.textContent = player.tiles + ' pól';
+      count.textContent = player.tiles + ' ' + pluralPoles(player.tiles);
       row.append(dot, name, count);
       els.miniLegend.appendChild(row);
     });
@@ -302,7 +323,7 @@ function clockCard(player, role, d, side) {
   time.textContent = fmtTime(d.clocks[player.id]);
   const tiles = document.createElement('div');
   tiles.className = 'clock-tiles';
-  tiles.textContent = player.tiles + ' pól';
+  tiles.textContent = player.tiles + ' ' + pluralPoles(player.tiles);
   card.append(roleEl, name, time, tiles);
   card.classList.toggle('active', d.active === player.id);
   return card;
@@ -340,8 +361,8 @@ function renderConquest() {
   }
   const winner = s.players.find((p) => p.id === s.conquest.winnerId);
   els.conquest.style.setProperty('--pc', winner?.color || '#f6c453');
-  els.conquestTitle.textContent = (winner?.name || '') + ' zdobywa ' + s.conquest.gained + ' pól';
-  els.conquestNote.textContent = 'Kategoria „' + s.conquest.category.name + '” rozlewa się na zdobyte pola.';
+  els.conquestTitle.textContent = (winner?.name || '') + ' zdobywa ' + s.conquest.gained + ' ' + pluralPoles(s.conquest.gained);
+  els.conquestNote.textContent = 'Kategoria „' + s.conquest.category.name + '” wchodzi na zdobyte pole. Reszta terytorium zostaje u przeciwnika.';
   els.conquest.classList.remove('hidden');
 }
 
@@ -358,12 +379,12 @@ function renderOverlay() {
       '<div class="overlay-kicker">Pojedynek o „' + escapeHtml(s.duel?.category?.name || '') + '”</div>' +
       '<div class="vs-intro">' +
       '<div class="vs-side challenger" style="--pc:' + escapeHtml(ch?.color || '#f6c453') + '">' +
-      '<span class="vs-role">CHALLENGER</span><b class="vs-name">' + escapeHtml(ch?.name || '') + '</b>' +
-      '<small class="vs-tiles">' + (ch?.tiles || 0) + ' pól</small></div>' +
+      '<span class="vs-role">PRETENDENT</span><b class="vs-name">' + escapeHtml(ch?.name || '') + '</b>' +
+      '<small class="vs-tiles">' + (ch?.tiles || 0) + ' ' + pluralPoles(ch?.tiles || 0) + '</small></div>' +
       '<div class="vs-center">VS</div>' +
       '<div class="vs-side defender" style="--pc:' + escapeHtml(de?.color || '#63a4ff') + '">' +
       '<span class="vs-role">OBROŃCA</span><b class="vs-name">' + escapeHtml(de?.name || '') + '</b>' +
-      '<small class="vs-tiles">' + (de?.tiles || 0) + ' pól</small></div>' +
+      '<small class="vs-tiles">' + (de?.tiles || 0) + ' ' + pluralPoles(de?.tiles || 0) + '</small></div>' +
       '</div><div class="countdown" id="big-countdown">3</div>';
   } else if (s.phase === 'gameOver') {
     const winner = s.players.find((p) => p.id === s.winnerId);
@@ -381,17 +402,19 @@ function renderOverlay() {
 function renderAnswerBanner() {
   const reveal = B.state?.duel?.reveal;
   if (!reveal?.answer) {
+    B.lastRevealKey = '';
     els.banner.classList.add('hidden');
     return;
   }
+  const key = reveal.key || reveal.type + '|' + reveal.answer;
+  if (key !== B.lastRevealKey) {
+    B.lastRevealKey = key;
+    if (reveal.type === 'correct') Sound.correct();
+    else if (reveal.type === 'wrong') Sound.wrong();
+    else Sound.pass();
+  }
   els.bannerText.textContent = reveal.answer;
   els.banner.dataset.type = reveal.type || 'pass';
-  if (els.bannerKicker) els.bannerKicker.textContent = reveal.type === 'correct' ? 'DOBRZE · ODPOWIEDŹ' : 'PASS · −3 s';  
-  if (els.bannerNote) {
-    els.bannerNote.textContent = reveal.type === 'correct'
-      ? 'Zegar zatrzymany — za chwilę odpowiada przeciwnik'
-      : 'Zegar nadal leci';
-  }
   els.banner.classList.remove('hidden');
 }
 
@@ -403,8 +426,36 @@ function tick() {
   if (s?.duel) updateClocks();
   if (s?.phase === 'duelIntro') {
     const node = document.getElementById('big-countdown');
-    if (node) node.textContent = String(Math.max(1, Math.ceil((s.introUntil - now) / 1000)));
+    const sec = Math.max(1, Math.ceil((s.introUntil - now) / 1000));
+    if (node) node.textContent = String(sec);
+    if (sec !== B.lastIntroSecond) {
+      B.lastIntroSecond = sec;
+      Sound.countdown(sec);
+    }
+  } else {
+    B.lastIntroSecond = 0;
   }
+
+  if (s?.phase === 'duel' && s.duel) {
+    const d = s.duel;
+    if (d.active !== B.lastActiveId) {
+      B.lastActiveId = d.active;
+      B.lastTickSecond = null;
+    }
+    if (d.deadline) {
+      const sec = Math.ceil(Math.max(0, d.deadline - now) / 1000);
+      if (sec !== B.lastTickSecond) {
+        B.lastTickSecond = sec;
+        if (sec > 0) Sound.tick(sec <= 10);
+      }
+    } else {
+      B.lastTickSecond = null;
+    }
+  } else {
+    B.lastActiveId = null;
+    B.lastTickSecond = null;
+  }
+
   if (s?.duel) {
     const reveal = s.duel.reveal;
     els.banner.classList.toggle('hidden', !reveal?.answer);
@@ -425,7 +476,6 @@ function updateClocks() {
     if (time) time.textContent = fmtTime(ms);
     card.classList.toggle('active', id === d.active);
     card.classList.toggle('low', id === d.active && ms <= 10000);
-    card.classList.toggle('penalty', d.penalty?.playerId === id && Date.now() - d.penalty.at < 1400);
   });
 }
 

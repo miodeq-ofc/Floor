@@ -18,7 +18,7 @@
         <span class="brand-mark">TF</span>
         <span>
           <span class="brand-name">THE FLOOR</span>
-          <span class="brand-sub">ekran graczy</span>
+          <span class="brand-sub">ekran graczy · by Mateusz</span>
         </span>
       </div>
       <div class="turn-label">
@@ -29,6 +29,7 @@
       <div class="top-spacer"></div>
       <div class="top-actions">
         <span class="conn"><span class="dot" id="board-dot"></span><span id="board-conn">Łączę…</span></span>
+        <button class="icon-btn" id="board-sound" type="button" title="Dźwięk" aria-label="Włącz lub wyłącz dźwięk">🔊</button>
         <button class="icon-btn" id="board-fullscreen" type="button" title="Pełny ekran" aria-label="Pełny ekran">⛶</button>
         <a class="icon-btn" href="index.html" title="Menu" aria-label="Menu">☰</a>
       </div>
@@ -60,10 +61,8 @@
       </section>
     </main>
 
-    <div class="answer-banner hidden" id="answer-banner">
-      <div class="answer-banner-kicker" id="answer-banner-kicker">PASS · −3 s</div>
+    <div class="answer-banner hidden" id="answer-banner" role="status" aria-live="polite">
       <div class="answer-banner-text" id="answer-banner-text">—</div>
-      <div class="answer-banner-note" id="answer-banner-note">Odpowiedź na chwilę — zegar nadal leci</div>
     </div>
 
     <div class="conquest-banner hidden" id="conquest-banner">

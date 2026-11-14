@@ -14,15 +14,15 @@ Gra w stylu *The Floor* dla **2–8 graczy**: losowa plansza z kategorii, pojedy
    - startujesz grę.
 3. **Przebieg pojedynku**
    - **Tura krąży po kolei** (1 → 2 → 3 → 1…). Aktualny gracz wybiera najpierw **własne pole**, potem **sąsiednie pole przeciwnika** (góra, dół, lewo lub prawo). Może wybrać dowolne swoje pole z frontierem, nie tylko jedno.
-   - Pojedynek odbywa się **zawsze w kategorii atakowanego pola**. Po wygranej **kategoria atakującego rozlewa się** na wszystkie pola przegranego — kategoria przegranego znika, a plansza nie ma pustych miejsc.
-   - Każdy gracz ma **własny zegar**. Challenger zaczyna; tylko aktywny zegar leci.
-   - **DOBRZE** — odpowiedź poprawna; przez ok. 3 s widać poprawną odpowiedź, a **zegar stoi**. Dopiero po zniknięciu odpowiedzi startuje zegar przeciwnika.
-   - **PASS** — −3 s dla aktywnego gracza; poprawna odpowiedź też jest widoczna ok. 3 s, ale **zegar nadal leci**.
-   - Kto pierwszy spali swój zegar, **odpada**. Zwycięzca przejmuje wszystkie pola przegranego i jego kategorię; po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
+   - Pojedynek odbywa się **zawsze w kategorii atakowanego pola**. Po wygranej **kategoria atakującego wchodzi na jedno zdobyte pole** — reszta pól przegranego zostaje u niego, a plansza nie ma pustych miejsc.
+   - Każdy gracz ma **własny zegar**. Pretendent zaczyna; tylko aktywny zegar leci.
+   - **DOBRZE** — odpowiedź poprawna; przez ok. 3 s widać tylko poprawną odpowiedź, a **zegar stoi**. Dopiero po zniknięciu odpowiedzi startuje zegar przeciwnika.
+   - **PASS** — **bez kary**: zegar nadal leci, a poprawna odpowiedź jest widoczna ok. 3 s. Nic nie ubywa.
+   - **ŹLE** — kończy pojedynek, ale przegrany oddaje **jedno pole**, nie całe terytorium. Nie odpada od razu, dopiero po utracie ostatniego pola. Po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
    - Gra kończy się, gdy jedna osoba ma całą planszę. Może mieć przy tym kilka różnych kategorii — to jest zamierzone.
-4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS na ok. 3 s pojawia się **poprawna odpowiedź**; w trakcie odpytywania ekran nie dostaje jej w synchronizacji.
+4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS/ŹLE na ok. 3 s pojawia się **tylko odpowiedź** na kolorowym tle — bez dopisków o karze; w trakcie odpytywania ekran nie dostaje jej w synchronizacji. Dźwięki (tik zegara, odliczanie, dobra/zła odpowiedź, PASS) są generowane przez Web Audio i można je wyłączyć przyciskiem 🔊.
 
-Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS.
+Skróty na ekranie prowadzącego: **D** / Enter = DOBRZE, **P** / Spacja = PASS, **X** = ŹLE.
 
 ### Dwa okna / dwa ekrany
 
@@ -132,5 +132,5 @@ data/packs/quality-report.json  raport automatycznej walidacji
 - Dwa ekrany muszą być w **tej samej przeglądarce** (jeden komputer). Osobne urządzenia wymagają WebRTC lub backendu.
 - Przeglądarki blokują wyskakujące okna — zezwól tej stronie na ich otwieranie.
 - Jakość zdjęć z Wikipedii bywa nierówna. Paczki **owoce jadalne**, **aplikacje internetowe** i **marki samochodów** są kuratorowane; resztę można podmienić w edytorze pola. Jest **PASS** i zmiana kategorii.
-- Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS (wtedy widać ją też na TV).
+- Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS/ŹLE jako sam napis na kolorowym tle (wtedy widać ją też na TV).
 - Gra jest zaprojektowana na jeden komputer z dwoma oknami; nie ma pokoi online.

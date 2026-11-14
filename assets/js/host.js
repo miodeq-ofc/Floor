@@ -16,6 +16,7 @@ import {
   fmtClock,
   shortCategory,
   sameCategoryNeighbor,
+  pluralPoles,
 } from './game.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
@@ -114,10 +115,10 @@ function cacheEls() {
   els.duelLoading = $('#duel-loading');
   els.duelAnswer = $('#duel-answer');
   els.duelMeta = $('#duel-meta');
-  els.hostPass = $('#host-pass-note');
   els.controls = $('#duel-controls');
   els.btnOk = $('#btn-ok');
   els.btnPass = $('#btn-pass');
+  els.btnWrong = $('#btn-wrong');
   els.overlay = $('#overlay');
   els.overlayCard = $('#overlay-card');
   els.phaseKicker = $('#phase-kicker');
@@ -267,6 +268,7 @@ function bind() {
   });
   els.btnOk.addEventListener('click', correct);
   els.btnPass.addEventListener('click', pass);
+  els.btnWrong.addEventListener('click', wrong);
   document.addEventListener('keydown', (event) => {
     if (event.repeat) return;
     if (event.target.matches('input, textarea, select')) return;
@@ -277,6 +279,9 @@ function bind() {
     } else if (H.phase === 'duel' && (key === 'p' || key === 'arrowleft' || key === ' ')) {
       event.preventDefault();
       pass();
+    } else if (H.phase === 'duel' && (key === 'x' || key === 'backspace')) {
+      event.preventDefault();
+      wrong();
     }
   });
   window.addEventListener('beforeunload', () => bus?.close());
@@ -378,7 +383,7 @@ function renderSetup() {
   });
   const counts = H.players.map((p) => territory(H.tiles, p.id).length);
   const equal = counts.every((n) => n === counts[0]);
-  els.gridInfo.textContent = H.cols + ' × ' + H.rows + ' · ' + (equal ? counts[0] + ' pól na gracza' : H.tiles.length + ' pól');
+  els.gridInfo.textContent = H.cols + ' × ' + H.rows + ' · ' + (equal ? counts[0] + ' ' + pluralPoles(counts[0]) + ' na gracza' : H.tiles.length + ' ' + pluralPoles(H.tiles.length));
   renderSetupLegend();
   renderEditor();
   updatePoolCount();
@@ -448,7 +453,7 @@ function renderSetupLegend() {
     const chip = document.createElement('span');
     chip.className = 'legend-chip';
     chip.style.setProperty('--pc', player.color);
-    chip.textContent = player.name + ' · ' + count + ' pól';
+    chip.textContent = player.name + ' · ' + count + ' ' + pluralPoles(count);
     els.setupLegend.appendChild(chip);
   });
 }
@@ -552,7 +557,7 @@ function shuffleBoard() {
   renderSetup();
   renderAll();
   sendState();
-  toast('Losowanie gotowe: ' + H.cols + ' × ' + H.rows + ', po ' + grid.per + ' pól na gracza.');
+  toast('Losowanie gotowe: ' + H.cols + ' × ' + H.rows + ', po ' + grid.per + ' ' + pluralPoles(grid.per) + ' na gracza.');
 }
 
 function startGame() {
@@ -643,7 +648,6 @@ async function startDuel(sourceTile, targetTile) {
     pack: null,
     qNumber: 0,
     reveal: null,
-    penalty: null,
   };
   renderAll();
   sendState();
@@ -776,7 +780,6 @@ function correct() {
   }
   d.clocks[d.active] = left;
   d.deadline = null;
-  d.penalty = null;
   d.reveal = { answer: d.q.a, type: 'correct', until: Date.now() + 3000, key: Date.now() };
   H.busy = true;
   renderAll();
@@ -787,7 +790,6 @@ function correct() {
   setTimeout(async () => {
     if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
     H.duel.reveal = null;
-    H.duel.penalty = null;
     H.duel.active = other;
     // Dopiero teraz zaczyna lecieć zegar przeciwnika.
     H.duel.deadline = Date.now() + H.duel.clocks[other];
@@ -806,14 +808,9 @@ function pass() {
     endDuel(d.active);
     return;
   }
-  d.clocks[d.active] = Math.max(0, left - 3000);
-  d.deadline = Date.now() + d.clocks[d.active];
-  d.penalty = { playerId: d.active, at: Date.now() };
+  // PASS nie zabiera czasu. Zegar działa dalej bez przerwy i bez kary.
+  d.clocks[d.active] = left;
   d.reveal = { answer: d.q.a, type: 'pass', until: Date.now() + 3000, key: Date.now() };
-  if (d.clocks[d.active] <= 0) {
-    endDuel(d.active);
-    return;
-  }
   H.busy = true;
   renderAll();
   sendState();
@@ -822,11 +819,34 @@ function pass() {
   setTimeout(async () => {
     if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
     H.duel.reveal = null;
-    H.duel.penalty = null;
     await advanceQuestion();
     H.busy = false;
     renderAll();
     sendState();
+  }, 3000);
+}
+
+function wrong() {
+  if (H.phase !== 'duel' || H.busy || !H.duel?.q || H.duel.reveal) return;
+  const d = H.duel;
+  const left = d.deadline ? d.deadline - Date.now() : d.clocks[d.active];
+  if (left <= 0) {
+    endDuel(d.active);
+    return;
+  }
+  d.clocks[d.active] = left;
+  d.deadline = null;
+  d.reveal = { answer: d.q.a, type: 'wrong', until: Date.now() + 3000, key: Date.now() };
+  H.busy = true;
+  renderAll();
+  sendState();
+
+  const revealKey = d.reveal.key;
+  const loserId = d.active;
+  setTimeout(() => {
+    if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
+    H.duel.reveal = null;
+    endDuel(loserId);
   }, 3000);
 }
 
@@ -837,16 +857,21 @@ function endDuel(loserId) {
   const winner = H.players.find((p) => p.id === (loserId === d.challengerId ? d.defenderId : d.challengerId));
   if (!loser || !winner) return;
 
-  const loserTiles = territory(H.tiles, loser.id);
-  // Zwycięzca rozlewa swoją kategorię na całe terytorium przegranego.
-  // Kategoria przegranego znika, a zwycięzca zachowuje swoje pozostałe pola.
+  // Przegrany oddaje tylko jedno pole — atakowane albo to, z którego atakował.
+  // Reszta terytorium zostaje u niego; gra toczy się przez wiele ruchów.
   const winnerCategory = winner.id === d.challengerId ? d.sourceCat : d.category;
-  loserTiles.forEach((tile) => {
-    tile.owner = winner.id;
-    tile.cat = { ...winnerCategory };
-  });
-  loser.alive = false;
-  const gained = loserTiles.length;
+  let lostTile =
+    H.tiles.find((tile) => keyOf(tile) === (loser.id === d.defenderId ? d.tileKey : d.sourceKey)) || null;
+  if (!lostTile || lostTile.owner !== loser.id) {
+    lostTile = territory(H.tiles, loser.id)[0] || null;
+  }
+  if (lostTile) {
+    lostTile.owner = winner.id;
+    lostTile.cat = { ...winnerCategory };
+  }
+  const remaining = territory(H.tiles, loser.id).length;
+  loser.alive = remaining > 0;
+  const gained = lostTile ? 1 : 0;
   H.result = null;
   H.challengerId = winner.id;
   H.duel = null;
@@ -859,7 +884,7 @@ function endDuel(loserId) {
     loserId: loser.id,
     gained,
     category: { ...winnerCategory },
-    cells: loserTiles.map(keyOf),
+    cells: lostTile ? [keyOf(lostTile)] : [],
     at: Date.now(),
     until: Date.now() + 2600,
   };
@@ -872,7 +897,8 @@ function endDuel(loserId) {
     if (H.phase !== 'conquest' || H.conquest?.at !== at) return;
     H.conquest = null;
     H.overlayKey = '';
-    if (alive(H.players).length <= 1) finishGame();
+    const owners = new Set(H.tiles.map((tile) => tile.owner));
+    if (alive(H.players).length <= 1 || owners.size <= 1) finishGame();
     else {
       H.phase = 'board';
       nextTurn();
@@ -947,7 +973,7 @@ function renderGameLegend() {
     const chip = document.createElement('span');
     chip.className = 'legend-chip';
     chip.style.setProperty('--pc', player.color);
-    chip.textContent = player.name + ' · ' + (counts[player.id] || 0) + ' pól';
+    chip.textContent = player.name + ' · ' + (counts[player.id] || 0) + ' ' + pluralPoles(counts[player.id] || 0);
     els.gameLegend.appendChild(chip);
   });
 }
@@ -967,7 +993,7 @@ function renderStatus() {
         : 'Tura: ' + ch.name + ' — wybierz swoje pole';
   } else if (H.phase === 'conquest' && H.conquest) {
     const w = H.players.find((p) => p.id === H.conquest.winnerId);
-    els.floorStatus.textContent = (w?.name || '') + ' przejmuje ' + H.conquest.gained + ' pól · ' + H.conquest.category.name;
+    els.floorStatus.textContent = (w?.name || '') + ' przejmuje ' + H.conquest.gained + ' ' + pluralPoles(H.conquest.gained) + ' · ' + H.conquest.category.name;
   } else if (H.phase === 'gameOver') {
     const w = H.players.find((p) => p.id === H.winnerId);
     els.floorStatus.textContent = w ? 'Wygrywa ' + w.name : 'Koniec gry';
@@ -1001,7 +1027,7 @@ function renderAction() {
     );
     if (source) {
       const hint = el('div', 'duel-hint');
-      hint.textContent = 'Pytania będą z kategorii atakowanego pola. Twoja kategoria rozleje się na wygrane pola.';
+      hint.textContent = 'Pytania będą z kategorii atakowanego pola. Zwycięzca bierze jedno pole, a nie całe terytorium.';
       box.appendChild(hint);
       const change = el('button', 'btn wide', 'Zmień pole atakujące');
       change.addEventListener('click', () => {
@@ -1023,10 +1049,14 @@ function renderAction() {
     box.append(
       el('div', 'eyebrow', 'Pojedynek'),
       el('h3', 'action-title', (ch?.name || '?') + ' vs ' + (de?.name || '?')),
-      el('p', 'action-text', 'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE pokazuje odpowiedź i zatrzymuje zegar; PASS pokazuje odpowiedź, a zegar leci dalej.')
+      el(
+        'p',
+        'action-text',
+        'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE zatrzymuje twój zegar na 3 s i przekazuje pytanie. PASS nie zabiera czasu — zegar leci dalej. ŹLE kończy pojedynek, ale przeciwnik bierze tylko jedno pole.'
+      )
     );
     const note = el('div', 'duel-hint');
-    note.textContent = 'Po DOBRZE odpowiedź jest widoczna 3 s, dopiero potem startuje zegar przeciwnika. Po PASS zegar nie staje.';
+    note.textContent = 'Po DOBRZE odpowiedź jest widoczna 3 s. Po PASS czas nie staje. Błąd nie eliminuje gracza od razu — zabiera mu jedno pole.';
     box.appendChild(note);
     renderPlayerList();
     return;
@@ -1037,11 +1067,11 @@ function renderAction() {
     const loser = H.players.find((p) => p.id === H.conquest.loserId);
     box.append(
       el('div', 'eyebrow', 'Teren zdobyty'),
-      el('h3', 'action-title', (winner?.name || '') + ' bierze ' + H.conquest.gained + ' pól'),
+      el('h3', 'action-title', (winner?.name || '') + ' bierze ' + H.conquest.gained + ' ' + pluralPoles(H.conquest.gained)),
       el(
         'p',
         'action-text',
-        'Kategoria „' + H.conquest.category.name + '” rozlewa się na pola ' + (loser?.name || '') + '. Kategoria przegranego znika — plansza nie ma pustych miejsc.'
+        'Kategoria „' + H.conquest.category.name + '” wchodzi na zdobyte pole. ' + (loser?.name || '') + ' zachowuje resztę terytorium — gra toczy się dalej.'
       )
     );
     const note = el('div', 'duel-hint');
@@ -1072,7 +1102,7 @@ function renderPlayerList() {
     row.append(
       el('span', 'mini-dot'),
       el('span', 'mini-name', player.name),
-      el('span', 'mini-tiles', (counts[player.id] || 0) + ' pól')
+      el('span', 'mini-tiles', (counts[player.id] || 0) + ' ' + pluralPoles(counts[player.id] || 0))
     );
     wrap.appendChild(row);
   });
@@ -1088,7 +1118,6 @@ function renderDuelCard() {
     els.duelImg.hidden = true;
     els.duelLoading.hidden = false;
     els.duelAnswer.textContent = '—';
-    els.hostPass.hidden = true;
     return;
   }
   if (els.duelImg.dataset.key !== q.img) {
@@ -1109,15 +1138,8 @@ function renderDuelCard() {
   els.duelAnswer.textContent = q.a;
   els.duelAnswer.style.fontSize = q.a.length > 40 ? 'clamp(28px, 3vw, 44px)' : q.a.length > 26 ? 'clamp(32px, 3.4vw, 50px)' : '';
   els.duelMeta.textContent = 'Pytanie ' + d.qNumber + ' · pula ' + Math.max(0, d.queue.length - d.queuePos);
-  if (d.reveal?.answer) {
-    els.hostPass.hidden = false;
-    els.hostPass.textContent =
-      d.reveal.type === 'correct'
-        ? 'DOBRZE · odpowiedź: ' + d.reveal.answer + ' · zegar zatrzymany'
-        : 'PASS · odpowiedź: ' + d.reveal.answer + ' · zegar nadal leci';
-  } else {
-    els.hostPass.hidden = true;
-  }
+  // Na ekranie prowadzącego liczy się tylko duża odpowiedź. Bez dopisków
+  // o karze, które wcześniej trafiały też na ekran graczy.
 }
 
 function renderClocks(rebuild = false) {
@@ -1129,7 +1151,7 @@ function renderClocks(rebuild = false) {
   if (rebuild || els.clockA.dataset.duel !== String(d.challengerId + d.defenderId + d.tileKey)) {
     els.clockA.dataset.duel = d.challengerId + d.defenderId + d.tileKey;
     els.clockB.dataset.duel = d.challengerId + d.defenderId + d.tileKey;
-    fillClock(els.clockA, ch, 'CHALLENGER');
+    fillClock(els.clockA, ch, 'PRETENDENT');
     fillClock(els.clockB, de, 'OBROŃCA');
   }
   updateClockValues();
@@ -1142,7 +1164,7 @@ function fillClock(card, player, role) {
     el('div', 'clock-role', role),
     el('div', 'clock-name', player.name),
     el('div', 'clock-time', '—'),
-    el('div', 'clock-tiles', (tileCounts(H.tiles)[player.id] || 0) + ' pól')
+    el('div', 'clock-tiles', (tileCounts(H.tiles)[player.id] || 0) + ' ' + pluralPoles(tileCounts(H.tiles)[player.id] || 0))
   );
   card.classList.toggle('active', H.duel.active === player.id);
   card.dataset.player = player.id;
@@ -1160,7 +1182,6 @@ function updateClockValues() {
     card.querySelector('.clock-time').textContent = fmtClock(ms);
     card.classList.toggle('active', id === d.active);
     card.classList.toggle('low', id === d.active && ms <= 10000);
-    card.classList.toggle('penalty', d.penalty?.playerId === id && Date.now() - d.penalty.at < 1400);
   });
 }
 
@@ -1296,7 +1317,6 @@ function publicState() {
           deadline: d.deadline,
           qNumber: d.qNumber,
           reveal: d.reveal,
-          penalty: d.penalty,
         }
       : null,
     conquest: H.conquest,
