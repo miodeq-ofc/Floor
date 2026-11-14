@@ -119,7 +119,7 @@ export async function loadPack(cat) {
   if (cat.live) {
     pack = await loadLivePack(cat);
   } else {
-    const res = await fetch('data/packs/' + encodeURIComponent(cat.id) + '.json', { cache: 'force-cache' });
+    const res = await fetch('data/packs/' + encodeURIComponent(cat.id) + '.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error('Brak danych kategorii ' + cat.name);
     pack = await res.json();
   }

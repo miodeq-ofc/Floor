@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/extra.css" />
+    <link rel="stylesheet" href="assets/css/floor.css" />
   </head>
-  <body class="screen host">
+  <body class="screen host floor-host">
     <header class="game-top">
       <div class="brand">
         <span class="brand-mark">TF</span>
@@ -21,22 +22,10 @@
         </span>
       </div>
       <div class="turn-label">
-        <span class="t1" id="turn-kicker">TURA 1 / 4</span>
-        <span class="t2" id="turn-player">Gracz 1</span>
+        <span class="t1" id="phase-kicker">KONFIGURACJA</span>
+        <span class="t2" id="phase-title">Ustaw grę</span>
       </div>
-      <span class="category-chip" id="category-chip">
-        <span class="emoji" id="category-emoji">🎯</span>
-        <span class="name" id="category-name">Kategoria</span>
-      </span>
       <div class="top-spacer"></div>
-      <div class="score-strip" id="scores" aria-label="Wynik"></div>
-      <div class="timer" id="timer">
-        <div>
-          <div class="timer-num" id="timer-num">45</div>
-          <div class="timer-unit">SEKUNDY</div>
-        </div>
-        <div class="timer-ring" id="timer-ring"><span>⏱</span></div>
-      </div>
       <div class="top-actions">
         <span class="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">Ekran graczy</span></span>
         <button class="btn" id="open-board" type="button" title="Otwórz ekran graczy">🖥️ <span class="btn-label">Ekran graczy</span></button>
@@ -45,69 +34,145 @@
       </div>
     </header>
 
-    <main class="host-main">
-      <section class="question-card" aria-label="Pytanie">
-        <div class="q-bg" id="q-bg"></div>
-        <div class="q-stage">
-          <div class="q-top">
-            <span class="q-counter" id="q-counter">Pytanie 1</span>
-            <span class="q-counter" id="q-pool">—</span>
+    <main class="host-setup" id="setup-view">
+      <div class="setup-columns">
+        <section class="card setup-controls">
+          <div class="eyebrow">Krok 1</div>
+          <h2 class="setup-h2">Gracze</h2>
+          <div class="seg" id="count-seg" role="group" aria-label="Liczba graczy">
+            <button data-count="2">2</button>
+            <button data-count="3">3</button>
+            <button data-count="4" aria-pressed="true">4</button>
+            <button data-count="5">5</button>
+            <button data-count="6">6</button>
+            <button data-count="7">7</button>
+            <button data-count="8">8</button>
           </div>
-          <div class="q-image-wrap" id="q-wrap">
-            <div class="q-loading" id="q-loading"><div><div class="spinner"></div>Losuję pytanie…</div></div>
-            <img class="q-image" id="q-image" alt="Zdjęcie pytania" hidden />
-            <div class="q-loading" id="q-fallback" hidden>Brak zdjęcia — kliknij PASS</div>
-          </div>
-          <div class="q-prompt" id="q-prompt">—</div>
-        </div>
-      </section>
+          <div class="player-names" id="player-names"></div>
 
-      <aside class="answer-panel" aria-label="Odpowiedź">
-        <div class="answer-box">
-          <div class="answer-label">Odpowiedź dla prowadzącego</div>
-          <div class="answer-text" id="answer-text">—</div>
-          <div class="answer-meta">
-            <span id="answer-cat">—</span>
-            <span id="answer-num"></span>
+          <div class="eyebrow">Krok 2</div>
+          <h2 class="setup-h2">Zegar pojedynku</h2>
+          <div class="seg" id="clock-seg" role="group" aria-label="Czas na gracza">
+            <button data-sec="30">30 s</button>
+            <button data-sec="45" aria-pressed="true">45 s</button>
+            <button data-sec="60">60 s</button>
+            <button data-sec="75">75 s</button>
+          </div>
+          <label class="check-row">
+            <input type="checkbox" id="blur-logos" checked />
+            <span>Zamazuj logotypy (trudniejszy wariant)</span>
+          </label>
+
+          <div class="setup-actions">
+            <button class="btn" id="shuffle-board" type="button">🎲 Losuj planszę</button>
+            <button class="btn btn-primary" id="start-game" type="button" disabled>▶ Start gry</button>
+          </div>
+          <p class="setup-note" id="setup-note">
+            Wpisz imiona, wylosuj planszę i dopiero wtedy startuj. Kliknięcie pola pozwala zmienić
+            właściciela lub kategorię.
+          </p>
+        </section>
+
+        <section class="card setup-board-card">
+          <div class="panel-head">
+            <h2>Plansza</h2>
+            <span class="hint" id="grid-info">jeszcze nie wylosowana</span>
+          </div>
+          <div class="floor-stage setup-floor-stage">
+            <div class="floor-grid" id="setup-floor"></div>
+            <div class="floor-placeholder" id="floor-placeholder">
+              <div class="floor-empty-mark">7×7</div>
+              <p>Kliknij „Losuj planszę”. Dobiorę wymiary tak, żeby każde pole podzieliło się równo między graczy.</p>
+            </div>
+          </div>
+          <div class="legend" id="setup-legend"></div>
+          <div class="tile-editor" id="tile-editor" hidden>
+            <div class="tile-editor-head">
+              <b id="editor-title">Pole</b>
+              <button class="link-btn" id="editor-close" type="button">Zamknij ×</button>
+            </div>
+            <div class="tile-editor-grid">
+              <label class="field">
+                <span>Właściciel</span>
+                <select class="select" id="editor-owner"></select>
+              </label>
+              <label class="field">
+                <span>Kategoria</span>
+                <input class="input" id="editor-search" placeholder="Szukaj kategorii…" autocomplete="off" />
+              </label>
+            </div>
+            <div class="editor-results" id="editor-results"></div>
+          </div>
+          <p class="setup-note">Kliknij pole na planszy, żeby zmienić jego właściciela albo wyszukać inną kategorię.</p>
+        </section>
+      </div>
+
+      <section class="card setup-pool-card">
+        <div class="panel-head">
+          <h2>Pula kategorii</h2>
+          <span class="hint" id="pool-count">—</span>
+        </div>
+        <div class="catalog-top">
+          <div class="search-wrap">
+            <span class="search-icon">🔎</span>
+            <input class="input" id="pool-search" placeholder="Szukaj kategorii i podkategorii — np. przyprawy, logotypy, psy…" autocomplete="off" />
+          </div>
+          <div class="cat-actions">
+            <button class="mini-btn" id="pool-all" type="button">Wszystkie</button>
+            <button class="mini-btn" id="pool-none" type="button">Żadne</button>
           </div>
         </div>
-        <div class="card host-side-card">
-          <div class="eyebrow">Sterowanie</div>
-          <p class="host-tip">
-            <b>DOBRZE</b> — punkt i następne pytanie. <b>PASS</b> — zmiana pytania, zegar nadal leci.
-          </p>
-          <div class="shortcut-row"><span>Dobrze</span><span class="kbd">D</span></div>
-          <div class="shortcut-row"><span>Pass</span><span class="kbd">P</span></div>
-          <div class="shortcut-row"><span>Zakończ turę</span><span class="kbd">K</span></div>
-          <p class="host-tip muted" id="pack-info">Baza pytań: —</p>
-        </div>
-        <div class="card host-side-card host-tip-card">
-          <div class="eyebrow">Dwa ekrany</div>
-          <p class="host-tip">Ekran graczy otwiera się w drugim oknie. Przeciągnij je na TV lub monitor przez HDMI i włącz pełny ekran (F11).</p>
-        </div>
-      </aside>
+        <div class="pool-grid" id="pool"></div>
+      </section>
     </main>
 
-    <div class="controls">
+    <main class="host-game" id="game-view" hidden>
+      <div class="duel-head" id="duel-head" hidden>
+        <div class="clock-card" id="clock-a"></div>
+        <div class="clock-card" id="clock-b"></div>
+      </div>
+      <div class="host-game-body">
+        <section class="card host-floor-card">
+          <div class="panel-head">
+            <h2>Teren</h2>
+            <span class="hint" id="floor-status">—</span>
+          </div>
+          <div class="floor-stage">
+            <div class="floor-grid" id="game-floor"></div>
+          </div>
+          <div class="legend" id="game-legend"></div>
+        </section>
+        <aside class="game-side">
+          <div class="card action-card" id="action-card">
+            <div id="action-content"></div>
+          </div>
+          <div class="card duel-card" id="duel-card" hidden>
+            <div class="duel-cat" id="duel-cat">—</div>
+            <div class="duel-question-wrap">
+              <img class="duel-question-img" id="duel-img" alt="" hidden />
+              <div class="q-loading" id="duel-loading"><div><div class="spinner"></div>Losuję pytanie…</div></div>
+            </div>
+            <div class="answer-label">Odpowiedź dla prowadzącego</div>
+            <div class="answer-text duel-answer" id="duel-answer">—</div>
+            <div class="answer-meta" id="duel-meta"></div>
+            <div class="host-pass-note" id="host-pass-note" hidden></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div class="duel-controls" id="duel-controls" hidden>
       <button class="judge ok" id="btn-ok" type="button">
         <span class="j-icon">✓</span>
-        <span>DOBRZE<small>punkt · następne pytanie</small></span>
+        <span>DOBRZE<small>przekazuje kontrolę i zegar</small></span>
         <span class="kbd">D</span>
       </button>
       <button class="judge pass" id="btn-pass" type="button">
         <span class="j-icon">↷</span>
-        <span>PASS<small>zmiana · czas leci dalej</small></span>
+        <span>PASS<small>−3 s · czas leci dalej</small></span>
         <span class="kbd">P</span>
       </button>
     </div>
-
-    <footer class="host-foot">
-      <div class="left">
-        <span id="foot-info">Gotowe do startu</span>
-        <button class="link-btn" id="end-turn" type="button">Zakończ turę (K)</button>
-      </div>
-      <span>Odpowiedzi widzi tylko prowadzący</span>
-    </footer>
 
     <div class="overlay hidden" id="overlay" aria-live="polite">
       <div class="overlay-card" id="overlay-card"></div>

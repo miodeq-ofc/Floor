@@ -1,305 +1,395 @@
-import { $, getConfig, Bus, fmtTime } from './common.js';
+import { $, Bus, fmtTime } from './common.js';
 
-const cfg = getConfig();
-const S = {
+const B = {
   state: null,
-  heard: 0,
-  qKey: '',
+  lastFloorSig: '',
+  lastDuelKey: '',
   overlayKey: '',
-  revealKey: 0,
+  seenAt: 0,
+  hostSeenAt: 0,
+  timer: 0,
 };
-let bus = null;
-const els = {};
 
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
+const els = {};
+const bus = new Bus('main', onMessage);
 
 function boot() {
-  cacheEls();
-  $('#fullscreen').addEventListener('click', toggleFullscreen);
-  if (!cfg) {
-    showNoConfig();
-    return;
-  }
-  buildScoreTiles();
-  bus = new Bus(cfg.id, onMessage);
+  cache();
+  bind();
+  render();
   bus.send('hello');
-  setInterval(() => bus?.send('hello'), 4000);
+  setInterval(() => bus.send('hello'), 2200);
   setInterval(tick, 100);
-  render();
-  window.addEventListener('beforeunload', () => bus?.close());
 }
 
-function cacheEls() {
-  els.turnKicker = $('#turn-kicker');
-  els.turnPlayer = $('#turn-player');
-  els.categoryChip = $('#category-chip');
-  els.categoryEmoji = $('#category-emoji');
-  els.categoryName = $('#category-name');
-  els.scores = $('#scores');
-  els.timer = $('#timer');
-  els.timerNum = $('#timer-num');
-  els.connDot = $('#conn-dot');
-  els.stage = $('#stage');
-  els.qBg = $('#q-bg');
-  els.placeholder = $('#placeholder');
-  els.qImage = $('#q-image');
-  els.qLoading = $('#q-loading');
-  els.qWrap = $('#image-wrap');
-  els.qPrompt = $('#q-prompt');
-  els.barFill = $('#bar-fill');
-  els.hint = $('#hint');
-  els.overlay = $('#overlay');
-  els.overlayCard = $('#overlay-card');
+function cache() {
+  els.boardScreen = $('#board-screen');
+  els.duelScreen = $('#duel-screen');
+  els.floor = $('#board-floor');
+  els.caption = $('#board-caption');
+  els.legend = $('#board-legend');
+  els.kicker = $('#board-kicker');
+  els.title = $('#board-title');
+  els.cat = $('#board-cat');
+  els.dot = $('#board-dot');
+  els.conn = $('#board-conn');
+  els.players = $('#duel-players');
+  els.stage = $('#duel-stage');
+  els.image = $('#duel-image');
+  els.loading = $('#duel-loading');
+  els.prompt = $('#duel-prompt');
+  els.mini = $('#mini-floor');
+  els.miniLegend = $('#mini-legend');
+  els.banner = $('#answer-banner');
+  els.bannerText = $('#answer-banner-text');
+  els.overlay = $('#board-overlay');
+  els.overlayCard = $('#board-overlay-card');
+  els.waiting = $('#waiting-card');
 }
 
-function buildScoreTiles() {
-  els.scores.innerHTML = '';
-  (cfg.players || [{ name: 'Gracz 1' }, { name: 'Gracz 2' }]).forEach((player) => {
-    const tile = el('div', 'board-score');
-    tile.append(el('div', 'name', player.name), el('div', 'pts', '0'));
-    els.scores.appendChild(tile);
+function bind() {
+  $('#board-fullscreen').addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen?.().catch(() => {});
   });
+  window.addEventListener('beforeunload', () => bus.close());
 }
 
-function toggleFullscreen() {
-  if (document.fullscreenElement) document.exitFullscreen();
-  else document.documentElement.requestFullscreen?.().catch(() => {});
-}
-
-function onMessage(msg) {
-  if (msg.t !== 'state' || !msg.state) return;
-  if (msg.state.g !== cfg.id) return;
-  S.state = msg.state;
-  S.heard = Date.now();
-  render();
-}
-
-function showNoConfig() {
-  els.turnKicker.textContent = 'BRAK GRY';
-  els.overlay.classList.remove('hidden');
-  els.overlayCard.innerHTML = '';
-  els.overlayCard.append(
-    el('div', 'overlay-kicker', 'The Floor'),
-    el('div', 'overlay-title', 'NAJPIERW USTAWIENIA'),
-    el('p', 'overlay-sub', 'Ten ekran otwiera się z lobby. Wróć do ustawień, wybierz kategorie i kliknij START GRY.'),
-    (() => {
-      const a = el('a', 'btn btn-primary btn-lg', '↩ Wróć do ustawień');
-      a.href = 'index.html';
-      return a;
-    })()
-  );
+function onMessage(message) {
+  if (message.t === 'state' && message.state) {
+    B.hostSeenAt = Date.now();
+    B.state = message.state;
+    render();
+  }
 }
 
 /* ---------------- render ---------------- */
 function render() {
-  const state = S.state;
-  const connected = state && Date.now() - S.heard < 6500;
-  els.connDot.classList.toggle('on', !!connected);
-  els.connDot.classList.toggle('off', !connected);
-
-  if (!state) {
-    renderWaiting();
+  const s = B.state;
+  if (!s) {
+    renderConnection();
     return;
   }
-
-  renderChrome(state);
-  renderQuestion(state);
-  renderOverlay(state);
-  updateTimerUI();
+  B.hostSeenAt = Date.now();
+  renderConnection();
+  renderHeader();
+  renderScreens();
+  renderOverlay();
+  renderAnswerBanner();
+  tick();
 }
 
-function renderWaiting() {
-  els.turnKicker.textContent = 'CZEKAM NA PROWADZĄCEGO';
-  els.turnPlayer.textContent = '—';
-  els.categoryChip.hidden = true;
-  els.placeholder.hidden = false;
-  els.qImage.hidden = true;
-  els.qLoading.hidden = true;
-  els.qPrompt.hidden = true;
-  els.barFill.style.width = '100%';
-  els.timerNum.textContent = '—';
-  els.timer.classList.remove('low');
-  els.overlay.classList.add('hidden');
+function renderConnection() {
+  const connected = Date.now() - B.hostSeenAt < 6500;
+  els.dot.classList.toggle('on', connected);
+  els.dot.classList.toggle('off', !connected);
+  els.conn.textContent = connected ? 'Połączono z prowadzącym' : 'Czekam na prowadzącego';
+  els.waiting.hidden = Boolean(B.state);
+  if (!B.state) {
+    els.boardScreen.hidden = true;
+    els.duelScreen.hidden = true;
+  }
 }
 
-function renderChrome(state) {
-  els.turnKicker.textContent = 'TURA ' + (state.turn || 1) + ' / ' + (state.turnsTotal || 1);
-  els.turnPlayer.textContent = state.players?.[state.current]?.name || '';
-  if (state.category) {
-    els.categoryChip.hidden = false;
-    els.categoryEmoji.textContent = state.category.icon || '🎯';
-    els.categoryName.textContent = state.category.name;
+function renderHeader() {
+  const s = B.state;
+  const labels = {
+    setup: ['KONFIGURACJA', 'Prowadzący ustawia grę'],
+    board: ['RUNDA POJEDYNKÓW', 'Wybór pola'],
+    duelLoading: ['POJEDYNEK', 'Za chwilę'],
+    duelIntro: ['POJEDYNEK', 'Przygotujcie się'],
+    duel: ['POJEDYNEK', s.duel?.category?.name || 'Walka'],
+    duelEnd: ['POJEDYNEK', 'Koniec starcia'],
+    gameOver: ['KONIEC GRY', 'Zwycięzca'],
+  };
+  const [kick, title] = labels[s.phase] || labels.setup;
+  els.kicker.textContent = kick;
+  els.title.textContent = title;
+  const showCat = s.duel && ['duelLoading', 'duelIntro', 'duel'].includes(s.phase);
+  els.cat.hidden = !showCat;
+  if (showCat) els.cat.textContent = (s.duel.category.icon || '') + ' ' + s.duel.category.name;
+}
+
+function renderScreens() {
+  const s = B.state;
+  const duelPhase = s.duel && ['duelLoading', 'duelIntro', 'duel'].includes(s.phase);
+  els.boardScreen.hidden = duelPhase;
+  els.duelScreen.hidden = !duelPhase;
+  if (duelPhase) {
+    renderDuel();
   } else {
-    els.categoryChip.hidden = true;
-  }
-
-  [...els.scores.children].forEach((tile, index) => {
-    const player = state.players?.[index];
-    if (!player) return;
-    tile.querySelector('.name').textContent = player.name;
-    tile.querySelector('.pts').textContent = String(player.score);
-    tile.classList.toggle('active', index === state.current);
-  });
-}
-
-function renderQuestion(state) {
-  const q = state.q;
-  if (!q) {
-    els.qImage.hidden = true;
-    els.qLoading.hidden = true;
-    els.qPrompt.hidden = true;
-    els.placeholder.hidden = state.phase === 'gameOver';
-    if (state.phase === 'loading' || state.phase === 'error') els.placeholder.hidden = true;
-    return;
-  }
-
-  els.placeholder.hidden = true;
-  els.qPrompt.hidden = false;
-  els.qPrompt.textContent = q.prompt || state.category?.prompt || 'Co to jest?';
-
-  if (S.qKey !== q.img) {
-    S.qKey = q.img;
-    els.qImage.hidden = true;
-    els.qImage.classList.remove('board-image');
-    void els.qImage.offsetWidth;
-    els.qImage.className = 'board-image';
-    els.qLoading.hidden = false;
-    els.qBg.style.backgroundImage = 'url("' + q.img + '")';
-    els.qImage.onload = () => {
-      els.qLoading.hidden = true;
-      els.qImage.hidden = false;
-    };
-    els.qImage.onerror = () => {
-      els.qLoading.hidden = true;
-      els.qImage.hidden = true;
-      els.qPrompt.hidden = false;
-      els.qPrompt.textContent = 'Brak zdjęcia — prowadzący zaraz zmieni pytanie';
-    };
-    els.qImage.src = q.img;
+    renderBoard();
   }
 }
 
-function renderOverlay(state) {
-  const phase = state.phase;
-  const key = phase + '|' + (state.turn || 1) + '|' + (state.reveal?.key || '') + '|' + (state.current ?? '');
-  const visible = ['loading', 'intro', 'reveal', 'turnEnd', 'gameOver', 'error'].includes(phase);
-  if (key === S.overlayKey) return;
-  S.overlayKey = key;
+function renderBoard() {
+  const s = B.state;
+  const sig = JSON.stringify([
+    s.phase,
+    s.challengerId,
+    s.targets,
+    s.tiles.map((t) => [t.r, t.c, t.owner, t.cat.id]),
+  ]);
+  if (sig !== B.lastFloorSig) {
+    B.lastFloorSig = sig;
+    els.floor.style.setProperty('--cols', String(s.cols));
+    els.floor.style.setProperty('--rows', String(s.rows));
+    els.floor.innerHTML = '';
+    s.tiles.forEach((tile) => {
+      const player = s.players.find((p) => p.id === tile.owner);
+      const node = document.createElement('div');
+      node.className = 'floor-tile';
+      node.style.setProperty('--pc', player?.color || '#667');
+      if (s.phase === 'board' && tile.owner === s.challengerId) node.classList.add('challenger');
+      if (s.phase === 'board' && s.targets.includes(tile.r + ':' + tile.c)) {
+        node.classList.add('target');
+        const attack = document.createElement('span');
+        attack.className = 'tile-attack';
+        attack.textContent = '⚔';
+        node.appendChild(attack);
+      }
+      if (s.phase === 'gameOver' && s.winnerId === tile.owner) node.classList.add('winner');
+      const emoji = document.createElement('span');
+      emoji.className = 'tile-emoji';
+      emoji.textContent = tile.cat.icon || '🎯';
+      const name = document.createElement('span');
+      name.className = 'tile-cat';
+      name.textContent = tile.cat.name;
+      const dot = document.createElement('span');
+      dot.className = 'tile-dot';
+      node.append(emoji, name, dot);
+      els.floor.appendChild(node);
+    });
+  }
 
-  els.overlay.classList.toggle('hidden', !visible);
-  const card = els.overlayCard;
+  if (s.phase === 'setup') {
+    els.caption.textContent = 'Prowadzący ustawia grę…';
+  } else if (s.phase === 'board') {
+    const ch = s.players.find((p) => p.id === s.challengerId);
+    els.caption.textContent = ch
+      ? 'Challenger: ' + ch.name + ' — prowadzący wybiera sąsiednie pole'
+      : 'Losowanie challengera…';
+  } else if (s.phase === 'duelEnd') {
+    const w = s.players.find((p) => p.id === s.result?.winnerId);
+    els.caption.textContent = w ? w.name + ' przejmuje terytorium' : 'Koniec pojedynku';
+  } else if (s.phase === 'gameOver') {
+    const w = s.players.find((p) => p.id === s.winnerId);
+    els.caption.textContent = w ? 'Cała plansza należy do ' + w.name : 'Koniec gry';
+  } else {
+    els.caption.textContent = 'The Floor';
+  }
+  renderLegend();
+}
+
+function renderLegend() {
+  const s = B.state;
+  els.legend.innerHTML = '';
+  s.players
+    .filter((p) => p.alive)
+    .forEach((player) => {
+      const chip = document.createElement('span');
+      chip.className = 'legend-chip';
+      chip.style.setProperty('--pc', player.color);
+      chip.textContent = player.name + ' · ' + player.tiles + ' pól';
+      els.legend.appendChild(chip);
+    });
+}
+
+function renderDuel() {
+  const s = B.state;
+  const d = s.duel;
+  const ch = s.players.find((p) => p.id === d.challengerId);
+  const de = s.players.find((p) => p.id === d.defenderId);
+  if (!ch || !de) return;
+  const key = d.tileKey + d.challengerId + d.defenderId;
+  if (key !== B.lastDuelKey) {
+    B.lastDuelKey = key;
+    els.players.innerHTML = '';
+    els.players.append(clockCard(ch, 'CHALLENGER', d, 'a'), clockCard(de, 'OBROŃCA', d, 'b'));
+  }
+  if (!d.q) {
+    els.image.hidden = true;
+    els.loading.hidden = false;
+  } else if (els.image.dataset.key !== d.q.img) {
+    els.image.dataset.key = d.q.img;
+    els.image.hidden = true;
+    els.loading.hidden = false;
+    els.image.onload = () => {
+      els.loading.hidden = true;
+      els.image.hidden = false;
+    };
+    els.image.onerror = () => {
+      els.loading.hidden = true;
+      els.image.hidden = true;
+    };
+    els.image.src = d.q.img;
+  }
+  const isLogo = d.category.id === 'loga-firm';
+  const blur = isLogo && s.logoBlur;
+  els.stage.classList.toggle('logo-stage', isLogo);
+  els.image.classList.toggle('blurred', blur);
+  els.prompt.textContent = d.category.prompt || 'Co to jest?';
+  renderMini();
+  renderMiniLegend();
+  updateClocks();
+}
+
+function renderMiniLegend() {
+  if (!els.miniLegend) return;
+  const s = B.state;
+  els.miniLegend.innerHTML = '';
+  s.players
+    .filter((p) => p.alive)
+    .forEach((player) => {
+      const row = document.createElement('div');
+      row.className = 'mini-legend-row';
+      row.style.setProperty('--pc', player.color);
+      const dot = document.createElement('span');
+      dot.className = 'mini-legend-dot';
+      const name = document.createElement('span');
+      name.className = 'mini-legend-name';
+      name.textContent = player.name;
+      const count = document.createElement('span');
+      count.className = 'mini-legend-count';
+      count.textContent = player.tiles + ' pól';
+      row.append(dot, name, count);
+      els.miniLegend.appendChild(row);
+    });
+}
+
+function clockCard(player, role, d, side) {
+  const card = document.createElement('div');
+  card.className = 'duel-player clock-card';
+  card.dataset.player = player.id;
+  card.dataset.side = side;
+  card.style.setProperty('--pc', player.color);
   card.innerHTML = '';
-  if (!visible) return;
-
-  if (phase === 'loading') {
-    card.append(
-      el('div', 'overlay-kicker', 'The Floor'),
-      el('div', 'overlay-title', 'GOTUJEMY'),
-      (() => {
-        const wrap = el('div', 'wait-card');
-        wrap.append(el('div', 'spinner'), el('p', '', state.category ? 'Kategoria: ' + state.category.name : 'Wczytuję kategorię…'));
-        return wrap;
-      })()
-    );
-    return;
-  }
-
-  if (phase === 'intro') {
-    card.append(
-      el('div', 'overlay-kicker', 'Tura ' + (state.turn || 1) + ' z ' + (state.turnsTotal || 1)),
-      el('div', 'overlay-title', 'GOTOWI?'),
-      el('p', 'overlay-sub', (state.players?.[state.current]?.name || '') + ' · ' + (state.category?.icon || '') + ' ' + (state.category?.name || '')),
-      el('div', 'countdown', '3')
-    );
-    return;
-  }
-
-  if (phase === 'reveal') {
-    const answer = state.reveal?.answer || '';
-    const answerEl = el('div', 'overlay-answer ok', '✓ ' + answer);
-    if (answer.length > 44) answerEl.style.fontSize = 'clamp(26px, 5.4vw, 58px)';
-    else if (answer.length > 26) answerEl.style.fontSize = 'clamp(32px, 6.5vw, 76px)';
-    card.append(
-      el('div', 'overlay-kicker', 'Dobra odpowiedź'),
-      answerEl,
-      el('p', 'overlay-sub', 'Punkt dla: ' + (state.players?.[state.current]?.name || ''))
-    );
-    return;
-  }
-
-  if (phase === 'turnEnd') {
-    card.append(el('div', 'overlay-kicker', 'Koniec tury'), el('div', 'overlay-title', 'ZMIANA'), buildScores(state, false));
-    const next = state.turn < state.turnsTotal ? state.players?.[1 - state.current]?.name : null;
-    if (next) card.append(el('p', 'overlay-sub', 'Następny: ' + next));
-    return;
-  }
-
-  if (phase === 'gameOver') {
-    const max = Math.max(...(state.players || []).map((p) => p.score));
-    const winners = (state.players || []).filter((p) => p.score === max);
-    card.append(
-      el('div', 'overlay-kicker', 'Koniec gry'),
-      el('div', 'overlay-title', winners.length > 1 ? 'REMIS' : 'WYGRYWA'),
-      el('p', 'overlay-sub', winners.map((p) => p.name).join(' i ')),
-      buildScores(state, true)
-    );
-    return;
-  }
-
-  if (phase === 'error') {
-    card.append(
-      el('div', 'overlay-kicker', 'Chwila przerwy'),
-      el('div', 'overlay-title', 'PROBLEM'),
-      el('p', 'overlay-sub', state.error?.message || 'Prowadzący wznowi grę za chwilę.')
-    );
-  }
+  const roleEl = document.createElement('div');
+  roleEl.className = 'clock-role';
+  roleEl.textContent = role;
+  const name = document.createElement('div');
+  name.className = 'clock-name';
+  name.textContent = player.name;
+  const time = document.createElement('div');
+  time.className = 'clock-time';
+  time.textContent = fmtTime(d.clocks[player.id]);
+  const tiles = document.createElement('div');
+  tiles.className = 'clock-tiles';
+  tiles.textContent = player.tiles + ' pól';
+  card.append(roleEl, name, time, tiles);
+  card.classList.toggle('active', d.active === player.id);
+  return card;
 }
 
-function buildScores(state, highlightWinner) {
-  const wrap = el('div', 'mini-scores');
-  const max = Math.max(...(state.players || []).map((p) => p.score));
-  (state.players || []).forEach((player) => {
-    const win = highlightWinner && player.score === max && max > 0;
-    const box = el('div', 'mini-score' + (win ? ' win' : ''));
-    box.append(el('div', 'n', player.name), el('div', 'v', String(player.score)));
-    wrap.appendChild(box);
+function renderMini() {
+  const s = B.state;
+  const d = s.duel;
+  const sig = d.tileKey + s.tiles.map((t) => t.owner).join(',');
+  if (els.mini.dataset.sig === sig) return;
+  els.mini.dataset.sig = sig;
+  els.mini.style.setProperty('--cols', String(s.cols));
+  els.mini.style.setProperty('--rows', String(s.rows));
+  els.mini.innerHTML = '';
+  s.tiles.forEach((tile) => {
+    const player = s.players.find((p) => p.id === tile.owner);
+    const node = document.createElement('div');
+    node.className = 'floor-tile mini-tile';
+    node.style.setProperty('--pc', player?.color || '#667');
+    if (tile.owner === d.challengerId) node.classList.add('challenger');
+    if (tile.owner === d.defenderId) node.classList.add('defender');
+    if (tile.owner !== d.challengerId && tile.owner !== d.defenderId) node.classList.add('dim');
+    if (tile.r + ':' + tile.c === d.tileKey) node.classList.add('duel-tile');
+    els.mini.appendChild(node);
   });
-  return wrap;
 }
 
-/* ---------------- zegar ---------------- */
-function tick() {
-  const state = S.state;
-  if (!state) return;
-  updateTimerUI();
-  if (state.phase === 'intro') {
-    const node = document.getElementById('countdown');
-    if (node && state.introUntil) node.textContent = String(Math.max(1, Math.ceil((state.introUntil - Date.now()) / 1000)));
+function renderOverlay() {
+  const s = B.state;
+  let html = '';
+  let key = s.phase + '|' + (s.result?.winnerId || '') + '|' + (s.winnerId || '') + '|' + (s.duel?.tileKey || '');
+  if (s.phase === 'duelLoading') {
+    html = '<div class="overlay-kicker">The Floor</div><div class="overlay-title">GOTUJEMY</div><div class="wait-card"><div class="spinner"></div><p>Wczytuję kategorię…</p></div>';
+  } else if (s.phase === 'duelIntro') {
+    const ch = s.players.find((p) => p.id === s.duel?.challengerId);
+    const de = s.players.find((p) => p.id === s.duel?.defenderId);
+    html =
+      '<div class="overlay-kicker">Pojedynek o „' +
+      escapeHtml(s.duel?.category?.name || '') +
+      '”</div><div class="overlay-title">' +
+      escapeHtml(ch?.name || '') +
+      '</div><p class="overlay-sub">vs ' +
+      escapeHtml(de?.name || '') +
+      '</p><div class="countdown" id="big-countdown">3</div>';
+  } else if (s.phase === 'duelEnd' && s.result) {
+    const winner = s.players.find((p) => p.id === s.result.winnerId);
+    const loser = s.players.find((p) => p.id === s.result.loserId);
+    html =
+      '<div class="overlay-kicker">Koniec pojedynku</div><div class="overlay-title">WYGRYWA ' +
+      escapeHtml(winner?.name || '') +
+      '</div><p class="overlay-sub">' +
+      escapeHtml(loser?.name || '') +
+      ' odpada · ' +
+      s.result.gained +
+      ' pól przejętych</p>';
+  } else if (s.phase === 'gameOver') {
+    const winner = s.players.find((p) => p.id === s.winnerId);
+    html =
+      '<div class="overlay-kicker">Cała plansza zdobyta</div><div class="overlay-title">WYGRYWA ' +
+      escapeHtml(winner?.name || '') +
+      '</div><p class="overlay-sub">Ostatni gracz na The Floor.</p>';
   }
-  const connected = Date.now() - S.heard < 6500;
-  els.connDot.classList.toggle('on', connected);
-  els.connDot.classList.toggle('off', !connected);
+  if (key === B.overlayKey) return;
+  B.overlayKey = key;
+  els.overlayCard.innerHTML = html;
+  els.overlay.classList.toggle('hidden', !html);
 }
 
-function updateTimerUI() {
-  const state = S.state;
-  if (!state) return;
-  const total = state.totalMs || (cfg?.turnSeconds || 45) * 1000;
-  let ms = 0;
-  if (state.phase === 'play') ms = state.deadline ? state.deadline - Date.now() : state.remainingMs || 0;
-  else if (state.phase === 'reveal') ms = state.remainingMs || 0;
-  else if (state.phase === 'intro' || state.phase === 'turnEnd') ms = state.remainingMs || 0;
-  ms = Math.max(0, ms);
+function renderAnswerBanner() {
+  const reveal = B.state?.duel?.reveal;
+  if (!reveal?.answer) {
+    els.banner.classList.add('hidden');
+    return;
+  }
+  els.bannerText.textContent = reveal.answer;
+  els.banner.classList.remove('hidden');
+}
 
-  els.timerNum.textContent = state.phase === 'gameOver' ? '0' : fmtTime(ms);
-  els.timer.classList.toggle('low', state.phase === 'play' && ms <= 10000);
-  els.barFill.style.width = Math.max(0, Math.min(100, (ms / total) * 100)) + '%';
-  els.barFill.parentElement.classList.toggle('low', state.phase === 'play' && ms <= 10000);
+/* ---------------- live timers ---------------- */
+function tick() {
+  const s = B.state;
+  const now = Date.now();
+  renderConnection();
+  if (s?.duel) updateClocks();
+  if (s?.phase === 'duelIntro') {
+    const node = document.getElementById('big-countdown');
+    if (node) node.textContent = String(Math.max(1, Math.ceil((s.introUntil - now) / 1000)));
+  }
+  if (s?.duel) {
+    const reveal = s.duel.reveal;
+    els.banner.classList.toggle('hidden', !reveal?.answer);
+    if (reveal?.answer) els.bannerText.textContent = reveal.answer;
+  }
+}
+
+function updateClocks() {
+  const s = B.state;
+  const d = s.duel;
+  if (!d) return;
+  const now = Date.now();
+  const activeLeft = d.deadline ? Math.max(0, d.deadline - now) : d.clocks[d.active];
+  document.querySelectorAll('#duel-players .clock-card').forEach((card) => {
+    const id = card.dataset.player;
+    const ms = id === d.active ? activeLeft : d.clocks[id];
+    const time = card.querySelector('.clock-time');
+    if (time) time.textContent = fmtTime(ms);
+    card.classList.toggle('active', id === d.active);
+    card.classList.toggle('low', id === d.active && ms <= 10000);
+    card.classList.toggle('penalty', d.penalty?.playerId === id && Date.now() - d.penalty.at < 1400);
+  });
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
 boot();

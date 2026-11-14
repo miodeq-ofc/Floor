@@ -1,52 +1,1156 @@
+import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast } from './common.js';
 import {
-  $,
-  fmtTime,
-  getConfig,
-  Bus,
-  loadPack,
-  makeQueue,
-  markSeen,
+  COLORS,
+  EXCLUDED,
+  uid,
   shuffle,
-  toast,
-} from './common.js';
+  pickGrid,
+  buildTiles,
+  frontier,
+  territory,
+  tileAt,
+  keyOf,
+  tileCounts,
+  alive,
+  fmtClock,
+} from './game.js';
 
-const cfg = getConfig();
-if (!cfg || !cfg.categories?.length) {
-  location.replace('index.html');
-  throw new Error('Brak konfiguracji gry — wróć do ustawień.');
-}
-
-const G = {
-  cfg,
-  players: (cfg?.players || [{ name: 'Gracz 1' }, { name: 'Gracz 2' }]).map((p) => ({ name: p.name, score: 0 })),
-  current: 0,
-  turnIndex: 0,
-  turnsTotal: (cfg?.turnsPerPlayer || 2) * 2,
-  phase: 'boot',
-  categoryOrder: [],
-  category: null,
-  pack: null,
-  queue: [],
-  queuePos: 0,
-  q: null,
-  qNumber: 0,
-  deadline: null,
-  remainingMs: (cfg?.turnSeconds || 45) * 1000,
-  totalMs: (cfg?.turnSeconds || 45) * 1000,
+const SETTINGS_KEY = 'floor:settings';
+const H = {
+  phase: 'setup',
+  packs: [],
+  selected: new Set(),
+  players: [],
+  count: 4,
+  names: [],
+  rows: 7,
+  cols: 7,
+  tiles: [],
+  selectedKey: null,
+  turnSeconds: 45,
+  logoBlur: true,
+  challengerId: null,
+  targets: [],
+  duel: null,
+  result: null,
+  winnerId: null,
   introUntil: 0,
-  reveal: null,
-  flash: null,
-  error: null,
+  lastSent: 0,
   boardSeen: 0,
-  token: 0,
   busy: false,
   overlayKey: '',
-  lastStateAt: 0,
+  token: 0,
+  poolQuery: '',
+  namesTimer: 0,
 };
 
-let bus = null;
 const els = {};
+let bus = null;
 
+/* ---------------- start ---------------- */
+function boot() {
+  cacheEls();
+  loadSettings();
+  bind();
+  startClockLoop();
+  bus = new Bus('main', onBus);
+  renderPlayers();
+  renderPool();
+  renderSetup();
+  renderAll();
+  loadIndex()
+    .then((packs) => {
+      H.packs = packs.filter((p) => !EXCLUDED.has(p.id));
+      H.selected = new Set(H.packs.map((p) => p.id));
+      renderPool();
+      updateSetupValidation();
+      sendState();
+    })
+    .catch((error) => {
+      toast(error.message, true, 6000);
+      $('#pool').textContent = 'Nie udało się wczytać bazy kategorii. Otwórz grę przez HTTP.';
+    });
+}
+
+function cacheEls() {
+  els.setupView = $('#setup-view');
+  els.gameView = $('#game-view');
+  els.setupFloor = $('#setup-floor');
+  els.floorPlaceholder = $('#floor-placeholder');
+  els.setupLegend = $('#setup-legend');
+  els.gridInfo = $('#grid-info');
+  els.playerNames = $('#player-names');
+  els.pool = $('#pool');
+  els.poolSearch = $('#pool-search');
+  els.poolCount = $('#pool-count');
+  els.start = $('#start-game');
+  els.shuffle = $('#shuffle-board');
+  els.note = $('#setup-note');
+  els.editor = $('#tile-editor');
+  els.editorTitle = $('#editor-title');
+  els.editorOwner = $('#editor-owner');
+  els.editorSearch = $('#editor-search');
+  els.editorResults = $('#editor-results');
+  els.gameFloor = $('#game-floor');
+  els.gameLegend = $('#game-legend');
+  els.floorStatus = $('#floor-status');
+  els.duelHead = $('#duel-head');
+  els.clockA = $('#clock-a');
+  els.clockB = $('#clock-b');
+  els.actionContent = $('#action-content');
+  els.duelCard = $('#duel-card');
+  els.duelCat = $('#duel-cat');
+  els.duelImg = $('#duel-img');
+  els.duelLoading = $('#duel-loading');
+  els.duelAnswer = $('#duel-answer');
+  els.duelMeta = $('#duel-meta');
+  els.hostPass = $('#host-pass-note');
+  els.controls = $('#duel-controls');
+  els.btnOk = $('#btn-ok');
+  els.btnPass = $('#btn-pass');
+  els.overlay = $('#overlay');
+  els.overlayCard = $('#overlay-card');
+  els.phaseKicker = $('#phase-kicker');
+  els.phaseTitle = $('#phase-title');
+  els.connDot = $('#conn-dot');
+  els.connText = $('#conn-text');
+}
+
+function loadSettings() {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+  } catch {}
+  H.count = Math.min(8, Math.max(2, Number(saved.count) || 4));
+  H.turnSeconds = [30, 45, 60, 75].includes(Number(saved.turnSeconds)) ? Number(saved.turnSeconds) : 45;
+  H.logoBlur = saved.logoBlur !== false;
+  H.names = Array.from({ length: 8 }, (_, i) => (Array.isArray(saved.names) && saved.names[i]) || 'Gracz ' + (i + 1));
+  buildPlayers();
+  $('#blur-logos').checked = H.logoBlur;
+  document.querySelectorAll('#count-seg button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.count) === H.count)));
+  document.querySelectorAll('#clock-seg button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.sec) === H.turnSeconds)));
+}
+
+function saveSettings() {
+  try {
+    localStorage.setItem(
+      SETTINGS_KEY,
+      JSON.stringify({ count: H.count, turnSeconds: H.turnSeconds, logoBlur: H.logoBlur, names: H.names })
+    );
+  } catch {}
+}
+
+function buildPlayers() {
+  H.players = Array.from({ length: H.count }, (_, i) => ({
+    id: 'p' + i,
+    name: H.names[i] || 'Gracz ' + (i + 1),
+    color: COLORS[i % COLORS.length],
+    alive: true,
+  }));
+}
+
+/* ---------------- bind ---------------- */
+function bind() {
+  $('#count-seg').addEventListener('click', (event) => {
+    const btn = event.target.closest('button[data-count]');
+    if (!btn) return;
+    const next = Number(btn.dataset.count);
+    if (next === H.count) return;
+    H.count = next;
+    document.querySelectorAll('#count-seg button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.count) === H.count)));
+    buildPlayers();
+    H.tiles = [];
+    H.selectedKey = null;
+    renderPlayers();
+    renderSetup();
+    renderAll();
+    updateSetupValidation();
+    sendState();
+    saveSettings();
+  });
+
+  $('#clock-seg').addEventListener('click', (event) => {
+    const btn = event.target.closest('button[data-sec]');
+    if (!btn) return;
+    H.turnSeconds = Number(btn.dataset.sec);
+    document.querySelectorAll('#clock-seg button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.sec) === H.turnSeconds)));
+    saveSettings();
+  });
+
+  $('#blur-logos').addEventListener('change', (event) => {
+    H.logoBlur = event.target.checked;
+    saveSettings();
+    sendState();
+  });
+
+  els.poolSearch.addEventListener('input', () => {
+    H.poolQuery = els.poolSearch.value.trim();
+    renderPool();
+  });
+
+  $('#pool-all').addEventListener('click', () => {
+    H.selected = new Set(H.packs.map((p) => p.id));
+    renderPool();
+    updateSetupValidation();
+  });
+  $('#pool-none').addEventListener('click', () => {
+    H.selected.clear();
+    renderPool();
+    updateSetupValidation();
+  });
+
+  els.shuffle.addEventListener('click', shuffleBoard);
+  els.start.addEventListener('click', startGame);
+  $('#open-board').addEventListener('click', openBoard);
+  $('#fullscreen').addEventListener('click', toggleFullscreen);
+  $('#editor-close').addEventListener('click', () => {
+    H.selectedKey = null;
+    renderSetup();
+  });
+  els.editorOwner.addEventListener('change', () => {
+    const tile = selectedTile();
+    if (!tile) return;
+    tile.owner = els.editorOwner.value;
+    renderSetup();
+    renderGame();
+    sendState();
+    updateSetupValidation();
+  });
+  els.editorSearch.addEventListener('input', renderEditorResults);
+  els.setupFloor.addEventListener('click', (event) => {
+    const cell = event.target.closest('.floor-tile');
+    if (!cell) return;
+    H.selectedKey = cell.dataset.key;
+    renderSetup();
+  });
+  els.gameFloor.addEventListener('click', (event) => {
+    if (H.phase !== 'board') return;
+    const cell = event.target.closest('.floor-tile');
+    if (!cell) return;
+    if (!H.targets.includes(cell.dataset.key)) return;
+    const tile = H.tiles.find((t) => keyOf(t) === cell.dataset.key);
+    if (tile) startDuel(tile);
+  });
+  els.btnOk.addEventListener('click', correct);
+  els.btnPass.addEventListener('click', pass);
+  document.addEventListener('keydown', (event) => {
+    if (event.repeat) return;
+    if (event.target.matches('input, textarea, select')) return;
+    const key = event.key.toLowerCase();
+    if (H.phase === 'duel' && (key === 'd' || key === 'enter' || key === 'arrowright')) {
+      event.preventDefault();
+      correct();
+    } else if (H.phase === 'duel' && (key === 'p' || key === 'arrowleft' || key === ' ')) {
+      event.preventDefault();
+      pass();
+    }
+  });
+  window.addEventListener('beforeunload', () => bus?.close());
+}
+
+/* ---------------- setup ---------------- */
+function renderPlayers() {
+  els.playerNames.innerHTML = '';
+  for (let i = 0; i < H.count; i++) {
+    const row = document.createElement('label');
+    row.className = 'player-name-row';
+    const dot = document.createElement('span');
+    dot.className = 'player-dot';
+    dot.style.background = COLORS[i % COLORS.length];
+    const input = document.createElement('input');
+    input.className = 'input';
+    input.maxLength = 18;
+    input.value = H.names[i] || 'Gracz ' + (i + 1);
+    input.dataset.index = String(i);
+    input.addEventListener('input', () => {
+      H.names[i] = input.value;
+      H.players[i].name = input.value.trim() || 'Gracz ' + (i + 1);
+      saveSettings();
+      clearTimeout(H.namesTimer);
+      H.namesTimer = setTimeout(() => {
+        renderSetupLegend();
+        renderGameLegend();
+        renderPlayerList();
+        sendState();
+      }, 220);
+    });
+    row.append(dot, input);
+    els.playerNames.appendChild(row);
+  }
+}
+
+function renderPool() {
+  if (!H.packs.length) return;
+  const query = H.poolQuery.toLowerCase();
+  const list = H.packs.filter((p) => !query || (p.name + ' ' + p.group).toLowerCase().includes(query));
+  els.pool.innerHTML = '';
+  list.forEach((pack) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'pool-chip';
+    btn.setAttribute('aria-pressed', String(H.selected.has(pack.id)));
+    btn.dataset.id = pack.id;
+    const icon = document.createElement('span');
+    icon.className = 'pool-emoji';
+    icon.textContent = pack.icon || '🎯';
+    const body = document.createElement('span');
+    body.className = 'pool-body';
+    const name = document.createElement('span');
+    name.className = 'pool-name';
+    name.textContent = pack.name;
+    const meta = document.createElement('span');
+    meta.className = 'pool-meta';
+    meta.textContent = pack.group + ' · ' + pack.count + ' pytań';
+    body.append(name, meta);
+    btn.append(icon, body);
+    btn.addEventListener('click', () => {
+      if (H.selected.has(pack.id)) H.selected.delete(pack.id);
+      else H.selected.add(pack.id);
+      btn.setAttribute('aria-pressed', String(H.selected.has(pack.id)));
+      updateSetupValidation();
+    });
+    els.pool.appendChild(btn);
+  });
+  if (!list.length) {
+    els.pool.textContent = 'Brak kategorii dla „' + H.poolQuery + '”.';
+  }
+  updatePoolCount();
+}
+
+function requiredCats() {
+  return pickGrid(H.count).total;
+}
+
+function updatePoolCount() {
+  els.poolCount.textContent = 'wybrano ' + H.selected.size + ' · potrzeba ' + requiredCats();
+}
+
+function renderSetup() {
+  const has = H.tiles.length > 0;
+  els.floorPlaceholder.hidden = has;
+  els.setupFloor.hidden = !has;
+  if (!has) {
+    els.setupFloor.innerHTML = '';
+    els.setupLegend.innerHTML = '';
+    els.gridInfo.textContent = 'jeszcze nie wylosowana';
+    els.editor.hidden = true;
+    return;
+  }
+  els.setupFloor.style.setProperty('--cols', String(H.cols));
+  els.setupFloor.style.setProperty('--rows', String(H.rows));
+  els.setupFloor.innerHTML = '';
+  H.tiles.forEach((tile) => {
+    els.setupFloor.appendChild(makeTile(tile, { setup: true }));
+  });
+  const counts = H.players.map((p) => territory(H.tiles, p.id).length);
+  const equal = counts.every((n) => n === counts[0]);
+  els.gridInfo.textContent = H.cols + ' × ' + H.rows + ' · ' + (equal ? counts[0] + ' pól na gracza' : H.tiles.length + ' pól');
+  renderSetupLegend();
+  renderEditor();
+  updatePoolCount();
+  updateSetupValidation();
+}
+
+function makeTile(tile, opts = {}) {
+  const player = H.players.find((p) => p.id === tile.owner);
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'floor-tile';
+  btn.dataset.key = keyOf(tile);
+  btn.style.setProperty('--pc', player?.color || '#667');
+  btn.title = tile.cat.name + ' · ' + (player?.name || '');
+  const cat = document.createElement('span');
+  cat.className = 'tile-cat';
+  cat.textContent = tile.cat.name;
+  const emoji = document.createElement('span');
+  emoji.className = 'tile-emoji';
+  emoji.textContent = tile.cat.icon || '🎯';
+  const dot = document.createElement('span');
+  dot.className = 'tile-dot';
+  btn.append(emoji, cat, dot);
+  if (opts.setup) {
+    if (H.selectedKey === keyOf(tile)) btn.classList.add('selected');
+    return btn;
+  }
+  if (H.challengerId === tile.owner) btn.classList.add('challenger');
+  if (H.phase === 'board' && H.targets.includes(keyOf(tile))) {
+    btn.classList.add('target');
+    const attack = document.createElement('span');
+    attack.className = 'tile-attack';
+    attack.textContent = '⚔';
+    btn.appendChild(attack);
+  }
+  if (H.duel) {
+    const isA = tile.owner === H.duel.challengerId;
+    const isB = tile.owner === H.duel.defenderId;
+    if (isA) btn.classList.add('challenger');
+    if (isB) btn.classList.add('defender');
+    if (!isA && !isB) btn.classList.add('dim');
+    if (keyOf(tile) === H.duel.tileKey) btn.classList.add('duel-tile');
+  }
+  if (H.phase === 'duelEnd' || H.phase === 'gameOver') {
+    if (H.result && tile.owner === H.result.winnerId) btn.classList.add('challenger');
+  }
+  return btn;
+}
+
+function renderSetupLegend() {
+  els.setupLegend.innerHTML = '';
+  H.players.forEach((player) => {
+    const count = territory(H.tiles, player.id).length;
+    const chip = document.createElement('span');
+    chip.className = 'legend-chip';
+    chip.style.setProperty('--pc', player.color);
+    chip.textContent = player.name + ' · ' + count + ' pól';
+    els.setupLegend.appendChild(chip);
+  });
+}
+
+function renderEditor() {
+  const tile = selectedTile();
+  if (!tile) {
+    els.editor.hidden = true;
+    return;
+  }
+  els.editor.hidden = false;
+  els.editorTitle.textContent = 'Pole ' + (tile.r + 1) + ',' + (tile.c + 1) + ' · ' + tile.cat.name;
+  els.editorOwner.innerHTML = '';
+  H.players.forEach((player) => {
+    const option = document.createElement('option');
+    option.value = player.id;
+    option.textContent = player.name;
+    option.selected = player.id === tile.owner;
+    els.editorOwner.appendChild(option);
+  });
+  renderEditorResults();
+}
+
+function renderEditorResults() {
+  const tile = selectedTile();
+  if (!tile) return;
+  const query = els.editorSearch.value.trim().toLowerCase();
+  const results = H.packs
+    .filter((p) => !query || (p.name + ' ' + p.group).toLowerCase().includes(query))
+    .slice(0, 10);
+  els.editorResults.innerHTML = '';
+  results.forEach((pack) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'editor-result';
+    btn.setAttribute('aria-pressed', String(pack.id === tile.cat.id));
+    const name = document.createElement('span');
+    name.textContent = (pack.icon || '🎯') + ' ' + pack.name;
+    const meta = document.createElement('small');
+    meta.textContent = pack.group + ' · ' + pack.count;
+    btn.append(name, meta);
+    btn.addEventListener('click', () => {
+      tile.cat = { ...pack };
+      renderSetup();
+      sendState();
+    });
+    els.editorResults.appendChild(btn);
+  });
+}
+
+function selectedTile() {
+  if (!H.selectedKey) return null;
+  return H.tiles.find((t) => keyOf(t) === H.selectedKey) || null;
+}
+
+function updateSetupValidation() {
+  if (!H.packs.length) return;
+  const need = requiredCats();
+  const poolOk = H.selected.size >= need;
+  const hasTiles = H.tiles.length > 0;
+  const allOwned = hasTiles && H.players.every((p) => territory(H.tiles, p.id).length > 0);
+  els.shuffle.disabled = !poolOk;
+  els.start.disabled = !hasTiles || !allOwned;
+  if (!poolOk) {
+    els.note.textContent = 'Za mało kategorii w puli: potrzebujesz ' + need + ', masz ' + H.selected.size + '.';
+    els.note.classList.add('warn');
+  } else if (!hasTiles) {
+    els.note.textContent = 'Kliknij „Losuj planszę”. Dobiorę wymiary tak, żeby każde pole podzieliło się równo.';
+    els.note.classList.remove('warn');
+  } else if (!allOwned) {
+    els.note.textContent = 'Każdy gracz musi mieć co najmniej jedno pole. Popraw przypisanie w edytorze.';
+    els.note.classList.add('warn');
+  } else {
+    els.note.textContent = 'Gotowe. Możesz jeszcze kliknąć pole i zmienić właściciela lub kategorię.';
+    els.note.classList.remove('warn');
+  }
+  updatePoolCount();
+}
+
+function shuffleBoard() {
+  const grid = pickGrid(H.count);
+  if (H.selected.size < grid.total) {
+    toast('Za mało kategorii w puli: potrzebujesz ' + grid.total + ', masz ' + H.selected.size + '.', true);
+    return;
+  }
+  H.rows = grid.rows;
+  H.cols = grid.cols;
+  H.players.forEach((p) => (p.alive = true));
+  H.selectedKey = null;
+  try {
+    H.tiles = buildTiles(
+      H.players,
+      H.packs.filter((p) => H.selected.has(p.id)),
+      H.rows,
+      H.cols
+    );
+  } catch (error) {
+    toast(error.message, true);
+    return;
+  }
+  renderSetup();
+  renderAll();
+  sendState();
+  toast('Losowanie gotowe: ' + H.cols + ' × ' + H.rows + ', po ' + grid.per + ' pól na gracza.');
+}
+
+function startGame() {
+  if (!H.tiles.length) {
+    toast('Najpierw wylosuj planszę.', true);
+    return;
+  }
+  const missing = H.players.find((p) => territory(H.tiles, p.id).length === 0);
+  if (missing) {
+    toast('Gracz „' + missing.name + '” nie ma żadnego pola.', true);
+    return;
+  }
+  H.phase = 'board';
+  H.result = null;
+  H.winnerId = null;
+  H.duel = null;
+  H.selectedKey = null;
+  H.challengerId = null;
+  H.targets = [];
+  H.overlayKey = '';
+  chooseChallenger();
+  renderAll();
+  sendState();
+}
+
+/* ---------------- game / duel ---------------- */
+function chooseChallenger() {
+  if (H.phase === 'gameOver') return;
+  const candidates = alive(H.players).filter((p) => frontier(H.tiles, p.id).length > 0);
+  if (!candidates.length) {
+    finishGame();
+    return;
+  }
+  H.challengerId = candidates[Math.floor(Math.random() * candidates.length)].id;
+  H.targets = frontier(H.tiles, H.challengerId).map(keyOf);
+  H.phase = 'board';
+  H.duel = null;
+  renderAll();
+  sendState();
+}
+
+async function startDuel(tile) {
+  if (H.phase !== 'board' || !H.challengerId) return;
+  if (tile.owner === H.challengerId) return;
+  const token = ++H.token;
+  const challenger = H.players.find((p) => p.id === H.challengerId);
+  const defender = H.players.find((p) => p.id === tile.owner);
+  if (!challenger || !defender) return;
+
+  H.phase = 'duelLoading';
+  H.targets = [];
+  H.duel = {
+    tileKey: keyOf(tile),
+    challengerId: challenger.id,
+    defenderId: defender.id,
+    category: { ...tile.cat },
+    clocks: { [challenger.id]: H.turnSeconds * 1000, [defender.id]: H.turnSeconds * 1000 },
+    active: challenger.id,
+    deadline: null,
+    q: null,
+    queue: [],
+    queuePos: 0,
+    pack: null,
+    qNumber: 0,
+    reveal: null,
+    penalty: null,
+  };
+  renderAll();
+  sendState();
+
+  try {
+    const pack = await loadPack(tile.cat);
+    if (token !== H.token) return;
+    H.duel.pack = pack;
+    const next = makeQueue(pack);
+    H.duel.queue = next.queue;
+    H.duel.queuePos = 0;
+    H.phase = 'duelIntro';
+    H.introUntil = Date.now() + 3000;
+    renderAll();
+    sendState();
+    setTimeout(() => {
+      if (token === H.token && H.phase === 'duelIntro') beginDuel();
+    }, 3000);
+  } catch (error) {
+    if (token !== H.token) return;
+    H.phase = 'board';
+    H.duel = null;
+    renderAll();
+    sendState();
+    toast('Nie udało się wczytać kategorii: ' + error.message, true);
+  }
+}
+
+function beginDuel() {
+  if (!H.duel || H.phase !== 'duelIntro') return;
+  H.phase = 'duel';
+  H.introUntil = 0;
+  advanceQuestion();
+  H.duel.deadline = Date.now() + H.duel.clocks[H.duel.active];
+  H.busy = false;
+  renderAll();
+  sendState();
+}
+
+function advanceQuestion() {
+  if (!H.duel?.pack) return;
+  if (H.duel.queuePos >= H.duel.queue.length) {
+    const next = makeQueue(H.duel.pack);
+    H.duel.queue = next.queue;
+    H.duel.queuePos = 0;
+  }
+  H.duel.q = H.duel.queue[H.duel.queuePos++] || null;
+  if (!H.duel.q) return;
+  H.duel.qNumber += 1;
+  markSeen(H.duel.pack.id, H.duel.q.a);
+  preloadNext();
+}
+
+function preloadNext() {
+  const next = H.duel?.queue[H.duel.queuePos];
+  if (next?.img) {
+    const img = new Image();
+    img.src = next.img;
+  }
+}
+
+function correct() {
+  if (H.phase !== 'duel' || H.busy || !H.duel?.q || H.duel.reveal) return;
+  const d = H.duel;
+  const left = d.deadline ? d.deadline - Date.now() : d.clocks[d.active];
+  if (left <= 0) {
+    endDuel(d.active);
+    return;
+  }
+  d.clocks[d.active] = left;
+  const other = d.active === d.challengerId ? d.defenderId : d.challengerId;
+  d.active = other;
+  d.deadline = Date.now() + d.clocks[other];
+  d.reveal = null;
+  d.penalty = null;
+  advanceQuestion();
+  H.busy = true;
+  setTimeout(() => (H.busy = false), 350);
+  renderAll();
+  sendState();
+}
+
+function pass() {
+  if (H.phase !== 'duel' || H.busy || !H.duel?.q || H.duel.reveal) return;
+  const d = H.duel;
+  const left = d.deadline ? d.deadline - Date.now() : d.clocks[d.active];
+  if (left <= 0) {
+    endDuel(d.active);
+    return;
+  }
+  d.clocks[d.active] = Math.max(0, left - 3000);
+  d.deadline = Date.now() + d.clocks[d.active];
+  d.penalty = { playerId: d.active, at: Date.now() };
+  d.reveal = { answer: d.q.a, type: 'pass', until: Date.now() + 1400, key: Date.now() };
+  if (d.clocks[d.active] <= 0) {
+    endDuel(d.active);
+    return;
+  }
+  H.busy = true;
+  renderAll();
+  sendState();
+  const revealKey = d.reveal.key;
+  setTimeout(() => {
+    if (H.phase !== 'duel' || !H.duel || H.duel.reveal?.key !== revealKey) return;
+    H.duel.reveal = null;
+    H.duel.penalty = null;
+    advanceQuestion();
+    H.busy = false;
+    renderAll();
+    sendState();
+  }, 1400);
+}
+
+function endDuel(loserId) {
+  if (!H.duel || !['duel', 'duelIntro', 'duelLoading'].includes(H.phase)) return;
+  const d = H.duel;
+  const loser = H.players.find((p) => p.id === loserId);
+  const winner = H.players.find((p) => p.id === (loserId === d.challengerId ? d.defenderId : d.challengerId));
+  if (!loser || !winner) return;
+
+  const loserTiles = territory(H.tiles, loser.id);
+  loserTiles.forEach((tile) => (tile.owner = winner.id));
+  loser.alive = false;
+  const gained = loserTiles.length;
+  H.result = {
+    winnerId: winner.id,
+    loserId: loser.id,
+    gained,
+    category: { name: d.category.name, icon: d.category.icon },
+  };
+  H.challengerId = winner.id;
+  H.targets = [];
+  H.duel = null;
+  H.busy = false;
+  H.phase = 'duelEnd';
+  H.overlayKey = '';
+  if (alive(H.players).length <= 1) {
+    H.phase = 'gameOver';
+    H.winnerId = winner.id;
+  }
+  renderAll();
+  sendState();
+}
+
+function afterDuel() {
+  if (H.phase === 'gameOver') return;
+  H.result = null;
+  H.duel = null;
+  H.phase = 'board';
+  const targets = frontier(H.tiles, H.challengerId);
+  if (!targets.length) {
+    chooseChallenger();
+    return;
+  }
+  H.targets = targets.map(keyOf);
+  H.overlayKey = '';
+  renderAll();
+  sendState();
+}
+
+function finishGame() {
+  const remaining = alive(H.players);
+  H.phase = 'gameOver';
+  H.winnerId = remaining[0]?.id || H.players[0]?.id;
+  H.result = null;
+  H.duel = null;
+  H.targets = [];
+  renderAll();
+  sendState();
+}
+
+/* ---------------- UI render ---------------- */
+function renderAll() {
+  const inSetup = H.phase === 'setup';
+  els.setupView.hidden = !inSetup;
+  els.gameView.hidden = inSetup;
+  els.controls.hidden = H.phase !== 'duel';
+  els.duelHead.hidden = !H.duel;
+  els.duelCard.hidden = !H.duel;
+  renderHeader();
+  if (inSetup) {
+    renderSetup();
+  } else {
+    renderGame();
+  }
+  renderOverlay();
+}
+
+function renderHeader() {
+  const labels = {
+    setup: ['KONFIGURACJA', 'Ustaw grę'],
+    board: ['RUNDA POJEDYNKÓW', 'Wybór pola'],
+    duelLoading: ['POJEDYNEK', 'Wczytywanie'],
+    duelIntro: ['POJEDYNEK', 'Za chwilę'],
+    duel: ['POJEDYNEK', 'Walka na zegary'],
+    duelEnd: ['POJEDYNEK', 'Koniec starcia'],
+    gameOver: ['KONIEC GRY', 'Zwycięzca'],
+  };
+  const pair = labels[H.phase] || labels.setup;
+  els.phaseKicker.textContent = pair[0];
+  els.phaseTitle.textContent = pair[1];
+}
+
+function renderGame() {
+  els.gameFloor.style.setProperty('--cols', String(H.cols));
+  els.gameFloor.style.setProperty('--rows', String(H.rows));
+  els.gameFloor.innerHTML = '';
+  if (!H.tiles.length) return;
+  H.tiles.forEach((tile) => els.gameFloor.appendChild(makeTile(tile)));
+  renderGameLegend();
+  renderStatus();
+  renderAction();
+  renderDuelCard();
+  renderClocks(true);
+}
+
+function renderGameLegend() {
+  if (!els.gameLegend) return;
+  els.gameLegend.innerHTML = '';
+  const counts = tileCounts(H.tiles);
+  H.players.forEach((player) => {
+    if (player.alive === false) return;
+    const chip = document.createElement('span');
+    chip.className = 'legend-chip';
+    chip.style.setProperty('--pc', player.color);
+    chip.textContent = player.name + ' · ' + (counts[player.id] || 0) + ' pól';
+    els.gameLegend.appendChild(chip);
+  });
+}
+
+function renderStatus() {
+  if (H.phase === 'duel' || H.phase === 'duelIntro' || H.phase === 'duelLoading') {
+    const ch = H.players.find((p) => p.id === H.duel?.challengerId);
+    const de = H.players.find((p) => p.id === H.duel?.defenderId);
+    els.floorStatus.textContent = ch && de ? ch.name + ' vs ' + de.name + ' · ' + (H.duel?.category?.name || '') : 'Pojedynek';
+  } else if (H.phase === 'board') {
+    const ch = H.players.find((p) => p.id === H.challengerId);
+    els.floorStatus.textContent = ch ? 'Challenger: ' + ch.name + ' — wybierz sąsiednie pole' : 'Losowanie challengera';
+  } else if (H.phase === 'gameOver') {
+    const w = H.players.find((p) => p.id === H.winnerId);
+    els.floorStatus.textContent = w ? 'Wygrywa ' + w.name : 'Koniec gry';
+  } else {
+    els.floorStatus.textContent = '—';
+  }
+}
+
+function renderAction() {
+  const box = els.actionContent;
+  box.innerHTML = '';
+  if (H.phase === 'board') {
+    const ch = H.players.find((p) => p.id === H.challengerId);
+    if (!ch) {
+      const btn = el('button', 'btn btn-primary btn-lg wide', '🎲 Losuj challengera');
+      btn.addEventListener('click', chooseChallenger);
+      box.append(el('div', 'eyebrow', 'Losowanie'), el('h3', 'action-title', 'Kto atakuje?'), btn);
+      renderPlayerList();
+      return;
+    }
+    box.append(
+      el('div', 'eyebrow', 'Challenger'),
+      el('h3', 'action-title', ch.name),
+      el('p', 'action-text', 'Kliknij podświetlone pole sąsiada. Pojedynek odbędzie się w kategorii tego pola.')
+    );
+    const reroll = el('button', 'btn wide', '🎲 Losuj innego');
+    reroll.addEventListener('click', chooseChallenger);
+    box.append(reroll);
+    renderPlayerList();
+    return;
+  }
+
+  if (H.phase === 'duelLoading' || H.phase === 'duelIntro' || H.phase === 'duel') {
+    const d = H.duel;
+    const ch = H.players.find((p) => p.id === d?.challengerId);
+    const de = H.players.find((p) => p.id === d?.defenderId);
+    box.append(
+      el('div', 'eyebrow', 'Pojedynek'),
+      el('h3', 'action-title', (ch?.name || '?') + ' vs ' + (de?.name || '?')),
+      el('p', 'action-text', 'Kategoria: ' + (d?.category?.name || '—') + '. Zła odpowiedź? Nic nie klikaj — zegar leci. PASS = −3 s i następne pytanie.')
+    );
+    const note = el('div', 'duel-hint');
+    note.textContent = 'Dobra odpowiedź przełącza kontrolę i zegar na przeciwnika.';
+    box.appendChild(note);
+    renderPlayerList();
+    return;
+  }
+
+  if (H.phase === 'duelEnd' && H.result) {
+    const winner = H.players.find((p) => p.id === H.result.winnerId);
+    const loser = H.players.find((p) => p.id === H.result.loserId);
+    box.append(
+      el('div', 'eyebrow', 'Koniec pojedynku'),
+      el('h3', 'action-title', 'Wygrywa ' + (winner?.name || '')),
+      el(
+        'p',
+        'action-text',
+        (loser?.name || '') + ' odpada. ' + (winner?.name || '') + ' przejmuje ' + H.result.gained + ' pól i kategorię „' + H.result.category.name + '”.'
+      )
+    );
+    const cont = el('button', 'btn btn-primary wide', '▶ Atakuj dalej');
+    cont.addEventListener('click', afterDuel);
+    const fresh = el('button', 'btn wide', '🎲 Losuj nowego challengera');
+    fresh.addEventListener('click', () => {
+      H.result = null;
+      chooseChallenger();
+    });
+    box.append(cont, fresh);
+    renderPlayerList();
+    return;
+  }
+
+  if (H.phase === 'gameOver') {
+    const winner = H.players.find((p) => p.id === H.winnerId);
+    box.append(
+      el('div', 'eyebrow', 'Koniec gry'),
+      el('h3', 'action-title', (winner?.name || '') + ' ma całą planszę'),
+      el('p', 'action-text', 'Wszystkie pola należą do zwycięzcy. Możesz zagrać jeszcze raz z tymi samymi ustawieniami.')
+    );
+    const again = el('button', 'btn btn-primary wide', '↻ Nowa gra');
+    again.addEventListener('click', resetToSetup);
+    box.appendChild(again);
+    renderPlayerList();
+  }
+}
+
+function renderPlayerList() {
+  if (!H.players.length) return;
+  const counts = tileCounts(H.tiles);
+  const wrap = el('div', 'player-mini-list');
+  H.players.forEach((player) => {
+    const row = el('div', 'player-mini' + (player.alive === false ? ' out' : '') + (player.id === H.challengerId ? ' active' : ''));
+    row.style.setProperty('--pc', player.color);
+    row.append(
+      el('span', 'mini-dot'),
+      el('span', 'mini-name', player.name),
+      el('span', 'mini-tiles', (counts[player.id] || 0) + ' pól')
+    );
+    wrap.appendChild(row);
+  });
+  els.actionContent.appendChild(wrap);
+}
+
+function renderDuelCard() {
+  if (!H.duel) return;
+  const d = H.duel;
+  els.duelCat.textContent = (d.category.icon || '') + ' ' + d.category.name;
+  const q = d.q;
+  if (!q) {
+    els.duelImg.hidden = true;
+    els.duelLoading.hidden = false;
+    els.duelAnswer.textContent = '—';
+    els.hostPass.hidden = true;
+    return;
+  }
+  if (els.duelImg.dataset.key !== q.img) {
+    els.duelImg.dataset.key = q.img;
+    els.duelImg.hidden = true;
+    els.duelLoading.hidden = false;
+    els.duelImg.onload = () => {
+      els.duelLoading.hidden = true;
+      els.duelImg.hidden = false;
+    };
+    els.duelImg.onerror = () => {
+      els.duelLoading.hidden = true;
+    };
+    els.duelImg.src = q.img;
+  }
+  els.duelImg.parentElement.classList.toggle('logo', d.category.id === 'loga-firm');
+  els.duelImg.classList.toggle('blurred', d.category.id === 'loga-firm' && H.logoBlur);
+  els.duelAnswer.textContent = q.a;
+  els.duelAnswer.style.fontSize = q.a.length > 40 ? '28px' : q.a.length > 26 ? '38px' : '';
+  els.duelMeta.textContent = 'Pytanie ' + d.qNumber + ' · pula ' + Math.max(0, d.queue.length - d.queuePos);
+  if (d.reveal?.answer) {
+    els.hostPass.hidden = false;
+    els.hostPass.textContent = 'PASS · poprzednia odpowiedź: ' + d.reveal.answer;
+  } else {
+    els.hostPass.hidden = true;
+  }
+}
+
+function renderClocks(rebuild = false) {
+  if (!H.duel) return;
+  const d = H.duel;
+  const ch = H.players.find((p) => p.id === d.challengerId);
+  const de = H.players.find((p) => p.id === d.defenderId);
+  if (!ch || !de) return;
+  if (rebuild || els.clockA.dataset.duel !== String(d.challengerId + d.defenderId + d.tileKey)) {
+    els.clockA.dataset.duel = d.challengerId + d.defenderId + d.tileKey;
+    els.clockB.dataset.duel = d.challengerId + d.defenderId + d.tileKey;
+    fillClock(els.clockA, ch, 'CHALLENGER');
+    fillClock(els.clockB, de, 'OBROŃCA');
+  }
+  updateClockValues();
+}
+
+function fillClock(card, player, role) {
+  card.innerHTML = '';
+  card.style.setProperty('--pc', player.color);
+  card.append(
+    el('div', 'clock-role', role),
+    el('div', 'clock-name', player.name),
+    el('div', 'clock-time', '—'),
+    el('div', 'clock-tiles', (tileCounts(H.tiles)[player.id] || 0) + ' pól')
+  );
+  card.classList.toggle('active', H.duel.active === player.id);
+  card.dataset.player = player.id;
+}
+
+function updateClockValues() {
+  if (!H.duel) return;
+  const d = H.duel;
+  const now = Date.now();
+  const activeLeft = d.deadline ? Math.max(0, d.deadline - now) : d.clocks[d.active];
+  [els.clockA, els.clockB].forEach((card) => {
+    const id = card.dataset.player;
+    if (!id) return;
+    const ms = id === d.active ? activeLeft : d.clocks[id];
+    card.querySelector('.clock-time').textContent = fmtClock(ms);
+    card.classList.toggle('active', id === d.active);
+    card.classList.toggle('low', id === d.active && ms <= 10000);
+    card.classList.toggle('penalty', d.penalty?.playerId === id && Date.now() - d.penalty.at < 1400);
+  });
+}
+
+function renderOverlay() {
+  const key = H.phase + '|' + (H.result ? H.result.winnerId + H.result.loserId : '') + '|' + (H.duel?.tileKey || '') + '|' + (H.winnerId || '');
+  if (key === H.overlayKey) return;
+  H.overlayKey = key;
+  const card = els.overlayCard;
+  card.innerHTML = '';
+
+  if (H.phase === 'duelLoading') {
+    els.overlay.classList.remove('hidden');
+    card.append(el('div', 'overlay-kicker', 'The Floor'), el('div', 'overlay-title', 'GOTUJEMY'), spinnerBlock('Wczytuję kategorię…'));
+    return;
+  }
+  if (H.phase === 'duelIntro') {
+    els.overlay.classList.remove('hidden');
+    const ch = H.players.find((p) => p.id === H.duel?.challengerId);
+    const de = H.players.find((p) => p.id === H.duel?.defenderId);
+    card.append(
+      el('div', 'overlay-kicker', 'Pojedynek o „' + (H.duel?.category?.name || '') + '”'),
+      el('div', 'overlay-title', ch?.name || ''),
+      el('p', 'overlay-sub', 'vs ' + (de?.name || '')),
+      el('div', 'countdown', '3')
+    );
+    return;
+  }
+  if (H.phase === 'duelEnd' && H.result) {
+    els.overlay.classList.remove('hidden');
+    const winner = H.players.find((p) => p.id === H.result.winnerId);
+    const loser = H.players.find((p) => p.id === H.result.loserId);
+    card.append(
+      el('div', 'overlay-kicker', 'Koniec pojedynku'),
+      el('div', 'overlay-title', 'WYGRYWA ' + (winner?.name || '')),
+      el('p', 'overlay-sub', (loser?.name || '') + ' odpada · ' + H.result.gained + ' pól przejętych')
+    );
+    const next = el('button', 'btn btn-primary btn-lg', '▶ Dalej');
+    next.addEventListener('click', afterDuel);
+    card.appendChild(next);
+    return;
+  }
+  if (H.phase === 'gameOver') {
+    els.overlay.classList.remove('hidden');
+    const winner = H.players.find((p) => p.id === H.winnerId);
+    card.append(
+      el('div', 'overlay-kicker', 'Cała plansza zdobyta'),
+      el('div', 'overlay-title', 'WYGRYWA ' + (winner?.name || '')),
+      el('p', 'overlay-sub', 'Ostatni gracz na The Floor.')
+    );
+    const again = el('button', 'btn btn-primary btn-lg', '↻ Nowa gra');
+    again.addEventListener('click', resetToSetup);
+    card.appendChild(again);
+    return;
+  }
+
+  els.overlay.classList.add('hidden');
+  card.innerHTML = '';
+}
+
+function resetToSetup() {
+  H.phase = 'setup';
+  H.tiles = [];
+  H.duel = null;
+  H.result = null;
+  H.winnerId = null;
+  H.challengerId = null;
+  H.targets = [];
+  H.players.forEach((p) => (p.alive = true));
+  H.overlayKey = '';
+  renderAll();
+  sendState();
+}
+
+/* ---------------- tick ---------------- */
+function startClockLoop() {
+  setInterval(() => {
+    if (H.phase === 'duel' && H.duel?.deadline) {
+      const left = H.duel.deadline - Date.now();
+      H.duel.clocks[H.duel.active] = Math.max(0, left);
+      updateClockValues();
+      if (left <= 0) endDuel(H.duel.active);
+    } else {
+      updateClockValues();
+    }
+
+    if (H.phase === 'duelIntro') {
+      const node = els.overlayCard.querySelector('.countdown');
+      if (node) node.textContent = String(Math.max(1, Math.ceil((H.introUntil - Date.now()) / 1000)));
+    }
+
+    const connected = Date.now() - H.boardSeen < 6500;
+    els.connDot.classList.toggle('on', connected);
+    els.connDot.classList.toggle('off', !connected);
+    els.connText.textContent = connected ? 'Ekran graczy połączony' : 'Brak ekranu graczy';
+
+    if (Date.now() - H.lastSent > 600 && H.phase !== 'setup') sendState();
+  }, 100);
+}
+
+/* ---------------- sync ---------------- */
+function onBus(message) {
+  if (message.t === 'hello') {
+    H.boardSeen = Date.now();
+    sendState();
+  }
+}
+
+function publicState() {
+  const counts = tileCounts(H.tiles);
+  const d = H.duel;
+  return {
+    phase: H.phase,
+    rows: H.rows,
+    cols: H.cols,
+    players: H.players.map((p) => ({
+      id: p.id,
+      name: p.name,
+      color: p.color,
+      alive: p.alive !== false,
+      tiles: counts[p.id] || 0,
+    })),
+    tiles: H.tiles.map((t) => ({
+      r: t.r,
+      c: t.c,
+      owner: t.owner,
+      cat: { id: t.cat.id, name: t.cat.name, group: t.cat.group, icon: t.cat.icon },
+    })),
+    challengerId: H.challengerId,
+    targets: H.phase === 'board' ? H.targets : [],
+    duel: d
+      ? {
+          tileKey: d.tileKey,
+          challengerId: d.challengerId,
+          defenderId: d.defenderId,
+          category: { id: d.category.id, name: d.category.name, icon: d.category.icon, prompt: d.category.prompt },
+          q: d.q ? { img: d.q.img } : null,
+          active: d.active,
+          clocks: { ...d.clocks },
+          deadline: d.deadline,
+          qNumber: d.qNumber,
+          reveal: d.reveal,
+          penalty: d.penalty,
+        }
+      : null,
+    result: H.result,
+    winnerId: H.winnerId,
+    turnSeconds: H.turnSeconds,
+    logoBlur: H.logoBlur,
+    introUntil: H.phase === 'duelIntro' ? H.introUntil : null,
+  };
+}
+
+function sendState() {
+  if (!bus) return;
+  H.lastSent = Date.now();
+  bus.send('state', { state: publicState() });
+}
+
+/* ---------------- helpers ---------------- */
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -54,524 +1158,22 @@ function el(tag, className, text) {
   return node;
 }
 
-function boot() {
-  cacheEls();
-  buildScoreTiles();
-  bind();
-  startMasterLoop();
-  bus = new Bus(cfg.id, onMessage);
-  G.categoryOrder = shuffle(cfg.categories);
-  startGame();
-}
-
-function cacheEls() {
-  els.turnKicker = $('#turn-kicker');
-  els.turnPlayer = $('#turn-player');
-  els.categoryChip = $('#category-chip');
-  els.categoryEmoji = $('#category-emoji');
-  els.categoryName = $('#category-name');
-  els.scores = $('#scores');
-  els.timer = $('#timer');
-  els.timerNum = $('#timer-num');
-  els.timerRing = $('#timer-ring');
-  els.connDot = $('#conn-dot');
-  els.connText = $('#conn-text');
-  els.qCounter = $('#q-counter');
-  els.qPool = $('#q-pool');
-  els.qWrap = $('#q-wrap');
-  els.qImage = $('#q-image');
-  els.qLoading = $('#q-loading');
-  els.qFallback = $('#q-fallback');
-  els.qBg = $('#q-bg');
-  els.qPrompt = $('#q-prompt');
-  els.answerText = $('#answer-text');
-  els.answerCat = $('#answer-cat');
-  els.answerNum = $('#answer-num');
-  els.btnOk = $('#btn-ok');
-  els.btnPass = $('#btn-pass');
-  els.overlay = $('#overlay');
-  els.overlayCard = $('#overlay-card');
-  els.footInfo = $('#foot-info');
-  els.packInfo = $('#pack-info');
-}
-
-function buildScoreTiles() {
-  els.scores.innerHTML = '';
-  G.players.forEach((player, index) => {
-    const tile = el('div', 'score-tile');
-    tile.dataset.index = String(index);
-    tile.append(el('div', 'name', player.name), el('div', 'pts', '0'));
-    els.scores.appendChild(tile);
-  });
-}
-
-function bind() {
-  els.btnOk.addEventListener('click', accept);
-  els.btnPass.addEventListener('click', pass);
-  $('#end-turn').addEventListener('click', () => endTurn('manual'));
-  $('#open-board').addEventListener('click', openBoard);
-  $('#fullscreen').addEventListener('click', toggleFullscreen);
-  document.addEventListener('keydown', (event) => {
-    if (event.repeat) return;
-    if (event.target.matches('input, textarea, select')) return;
-    const key = event.key.toLowerCase();
-    if (key === 'd' || key === 'enter' || key === 'arrowright') {
-      event.preventDefault();
-      accept();
-    } else if (key === 'p' || key === 'arrowleft' || key === ' ') {
-      event.preventDefault();
-      pass();
-    } else if (key === 'k') {
-      event.preventDefault();
-      endTurn('manual');
-    }
-  });
-  window.addEventListener('beforeunload', () => bus?.close());
+function spinnerBlock(text) {
+  const wrap = el('div', 'wait-card');
+  const spin = el('div', 'spinner');
+  wrap.append(spin, el('p', '', text));
+  return wrap;
 }
 
 function openBoard() {
-  const win = window.open('board.html', 'floor-board', 'popup=yes,width=1280,height=760');
-  if (win) {
-    win.focus();
-    toast('Ekran graczy otwarty w nowym oknie.');
-  } else {
-    toast('Przeglądarka zablokowała okno. Zezwól na wyskakujące okna.', true, 5000);
-  }
+  const win = window.open('board.html', 'floor-board', 'popup=yes,width=1360,height=820');
+  if (win) win.focus();
+  else toast('Przeglądarka zablokowała okno. Zezwól na wyskakujące okna.', true, 5000);
 }
 
 function toggleFullscreen() {
   if (document.fullscreenElement) document.exitFullscreen();
   else document.documentElement.requestFullscreen?.().catch(() => {});
-}
-
-/* ---------------- komunikacja ---------------- */
-function onMessage(msg) {
-  if (msg.t === 'hello') {
-    G.boardSeen = Date.now();
-    sendState();
-  }
-}
-
-function publicState() {
-  return {
-    g: cfg.id,
-    phase: G.phase,
-    players: G.players.map((p) => ({ name: p.name, score: p.score })),
-    current: G.current,
-    turn: Math.min(G.turnIndex + 1, G.turnsTotal),
-    turnsTotal: G.turnsTotal,
-    category: G.category ? { name: G.category.name, icon: G.category.icon, prompt: G.category.prompt } : null,
-    q: G.q ? { img: G.q.img, prompt: G.category?.prompt || 'Co to jest?' } : null,
-    qNumber: G.qNumber,
-    poolLeft: Math.max(0, G.queue.length - G.queuePos),
-    deadline: G.deadline,
-    remainingMs: G.remainingMs,
-    totalMs: G.totalMs,
-    introUntil: G.phase === 'intro' ? G.introUntil : null,
-    reveal: G.reveal,
-    flash: G.flash,
-    error: G.error ? { message: G.error.message } : null,
-  };
-}
-
-function sendState() {
-  G.lastStateAt = Date.now();
-  bus?.send('state', { state: publicState() });
-}
-
-/* ---------------- gra ---------------- */
-function startGame() {
-  G.players.forEach((p) => (p.score = 0));
-  G.current = 0;
-  G.turnIndex = 0;
-  G.qNumber = 0;
-  startTurn();
-}
-
-async function startTurn() {
-  const token = ++G.token;
-  G.busy = false;
-  G.q = null;
-  G.reveal = null;
-  G.flash = null;
-  G.error = null;
-  G.deadline = null;
-  G.remainingMs = G.totalMs = cfg.turnSeconds * 1000;
-  G.phase = 'loading';
-  G.category = G.categoryOrder[G.turnIndex % G.categoryOrder.length] || cfg.categories[0];
-  G.qNumber = 0;
-  renderAll();
-  sendState();
-  await prepareCategory(G.category, token);
-}
-
-async function prepareCategory(category, token) {
-  try {
-    const pack = await loadPack(category);
-    if (token !== G.token) return;
-    const { queue, total } = makeQueue(pack);
-    G.pack = pack;
-    G.queue = queue;
-    G.queuePos = 0;
-    G.packTotal = total;
-    G.phase = 'intro';
-    G.introUntil = Date.now() + 3200;
-    renderAll();
-    sendState();
-    setTimeout(() => {
-      if (token === G.token && G.phase === 'intro') beginPlay();
-    }, 3200);
-  } catch (error) {
-    if (token !== G.token) return;
-    G.phase = 'error';
-    G.error = { message: error.message || 'Nie udało się wczytać kategorii.', category };
-    renderAll();
-    sendState();
-  }
-}
-
-function beginPlay() {
-  G.phase = 'play';
-  G.remainingMs = G.totalMs;
-  G.deadline = Date.now() + G.remainingMs;
-  advanceQuestion();
-  G.busy = false;
-  renderAll();
-  sendState();
-}
-
-function advanceQuestion() {
-  if (!G.pack) return;
-  if (G.queuePos >= G.queue.length) {
-    const next = makeQueue(G.pack);
-    G.queue = next.queue;
-    G.queuePos = 0;
-  }
-  if (!G.queue.length) {
-    G.q = null;
-    return;
-  }
-  G.q = G.queue[G.queuePos++];
-  G.qNumber += 1;
-  markSeen(G.pack.id, G.q.a);
-  preloadNext();
-}
-
-function preloadNext() {
-  const next = G.queue[G.queuePos];
-  if (next?.img) {
-    const img = new Image();
-    img.src = next.img;
-  }
-}
-
-function accept() {
-  if (G.phase !== 'play' || G.busy || !G.q) return;
-  const left = G.deadline ? G.deadline - Date.now() : G.remainingMs;
-  if (left <= 0) {
-    endTurn('time');
-    return;
-  }
-  G.busy = true;
-  G.players[G.current].score += 1;
-  G.remainingMs = left;
-  G.deadline = null;
-  G.reveal = { answer: G.q.a, key: Date.now() };
-  G.phase = 'reveal';
-  els.btnOk.classList.remove('flash');
-  void els.btnOk.offsetWidth;
-  els.btnOk.classList.add('flash');
-  renderAll();
-  sendState();
-
-  setTimeout(() => {
-    if (G.phase !== 'reveal') return;
-    G.reveal = null;
-    G.phase = 'play';
-    G.q = null;
-    advanceQuestion();
-    G.deadline = Date.now() + G.remainingMs;
-    G.busy = false;
-    renderAll();
-    sendState();
-  }, 1900);
-}
-
-function pass() {
-  if (G.phase !== 'play' || G.busy || !G.q) return;
-  G.busy = true;
-  if (G.deadline) G.remainingMs = Math.max(0, G.deadline - Date.now());
-  G.flash = { type: 'pass', key: Date.now() };
-  advanceQuestion();
-  renderAll();
-  sendState();
-  setTimeout(() => {
-    G.flash = null;
-    G.busy = false;
-    renderAll();
-    sendState();
-  }, 550);
-}
-
-function endTurn(reason = 'time') {
-  if (!['play', 'reveal', 'intro', 'loading', 'error'].includes(G.phase)) return;
-  G.token += 1;
-  G.phase = 'turnEnd';
-  G.deadline = null;
-  G.reveal = null;
-  G.flash = null;
-  G.q = null;
-  G.remainingMs = 0;
-  G.busy = false;
-  if (reason === 'time') G.flash = { type: 'time', key: Date.now() };
-  renderAll();
-  sendState();
-
-  const isLast = G.turnIndex + 1 >= G.turnsTotal;
-  setTimeout(() => {
-    if (!isLast) {
-      G.turnIndex += 1;
-      G.current = 1 - G.current;
-      startTurn();
-    } else {
-      G.phase = 'gameOver';
-      G.flash = null;
-      renderAll();
-      sendState();
-    }
-  }, 2600);
-}
-
-/* ---------------- pętla i render ---------------- */
-function startMasterLoop() {
-  setInterval(() => {
-    if (G.phase === 'play' && G.deadline) {
-      G.remainingMs = Math.max(0, G.deadline - Date.now());
-      updateTimerUI(G.remainingMs);
-      if (G.remainingMs <= 0) endTurn('time');
-    } else {
-      updateTimerUI(G.remainingMs);
-    }
-
-    if (G.phase === 'intro') {
-      const node = document.getElementById('countdown');
-      if (node) {
-        const left = Math.max(1, Math.ceil((G.introUntil - Date.now()) / 1000));
-        node.textContent = String(left);
-      }
-    }
-
-    const connected = Date.now() - G.boardSeen < 6500;
-    els.connDot.classList.toggle('on', connected);
-    els.connDot.classList.toggle('off', !connected);
-    els.connText.textContent = connected ? 'Ekran graczy połączony' : 'Brak ekranu graczy';
-
-    if (Date.now() - G.lastStateAt > 600) sendState();
-  }, 120);
-}
-
-function updateTimerUI(ms) {
-  els.timerNum.textContent = fmtTime(ms);
-  const ratio = Math.max(0, Math.min(1, ms / G.totalMs));
-  els.timerRing.style.setProperty('--p', String(ratio));
-  els.timer.classList.toggle('low', ms <= 10000 && G.phase === 'play');
-}
-
-function renderAll() {
-  renderChrome();
-  renderQuestion();
-  renderScores();
-  renderOverlay();
-  els.btnOk.disabled = G.phase !== 'play' || G.busy;
-  els.btnPass.disabled = G.phase !== 'play' || G.busy;
-  const labels = {
-    boot: 'Przygotowuję grę…',
-    loading: 'Wczytuję pytania…',
-    intro: 'Start za chwilę',
-    play: 'Gra trwa — oceniaj odpowiedzi',
-    reveal: 'Odpowiedź pokazana graczom',
-    turnEnd: 'Koniec tury',
-    gameOver: 'Koniec gry',
-    error: 'Problem z kategorią',
-  };
-  els.footInfo.textContent = labels[G.phase] || '';
-}
-
-function renderChrome() {
-  els.turnKicker.textContent = 'TURA ' + Math.min(G.turnIndex + 1, G.turnsTotal) + ' / ' + G.turnsTotal;
-  els.turnPlayer.textContent = G.players[G.current]?.name || '';
-  if (G.category) {
-    els.categoryChip.hidden = false;
-    els.categoryEmoji.textContent = G.category.icon || '🎯';
-    els.categoryName.textContent = G.category.name;
-    els.qPrompt.textContent = G.category.prompt || 'Co to jest?';
-    els.answerCat.textContent = G.category.name;
-  } else {
-    els.categoryChip.hidden = true;
-  }
-  els.packInfo.textContent = G.packTotal
-    ? 'Baza kategorii: ' + G.packTotal + ' pytań · w tej turze losowo'
-    : 'Baza pytań: —';
-}
-
-function renderScores() {
-  [...els.scores.children].forEach((tile, index) => {
-    const player = G.players[index];
-    tile.querySelector('.name').textContent = player.name;
-    tile.querySelector('.pts').textContent = String(player.score);
-    const max = Math.max(...G.players.map((p) => p.score));
-    tile.classList.toggle('active', index === G.current);
-    tile.classList.toggle('lead', player.score === max && max > 0 && index !== G.current);
-  });
-}
-
-function renderQuestion() {
-  const q = G.q;
-  if (!q) {
-    els.qImage.hidden = true;
-    els.qFallback.hidden = true;
-    els.qLoading.hidden = false;
-    els.qLoading.innerHTML = '<div><div class="spinner"></div>Losuję pytanie…</div>';
-    els.qBg.style.backgroundImage = '';
-    els.answerText.textContent = '—';
-    els.answerText.style.fontSize = '';
-    els.qCounter.textContent = G.phase === 'loading' ? 'Przygotowuję kategorię' : 'Pytanie —';
-    els.qPool.textContent = G.packTotal ? G.packTotal + ' pytań w kategorii' : '';
-    els.answerNum.textContent = '';
-    return;
-  }
-
-  if (els.qImage.dataset.key !== q.img) {
-    els.qImage.dataset.key = q.img;
-    els.qImage.hidden = true;
-    els.qFallback.hidden = true;
-    els.qLoading.hidden = false;
-    els.qLoading.innerHTML = '<div><div class="spinner"></div>Wczytuję zdjęcie…</div>';
-    els.qBg.style.backgroundImage = 'url("' + q.img + '")';
-    els.qImage.onload = () => {
-      els.qLoading.hidden = true;
-      els.qImage.hidden = false;
-    };
-    els.qImage.onerror = () => {
-      els.qLoading.hidden = true;
-      els.qImage.hidden = true;
-      els.qFallback.hidden = false;
-    };
-    els.qImage.src = q.img;
-  }
-
-  els.answerText.textContent = q.a;
-  els.answerText.style.fontSize =
-    q.a.length > 44 ? 'clamp(20px, 2.6vw, 38px)' : q.a.length > 30 ? 'clamp(26px, 3.4vw, 48px)' : '';
-  els.qCounter.textContent = 'Pytanie ' + G.qNumber;
-  els.qPool.textContent = Math.max(0, G.queue.length - G.queuePos) + ' w puli';
-  els.answerNum.textContent = 'Pytanie ' + G.qNumber;
-}
-
-function renderOverlay() {
-  const key = G.phase + '|' + (G.reveal?.key || '') + '|' + G.turnIndex + '|' + (G.error?.message || '');
-  if (key === G.overlayKey) return;
-  G.overlayKey = key;
-  const card = els.overlayCard;
-
-  if (['play', 'reveal', 'boot'].includes(G.phase)) {
-    els.overlay.classList.add('hidden');
-    card.innerHTML = '';
-    return;
-  }
-
-  els.overlay.classList.remove('hidden');
-  card.innerHTML = '';
-
-  if (G.phase === 'loading') {
-    card.append(
-      el('div', 'overlay-kicker', 'The Floor'),
-      el('div', 'overlay-title', 'GOTUJEMY'),
-      (() => {
-        const wrap = el('div', 'wait-card');
-        wrap.append(el('div', 'spinner'), el('p', '', 'Wczytuję kategorię „' + (G.category?.name || '') + '” i losuję pytania…'));
-        return wrap;
-      })()
-    );
-    return;
-  }
-
-  if (G.phase === 'intro') {
-    card.append(
-      el('div', 'overlay-kicker', 'Tura ' + (G.turnIndex + 1) + ' z ' + G.turnsTotal),
-      el('div', 'overlay-title', G.players[G.current]?.name || ''),
-      el('p', 'overlay-sub', (G.category?.icon || '') + ' ' + (G.category?.name || '')),
-      el('div', 'countdown', '3')
-    );
-    return;
-  }
-
-  if (G.phase === 'turnEnd') {
-    const nextIndex = G.turnIndex + 1 < G.turnsTotal ? 1 - G.current : G.current;
-    card.append(
-      el('div', 'overlay-kicker', G.flash?.type === 'time' ? 'Czas minął' : 'Koniec tury'),
-      el('div', 'overlay-title', 'KONIEC TURY')
-    );
-    card.appendChild(buildMiniScores());
-    if (G.turnIndex + 1 < G.turnsTotal) {
-      card.append(el('p', 'overlay-sub', 'Następna tura: ' + G.players[nextIndex].name));
-    }
-    return;
-  }
-
-  if (G.phase === 'gameOver') {
-    const max = Math.max(...G.players.map((p) => p.score));
-    const winners = G.players.filter((p) => p.score === max);
-    card.append(
-      el('div', 'overlay-kicker', 'Koniec gry'),
-      el('div', 'overlay-title', winners.length > 1 ? 'REMIS' : 'WYGRYWA'),
-      el('p', 'overlay-sub', winners.map((p) => p.name).join(' i ')),
-      buildMiniScores()
-    );
-    const actions = el('div', 'mini-scores');
-    const again = el('a', 'btn btn-primary btn-lg', '↻ Nowa gra');
-    again.href = 'index.html';
-    actions.appendChild(again);
-    card.appendChild(actions);
-    return;
-  }
-
-  if (G.phase === 'error') {
-    card.append(
-      el('div', 'overlay-kicker', 'Problem'),
-      el('div', 'overlay-title', 'NIE POSZŁO'),
-      el('p', 'overlay-sub', G.error?.message || 'Nie udało się wczytać pytań.'),
-      (() => {
-        const actions = el('div', 'mini-scores');
-        const retry = el('button', 'btn btn-primary', 'Spróbuj ponownie');
-        retry.type = 'button';
-        retry.addEventListener('click', () => {
-          const token = ++G.token;
-          G.phase = 'loading';
-          G.error = null;
-          renderAll();
-          sendState();
-          prepareCategory(G.category, token);
-        });
-        const skip = el('button', 'btn', 'Pomiń turę');
-        skip.type = 'button';
-        skip.addEventListener('click', () => endTurn('skip'));
-        actions.append(retry, skip);
-        return actions;
-      })()
-    );
-  }
-}
-
-function buildMiniScores() {
-  const wrap = el('div', 'mini-scores');
-  const max = Math.max(...G.players.map((p) => p.score));
-  G.players.forEach((player) => {
-    const box = el('div', 'mini-score' + (player.score === max && max > 0 ? ' win' : ''));
-    box.append(el('div', 'n', player.name), el('div', 'v', String(player.score)));
-    wrap.appendChild(box);
-  });
-  return wrap;
 }
 
 boot();
