@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#05070d" />
+    <title>Ekran graczy — The Floor</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/extra.css" />
+  </head>
+  <body class="screen board">
+    <header class="game-top">
+      <div class="brand">
+        <span class="brand-mark">TF</span>
+        <span>
+          <span class="brand-name">THE FLOOR</span>
+          <span class="brand-sub">ekran graczy</span>
+        </span>
+      </div>
+      <div class="turn-label">
+        <span class="t1" id="turn-kicker">CZEKAM NA START</span>
+        <span class="t2" id="turn-player">—</span>
+      </div>
+      <span class="category-chip" id="category-chip">
+        <span class="emoji" id="category-emoji">🎯</span>
+        <span class="name" id="category-name">—</span>
+      </span>
+      <div class="top-spacer"></div>
+      <div class="board-scores" id="scores" aria-label="Wynik"></div>
+      <div class="board-timer" id="timer">
+        <span id="timer-num">—</span>
+        <small>SEK</small>
+      </div>
+      <button class="icon-btn" id="fullscreen" type="button" title="Pełny ekran" aria-label="Pełny ekran">⛶</button>
+      <span class="conn board-conn"><span class="dot" id="conn-dot"></span></span>
+    </header>
+
+    <main class="board-main">
+      <section class="board-stage" id="stage">
+        <div class="q-bg" id="q-bg"></div>
+        <div class="board-image-wrap" id="image-wrap">
+          <div class="wait-card" id="placeholder">
+            <span class="display">CZEKAM…</span>
+            <p>Ekran graczy jest gotowy. Prowadzący zacznie turę za chwilę.</p>
+          </div>
+          <img class="board-image" id="q-image" alt="Zdjęcie pytania" hidden />
+          <div class="q-loading" id="q-loading" hidden><div><div class="spinner"></div>Wczytuję zdjęcie…</div></div>
+        </div>
+        <div class="board-prompt" id="q-prompt" hidden>—</div>
+      </section>
+
+      <div class="board-side">
+        <div class="board-bar" id="bar"><i id="bar-fill"></i></div>
+        <span class="board-hint" id="hint">Odpowiadajcie na głos</span>
+      </div>
+    </main>
+
+    <div class="overlay hidden" id="overlay" aria-live="polite">
+      <div class="overlay-card" id="overlay-card"></div>
+    </div>
+
+    <script type="module" src="assets/js/board.js"></script>
+  </body>
+</html>

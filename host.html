@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07090f" />
+    <title>Prowadzący — The Floor</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/extra.css" />
+  </head>
+  <body class="screen host">
+    <header class="game-top">
+      <div class="brand">
+        <span class="brand-mark">TF</span>
+        <span>
+          <span class="brand-name">THE FLOOR</span>
+          <span class="brand-sub">ekran prowadzącego</span>
+        </span>
+      </div>
+      <div class="turn-label">
+        <span class="t1" id="turn-kicker">TURA 1 / 4</span>
+        <span class="t2" id="turn-player">Gracz 1</span>
+      </div>
+      <span class="category-chip" id="category-chip">
+        <span class="emoji" id="category-emoji">🎯</span>
+        <span class="name" id="category-name">Kategoria</span>
+      </span>
+      <div class="top-spacer"></div>
+      <div class="score-strip" id="scores" aria-label="Wynik"></div>
+      <div class="timer" id="timer">
+        <div>
+          <div class="timer-num" id="timer-num">45</div>
+          <div class="timer-unit">SEKUNDY</div>
+        </div>
+        <div class="timer-ring" id="timer-ring"><span>⏱</span></div>
+      </div>
+      <div class="top-actions">
+        <span class="conn"><span class="dot" id="conn-dot"></span><span id="conn-text">Ekran graczy</span></span>
+        <button class="btn" id="open-board" type="button" title="Otwórz ekran graczy">🖥️ <span class="btn-label">Ekran graczy</span></button>
+        <button class="icon-btn" id="fullscreen" type="button" title="Pełny ekran" aria-label="Pełny ekran">⛶</button>
+        <a class="icon-btn" href="index.html" title="Menu" aria-label="Menu">☰</a>
+      </div>
+    </header>
+
+    <main class="host-main">
+      <section class="question-card" aria-label="Pytanie">
+        <div class="q-bg" id="q-bg"></div>
+        <div class="q-stage">
+          <div class="q-top">
+            <span class="q-counter" id="q-counter">Pytanie 1</span>
+            <span class="q-counter" id="q-pool">—</span>
+          </div>
+          <div class="q-image-wrap" id="q-wrap">
+            <div class="q-loading" id="q-loading"><div><div class="spinner"></div>Losuję pytanie…</div></div>
+            <img class="q-image" id="q-image" alt="Zdjęcie pytania" hidden />
+            <div class="q-loading" id="q-fallback" hidden>Brak zdjęcia — kliknij PASS</div>
+          </div>
+          <div class="q-prompt" id="q-prompt">—</div>
+        </div>
+      </section>
+
+      <aside class="answer-panel" aria-label="Odpowiedź">
+        <div class="answer-box">
+          <div class="answer-label">Odpowiedź dla prowadzącego</div>
+          <div class="answer-text" id="answer-text">—</div>
+          <div class="answer-meta">
+            <span id="answer-cat">—</span>
+            <span id="answer-num"></span>
+          </div>
+        </div>
+        <div class="card host-side-card">
+          <div class="eyebrow">Sterowanie</div>
+          <p class="host-tip">
+            <b>DOBRZE</b> — punkt i następne pytanie. <b>PASS</b> — zmiana pytania, zegar nadal leci.
+          </p>
+          <div class="shortcut-row"><span>Dobrze</span><span class="kbd">D</span></div>
+          <div class="shortcut-row"><span>Pass</span><span class="kbd">P</span></div>
+          <div class="shortcut-row"><span>Zakończ turę</span><span class="kbd">K</span></div>
+          <p class="host-tip muted" id="pack-info">Baza pytań: —</p>
+        </div>
+        <div class="card host-side-card host-tip-card">
+          <div class="eyebrow">Dwa ekrany</div>
+          <p class="host-tip">Ekran graczy otwiera się w drugim oknie. Przeciągnij je na TV lub monitor przez HDMI i włącz pełny ekran (F11).</p>
+        </div>
+      </aside>
+    </main>
+
+    <div class="controls">
+      <button class="judge ok" id="btn-ok" type="button">
+        <span class="j-icon">✓</span>
+        <span>DOBRZE<small>punkt · następne pytanie</small></span>
+        <span class="kbd">D</span>
+      </button>
+      <button class="judge pass" id="btn-pass" type="button">
+        <span class="j-icon">↷</span>
+        <span>PASS<small>zmiana · czas leci dalej</small></span>
+        <span class="kbd">P</span>
+      </button>
+    </div>
+
+    <footer class="host-foot">
+      <div class="left">
+        <span id="foot-info">Gotowe do startu</span>
+        <button class="link-btn" id="end-turn" type="button">Zakończ turę (K)</button>
+      </div>
+      <span>Odpowiedzi widzi tylko prowadzący</span>
+    </footer>
+
+    <div class="overlay hidden" id="overlay" aria-live="polite">
+      <div class="overlay-card" id="overlay-card"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script type="module" src="assets/js/host.js"></script>
+  </body>
+</html>

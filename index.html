@@ -1,1 +1,140 @@
-index
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07090f" />
+    <title>The Floor — teleturniej na dwa ekrany</title>
+    <meta name="description" content="Teleturniej w stylu The Floor: dwa ekrany, baza tysięcy pytań ze zdjęciami, dwaj gracze i prowadzący na tablecie." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/extra.css" />
+  </head>
+  <body class="lobby">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="The Floor — strona główna">
+        <span class="brand-mark">TF</span>
+        <span>
+          <span class="brand-name">THE FLOOR</span>
+          <span class="brand-sub">dwa ekrany · jeden stół</span>
+        </span>
+      </a>
+      <div class="topbar-right">
+        <span class="pill"><span class="dot on"></span> JavaScript · GitHub Pages</span>
+        <a class="btn btn-ghost" href="host.html">Ekran prowadzącego</a>
+      </div>
+    </header>
+
+    <div class="lobby-wrap">
+      <section class="hero">
+        <div class="eyebrow">Teleturniej · 2 graczy · prowadzący na tablecie</div>
+        <h1>
+          <span class="gold-text">THE FLOOR</span>
+          <span>Usta nie nadążą.</span>
+        </h1>
+        <p>
+          Wybierz kategorie, ustaw czas tury i grajcie na dwa ekrany: prowadzący widzi odpowiedź i klepie
+          <b>DOBRZE</b> / <b>PASS</b>, a gracze widzą tylko zdjęcie i zegar. Pytania losują się z tysięcy haseł
+          Wikipedii i logotypów z Wikidata — nikt nie przygotowuje ich ręcznie.
+        </p>
+        <div class="hero-meta">
+          <span class="pill"><span class="dot on"></span> bez serwera i bez logowania</span>
+          <span class="pill">📚 <span id="hero-packs">—</span> kategorii</span>
+          <span class="pill">🖼️ <span id="hero-questions">—</span> pytań w bazie</span>
+          <span class="pill">🔗 dwa okna połączone lokalnie</span>
+        </div>
+      </section>
+
+      <div class="setup">
+        <aside class="setup-side">
+          <div class="card panel">
+            <div class="panel-head">
+              <h2>Ustawienia</h2>
+              <span class="hint">zapisz się w 30 sekund</span>
+            </div>
+            <div class="setup-fields">
+              <div class="player-inputs">
+                <div class="field">
+                  <label for="p1">Gracz 1</label>
+                  <input class="input" id="p1" maxlength="18" value="Gracz 1" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="p2">Gracz 2</label>
+                  <input class="input" id="p2" maxlength="18" value="Gracz 2" autocomplete="off" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Długość tury</label>
+                <div class="seg" id="turn-seg" role="group" aria-label="Długość tury">
+                  <button data-sec="30">30 s</button>
+                  <button data-sec="45" aria-pressed="true">45 s</button>
+                  <button data-sec="60">60 s</button>
+                  <button data-sec="90">90 s</button>
+                </div>
+              </div>
+              <div class="field">
+                <label>Tury na gracza</label>
+                <div class="seg" id="turns-seg" role="group" aria-label="Tury na gracza">
+                  <button data-turns="1">1</button>
+                  <button data-turns="2" aria-pressed="true">2</button>
+                  <button data-turns="3">3</button>
+                </div>
+              </div>
+              <div class="summary">
+                <div class="summary-row"><span>Kategorie</span><strong id="sum-cats">0</strong></div>
+                <div class="summary-row"><span>Pytania w puli</span><strong id="sum-q">0</strong></div>
+                <div class="summary-row"><span>Mecze</span><strong id="sum-turns">4 tury</strong></div>
+                <div class="summary-row"><span>Łączny czas</span><strong id="sum-time">3 min</strong></div>
+              </div>
+              <button class="btn btn-primary start-btn" id="start">▶ START GRY</button>
+              <div class="start-note">
+                Otworzą się dwa okna: <b>prowadzący</b> (z odpowiedziami) i <b>ekran graczy</b>.<br />
+                Zezwól na wyskakujące okna dla tej strony.
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="card catalog">
+          <div class="panel-head">
+            <h2>Kategorie</h2>
+            <span class="hint" id="cat-status">wybierz przynajmniej jedną</span>
+          </div>
+          <div class="catalog-top">
+            <div class="search-wrap">
+              <span class="search-icon">🔎</span>
+              <input class="input" id="search" placeholder="Szukaj kategorii — np. przyprawy, logotypy, psy…" autocomplete="off" />
+              <button class="search-clear" id="search-clear" aria-label="Wyczyść" hidden>×</button>
+            </div>
+            <div class="cat-actions">
+              <button class="mini-btn" id="select-popular">Popularne</button>
+              <button class="mini-btn" id="select-all">Wszystkie</button>
+              <button class="mini-btn" id="select-none">Wyczyść</button>
+            </div>
+          </div>
+          <div class="cat-groups" id="cat-groups">
+            <div class="cat-empty">Wczytuję bazę pytań…</div>
+          </div>
+          <div class="live-results" id="live-results" hidden></div>
+        </section>
+      </div>
+
+      <section class="how" aria-label="Jak grać">
+        <div class="how-step"><b>1 · Wybierz</b><p>Zaznacz kategorie. Im więcej, tym mniej powtórek — pula liczy się od nowa po wyczerpaniu.</p></div>
+        <div class="how-step"><b>2 · Otwórz 2 ekrany</b><p>Prowadzący na tablecie, ekran graczy na drugim monitorze lub TV przez HDMI.</p></div>
+        <div class="how-step"><b>3 · Zgadujcie</b><p>Gracze mówią odpowiedź na głos. Prowadzący widzi ją i klika DOBRZE albo PASS.</p></div>
+        <div class="how-step"><b>4 · Zmiana tury</b><p>Gdy czas minie, tura przechodzi na drugiego gracza — i tam zaczyna się jego zegar.</p></div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <span>THE FLOOR · gra na dwa ekrany w czystym JavaScripcie. Dane: Wikipedia (CC BY-SA) i Wikidata (CC0).</span>
+      <span>Bez serwera. Bez kont. Bez instalacji.</span>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+    <script type="module" src="assets/js/lobby.js"></script>
+  </body>
+</html>
