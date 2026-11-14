@@ -1,0 +1,277 @@
+{
+  "items": [
+    {
+      "a": "Spaghetti",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Spaghetti2.jpg/1280px-Spaghetti2.jpg"
+    },
+    {
+      "a": "Penne",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Whole_wheat_penne%2C_cooked_and_uncooked.jpg/1280px-Whole_wheat_penne%2C_cooked_and_uncooked.jpg"
+    },
+    {
+      "a": "Penne rigate",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Pennelisce_closeup.png/1280px-Pennelisce_closeup.png"
+    },
+    {
+      "a": "Rigatoni",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Cooked_rigatoni.JPG/1280px-Cooked_rigatoni.JPG"
+    },
+    {
+      "a": "Fusilli",
+      "img": "assets/packs/makaron/fusilli.jpg"
+    },
+    {
+      "a": "Farfalle",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Farfalle_Pasta.JPG/1280px-Farfalle_Pasta.JPG"
+    },
+    {
+      "a": "Tagliatelle",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/32/Dry_tagliatelle_pasta.jpg"
+    },
+    {
+      "a": "Pappardelle",
+      "img": "assets/packs/makaron/pappardelle.jpg"
+    },
+    {
+      "a": "Linguine",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/da/Linguine.jpg"
+    },
+    {
+      "a": "Fettuccine",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Fettucine1.JPG/1280px-Fettucine1.JPG"
+    },
+    {
+      "a": "Bucatini",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Bucatini.jpg/1280px-Bucatini.jpg"
+    },
+    {
+      "a": "Vermicelli",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Fideo_%28coiled_vermicelli%29.JPG/1280px-Fideo_%28coiled_vermicelli%29.JPG"
+    },
+    {
+      "a": "Capellini",
+      "img": "assets/packs/makaron/capellini.jpg"
+    },
+    {
+      "a": "Lasagne",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Lasagna_with_salad%2C_May_2011.jpg/1280px-Lasagna_with_salad%2C_May_2011.jpg"
+    },
+    {
+      "a": "Cannelloni",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Cannelloni2.png/1280px-Cannelloni2.png"
+    },
+    {
+      "a": "Manicotti",
+      "img": "assets/packs/makaron/manicotti.jpg"
+    },
+    {
+      "a": "Tortellini",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Tortellini_In_Brodo.jpg/1280px-Tortellini_In_Brodo.jpg"
+    },
+    {
+      "a": "Tortelloni",
+      "img": "assets/packs/makaron/tortelloni.jpg"
+    },
+    {
+      "a": "Ravioli",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/Ravioli.jpg"
+    },
+    {
+      "a": "Agnolotti",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Agnolotti2.jpg/1280px-Agnolotti2.jpg"
+    },
+    {
+      "a": "Cappelletti",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Cappelletti1.JPG"
+    },
+    {
+      "a": "Conchiglie",
+      "img": "assets/packs/makaron/conchiglie.jpg"
+    },
+    {
+      "a": "Orecchiette",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Orecchiette2.jpg/1280px-Orecchiette2.jpg"
+    },
+    {
+      "a": "Cavatelli",
+      "img": "assets/packs/makaron/cavatelli.jpg"
+    },
+    {
+      "a": "Gemelli",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/2013-06-18_Roma_Policlinico_Gemelli.jpg/1280px-2013-06-18_Roma_Policlinico_Gemelli.jpg"
+    },
+    {
+      "a": "Strozzapreti",
+      "img": "assets/packs/makaron/strozzapreti.jpg"
+    },
+    {
+      "a": "Garganelli",
+      "img": "assets/packs/makaron/garganelli.jpg"
+    },
+    {
+      "a": "Trofie",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Trofie.jpg/1280px-Trofie.jpg"
+    },
+    {
+      "a": "Ziti",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/RecipeoftheMonthNov_SJ_%2810807432016%29.jpg/1280px-RecipeoftheMonthNov_SJ_%2810807432016%29.jpg"
+    },
+    {
+      "a": "Mostaccioli",
+      "img": "assets/packs/makaron/mostaccioli.jpg"
+    },
+    {
+      "a": "Radiatori",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Radiatori.jpg/1280px-Radiatori.jpg"
+    },
+    {
+      "a": "Rotini",
+      "img": "assets/packs/makaron/rotini.jpg"
+    },
+    {
+      "a": "Rotelle",
+      "img": "assets/packs/makaron/rotelle.jpg"
+    },
+    {
+      "a": "Ditalini",
+      "img": "assets/packs/makaron/ditalini.jpg"
+    },
+    {
+      "a": "Anelli",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Uncooked_anellini_pasta.jpg/1280px-Uncooked_anellini_pasta.jpg"
+    },
+    {
+      "a": "Anellini",
+      "img": "assets/packs/makaron/anellini.jpg"
+    },
+    {
+      "a": "Lumache",
+      "img": "assets/packs/makaron/lumache.jpg"
+    },
+    {
+      "a": "Maltagliati",
+      "img": "assets/packs/makaron/maltagliati.jpg"
+    },
+    {
+      "a": "Mezze penne",
+      "img": "assets/packs/makaron/mezze-penne.jpg"
+    },
+    {
+      "a": "Pennette",
+      "img": "assets/packs/makaron/pennette.jpg"
+    },
+    {
+      "a": "Pipe rigate",
+      "img": "assets/packs/makaron/pipe-rigate.jpg"
+    },
+    {
+      "a": "Tortiglioni",
+      "img": "assets/packs/makaron/tortiglioni.jpg"
+    },
+    {
+      "a": "Trenette",
+      "img": "assets/packs/makaron/trenette.jpg"
+    },
+    {
+      "a": "Tagliolini",
+      "img": "assets/packs/makaron/tagliolini.jpg"
+    },
+    {
+      "a": "Spaghettini",
+      "img": "assets/packs/makaron/spaghettini.jpg"
+    },
+    {
+      "a": "Fedelini",
+      "img": "assets/packs/makaron/fedelini.jpg"
+    },
+    {
+      "a": "Mafaldine",
+      "img": "assets/packs/makaron/mafaldine.jpg"
+    },
+    {
+      "a": "Paccheri",
+      "img": "assets/packs/makaron/paccheri.jpg"
+    },
+    {
+      "a": "Calamarata",
+      "img": "assets/packs/makaron/calamarata.jpg"
+    },
+    {
+      "a": "Casarecce",
+      "img": "assets/packs/makaron/casarecce.jpg"
+    },
+    {
+      "a": "Cellentani",
+      "img": "assets/packs/makaron/cellentani.jpg"
+    },
+    {
+      "a": "Creste di gallo",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Compendio_teorico-pratico_sulle_malattie_della_pelle_%28IA_b29332230_0004%29.pdf/page1-960px-Compendio_teorico-pratico_sulle_malattie_della_pelle_%28IA_b29332230_0004%29.pdf.jpg"
+    },
+    {
+      "a": "Fregola",
+      "img": "assets/packs/makaron/fregola.jpg"
+    },
+    {
+      "a": "Gnocchi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Gnocchi_di_ricotta.jpg"
+    },
+    {
+      "a": "Gnocchetti",
+      "img": "assets/packs/makaron/gnocchetti.jpg"
+    },
+    {
+      "a": "Malloreddus",
+      "img": "assets/packs/makaron/malloreddus.jpg"
+    },
+    {
+      "a": "Pici",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Streak-throatted_Woodpecker_%40_Nilambur.jpg/1280px-Streak-throatted_Woodpecker_%40_Nilambur.jpg"
+    },
+    {
+      "a": "Testaroli",
+      "img": "assets/packs/makaron/testaroli.jpg"
+    },
+    {
+      "a": "Passatelli",
+      "img": "assets/packs/makaron/passatelli.jpg"
+    },
+    {
+      "a": "Stelline",
+      "img": "assets/packs/makaron/stelline.jpg"
+    },
+    {
+      "a": "Trottole",
+      "img": "assets/packs/makaron/trottole.jpg"
+    },
+    {
+      "a": "Makaron jajeczny",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Trida_pasta.jpg/1280px-Trida_pasta.jpg"
+    },
+    {
+      "a": "Makaron ryżowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/95/Boiled_rice_noodles%2C_vermicelli.jpg"
+    },
+    {
+      "a": "Makaron soba",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/OJ_C_393_of_2019_-_PL_Polish.pdf/page1-960px-OJ_C_393_of_2019_-_PL_Polish.pdf.jpg"
+    },
+    {
+      "a": "Makaron ramen",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/56/Instantnoodles.jpg"
+    },
+    {
+      "a": "Makaron muszelki",
+      "img": "assets/packs/makaron/makaron-muszelki.jpg"
+    },
+    {
+      "a": "Zitoni",
+      "img": "assets/packs/makaron/zitoni.jpg"
+    }
+  ],
+  "name": "Makaron",
+  "group": "Kuchnia",
+  "icon": "🍝",
+  "prompt": "Jaki to makaron?",
+  "source": "Openverse / lokalne zdjęcia"
+}

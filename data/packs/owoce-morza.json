@@ -1,1 +1,98 @@
-{"id":"owoce-morza","name":"Owoce morza","group":"Kuchnia","icon":"🦐","prompt":"Jaki to owoc morza?","source":"Kategoria:Owoce morza","items":[{"a":"Jeżowce","img":"https://upload.wikimedia.org/wikipedia/commons/2/26/Woda-3_ubt.jpeg"},{"a":"Omułek jadalny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Miesmuscheln-2.jpg/960px-Miesmuscheln-2.jpg"},{"a":"Słuchotki","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Pinkabalone_300.jpg/960px-Pinkabalone_300.jpg"},{"a":"Krewetka północna","img":"https://upload.wikimedia.org/wikipedia/commons/5/52/Woda-6_ubt.jpeg"},{"a":"Przegrzebek zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pecten_maximus%2802%29.jpg/960px-Pecten_maximus%2802%29.jpg"},{"a":"Sercówka jadalna","img":"https://upload.wikimedia.org/wikipedia/commons/8/8f/Cerastoderma_edule-Nl.jpg"},{"a":"Skrzydelnik wielki","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Conch_shell_2.jpg/960px-Conch_shell_2.jpg"},{"a":"Robaki palolo","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Alitta_succinea_%28epitoke%29.jpg/960px-Alitta_succinea_%28epitoke%29.jpg"},{"a":"Trąbik zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Buccinum_undatum.jpg/960px-Buccinum_undatum.jpg"},{"a":"Homarzec","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nephrops_norvegicus.jpg/960px-Nephrops_norvegicus.jpg"},{"a":"Homar amerykański","img":"https://upload.wikimedia.org/wikipedia/commons/b/b0/Homarus_americanus.png"},{"a":"Homar europejski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/KreeftbijDenOsse.jpg/960px-KreeftbijDenOsse.jpg"},{"a":"Ostryga jadalna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Ostrea_edulis_01.jpg/960px-Ostrea_edulis_01.jpg"},{"a":"Krewetka tygrysia","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Penaeus_monodon.jpg/960px-Penaeus_monodon.jpg"},{"a":"Homarus","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/KreeftbijDenOsse.jpg/960px-KreeftbijDenOsse.jpg"},{"a":"Krewetka biała","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Penaeus_vannamei_01.jpg/960px-Penaeus_vannamei_01.jpg"},{"a":"Krewetka czerwona argentyńska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Gamberoni_0721.jpg/960px-Gamberoni_0721.jpg"},{"a":"Fenneropenaeus","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/White_shrimp.jpg/960px-White_shrimp.jpg"},{"a":"Omułek śródziemnomorski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Naturalis_Biodiversity_Center_-_ZMA.MOLL.412411_-_Mytilus_galloprovincialis_Lamarck%2C_1819_-_Mytilidae_-_Mollusc_shell.jpeg/960px-Naturalis_Biodiversity_Center_-_ZMA.MOLL.412411_-_Mytilus_galloprovincialis_Lamarck%2C_1819_-_Mytilidae_-_Mollusc_shell.jpeg"},{"a":"Zeeuwse mosselen","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Verse_mosselen.JPG/960px-Verse_mosselen.JPG"},{"a":"Krewetka pistoletowa","img":"https://upload.wikimedia.org/wikipedia/commons/8/8a/Gobie_and_Shrimp.JPG"},{"a":"Sushi","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Hiroshige_Bowl_of_Sushi.jpg/800px-Hiroshige_Bowl_of_Sushi.jpg"},{"a":"Ośmiornicowate","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Octopusvulgaris.jpg/800px-Octopusvulgaris.jpg"}]}
+{
+  "id": "owoce-morza",
+  "name": "Owoce morza",
+  "group": "Kuchnia",
+  "icon": "🦐",
+  "prompt": "Jaki to owoc morza?",
+  "source": "Kategoria:Owoce morza",
+  "items": [
+    {
+      "a": "Jeżowce",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/26/Woda-3_ubt.jpeg"
+    },
+    {
+      "a": "Omułek jadalny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Miesmuscheln-2.jpg/960px-Miesmuscheln-2.jpg"
+    },
+    {
+      "a": "Słuchotki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Pinkabalone_300.jpg/960px-Pinkabalone_300.jpg"
+    },
+    {
+      "a": "Krewetka północna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Woda-6_ubt.jpeg"
+    },
+    {
+      "a": "Przegrzebek zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pecten_maximus%2802%29.jpg/960px-Pecten_maximus%2802%29.jpg"
+    },
+    {
+      "a": "Sercówka jadalna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Cerastoderma_edule-Nl.jpg"
+    },
+    {
+      "a": "Skrzydelnik wielki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Conch_shell_2.jpg/960px-Conch_shell_2.jpg"
+    },
+    {
+      "a": "Robaki palolo",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Alitta_succinea_%28epitoke%29.jpg/960px-Alitta_succinea_%28epitoke%29.jpg"
+    },
+    {
+      "a": "Trąbik zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Buccinum_undatum.jpg/960px-Buccinum_undatum.jpg"
+    },
+    {
+      "a": "Homarzec",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nephrops_norvegicus.jpg/960px-Nephrops_norvegicus.jpg"
+    },
+    {
+      "a": "Homar amerykański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Homarus_americanus.png"
+    },
+    {
+      "a": "Homar europejski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/KreeftbijDenOsse.jpg/960px-KreeftbijDenOsse.jpg"
+    },
+    {
+      "a": "Ostryga jadalna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Ostrea_edulis_01.jpg/960px-Ostrea_edulis_01.jpg"
+    },
+    {
+      "a": "Krewetka tygrysia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Penaeus_monodon.jpg/960px-Penaeus_monodon.jpg"
+    },
+    {
+      "a": "Krewetka biała",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Penaeus_vannamei_01.jpg/960px-Penaeus_vannamei_01.jpg"
+    },
+    {
+      "a": "Krewetka czerwona argentyńska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Gamberoni_0721.jpg/960px-Gamberoni_0721.jpg"
+    },
+    {
+      "a": "Fenneropenaeus",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/White_shrimp.jpg/960px-White_shrimp.jpg"
+    },
+    {
+      "a": "Omułek śródziemnomorski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Naturalis_Biodiversity_Center_-_ZMA.MOLL.412411_-_Mytilus_galloprovincialis_Lamarck%2C_1819_-_Mytilidae_-_Mollusc_shell.jpeg/960px-Naturalis_Biodiversity_Center_-_ZMA.MOLL.412411_-_Mytilus_galloprovincialis_Lamarck%2C_1819_-_Mytilidae_-_Mollusc_shell.jpeg"
+    },
+    {
+      "a": "Zeeuwse mosselen",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Verse_mosselen.JPG/960px-Verse_mosselen.JPG"
+    },
+    {
+      "a": "Krewetka pistoletowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Gobie_and_Shrimp.JPG"
+    },
+    {
+      "a": "Sushi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Hiroshige_Bowl_of_Sushi.jpg/800px-Hiroshige_Bowl_of_Sushi.jpg"
+    },
+    {
+      "a": "Ośmiornicowate",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Octopusvulgaris.jpg/800px-Octopusvulgaris.jpg"
+    }
+  ]
+}

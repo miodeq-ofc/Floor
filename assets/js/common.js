@@ -137,22 +137,26 @@ const IMAGE_RULES = {
   'silniki': OBJECT_IMAGE,
   'live-samoloty': OBJECT_IMAGE,
   'live-statki': OBJECT_IMAGE,
-  'marki-napojow': /(headquarter|headquarters|hq[a-z]|office|store|shop|factory|building|distribution|shelf|mollinsburn|sugarland|warehouse|market|restaurant|street|avenue|advertisement)/i,
-  'napoje-bezalkoholowe': /(shelf|shop|store|factory|building|headquarter|hq[a-z]|market|restaurant|\bbar\b|collecting|birch|tree|forest|plantation|walmart|wallmart|cafe|coffeehouse|kiosk)/i,
-  'samochody': /(museum|factory|interior|navigation|\boil\b|industry|assembly|plant|headquarter|hq[a-z]|engine|showroom|dealership|street_food|car_wash|wash|detailing|parking|dashboard|electronics|radio|display|screen|bots?|robot)/i,
-  'marki-samochodow': /(logo|badge|emblem|factory|headquarter|hq[a-z]|office|store|dealer|museum|gallery|american-motors|multia_log|facility|plant)/i,
+  'marki-napojow': /(headquarter|headquarters|\bhq\b|office|store|shop|factory|building|distribution|shelf|mollinsburn|sugarland|warehouse|market|restaurant|street|avenue|advertisement)/i,
+  'napoje-bezalkoholowe': /(shelf|shop|store|factory|building|headquarter|\bhq\b|market|restaurant|\bbar\b|collecting|birch|tree|forest|plantation|walmart|wallmart|cafe|coffeehouse|kiosk)/i,
+  'samochody': /(museum|factory|interior|navigation|\boil\b|industry|assembly|plant|headquarter|\bhq\b|engine|showroom|dealership|street_food|car_wash|wash|detailing|parking|dashboard|electronics|radio|display|screen|bots?|robot)/i,
+  'marki-samochodow': /(logo|badge|emblem|factory|headquarter|\bhq\b|office|store|dealer|museum|gallery|american-motors|multia_log|facility|plant)/i,
   'herbaty': /(teahouse|tea_house|ceremony|chashitsu|boston|advertisement|botanical|sasanqua|sinensis|museum|shop|plantation|matchsafe|monk)/i,
   'owoce-jadalne': /(factory|processing|seafood|pasta|market|shop|plantation)/i,
   'owoce-morza': /(pasta|restaurant|market|shop)/i,
-  'piwo': /(browar|brewery|factory|building|award|museum|drone|dron|headquarter|hq[a-z])/i,
-  'marki-kosmetykow': /(shop|store|interior|building|headquarter|hq[a-z]|shelf)/i,
+  'piwo': /(browar|brewery|factory|building|award|museum|drone|dron|headquarter|\bhq\b)/i,
+  'marki-kosmetykow': /(shop|store|interior|building|headquarter|\bhq\b|shelf)/i,
   'restauracje': /(ghost|wirtualna|street_food|menu|billboard|advertisement)/i,
   'zupy': /(restaurant|street_food|shop|market|menu)/i,
   'przekaski': /(street_food|shop|market|restaurant|menu)/i,
   'ciasta-deserowe': /(shop|store|restaurant|market|menu)/i,
   'ciasta-wytrawne': /(shop|store|restaurant|market|menu)/i,
   'desery': /(shop|store|restaurant|market|menu)/i,
-  'samochody-wyscigowe': /(headquarter|hq[a-z]|museum|gallery|speed_tape|factory|showroom)/i,
+  'samochody-wyscigowe': /(headquarter|\bhq\b|museum|gallery|speed_tape|factory|showroom)/i,
+  'parki-narodowe': /(logo|logotyp|herb|coat|crest|godlo|godło|map|mapa|flag|flaga|znak)/i,
+  'gry-planszowe': /(logo|logotyp|wordmark|ikon)/i,
+  'drzewa': /(illustration|illustrac|drawing|rysunek|köhler|kohler|sturm|flora|plate|leaf|liść|lisci|flower|kwiat|fruit|owoc|seed|nasion|cone|szysz|bark|kora|gall|insect|owad)/i,
+  'makaron': /(logo|pack|package|opakowanie|shop|store|restaurant|menu|market)/i,
 };
 
 // Odpowiedzi, które nie są rzeczami z kategorii (np. „Face lifting”
@@ -179,14 +183,17 @@ const ANSWER_RULES = {
   'samochody-wyscigowe': /^(speed tape|formuła 1|scg)$/i,
   'napoje-bezalkoholowe': /^(napój bezalkoholowy|napój|fusy)$/i,
   'herbaty': /^(kamelia|herbatka bostońska|japońska ceremonia picia herbaty|chashitsu)$/i,
+  'gry-planszowe': /^(gra planszowa|gra karciana|gra\b|zabawka)$/i,
+  'parki-narodowe': /^(park narodowy|park krajobrazowy|rezerwat)\s*$/i,
 };
 
-const GENERIC_DOCUMENT_IMAGE = /(screenshot|zrzut|diagram|schemat|wykres|chart|mapa|map_|_map|map-|plan\b|logo|logotyp|wordmark|icon|ikona|cover|okładka|poster|plakat|sheet|score|partytura|nuty|menu|ulotka|reklama|advertisement)/i;
+const GENERIC_DOCUMENT_IMAGE = /(screenshot|zrzut|diagram|schemat|wykres|chart|mapa|map_|_map|map-|plan\b|logo|logotyp|wordmark|icon|ikona|cover|okładka|poster|plakat|sheet|score|partytura|nuty|menu|ulotka|reklama|advertisement|coat|herb|crest|flag|flaga|godlo|godło)/i;
 const IMAGE_SPECIAL_PACKS = new Set(['loga-firm', 'flagi-panstw', 'herby-panstw', 'aplikacje-internetowe']);
 
 function imageFile(url) {
   try {
-    return decodeURIComponent(new URL(url).pathname.split('/').pop() || '').toLowerCase();
+    const base = typeof location !== 'undefined' ? location.href : 'https://local.invalid/';
+    return decodeURIComponent(new URL(url, base).pathname.split('/').pop() || '').toLowerCase();
   } catch {
     return '';
   }
@@ -208,7 +215,15 @@ export function imageLooksUsable(cat, img) {
   img = normalizeImageUrl(img);
   const special = IMAGE_SPECIAL_PACKS.has(cat?.id);
   if (special && /^https:\/\/cdn\.simpleicons\.org\//i.test(img)) return true;
-  if (!/^https:\/\/(upload|thumb)\.wikimedia\.org\//i.test(img) && !(special && /^https:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\//i.test(img))) {
+  if (special && /^assets\/apps\/[a-z0-9._-]+\.(svg|png)$/i.test(img)) return true;
+  // Lokalne kopie zdjęć pobrane do paczek. Dzięki nim brak internetu nie
+  // zamienia pytania w „zdjęcie chwilowo niedostępne”.
+  if (/^assets\/packs\/[a-z0-9._/-]+\.(jpe?g|png|webp)$/i.test(img)) return true;
+  if (
+    !/^https:\/\/(upload|thumb)\.wikimedia\.org\//i.test(img) &&
+    !/^https:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\//i.test(img) &&
+    !/^https:\/\/cdn\.simpleicons\.org\//i.test(img)
+  ) {
     return false;
   }
   const file = imageFile(img);
@@ -220,6 +235,17 @@ export function imageLooksUsable(cat, img) {
   return true;
 }
 
+// Ten sam klucz dla pytań i odpowiedzi: ignoruje wielkość liter, polskie
+// znaki i interpunkcję. Dzięki temu „Łoś” i „łoś” nie są dwoma pytaniami.
+export function answerKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 function sanitizePack(cat, pack) {
   if (!pack?.items?.length) return pack;
   const seen = new Set();
@@ -227,7 +253,7 @@ function sanitizePack(cat, pack) {
   pack.items = pack.items.filter((q) => {
     if (!q?.a || !q.img || !answerLooksUsable(cat, q.a)) return false;
     q.img = normalizeImageUrl(q.img);
-    const key = String(q.a).toLowerCase();
+    const key = answerKey(q.a);
     if (seen.has(key) || images.has(q.img) || !imageLooksUsable(cat, q.img)) return false;
     seen.add(key);
     images.add(q.img);
@@ -343,7 +369,7 @@ export function seenSet(packId) {
 
 export function markSeen(packId, answer) {
   const seen = seenSet(packId);
-  seen.add(answer);
+  seen.add(answerKey(answer));
   storeSet(SEEN_PREFIX + packId, [...seen].slice(-1200));
 }
 
@@ -352,12 +378,12 @@ export function resetSeen(packId) {
 }
 
 export function makeQueue(pack, used = null) {
-  const seen = seenSet(pack.id);
-  const isUsed = (q) => seen.has(q.a) || (used && used.has(pack.id + '|' + q.a));
+  const seen = new Set([...seenSet(pack.id)].map(answerKey));
+  const isUsed = (q) => seen.has(answerKey(q.a)) || (used && used.has(pack.id + '|' + answerKey(q.a)));
   let fresh = pack.items.filter((q) => !isUsed(q));
   // Jeśli localStorage pamięta poprzednią grę, nie resetuj całej puli w środku
   // bieżącej rozgrywki — najpierw wykorzystaj pytania nieużyte w tej grze.
-  if (!fresh.length) fresh = pack.items.filter((q) => !used || !used.has(pack.id + '|' + q.a));
+  if (!fresh.length) fresh = pack.items.filter((q) => !used || !used.has(pack.id + '|' + answerKey(q.a)));
   if (!fresh.length) fresh = [...pack.items];
   return { queue: shuffle(fresh), total: pack.items.length };
 }

@@ -180,17 +180,22 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 /* Wspólne krawędzie nie mogą dostawać późniejszych obwódek (same-cat,
    source-option itd.), bo wtedy jeden kształt znów wygląda jak kratki. */
 .floor-tile.merged.same-cat,
-.floor-tile.merged.source-option,
 .floor-tile.merged.source,
 .floor-tile.merged.target,
 .floor-tile.merged.challenger,
 .floor-tile.merged.defender,
 .floor-tile.merged.conquered,
 .floor-tile.merged.winner { box-shadow: none; }
-.floor-tile.merged.source-option,
 .floor-tile.merged.source { border-color: transparent; }
-.floor-tile.merged.source-option { background: color-mix(in srgb, var(--pc, #64708a) 34%, #0b1120); }
 .floor-tile.merged.source { background: color-mix(in srgb, var(--pc, #64708a) 48%, #0b1120); }
+/* Wybieralne scalone pole musi być widoczne: złota obwódka na każdym
+   kafelku grupy pokazuje, że można w nie kliknąć. */
+.floor-tile.merged.source-option {
+  background: color-mix(in srgb, var(--pc, #64708a) 34%, #0b1120);
+  border-color: rgba(246, 196, 83, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(246, 196, 83, 0.85), 0 0 18px rgba(246, 196, 83, 0.22);
+  z-index: 2;
+}
 
 .tile-emoji { font-size: clamp(9px, 1.8cqh, 16px); line-height: 1; opacity: 0.9; flex: none; }
 .tile-cat {
@@ -337,14 +342,17 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .host-game-body {
   flex: 1;
   min-height: 0;
+  min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.72fr);
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.68fr);
   gap: 12px;
+  overflow: hidden;
 }
+.host-game-body > * { min-width: 0; }
 .host-floor-card { padding: 12px; display: flex; flex-direction: column; gap: 9px; min-height: 0; min-width: 0; }
 .host-floor-card .panel-head { margin-bottom: 0; }
 .host-floor-card .floor-stage { flex: 1; }
-.game-side { min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 10px; scrollbar-width: thin; }
+.game-side { min-height: 0; min-width: 0; overflow-x: hidden; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; scrollbar-width: thin; }
 .action-card { padding: 15px; flex: none; }
 .action-title { font-family: var(--display); font-size: clamp(27px, 3vw, 38px); line-height: 0.95; letter-spacing: 0.02em; margin: 3px 0 8px; overflow-wrap: anywhere; }
 .action-text { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 0 0 10px; }
@@ -358,25 +366,28 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .mini-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
 .mini-tiles { font-size: 10px; color: var(--muted); white-space: nowrap; }
 
-.duel-card { padding: 13px; display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; overflow: auto; }
+.duel-card { padding: 13px; display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; min-width: 0; overflow-x: hidden; overflow-y: auto; }
 .duel-cat { font-size: 12px; font-weight: 800; color: var(--gold); letter-spacing: 0.03em; }
 .duel-question-wrap {
   position: relative;
   flex: 1;
-  min-height: 120px;
+  width: 100%;
+  min-width: 0;
+  min-height: 150px;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.35);
   overflow: hidden;
   display: grid;
   place-items: center;
-  padding: 6px;
+  padding: 0;
 }
-.duel-question-img { width: auto; height: auto; max-width: 100%; max-height: 26vh; object-fit: contain; margin: auto; }
+.duel-question-img { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; margin: auto; display: block; }
+.duel-question-img[hidden], .duel-image[hidden] { display: none; }
 .duel-question-img.blurred, .duel-image.blurred { filter: blur(6px) saturate(1.08); }
 .duel-question-wrap.logo { background: #f3f5fa; border-color: rgba(255, 255, 255, 0.4); }
-.duel-question-wrap.logo .duel-question-img { padding: 8px; }
-.duel-answer { font-size: clamp(24px, 2.7vw, 38px); }
+.duel-question-wrap.logo .duel-question-img { width: auto; height: auto; max-width: 82%; max-height: 82%; object-fit: contain; padding: 8px; }
+.duel-answer { font-size: clamp(22px, 2.15vw, 34px); line-height: 1.02; max-width: 100%; overflow-wrap: anywhere; }
 .answer-meta { font-size: 10.5px; }
 
 .clock-card {
@@ -402,10 +413,10 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .clock-card.low .clock-time { color: var(--red); animation: clockPulse 0.8s ease-in-out infinite; }
 @keyframes clockPulse { 50% { opacity: 0.65; } }
 
-.duel-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px clamp(12px, 1.6vw, 20px) 14px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
-.duel-controls .judge { min-height: clamp(58px, 9vh, 88px); border-radius: 15px; display: flex; align-items: center; justify-content: center; gap: 9px; border: 0; font-family: var(--display); font-size: clamp(20px, 2.2vw, 31px); letter-spacing: 0.05em; }
+.duel-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px clamp(12px, 1.6vw, 20px) 10px; background: linear-gradient(180deg, transparent, rgba(5, 7, 13, 0.7)); z-index: 6; }
+.duel-controls .judge { min-height: 46px; padding: 6px 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; font-family: var(--display); font-size: clamp(16px, 1.45vw, 21px); letter-spacing: 0.04em; }
 .duel-controls .judge span { display: block; }
-.duel-controls .judge small { display: block; font-family: var(--sans); font-size: 9.5px; letter-spacing: 0.1em; opacity: 0.65; margin-top: 2px; }
+.duel-controls .judge small { display: block; font-family: var(--sans); font-size: 8px; letter-spacing: 0.08em; opacity: 0.65; margin-top: 1px; }
 .duel-controls .kbd { margin-left: auto; margin-right: 6px; }
 
 /* ---------------- board ---------------- */
@@ -431,7 +442,8 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   overflow: hidden;
   container-type: size;
 }
-.board-floor { width: min(100%, calc(100cqh * var(--cols) / var(--rows))); }
+.board-floor { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
+.host-floor-card .floor-grid { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
 .board-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 0 4px; min-height: 24px; }
 .board-caption { font-family: var(--display); font-size: clamp(15px, 1.8vw, 23px); letter-spacing: 0.04em; color: #d9e1f3; }
 .board-caption::before { content: '●'; color: var(--gold); font-size: 0.55em; margin-right: 8px; vertical-align: 0.18em; }
@@ -504,7 +516,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   overflow: hidden;
 }
 .duel-stage::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.55); pointer-events: none; }
-.duel-image { max-width: 100%; max-height: 100%; object-fit: contain; position: relative; z-index: 1; animation: qIn 0.3s ease both; }
+.duel-image { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; position: relative; z-index: 1; animation: qIn 0.3s ease both; }
 .duel-stage.logo-stage::before {
   content: '';
   position: absolute;
@@ -513,7 +525,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: #f3f5fa;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
-.logo-stage .duel-image { max-width: 64%; max-height: 64%; padding: 1%; }
+.logo-stage .duel-image { width: auto; height: auto; max-width: 64%; max-height: 64%; object-fit: contain; padding: 1%; }
 .duel-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 13px; z-index: 2; }
 .duel-loading[hidden] { display: none; }
 .duel-image-fallback {
@@ -655,7 +667,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   .host-game { overflow: auto; }
   .host-game-body { grid-template-columns: 1fr; }
   .host-floor-card { min-height: 46vh; }
-  .game-side { overflow: visible; }
+  .game-side { overflow-x: hidden; overflow-y: visible; }
   .duel-card { min-height: 260px; }
   .clock-time { font-size: clamp(32px, 7vw, 46px); }
   .board-legend { display: none; }
@@ -680,7 +692,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   .clock-name { font-size: 15px; }
   .clock-time { font-size: 30px; }
   .duel-controls { gap: 7px; }
-  .duel-controls .judge { font-size: 20px; gap: 7px; }
+  .duel-controls .judge { font-size: 17px; gap: 7px; min-height: 44px; }
   .duel-controls .kbd { display: none; }
   .board-caption { font-size: 13px; }
   .board-turn { position: static; transform: none; margin-left: auto; }
@@ -740,8 +752,8 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .duel-player .clock-tiles { font-size: 11px; }
 .duel-player .clock-time { font-size: clamp(40px, 5.5vw, 76px); }
 
-.duel-answer { font-size: clamp(30px, 3.2vw, 46px); }
-.answer-meta { font-size: 12px; }
+.duel-answer { font-size: clamp(22px, 2.15vw, 34px); line-height: 1.02; }
+.answer-meta { font-size: 11px; }
 
 .answer-banner {
   min-width: min(680px, 92vw);
@@ -818,3 +830,107 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+
+/* ============================================================
+   FINALNE POPRAWKI: całe grupy, proporcje kafelków i zdjęcia
+   ============================================================ */
+
+/* Obwódka całej scalonej grupy. Klasa g-edge-* jest dodawana tylko na
+   zewnętrznych krawędziach kształtu, więc środek grupy nie wygląda jak
+   osobne kafelki. */
+.floor-tile.g-edge-top { border-top: 3px solid #fff !important; }
+.floor-tile.g-edge-bottom { border-bottom: 3px solid #fff !important; }
+.floor-tile.g-edge-left { border-left: 3px solid #fff !important; }
+.floor-tile.g-edge-right { border-right: 3px solid #fff !important; }
+
+.floor-tile.group-option {
+  background: color-mix(in srgb, var(--pc, #64708a) 36%, #0b1120);
+  box-shadow: none !important;
+  z-index: 2;
+}
+.floor-tile.group-option.g-edge-top,
+.floor-tile.group-option.g-edge-bottom { border-color: rgba(246, 196, 83, 0.95) !important; }
+.floor-tile.group-option.g-edge-left,
+.floor-tile.group-option.g-edge-right { border-color: rgba(246, 196, 83, 0.95) !important; }
+
+.floor-tile.group-source {
+  background: color-mix(in srgb, var(--pc, #64708a) 55%, #0b1120);
+  box-shadow: none !important;
+  z-index: 3;
+}
+.floor-tile.group-source.g-edge-top,
+.floor-tile.group-source.g-edge-bottom,
+.floor-tile.group-source.g-edge-left,
+.floor-tile.group-source.g-edge-right { border-color: #fff !important; }
+
+.floor-tile.group-target {
+  background: color-mix(in srgb, var(--pc, #64708a) 40%, #0b1120);
+  box-shadow: none !important;
+  z-index: 3;
+}
+.floor-tile.group-target.g-edge-top,
+.floor-tile.group-target.g-edge-bottom,
+.floor-tile.group-target.g-edge-left,
+.floor-tile.group-target.g-edge-right { border-color: #f6c453 !important; }
+.floor-tile.group-target .tile-mark { color: #f6c453; border-color: rgba(246, 196, 83, 0.75); }
+
+/* Zaokrąglenia tylko na zewnętrznych narożnikach grupy. */
+.floor-tile.g-edge-top.g-edge-left { border-top-left-radius: 10px !important; }
+.floor-tile.g-edge-top.g-edge-right { border-top-right-radius: 10px !important; }
+.floor-tile.g-edge-bottom.g-edge-left { border-bottom-left-radius: 10px !important; }
+.floor-tile.g-edge-bottom.g-edge-right { border-bottom-right-radius: 10px !important; }
+
+/* Kafelki mają wypełniać prostokąt planszy, a nie być pionowymi paskami. */
+.host-floor-card .floor-grid,
+.setup-floor-stage .floor-grid,
+.board-floor {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: auto;
+}
+.host-floor-card .floor-grid { min-height: 0; }
+.setup-floor-stage .tile-cat { font-size: clamp(7px, 0.95cqw, 11px); }
+.tile-cat {
+  width: 100%;
+  /* cqw liczy się od szerokości planszy, więc przy 8 kolumnach napisy
+     same się zmniejszają zamiast łamać „Kompozytorzy” na „Kompozyt orzy”. */
+  font-size: clamp(8px, 1.06cqw, 14px);
+  line-height: 1.12;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+/* Zdjęcia zawsze w całości, wyśrodkowane, bez wychodzenia z kadru.
+   Czarny pas jest lepszy niż ucięta odpowiedź albo fragment krajobrazu. */
+.duel-question-wrap,
+.duel-stage { background-color: #05070d; }
+.duel-question-img,
+.duel-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+}
+.duel-question-wrap.logo .duel-question-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 7%;
+}
+.logo-stage .duel-image {
+  width: auto;
+  height: auto;
+  max-width: 62%;
+  max-height: 62%;
+  object-fit: contain;
+  padding: 0;
+}
+.duel-image-fallback { display: none !important; }

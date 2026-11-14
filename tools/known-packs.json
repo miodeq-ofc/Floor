@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ssaki",
+    "name": "Ssaki",
+    "icon": "🦌",
+    "prompt": "Jaki to ssak?",
+    "group": "Przyroda",
+    "count": 88
+  },
+  {
+    "id": "gady",
+    "name": "Gady",
+    "icon": "🦎",
+    "prompt": "Jaki to gad?",
+    "group": "Przyroda",
+    "count": 69
+  },
+  {
+    "id": "drzewa",
+    "name": "Drzewa",
+    "icon": "🌳",
+    "prompt": "Jakie to drzewo?",
+    "group": "Przyroda",
+    "count": 81
+  },
+  {
+    "id": "makaron",
+    "name": "Makaron",
+    "icon": "🍝",
+    "prompt": "Jaki to makaron?",
+    "group": "Kuchnia",
+    "count": 26
+  },
+  {
+    "id": "miasta",
+    "name": "Miasta",
+    "icon": "🏙️",
+    "prompt": "Jakie to miasto?",
+    "group": "Geografia",
+    "count": 156
+  }
+]

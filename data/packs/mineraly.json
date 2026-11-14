@@ -1,1 +1,138 @@
-{"id":"mineraly","name":"Minerały","group":"Nauka","icon":"💎","prompt":"Jaki to minerał? Podaj polską nazwę.","source":"Kurator: rozpoznawalne minerały","items":[{"a":"Kwarc","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Quartz%2C_Tibet.jpg/960px-Quartz%2C_Tibet.jpg"},{"a":"Skaleń","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Microcline.jpeg/960px-Microcline.jpeg"},{"a":"Kalcyt","img":"https://upload.wikimedia.org/wikipedia/commons/2/2e/Calcite-20188.jpg"},{"a":"Gips","img":"https://upload.wikimedia.org/wikipedia/commons/2/27/Gypsum-40102.jpg"},{"a":"Halit","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Selpologne.jpg/960px-Selpologne.jpg"},{"a":"Magnetyt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Magnetite.jpg/960px-Magnetite.jpg"},{"a":"Hematyt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Hematite.jpg/960px-Hematite.jpg"},{"a":"Piryt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg/960px-Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg"},{"a":"Diament","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Diamond_1.jpg/960px-Diamond_1.jpg"},{"a":"Grafit","img":"https://upload.wikimedia.org/wikipedia/commons/f/f3/GraphiteUSGOV.jpg"},{"a":"Złoto","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Gold-crystals.jpg/960px-Gold-crystals.jpg"},{"a":"Srebro","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/960px-Silver_crystal.jpg"},{"a":"Miedź","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/960px-NatCopper.jpg"},{"a":"Malachit","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Malachite_kongo.JPG/960px-Malachite_kongo.JPG"},{"a":"Azuryt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg/960px-Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg"},{"a":"Topaz","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Topaze_Br%C3%A9sil.jpg/960px-Topaze_Br%C3%A9sil.jpg"},{"a":"Fluoryt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/9104_-_Milano_-_Museo_storia_naturale_-_Fluorite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg/960px-9104_-_Milano_-_Museo_storia_naturale_-_Fluorite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg"},{"a":"Talk","img":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Talc_block.jpg"},{"a":"Kaolin","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Kaolin_mine_in_Muzhievo%2C_Ukraine.jpg/960px-Kaolin_mine_in_Muzhievo%2C_Ukraine.jpg"},{"a":"Syderyt","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/SideriteBresil2.jpg/960px-SideriteBresil2.jpg"},{"a":"Ametyst","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Amethyst-minasgerais_hg.jpg/960px-Amethyst-minasgerais_hg.jpg"},{"a":"Agat","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Agate1_hg.jpg/960px-Agate1_hg.jpg"},{"a":"Jaspis","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Jasper_%2832132824820%29.jpg/960px-Jasper_%2832132824820%29.jpg"},{"a":"Opal","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Opale_noble_%28Australie%29_.jpg/960px-Opale_noble_%28Australie%29_.jpg"},{"a":"Obsydian","img":"https://upload.wikimedia.org/wikipedia/commons/8/8c/ObsidianOregon.jpg"},{"a":"Granat","img":"https://upload.wikimedia.org/wikipedia/commons/2/24/GarnetEZ.jpg"},{"a":"Korund","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Several_corundum_crystals.jpg/960px-Several_corundum_crystals.jpg"},{"a":"Sfaleryt","img":"https://upload.wikimedia.org/wikipedia/commons/2/2f/Sphalerite4.jpg"},{"a":"Galena","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg/960px-Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg"},{"a":"Rodochrozyt","img":"https://upload.wikimedia.org/wikipedia/commons/2/20/Rhodochrosite_HMNH1.jpg"},{"a":"Turmalin","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Rough_%28bi-color%29_Watermelon_Tourmaline.jpg/960px-Rough_%28bi-color%29_Watermelon_Tourmaline.jpg"},{"a":"Beryl","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Beryl09.jpg/960px-Beryl09.jpg"}]}
+{
+  "id": "mineraly",
+  "name": "Minerały",
+  "group": "Nauka",
+  "icon": "💎",
+  "prompt": "Jaki to minerał? Podaj polską nazwę.",
+  "source": "Kurator: rozpoznawalne minerały",
+  "items": [
+    {
+      "a": "Kwarc",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Quartz%2C_Tibet.jpg/960px-Quartz%2C_Tibet.jpg"
+    },
+    {
+      "a": "Skaleń",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Microcline.jpeg/960px-Microcline.jpeg"
+    },
+    {
+      "a": "Kalcyt",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Calcite-20188.jpg"
+    },
+    {
+      "a": "Gips",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/27/Gypsum-40102.jpg"
+    },
+    {
+      "a": "Halit",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Selpologne.jpg/960px-Selpologne.jpg"
+    },
+    {
+      "a": "Magnetyt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Magnetite.jpg/960px-Magnetite.jpg"
+    },
+    {
+      "a": "Hematyt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Hematite.jpg/960px-Hematite.jpg"
+    },
+    {
+      "a": "Piryt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg/960px-Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg"
+    },
+    {
+      "a": "Diament",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Diamond_1.jpg/960px-Diamond_1.jpg"
+    },
+    {
+      "a": "Grafit",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f3/GraphiteUSGOV.jpg"
+    },
+    {
+      "a": "Złoto",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Gold-crystals.jpg/960px-Gold-crystals.jpg"
+    },
+    {
+      "a": "Srebro",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/960px-Silver_crystal.jpg"
+    },
+    {
+      "a": "Miedź",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/960px-NatCopper.jpg"
+    },
+    {
+      "a": "Malachit",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Malachite_kongo.JPG/960px-Malachite_kongo.JPG"
+    },
+    {
+      "a": "Azuryt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg/960px-Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg"
+    },
+    {
+      "a": "Topaz",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Topaze_Br%C3%A9sil.jpg/960px-Topaze_Br%C3%A9sil.jpg"
+    },
+    {
+      "a": "Fluoryt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/9104_-_Milano_-_Museo_storia_naturale_-_Fluorite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg/960px-9104_-_Milano_-_Museo_storia_naturale_-_Fluorite_-_Foto_Giovanni_Dall%27Orto_22-Apr-2007.jpg"
+    },
+    {
+      "a": "Talk",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Talc_block.jpg"
+    },
+    {
+      "a": "Kaolin",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Kaolin_mine_in_Muzhievo%2C_Ukraine.jpg/960px-Kaolin_mine_in_Muzhievo%2C_Ukraine.jpg"
+    },
+    {
+      "a": "Syderyt",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/SideriteBresil2.jpg/960px-SideriteBresil2.jpg"
+    },
+    {
+      "a": "Ametyst",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Amethyst-minasgerais_hg.jpg/960px-Amethyst-minasgerais_hg.jpg"
+    },
+    {
+      "a": "Agat",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Agate1_hg.jpg/960px-Agate1_hg.jpg"
+    },
+    {
+      "a": "Jaspis",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Jasper_%2832132824820%29.jpg/960px-Jasper_%2832132824820%29.jpg"
+    },
+    {
+      "a": "Opal",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Opale_noble_%28Australie%29_.jpg/960px-Opale_noble_%28Australie%29_.jpg"
+    },
+    {
+      "a": "Obsydian",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8c/ObsidianOregon.jpg"
+    },
+    {
+      "a": "Granat",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/24/GarnetEZ.jpg"
+    },
+    {
+      "a": "Korund",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Several_corundum_crystals.jpg/960px-Several_corundum_crystals.jpg"
+    },
+    {
+      "a": "Sfaleryt",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sphalerite4.jpg"
+    },
+    {
+      "a": "Galena",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg/960px-Galena_-_Huallanca%2C_Bologesi%2C_Ancash%2C_Peru.jpg"
+    },
+    {
+      "a": "Rodochrozyt",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/20/Rhodochrosite_HMNH1.jpg"
+    },
+    {
+      "a": "Turmalin",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Rough_%28bi-color%29_Watermelon_Tourmaline.jpg/960px-Rough_%28bi-color%29_Watermelon_Tourmaline.jpg"
+    },
+    {
+      "a": "Beryl",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Beryl09.jpg/960px-Beryl09.jpg"
+    }
+  ]
+}

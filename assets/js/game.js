@@ -14,74 +14,11 @@ export const GRIDS = {
   5: [6, 5], // 30 pól, po 6
   6: [6, 6], // 36 pól, po 6
   7: [7, 7], // 49 pól, po 7
-  8: [8, 7], // 56 pól, po 7
+  8: [7, 8], // 56 pól, po 7 — szerszy układ na ekranie prowadzącego
 };
 
-export const SHORT_CATEGORY = {
-  'Samochody wyścigowe': 'Wyścigowe',
-  'Napoje bezalkoholowe': 'Napoje',
-  'Marki samochodów': 'Marki aut',
-  'Owoce jadalne': 'Owoce',
-  'Marki kosmetyków': 'Kosmetyki',
-  'Sieci handlowe': 'Sieci',
-  'Gry planszowe': 'Planszówki',
-  'Polscy aktorzy': 'Aktorzy',
-  'Polscy politycy': 'Politycy',
-  'Prezydenci USA': 'Prezydenci',
-  'Władcy Polski': 'Władcy',
-  'Rasy psów': 'Psy',
-  'Rasy koni': 'Konie',
-  'Gatunki muzyczne': 'Muzyka',
-  'Zespoły muzyczne': 'Zespoły',
-  'Instrumenty muzyczne': 'Instrumenty',
-  'Mięsa i wędliny': 'Mięsa',
-  'Ryby akwariowe': 'Ryby',
-  'Samochody terenowe': 'Terenowe',
-  'Samochody ciężarowe': 'Ciężarowe',
-  'Aplikacje internetowe': 'Aplikacje',
-  'Marki odzieżowe': 'Odzież',
-  'Ciasta wytrawne': 'Wytrawne',
-  'Pierwiastki chemiczne': 'Pierwiastki',
-  'Logotypy znanych marek': 'Logotypy',
-  'Zamki w Polsce': 'Zamki',
-  'Zamki': 'Zamki',
-  'Zabytki': 'Zabytki',
-  'Zwierzęta': 'Zwierzęta',
-  'Kwiaty': 'Kwiaty',
-  'Drzewa': 'Drzewa',
-  'Ptaki': 'Ptaki',
-  'Owady': 'Owady',
-  'Grzyby jadalne': 'Grzyby',
-  'Przyprawy': 'Przyprawy',
-  'Zupy': 'Zupy',
-  'Ciasta deserowe': 'Ciasta',
-  'Pieczywo': 'Pieczywo',
-  'Sery': 'Sery',
-  'Wina': 'Wina',
-  'Piwo': 'Piwo',
-  'Herbaty': 'Herbaty',
-  'Kawa': 'Kawa',
-  'Słodycze': 'Słodycze',
-  'Zabawki': 'Zabawki',
-  'Pociągi': 'Pociągi',
-  'Rowery': 'Rowery',
-  'Motocykle': 'Motocykle',
-  'Samoloty': 'Samoloty',
-  'Statki': 'Statki',
-  'Kosmos': 'Kosmos',
-  'Planety': 'Planety',
-  'Kraje': 'Kraje',
-  'Flagi państw': 'Flagi',
-  'Herby państw': 'Herby',
-  'Języki': 'Języki',
-  'Waluty': 'Waluty',
-  'Instrumenty': 'Instrumenty',
-  'Tańce': 'Tańce',
-  'Filmy': 'Filmy',
-  'Seriale': 'Seriale',
-  'Gry komputerowe': 'Gry',
-  'Bohaterowie': 'Bohaterowie',
-};
+// Pełne nazwy kategorii — gracz od razu wie, o co pyta kafelek.
+export const SHORT_CATEGORY = {};
 
 export function uid(prefix = 'p') {
   return prefix + Math.random().toString(36).slice(2, 8);
@@ -200,11 +137,21 @@ export function targetsFrom(tiles, ownerId, sourceKey, rows, cols) {
     .filter((tile) => tile && tile.owner !== ownerId);
 }
 
+/** Czy dwa pola mają tę samą kategorię? Nazwa jest awaryjnym kluczem,
+ *  gdy dwa wpisy tej samej kategorii mają różne identyfikatory źródłowe. */
+export function sameCategory(a, b) {
+  if (!a?.cat || !b?.cat) return false;
+  if (a.cat.id && b.cat.id && a.cat.id === b.cat.id) return true;
+  const aName = String(a.cat.name || '').trim().toLowerCase();
+  const bName = String(b.cat.name || '').trim().toLowerCase();
+  return Boolean(aName && aName === bName);
+}
+
 /** Zgodność pól tego samego właściciela i kategorii — do efektu scalenia. */
 export function sameCategoryNeighbor(tiles, tile, rows, cols) {
   return neighbors(tile.r, tile.c, rows, cols).some(([r, c]) => {
     const next = tileAt(tiles, r, c);
-    return next && next.owner === tile.owner && next.cat?.id === tile.cat?.id;
+    return next && next.owner === tile.owner && sameCategory(next, tile);
   });
 }
 
@@ -216,7 +163,7 @@ export function sameCategoryNeighbor(tiles, tile, rows, cols) {
 export function mergeInfo(tiles, tile, rows, cols) {
   const same = (dr, dc) => {
     const next = tileAt(tiles, tile.r + dr, tile.c + dc);
-    return Boolean(next && next.owner === tile.owner && next.cat?.id === tile.cat?.id);
+    return Boolean(next && next.owner === tile.owner && sameCategory(next, tile));
   };
   const up = tile.r > 0 && same(-1, 0);
   const down = tile.r < rows - 1 && same(1, 0);
@@ -232,6 +179,49 @@ export function mergeInfo(tiles, tile, rows, cols) {
     // „Herbaty” w każdym kafelku jednego kształtu.
     continuation: up || left,
   };
+}
+
+/**
+ * Cała połączona grupa pól tego samego właściciela i tej samej kategorii.
+ * Scalony kształt na planszy to jedno pole logiczne — przy przejęciu nie
+ * może zostać częściowo starym właścicielem z „dodatkowym” polem bez nazwy.
+ */
+export function categoryGroup(tiles, startTile, rows, cols) {
+  if (!startTile) return [];
+  const seen = new Set();
+  const queue = [startTile];
+  const group = [];
+  while (queue.length) {
+    const tile = queue.pop();
+    if (!tile || seen.has(keyOf(tile))) continue;
+    if (tile.owner !== startTile.owner || !sameCategory(tile, startTile)) continue;
+    seen.add(keyOf(tile));
+    group.push(tile);
+    for (const [r, c] of neighbors(tile.r, tile.c, rows, cols)) {
+      const next = tileAt(tiles, r, c);
+      if (next && !seen.has(keyOf(next))) queue.push(next);
+    }
+  }
+  return group;
+}
+
+/**
+ * Rozstrzyga pojedynek na poziomie całych scalonych grup. Zwraca grupy,
+ * które zmieniły właściciela i kategorię, dzięki czemu po walce nie zostaje
+ * samotny kafelek starego gracza ani resztka starej kategorii.
+ */
+export function captureDuelTerritory(tiles, sourceKey, targetKey, winnerId, prizeCategory, rows, cols) {
+  const sourceTile = tiles.find((tile) => keyOf(tile) === sourceKey) || null;
+  const targetTile = tiles.find((tile) => keyOf(tile) === targetKey) || null;
+  if (!sourceTile || !targetTile) return null;
+  const sourceGroup = categoryGroup(tiles, sourceTile, rows, cols);
+  const targetGroup = categoryGroup(tiles, targetTile, rows, cols);
+  const captured = [...new Set([...sourceGroup, ...targetGroup])];
+  captured.forEach((tile) => {
+    tile.cat = { ...prizeCategory };
+    tile.owner = winnerId;
+  });
+  return { sourceTile, targetTile, sourceGroup, targetGroup, captured };
 }
 
 export function frontier(tiles, ownerId) {

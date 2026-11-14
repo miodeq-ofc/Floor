@@ -1,1 +1,326 @@
-{"id":"przyprawy","name":"Przyprawy","group":"Kuchnia","icon":"🌶️","prompt":"Jaka to przyprawa?","source":"Kategoria:Przyprawy","items":[{"a":"Cukier trzcinowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Sa-indian-gud.jpg/960px-Sa-indian-gud.jpg"},{"a":"Cukier buraczany","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kristalsuiker.jpg/960px-Kristalsuiker.jpg"},{"a":"Przyprawa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kruiden_in_Egyptische_bazaar_Emin%C3%B6n%C3%BC_Istanbul.JPG/960px-Kruiden_in_Egyptische_bazaar_Emin%C3%B6n%C3%BC_Istanbul.JPG"},{"a":"Cukier","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sugar_Brown.jpg/960px-Sugar_Brown.jpg"},{"a":"Zioła","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Eleven_Herbs_and_Spices.jpg/960px-Eleven_Herbs_and_Spices.jpg"},{"a":"Cukier spożywczy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sucre_blanc_cassonade_complet_rapadura.jpg/960px-Sucre_blanc_cassonade_complet_rapadura.jpg"},{"a":"Cynamon","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Canelle_Cinnamomum_burmanni_Luc_Viatour.jpg/960px-Canelle_Cinnamomum_burmanni_Luc_Viatour.jpg"},{"a":"Cukier waniliowy","img":"https://upload.wikimedia.org/wikipedia/commons/0/07/Vanillezucker.jpg"},{"a":"Bakalie","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Dry_fruit.jpg/960px-Dry_fruit.jpg"},{"a":"Asafetyda","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Asafoetida2.jpg/960px-Asafoetida2.jpg"},{"a":"Curry","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Chicken_curry.jpg/960px-Chicken_curry.jpg"},{"a":"Goździki","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/ZanCloves.JPG/960px-ZanCloves.JPG"},{"a":"Gałka muszkatołowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/NuezMoscada.jpg/960px-NuezMoscada.jpg"},{"a":"Harissa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Harissa_Sauce.JPG/960px-Harissa_Sauce.JPG"},{"a":"Galangal","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Thai-Ingwer.JPG/960px-Thai-Ingwer.JPG"},{"a":"Grenadyna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Grenadine.jpg/960px-Grenadine.jpg"},{"a":"Cukier puder","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Powdered_Sugar_-_Macro.jpg/960px-Powdered_Sugar_-_Macro.jpg"},{"a":"Czubryca","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Bonenkruid-spice.jpg/960px-Bonenkruid-spice.jpg"},{"a":"Mirakulina","img":"https://upload.wikimedia.org/wikipedia/commons/0/0f/Miraculin.png"},{"a":"Muscovado","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Muscovadosugar.jpg/960px-Muscovadosugar.jpg"},{"a":"Demerara","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Demerara_sugar_crystals.jpg/960px-Demerara_sugar_crystals.jpg"},{"a":"Annato","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bixa_orellana_seeds.jpg/960px-Bixa_orellana_seeds.jpg"},{"a":"Cukier palmowy","img":"https://upload.wikimedia.org/wikipedia/commons/a/a3/Toddy_tapper.jpg"},{"a":"Cukier cynamonowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/8_-_Cinnamon_and_Sugar_%289928850723%29.jpg/960px-8_-_Cinnamon_and_Sugar_%289928850723%29.jpg"},{"a":"Mirin","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Mirinbowl.jpg/960px-Mirinbowl.jpg"},{"a":"Naga Jolokia","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Naga_Jolokia_Peppers.jpg/960px-Naga_Jolokia_Peppers.jpg"},{"a":"Proszek kakaowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cocoa_powder.jpg/960px-Cocoa_powder.jpg"},{"a":"Miso","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Miso_001.jpg/960px-Miso_001.jpg"},{"a":"Głowa cukru","img":"https://upload.wikimedia.org/wikipedia/commons/a/ad/Zuckerhut.jpg"},{"a":"Ajwar","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ajvar1_bright.jpg/960px-Ajvar1_bright.jpg"},{"a":"Cukier biały","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/A_Bowl_of_Sugar_2.jpg/960px-A_Bowl_of_Sugar_2.jpg"},{"a":"Kminek czarny","img":"https://upload.wikimedia.org/wikipedia/commons/c/c9/Blackcuminseeds.jpg"},{"a":"Chropawiec wonny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Carom.jpg/960px-Carom.jpg"},{"a":"Miód palmowy","img":"https://upload.wikimedia.org/wikipedia/commons/0/09/ZPalmhonig.jpg"},{"a":"Gochujang","img":"https://upload.wikimedia.org/wikipedia/commons/c/cb/Korean_chili_pepper_paste_GOCHUJANG.jpg"},{"a":"Horapha","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/CroppedSweetBasilOrThaiBasil0314.JPG/960px-CroppedSweetBasilOrThaiBasil0314.JPG"},{"a":"Kemangi","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kemangi.jpg/960px-Kemangi.jpg"},{"a":"Cytryna kiszona","img":"https://upload.wikimedia.org/wikipedia/commons/b/b1/MoroccanlemonS.jpg"},{"a":"Liść laurowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Specie_010.jpg/960px-Specie_010.jpg"},{"a":"Doenjang","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Doenjang.jpg/960px-Doenjang.jpg"},{"a":"Pasta curry","img":"https://upload.wikimedia.org/wikipedia/commons/a/a8/HAT_YAI_MARKET_2.jpg"},{"a":"Mizuame","img":"https://upload.wikimedia.org/wikipedia/commons/2/2e/Mizuame_001.jpg"},{"a":"Koncentrat zupy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/%22Madre_e_hija%22_%28sopa_turca%29.jpg/960px-%22Madre_e_hija%22_%28sopa_turca%29.jpg"},{"a":"Kyopoolu","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/AubergineCaviar.jpg/960px-AubergineCaviar.jpg"},{"a":"Erős Pista","img":"https://upload.wikimedia.org/wikipedia/commons/d/d5/Eros_Pista_termekfoto.png"},{"a":"Sól kuchenna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Table_salt_with_salt_shaker_V1.jpg/960px-Table_salt_with_salt_shaker_V1.jpg"},{"a":"Sos rybny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Nuocmam1.jpg/960px-Nuocmam1.jpg"},{"a":"Sól warzona","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Laesoe_Saltsyderi_2011_ubt-5.JPG/960px-Laesoe_Saltsyderi_2011_ubt-5.JPG"},{"a":"Syrop klonowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Maple_syrup_bucket.jpg/960px-Maple_syrup_bucket.jpg"},{"a":"Papryka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Paprikagew%C3%BCrz_20090502_001.JPG/960px-Paprikagew%C3%BCrz_20090502_001.JPG"},{"a":"Ziele angielskie","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/AllspiceSeeds.jpg/960px-AllspiceSeeds.jpg"},{"a":"Pieprz","img":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg"},{"a":"Sambal oelek","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/GT_Sambal_Oelek_Corona.jpg/960px-GT_Sambal_Oelek_Corona.jpg"},{"a":"Sos sojowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Soy_sauce_2.jpg/960px-Soy_sauce_2.jpg"},{"a":"Wawrzyn","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Laurus_nobilis_g2.jpg/960px-Laurus_nobilis_g2.jpg"},{"a":"Naruto","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Misora-men2222222.jpg/960px-Misora-men2222222.jpg"},{"a":"Pieprz czarny","img":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg"},{"a":"Szczypiorek","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Allium_schoenoprasum_a1.jpg/960px-Allium_schoenoprasum_a1.jpg"},{"a":"Papryka habanero","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Habanero.jpg/960px-Habanero.jpg"},{"a":"Pieprz cayenne","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Large_Cayenne.jpg/960px-Large_Cayenne.jpg"},{"a":"Piri-piri","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/African_red_devil_peppers.jpg/960px-African_red_devil_peppers.jpg"},{"a":"Pieprz biały","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bangka_Pepper.jpg/960px-Bangka_Pepper.jpg"},{"a":"Olejek kardamonowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Elettaria_cardamomum_Capsules_and_seeds.jpg/960px-Elettaria_cardamomum_Capsules_and_seeds.jpg"},{"a":"Woda różana","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/G%C3%BClsuyu.jpg/960px-G%C3%BClsuyu.jpg"},{"a":"Syrop z agawy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Agave_tequilana_2.jpg/960px-Agave_tequilana_2.jpg"},{"a":"Sambal","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Sambal_lampung.JPG/960px-Sambal_lampung.JPG"},{"a":"Pieprz czerwony","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Pink_Peppercorns_%28Schinus_terebinthifolius%29.JPG/960px-Pink_Peppercorns_%28Schinus_terebinthifolius%29.JPG"},{"a":"Pieprz syczuański","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Poivre_fond_blanc.jpg/960px-Poivre_fond_blanc.jpg"},{"a":"Papeda","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Citrus_hystrix_dsc07772.jpg/960px-Citrus_hystrix_dsc07772.jpg"},{"a":"Pasta krewetkowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Drying_shrimp_paste.jpg/960px-Drying_shrimp_paste.jpg"},{"a":"Papryka z Espelette","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/France-AOC_Piment_d%27Espelette-2005-08-05.jpg/960px-France-AOC_Piment_d%27Espelette-2005-08-05.jpg"},{"a":"Syrop glukozowo-fruktozowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Sugar_from_corn_LCCN2016822131.jpg/960px-Sugar_from_corn_LCCN2016822131.jpg"},{"a":"Shaoxing","img":"https://upload.wikimedia.org/wikipedia/commons/c/c5/ShaoxingwinefromXianHengInn.jpg"},{"a":"Szafran","img":"https://upload.wikimedia.org/wikipedia/commons/3/30/Crocus_sativus1.jpg"},{"a":"Sos sojowo-grzybowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Soy-mushroom_sauce_from_China.JPG/960px-Soy-mushroom_sauce_from_China.JPG"},{"a":"Zha cai","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TwoHeadsZhacai.jpg/960px-TwoHeadsZhacai.jpg"},{"a":"Sanshō","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Zanthoxylum_piperitum.jpg/960px-Zanthoxylum_piperitum.jpg"},{"a":"Sriracha","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Siracha_sauce.jpg/960px-Siracha_sauce.jpg"},{"a":"Sól morska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_sea_salt.png/960px-Korean_sea_salt.png"},{"a":"Sól cechsztyńska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Rock_salt_%28halitite%29_%28Klodawa_Salt_Dome%2C_Zechstein_Formation%2C_Upper_Permian%3B_Klodawa_Salt_Mine%2C_central_Poland%29_1_%2815953564096%29.jpg/960px-Rock_salt_%28halitite%29_%28Klodawa_Salt_Dome%2C_Zechstein_Formation%2C_Upper_Permian%3B_Klodawa_Salt_Mine%2C_central_Poland%29_1_%2815953564096%29.jpg"},{"a":"Pieprz zielony","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Piper_nigrum_-_Fruits_frais_-_Penja%2C_Cameroun.jpg/960px-Piper_nigrum_-_Fruits_frais_-_Penja%2C_Cameroun.jpg"}]}
+{
+  "id": "przyprawy",
+  "name": "Przyprawy",
+  "group": "Kuchnia",
+  "icon": "🌶️",
+  "prompt": "Jaka to przyprawa?",
+  "source": "Kategoria:Przyprawy",
+  "items": [
+    {
+      "a": "Cukier trzcinowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Sa-indian-gud.jpg/960px-Sa-indian-gud.jpg"
+    },
+    {
+      "a": "Cukier buraczany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kristalsuiker.jpg/960px-Kristalsuiker.jpg"
+    },
+    {
+      "a": "Przyprawa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kruiden_in_Egyptische_bazaar_Emin%C3%B6n%C3%BC_Istanbul.JPG/960px-Kruiden_in_Egyptische_bazaar_Emin%C3%B6n%C3%BC_Istanbul.JPG"
+    },
+    {
+      "a": "Cukier",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sugar_Brown.jpg/960px-Sugar_Brown.jpg"
+    },
+    {
+      "a": "Cukier spożywczy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sucre_blanc_cassonade_complet_rapadura.jpg/960px-Sucre_blanc_cassonade_complet_rapadura.jpg"
+    },
+    {
+      "a": "Cynamon",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Canelle_Cinnamomum_burmanni_Luc_Viatour.jpg/960px-Canelle_Cinnamomum_burmanni_Luc_Viatour.jpg"
+    },
+    {
+      "a": "Cukier waniliowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/07/Vanillezucker.jpg"
+    },
+    {
+      "a": "Bakalie",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Dry_fruit.jpg/960px-Dry_fruit.jpg"
+    },
+    {
+      "a": "Asafetyda",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Asafoetida2.jpg/960px-Asafoetida2.jpg"
+    },
+    {
+      "a": "Curry",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Chicken_curry.jpg/960px-Chicken_curry.jpg"
+    },
+    {
+      "a": "Goździki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/ZanCloves.JPG/960px-ZanCloves.JPG"
+    },
+    {
+      "a": "Gałka muszkatołowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/NuezMoscada.jpg/960px-NuezMoscada.jpg"
+    },
+    {
+      "a": "Harissa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Harissa_Sauce.JPG/960px-Harissa_Sauce.JPG"
+    },
+    {
+      "a": "Galangal",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Thai-Ingwer.JPG/960px-Thai-Ingwer.JPG"
+    },
+    {
+      "a": "Grenadyna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Grenadine.jpg/960px-Grenadine.jpg"
+    },
+    {
+      "a": "Cukier puder",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Powdered_Sugar_-_Macro.jpg/960px-Powdered_Sugar_-_Macro.jpg"
+    },
+    {
+      "a": "Czubryca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Bonenkruid-spice.jpg/960px-Bonenkruid-spice.jpg"
+    },
+    {
+      "a": "Mirakulina",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Miraculin.png"
+    },
+    {
+      "a": "Muscovado",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Muscovadosugar.jpg/960px-Muscovadosugar.jpg"
+    },
+    {
+      "a": "Demerara",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Demerara_sugar_crystals.jpg/960px-Demerara_sugar_crystals.jpg"
+    },
+    {
+      "a": "Annato",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bixa_orellana_seeds.jpg/960px-Bixa_orellana_seeds.jpg"
+    },
+    {
+      "a": "Cukier palmowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Toddy_tapper.jpg"
+    },
+    {
+      "a": "Cukier cynamonowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/8_-_Cinnamon_and_Sugar_%289928850723%29.jpg/960px-8_-_Cinnamon_and_Sugar_%289928850723%29.jpg"
+    },
+    {
+      "a": "Mirin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Mirinbowl.jpg/960px-Mirinbowl.jpg"
+    },
+    {
+      "a": "Naga Jolokia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Naga_Jolokia_Peppers.jpg/960px-Naga_Jolokia_Peppers.jpg"
+    },
+    {
+      "a": "Proszek kakaowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cocoa_powder.jpg/960px-Cocoa_powder.jpg"
+    },
+    {
+      "a": "Miso",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Miso_001.jpg/960px-Miso_001.jpg"
+    },
+    {
+      "a": "Głowa cukru",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Zuckerhut.jpg"
+    },
+    {
+      "a": "Ajwar",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ajvar1_bright.jpg/960px-Ajvar1_bright.jpg"
+    },
+    {
+      "a": "Cukier biały",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/A_Bowl_of_Sugar_2.jpg/960px-A_Bowl_of_Sugar_2.jpg"
+    },
+    {
+      "a": "Kminek czarny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Blackcuminseeds.jpg"
+    },
+    {
+      "a": "Chropawiec wonny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Carom.jpg/960px-Carom.jpg"
+    },
+    {
+      "a": "Miód palmowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/09/ZPalmhonig.jpg"
+    },
+    {
+      "a": "Gochujang",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Korean_chili_pepper_paste_GOCHUJANG.jpg"
+    },
+    {
+      "a": "Horapha",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/CroppedSweetBasilOrThaiBasil0314.JPG/960px-CroppedSweetBasilOrThaiBasil0314.JPG"
+    },
+    {
+      "a": "Kemangi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kemangi.jpg/960px-Kemangi.jpg"
+    },
+    {
+      "a": "Cytryna kiszona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b1/MoroccanlemonS.jpg"
+    },
+    {
+      "a": "Liść laurowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Specie_010.jpg/960px-Specie_010.jpg"
+    },
+    {
+      "a": "Doenjang",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Doenjang.jpg/960px-Doenjang.jpg"
+    },
+    {
+      "a": "Pasta curry",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a8/HAT_YAI_MARKET_2.jpg"
+    },
+    {
+      "a": "Mizuame",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Mizuame_001.jpg"
+    },
+    {
+      "a": "Koncentrat zupy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/%22Madre_e_hija%22_%28sopa_turca%29.jpg/960px-%22Madre_e_hija%22_%28sopa_turca%29.jpg"
+    },
+    {
+      "a": "Kyopoolu",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/AubergineCaviar.jpg/960px-AubergineCaviar.jpg"
+    },
+    {
+      "a": "Erős Pista",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Eros_Pista_termekfoto.png"
+    },
+    {
+      "a": "Sól kuchenna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Table_salt_with_salt_shaker_V1.jpg/960px-Table_salt_with_salt_shaker_V1.jpg"
+    },
+    {
+      "a": "Sos rybny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Nuocmam1.jpg/960px-Nuocmam1.jpg"
+    },
+    {
+      "a": "Sól warzona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Laesoe_Saltsyderi_2011_ubt-5.JPG/960px-Laesoe_Saltsyderi_2011_ubt-5.JPG"
+    },
+    {
+      "a": "Syrop klonowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Maple_syrup_bucket.jpg/960px-Maple_syrup_bucket.jpg"
+    },
+    {
+      "a": "Papryka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Paprikagew%C3%BCrz_20090502_001.JPG/960px-Paprikagew%C3%BCrz_20090502_001.JPG"
+    },
+    {
+      "a": "Ziele angielskie",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/AllspiceSeeds.jpg/960px-AllspiceSeeds.jpg"
+    },
+    {
+      "a": "Pieprz",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg"
+    },
+    {
+      "a": "Sambal oelek",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/GT_Sambal_Oelek_Corona.jpg/960px-GT_Sambal_Oelek_Corona.jpg"
+    },
+    {
+      "a": "Sos sojowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Soy_sauce_2.jpg/960px-Soy_sauce_2.jpg"
+    },
+    {
+      "a": "Wawrzyn",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Laurus_nobilis_g2.jpg/960px-Laurus_nobilis_g2.jpg"
+    },
+    {
+      "a": "Naruto",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Misora-men2222222.jpg/960px-Misora-men2222222.jpg"
+    },
+    {
+      "a": "Szczypiorek",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Allium_schoenoprasum_a1.jpg/960px-Allium_schoenoprasum_a1.jpg"
+    },
+    {
+      "a": "Papryka habanero",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Habanero.jpg/960px-Habanero.jpg"
+    },
+    {
+      "a": "Pieprz cayenne",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Large_Cayenne.jpg/960px-Large_Cayenne.jpg"
+    },
+    {
+      "a": "Piri-piri",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/African_red_devil_peppers.jpg/960px-African_red_devil_peppers.jpg"
+    },
+    {
+      "a": "Pieprz biały",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bangka_Pepper.jpg/960px-Bangka_Pepper.jpg"
+    },
+    {
+      "a": "Olejek kardamonowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Elettaria_cardamomum_Capsules_and_seeds.jpg/960px-Elettaria_cardamomum_Capsules_and_seeds.jpg"
+    },
+    {
+      "a": "Woda różana",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/G%C3%BClsuyu.jpg/960px-G%C3%BClsuyu.jpg"
+    },
+    {
+      "a": "Syrop z agawy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Agave_tequilana_2.jpg/960px-Agave_tequilana_2.jpg"
+    },
+    {
+      "a": "Sambal",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Sambal_lampung.JPG/960px-Sambal_lampung.JPG"
+    },
+    {
+      "a": "Pieprz czerwony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Pink_Peppercorns_%28Schinus_terebinthifolius%29.JPG/960px-Pink_Peppercorns_%28Schinus_terebinthifolius%29.JPG"
+    },
+    {
+      "a": "Pieprz syczuański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Poivre_fond_blanc.jpg/960px-Poivre_fond_blanc.jpg"
+    },
+    {
+      "a": "Papeda",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Citrus_hystrix_dsc07772.jpg/960px-Citrus_hystrix_dsc07772.jpg"
+    },
+    {
+      "a": "Pasta krewetkowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Drying_shrimp_paste.jpg/960px-Drying_shrimp_paste.jpg"
+    },
+    {
+      "a": "Papryka z Espelette",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/France-AOC_Piment_d%27Espelette-2005-08-05.jpg/960px-France-AOC_Piment_d%27Espelette-2005-08-05.jpg"
+    },
+    {
+      "a": "Syrop glukozowo-fruktozowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Sugar_from_corn_LCCN2016822131.jpg/960px-Sugar_from_corn_LCCN2016822131.jpg"
+    },
+    {
+      "a": "Shaoxing",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/ShaoxingwinefromXianHengInn.jpg"
+    },
+    {
+      "a": "Szafran",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/Crocus_sativus1.jpg"
+    },
+    {
+      "a": "Sos sojowo-grzybowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Soy-mushroom_sauce_from_China.JPG/960px-Soy-mushroom_sauce_from_China.JPG"
+    },
+    {
+      "a": "Zha cai",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TwoHeadsZhacai.jpg/960px-TwoHeadsZhacai.jpg"
+    },
+    {
+      "a": "Sanshō",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Zanthoxylum_piperitum.jpg/960px-Zanthoxylum_piperitum.jpg"
+    },
+    {
+      "a": "Sriracha",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Siracha_sauce.jpg/960px-Siracha_sauce.jpg"
+    },
+    {
+      "a": "Sól morska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Korean_sea_salt.png/960px-Korean_sea_salt.png"
+    },
+    {
+      "a": "Sól cechsztyńska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Rock_salt_%28halitite%29_%28Klodawa_Salt_Dome%2C_Zechstein_Formation%2C_Upper_Permian%3B_Klodawa_Salt_Mine%2C_central_Poland%29_1_%2815953564096%29.jpg/960px-Rock_salt_%28halitite%29_%28Klodawa_Salt_Dome%2C_Zechstein_Formation%2C_Upper_Permian%3B_Klodawa_Salt_Mine%2C_central_Poland%29_1_%2815953564096%29.jpg"
+    },
+    {
+      "a": "Pieprz zielony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Piper_nigrum_-_Fruits_frais_-_Penja%2C_Cameroun.jpg/960px-Piper_nigrum_-_Fruits_frais_-_Penja%2C_Cameroun.jpg"
+    }
+  ]
+}

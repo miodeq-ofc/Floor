@@ -1,1 +1,550 @@
-{"id":"warzywa","name":"Warzywa","group":"Kuchnia","icon":"🥕","prompt":"Jaka to roślina warzywna?","source":"Kategoria:Warzywa","items":[{"a":"Warzywa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/A_selection_of_vegetables_02.jpg/960px-A_selection_of_vegetables_02.jpg"},{"a":"Burak zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/9/93/Beets_produce-1.jpg"},{"a":"Burak ćwikłowy","img":"https://upload.wikimedia.org/wikipedia/commons/9/93/Buraki_poznan.jpg"},{"a":"Włoszczyzna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Suppengr%C3%BCn-2.jpg/960px-Suppengr%C3%BCn-2.jpg"},{"a":"Ciecierzyca pospolita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cicer_arietinum_Taub129.png/960px-Cicer_arietinum_Taub129.png"},{"a":"Cebula zwyczajna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Onions.jpg/960px-Onions.jpg"},{"a":"Brokuł","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg"},{"a":"Czosnek pospolity","img":"https://upload.wikimedia.org/wikipedia/commons/3/39/Allium_sativum_Woodwill_1793.jpg"},{"a":"Arbuz zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/3957Watermelon_cultivation_in_Bulacan_18.jpg/960px-3957Watermelon_cultivation_in_Bulacan_18.jpg"},{"a":"Cykoria endywia","img":"https://upload.wikimedia.org/wikipedia/commons/1/19/Andijvie_bloei.jpg"},{"a":"Cykoria sałatowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/RadicchioTrevisoprecoce.jpg/960px-RadicchioTrevisoprecoce.jpg"},{"a":"Dynia olbrzymia","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cucurbita_maxima_Blanco2.320.png/960px-Cucurbita_maxima_Blanco2.320.png"},{"a":"Endywia kędzierzawa","img":"https://upload.wikimedia.org/wikipedia/commons/1/19/Andijvie_bloei.jpg"},{"a":"Czosnek niedźwiedzi","img":"https://upload.wikimedia.org/wikipedia/commons/0/0d/387_Allium_ursinum.jpg"},{"a":"Dynia makaronowa","img":"https://upload.wikimedia.org/wikipedia/commons/8/88/Spaghetti_Squash_700.jpg"},{"a":"Burak liściowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bette_%C3%A0_c%C3%B4tes_rouges01.jpg/960px-Bette_%C3%A0_c%C3%B4tes_rouges01.jpg"},{"a":"Chrzan japoński","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Wasabia_japonica_3.JPG/960px-Wasabia_japonica_3.JPG"},{"a":"Dynia zwyczajna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Cucurbita_maxima_04.jpg/960px-Cucurbita_maxima_04.jpg"},{"a":"Dynia piżmowa","img":"https://upload.wikimedia.org/wikipedia/commons/9/93/Courge.jpg"},{"a":"Cebula wielopiętrowa","img":"https://upload.wikimedia.org/wikipedia/commons/d/da/Egyptian_Tree_Onion%2C_Walking_Onion%2C_Topset_Onion_%28Allium_cepa_var._proliferum%29.jpg"},{"a":"Czosnek dęty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Allium_fistulosum_2.JPG/960px-Allium_fistulosum_2.JPG"},{"a":"Czosnek wonny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Allium_ramosum_Czosnek_rozkrzewiony_2020-08-07_04.jpg/960px-Allium_ramosum_Czosnek_rozkrzewiony_2020-08-07_04.jpg"},{"a":"Fasola wielokwiatowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Illustration_Phaseolus_coccineus0_clean.jpg/960px-Illustration_Phaseolus_coccineus0_clean.jpg"},{"a":"Botwina","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Beta_vulgaris.JPG/960px-Beta_vulgaris.JPG"},{"a":"Czyściec bulwiasty","img":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Stachys_sieboldii1.jpg"},{"a":"Fasola adzuki","img":"https://upload.wikimedia.org/wikipedia/commons/6/6d/W_azuki2111.jpg"},{"a":"Fasola mungo","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Black_gram.jpg/960px-Black_gram.jpg"},{"a":"Fasola ostrolistna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Phaseolusacutifolius.jpg/960px-Phaseolusacutifolius.jpg"},{"a":"Fasola półksiężycowata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Phaseolus_lunatus_Blanco2.369.png/960px-Phaseolus_lunatus_Blanco2.369.png"},{"a":"Fasola złota","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mung_beans_%28Vigna_radiata%29.jpg/960px-Mung_beans_%28Vigna_radiata%29.jpg"},{"a":"Cebula kartoflanka","img":"https://upload.wikimedia.org/wikipedia/commons/0/01/Allium_cepa_Aggregatum_Grp.jpg"},{"a":"Dynia figolistna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cucurbita_ficifolia_Courge_de_Siam.jpg/960px-Cucurbita_ficifolia_Courge_de_Siam.jpg"},{"a":"Beninkaza szorstka","img":"https://upload.wikimedia.org/wikipedia/commons/b/bb/W_tougan4091.jpg"},{"a":"Coccinia grandis","img":"https://upload.wikimedia.org/wikipedia/commons/3/31/Coccinia_grandis_Ivy_gourd_compose.jpg"},{"a":"Cebula Red Baron","img":"https://upload.wikimedia.org/wikipedia/commons/b/bf/Onion_Red_Baron.JPG"},{"a":"Brukiew","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Rutabaga%2C_variety_nadmorska.JPG/960px-Rutabaga%2C_variety_nadmorska.JPG"},{"a":"Cnidoscolus aconitifolius","img":"https://upload.wikimedia.org/wikipedia/commons/2/2d/Cnidoscolus_chayamansa1_ies.jpg"},{"a":"Brokuły z Torbole","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Broccolo_torbole_1.jpg/960px-Broccolo_torbole_1.jpg"},{"a":"Fasola wrzawska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Smaki_Regionow%2C_Poznan_2016_%28MTP%29_%28fasola_wrzawska%29.jpg/960px-Smaki_Regionow%2C_Poznan_2016_%28MTP%29_%28fasola_wrzawska%29.jpg"},{"a":"Cebula cukrowa","img":"https://upload.wikimedia.org/wikipedia/commons/a/a6/Cebula_cukrowa_Ailsa_Craig.jpg"},{"a":"Bobik","img":"https://upload.wikimedia.org/wikipedia/commons/5/5f/Tuinboon_bladrandkever.jpg"},{"a":"Marchew zwyczajna","img":"https://upload.wikimedia.org/wikipedia/commons/9/9f/Daucus_Carota.jpg"},{"a":"Pasternak zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Pastinake-2.jpg/960px-Pastinake-2.jpg"},{"a":"Jarmuż","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Boerenkool.jpg/960px-Boerenkool.jpg"},{"a":"Kapusta warzywna","img":"https://upload.wikimedia.org/wikipedia/commons/d/d4/Ra%C5%A1tika03186.JPG"},{"a":"Kalafior","img":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Cauliflower.jpg"},{"a":"Kapusta warzywna głowiasta","img":"https://upload.wikimedia.org/wikipedia/commons/c/c9/Brassica_oleracea2.jpg"},{"a":"Kapusta warzywna włoska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Wirsingkohl.jpg/960px-Wirsingkohl.jpg"},{"a":"Kalarepa","img":"https://upload.wikimedia.org/wikipedia/commons/f/f5/Tigobrasiko.jpg"},{"a":"Kapusta rzepak","img":"https://upload.wikimedia.org/wikipedia/commons/5/57/Brassica_napus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-169.jpg"},{"a":"Kapusta warzywna brukselska","img":"https://upload.wikimedia.org/wikipedia/commons/6/6d/Rosenkohl.jpg"},{"a":"Karczoch zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/P1000284_Cynara_scolymus_%28Globe_Artichoke%29_%28Compositae%29.JPG/960px-P1000284_Cynara_scolymus_%28Globe_Artichoke%29_%28Compositae%29.JPG"},{"a":"Papryka chili","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Chilis-1.jpg/960px-Chilis-1.jpg"},{"a":"Papryka roczna","img":"https://upload.wikimedia.org/wikipedia/commons/9/90/Paprika%2C_Hungary.jpg"},{"a":"Papryka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Paprikagew%C3%BCrz_20090502_001.JPG/960px-Paprikagew%C3%BCrz_20090502_001.JPG"},{"a":"Maniok jadalny","img":"https://upload.wikimedia.org/wikipedia/commons/f/f1/Manihot_esculenta_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-090.jpg"},{"a":"Ogórek melon","img":"https://upload.wikimedia.org/wikipedia/commons/c/c4/Mel%C3%B3_d%27or_d%27Ontinyent.jpg"},{"a":"Fasola zwykła","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Snijboon_peulen_Phaseolus_vulgaris.jpg/960px-Snijboon_peulen_Phaseolus_vulgaris.jpg"},{"a":"Kukurydza cukrowa","img":"https://upload.wikimedia.org/wikipedia/commons/a/a1/Suikermais_bloeiende_kolf_Zea_mays.jpg"},{"a":"Miechunka peruwiańska","img":"https://upload.wikimedia.org/wikipedia/commons/0/0b/Physalis_peruviana1.jpg"},{"a":"Miechunka pomidorowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kluse_-_Physalis_philadelphica_-_Tomatillo_19_ies.jpg/960px-Kluse_-_Physalis_philadelphica_-_Tomatillo_19_ies.jpg"},{"a":"Kolokazja jadalna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Colocasia_esculenta_CBM.png/960px-Colocasia_esculenta_CBM.png"},{"a":"Marchew uprawna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Carrots_of_many_colors_cutout.jpg/960px-Carrots_of_many_colors_cutout.jpg"},{"a":"Kapusta właściwa","img":"https://upload.wikimedia.org/wikipedia/commons/0/02/Illustration_sinapis_arvensis.jpg"},{"a":"Ogórecznik","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Borago_officinalis-IMG_4345.jpg/960px-Borago_officinalis-IMG_4345.jpg"},{"a":"Ogórek kiwano","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Horngurke_-_Kiwano_-_Cucumis_metuliferus_im_Garten%2C_flach_03_ies.jpg/960px-Horngurke_-_Kiwano_-_Cucumis_metuliferus_im_Garten%2C_flach_03_ies.jpg"},{"a":"Naga Jolokia","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Naga_Jolokia_Peppers.jpg/960px-Naga_Jolokia_Peppers.jpg"},{"a":"Gurdlina ogórkowata","img":"https://upload.wikimedia.org/wikipedia/commons/d/d9/%E0%B4%AA%E0%B4%9F%E0%B4%B5%E0%B4%B2%E0%B4%99%E0%B5%8D%E0%B4%99.JPG"},{"a":"Groch zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Illustration_Pisum_sativum0_clean.jpg/960px-Illustration_Pisum_sativum0_clean.jpg"},{"a":"Ogórek siewny","img":"https://upload.wikimedia.org/wikipedia/commons/3/31/114_Cucumis_sativus_L.jpg"},{"a":"Kabaczek","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Courgette_Cucurbita_pepo.jpg/960px-Courgette_Cucurbita_pepo.jpg"},{"a":"Kozibród porolistny","img":"https://upload.wikimedia.org/wikipedia/commons/2/2a/549_Tragopogon_porrifolius.jpg"},{"a":"Papryka jagodowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Capsicum_baccatum0.jpg/960px-Capsicum_baccatum0.jpg"},{"a":"Kolczoch jadalny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Sechium_edule_plantation_Salazie_dsc03252.jpg/960px-Sechium_edule_plantation_Salazie_dsc03252.jpg"},{"a":"Gorczycznik wiosenny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Barbarea_verna_2017-05-05_9591.jpg/960px-Barbarea_verna_2017-05-05_9591.jpg"},{"a":"Kapusta właściwa chińska","img":"https://upload.wikimedia.org/wikipedia/commons/6/61/Bokchoy.jpg"},{"a":"Kapusta właściwa pekińska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Starr_070730-7855_Brassica_rapa.jpg/960px-Starr_070730-7855_Brassica_rapa.jpg"},{"a":"Modrak morski","img":"https://upload.wikimedia.org/wikipedia/commons/1/14/Sea-Kale_-_geograph.org.uk_-_814303.jpg"},{"a":"Lasimorpha senegalensis","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lasimorpha_senegalensis_CBM.png/960px-Lasimorpha_senegalensis_CBM.png"},{"a":"Marchew czarna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Betasweet.png/960px-Betasweet.png"},{"a":"Olluco","img":"https://upload.wikimedia.org/wikipedia/commons/2/21/Ullucus_tuberosus.jpg"},{"a":"Nikla indyjska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Cajanus_cajan_Blanco1.167.png/960px-Cajanus_cajan_Blanco1.167.png"},{"a":"Kiełki","img":"https://upload.wikimedia.org/wikipedia/commons/b/ba/Bean-sprouts.jpg"},{"a":"Papryka friggitello","img":"https://upload.wikimedia.org/wikipedia/commons/1/18/Pickled_friggitelli.jpg"},{"a":"Glony jadalne","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Korean_soup-Miyeokguk-01.jpg/960px-Korean_soup-Miyeokguk-01.jpg"},{"a":"Marek kucmerka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Illustration_Sium_sisarum0_cleaned.jpg/960px-Illustration_Sium_sisarum0_cleaned.jpg"},{"a":"Papryka peperoni","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Capsicum_-Chili_-_Peperoncino_-_Il_Viagra_Calabrese_-_Calabria_-_Italy_-_July_17th_2013_-_01.jpg/960px-Capsicum_-Chili_-_Peperoncino_-_Il_Viagra_Calabrese_-_Calabria_-_Italy_-_July_17th_2013_-_01.jpg"},{"a":"Mikrolistki","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mikrolistki_-_broku%C5%82_i_rzodkiewka_na_tacach_plastikowych.jpg/960px-Mikrolistki_-_broku%C5%82_i_rzodkiewka_na_tacach_plastikowych.jpg"},{"a":"Lilia pensylwańska","img":"https://upload.wikimedia.org/wikipedia/commons/7/7f/Lilium_pensylvanicum.jpg"},{"a":"Słonecznik bulwiasty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Helianthus_tuberosus_Maapirn_estonia.JPG/960px-Helianthus_tuberosus_Maapirn_estonia.JPG"},{"a":"Psianka podłużna","img":"https://upload.wikimedia.org/wikipedia/commons/f/fb/Aubergine.jpg"},{"a":"Selery zwyczajne","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Illustration_Apium_graveolens0.jpg/960px-Illustration_Apium_graveolens0.jpg"},{"a":"Pietruszka zwyczajna","img":"https://upload.wikimedia.org/wikipedia/commons/2/2d/Petroselinum_crispum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-103.jpg"},{"a":"Wyka bób","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Illustration_Vicia_faba1.jpg/960px-Illustration_Vicia_faba1.jpg"},{"a":"Pomidor zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Tomato_scanned.jpg/960px-Tomato_scanned.jpg"},{"a":"Por","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Allium_porrum_porrum_HabitusInflorescences_BotGardBln0906.JPG/960px-Allium_porrum_porrum_HabitusInflorescences_BotGardBln0906.JPG"},{"a":"Wężymord czarny korzeń","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Scorzonera_hispanica_001.JPG/960px-Scorzonera_hispanica_001.JPG"},{"a":"Ziemniak","img":"https://upload.wikimedia.org/wikipedia/commons/a/a3/234_Solanum_tuberosum_L.jpg"},{"a":"Soja warzywna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Glycine_max_plant1_Carol_Rose_%2810220578213%29_%28cropped%29.jpg/960px-Glycine_max_plant1_Carol_Rose_%2810220578213%29_%28cropped%29.jpg"},{"a":"Soczewica jadalna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Prof._Dr._Thom%C3%A9%27s_Flora_von_Deutschland%2C_%C3%96sterreich_und_der_Schweiz%2C_in_Wort_und_Bild%2C_f%C3%BCr_Schule_und_Haus%3B_mit_..._Tafeln_..._von_Walter_M%C3%BCller_%28Pl._450%29_%287982430575%29a.png/960px-thumbnail.png"},{"a":"Seler naciowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Starr_070730-7896_Apium_graveolens_var._dulce.jpg/960px-Starr_070730-7896_Apium_graveolens_var._dulce.jpg"},{"a":"Wilec ziemniaczany","img":"https://upload.wikimedia.org/wikipedia/commons/a/a4/Ipomoea_batatas.jpg"},{"a":"Rzodkiew japońska","img":"https://upload.wikimedia.org/wikipedia/commons/c/cb/Daikon.Japan.jpg"},{"a":"Roszpunka warzywna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Illustration_Valerianella_locusta0.jpg/960px-Illustration_Valerianella_locusta0.jpg"},{"a":"Rabarbar ogrodowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Rheum_rhaponticum_A.jpg/960px-Rheum_rhaponticum_A.jpg"},{"a":"Rokietta siewna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eruca_sativa_sl3.jpg/960px-Eruca_sativa_sl3.jpg"},{"a":"Sałata rzymska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Lettuce_romaine_variety.jpeg/960px-Lettuce_romaine_variety.jpeg"},{"a":"Sałata dębolistna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Lactuca_sativa_var._crispa_Salad_Bowl_.jpg/960px-Lactuca_sativa_var._crispa_Salad_Bowl_.jpg"},{"a":"Szczaw zwyczajny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Rumex_acetosa_%28Billeder_af_nordens_flora_1917ff.%2C_v2_359%2C_BHL-39907%29_clean%2C_no-description.jpg/960px-Rumex_acetosa_%28Billeder_af_nordens_flora_1917ff.%2C_v2_359%2C_BHL-39907%29_clean%2C_no-description.jpg"},{"a":"Sałata siewna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Lactuca_sativa_var._capitata_%27Kr%C3%B3lowa_Majowych%27_kz01.jpg/960px-Lactuca_sativa_var._capitata_%27Kr%C3%B3lowa_Majowych%27_kz01.jpg"},{"a":"Patison","img":"https://upload.wikimedia.org/wikipedia/commons/a/ad/USDA_petit_pan_squash.jpg"},{"a":"Tetragonia czterorożna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tetragonia_tetragonioides_plant2_-_Flickr_-_Macleay_Grass_Man.jpg/960px-Tetragonia_tetragonioides_plant2_-_Flickr_-_Macleay_Grass_Man.jpg"},{"a":"Portulaka pospolita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Illustration_Portulaca_oleracea0_cleaned.jpg/960px-Illustration_Portulaca_oleracea0_cleaned.jpg"},{"a":"Rukiew wodna","img":"https://upload.wikimedia.org/wikipedia/commons/f/fe/198_Radicula_nasturtium_aquaticum.jpg"},{"a":"Pieprzyca siewna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lepidium_sativum_kz02.jpg/960px-Lepidium_sativum_kz02.jpg"},{"a":"Pochrzyn chiński","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Dioscorea_polystachya_004.jpg/960px-Dioscorea_polystachya_004.jpg"},{"a":"Szczypiorek","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Allium_schoenoprasum_a1.jpg/960px-Allium_schoenoprasum_a1.jpg"},{"a":"Rzodkiewka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/2018-06-01_%28132%29_Raphanus_sativus_%28Radish%29_at_Bichlh%C3%A4usl_in_Frankenfels%2C_Austria.jpg/960px-2018-06-01_%28132%29_Raphanus_sativus_%28Radish%29_at_Bichlh%C3%A4usl_in_Frankenfels%2C_Austria.jpg"},{"a":"Rzepa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Brassica_rapa_turnip.jpg/960px-Brassica_rapa_turnip.jpg"},{"a":"Pochrzyn skrzydlaty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Dioscorea_alata.jpg/960px-Dioscorea_alata.jpg"},{"a":"Przepękla indochińska","img":"https://upload.wikimedia.org/wikipedia/commons/2/2e/G%E1%BA%A5c.jpg"},{"a":"Szparag lekarski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Illustration_Asparagus_officinalis0_clean.jpg/960px-Illustration_Asparagus_officinalis0_clean.jpg"},{"a":"Szpinak warzywny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Illustration_Spinacia_oleracea1.jpg/960px-Illustration_Spinacia_oleracea1.jpg"},{"a":"Przepękla ogórkowata","img":"https://upload.wikimedia.org/wikipedia/commons/3/3d/Momordica_charantia1.jpg"},{"a":"Przepękla pospolita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Momordica_balsamina_%28blad_en_rank%29.jpg/960px-Momordica_balsamina_%28blad_en_rank%29.jpg"},{"a":"Psianka melonowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Solanum_muricatum_Flower_and_Fruit.jpg/960px-Solanum_muricatum_Flower_and_Fruit.jpg"},{"a":"Trichosanthes cucumeroides","img":"https://upload.wikimedia.org/wikipedia/commons/2/27/Trichosanthes_cucumeroides_fruits1.jpg"},{"a":"Soja transgeniczna","img":"https://upload.wikimedia.org/wikipedia/commons/4/49/Sojadepasodelaarena.JPG"},{"a":"Serce palmy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Heart_of_palm.jpg/960px-Heart_of_palm.jpg"},{"a":"Piżmian jadalny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Abelmoschus_esculentus_FruitandFlower.jpg/960px-Abelmoschus_esculentus_FruitandFlower.jpg"},{"a":"Sicana odorifera","img":"https://upload.wikimedia.org/wikipedia/commons/4/4a/Sicana_odorifera_E_Andre_1890.jpg"},{"a":"Szczawik bulwiasty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ocachezmoi.jpg/960px-Ocachezmoi.jpg"},{"a":"Ziemniara jadalna","img":"https://upload.wikimedia.org/wikipedia/commons/0/0e/Arracacha.jpg"},{"a":"Yacón","img":"https://upload.wikimedia.org/wikipedia/commons/7/78/Yacon.jpg"},{"a":"Psianka lulo","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Lulo_pflanze1.jpg/960px-Lulo_pflanze1.jpg"},{"a":"Rabarbar kędzierzawy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rheum_rhabarbarum_kz02.jpg/960px-Rheum_rhabarbarum_kz02.jpg"},{"a":"Sałata łodygowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Celtuce.jpg/960px-Celtuce.jpg"},{"a":"Żółtosocza strzałkowata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Xanthosoma_sagittifolium.jpg/960px-Xanthosoma_sagittifolium.jpg"}]}
+{
+  "id": "warzywa",
+  "name": "Warzywa",
+  "group": "Kuchnia",
+  "icon": "🥕",
+  "prompt": "Jaka to roślina warzywna?",
+  "source": "Kategoria:Warzywa",
+  "items": [
+    {
+      "a": "Warzywa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/A_selection_of_vegetables_02.jpg/960px-A_selection_of_vegetables_02.jpg"
+    },
+    {
+      "a": "Burak zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Beets_produce-1.jpg"
+    },
+    {
+      "a": "Burak ćwikłowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Buraki_poznan.jpg"
+    },
+    {
+      "a": "Włoszczyzna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Suppengr%C3%BCn-2.jpg/960px-Suppengr%C3%BCn-2.jpg"
+    },
+    {
+      "a": "Ciecierzyca pospolita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Cicer_arietinum_Taub129.png/960px-Cicer_arietinum_Taub129.png"
+    },
+    {
+      "a": "Cebula zwyczajna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Onions.jpg/960px-Onions.jpg"
+    },
+    {
+      "a": "Brokuł",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg"
+    },
+    {
+      "a": "Czosnek pospolity",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/39/Allium_sativum_Woodwill_1793.jpg"
+    },
+    {
+      "a": "Arbuz zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/3957Watermelon_cultivation_in_Bulacan_18.jpg/960px-3957Watermelon_cultivation_in_Bulacan_18.jpg"
+    },
+    {
+      "a": "Cykoria endywia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/19/Andijvie_bloei.jpg"
+    },
+    {
+      "a": "Cykoria sałatowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/RadicchioTrevisoprecoce.jpg/960px-RadicchioTrevisoprecoce.jpg"
+    },
+    {
+      "a": "Dynia olbrzymia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cucurbita_maxima_Blanco2.320.png/960px-Cucurbita_maxima_Blanco2.320.png"
+    },
+    {
+      "a": "Czosnek niedźwiedzi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0d/387_Allium_ursinum.jpg"
+    },
+    {
+      "a": "Dynia makaronowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/88/Spaghetti_Squash_700.jpg"
+    },
+    {
+      "a": "Burak liściowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bette_%C3%A0_c%C3%B4tes_rouges01.jpg/960px-Bette_%C3%A0_c%C3%B4tes_rouges01.jpg"
+    },
+    {
+      "a": "Chrzan japoński",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Wasabia_japonica_3.JPG/960px-Wasabia_japonica_3.JPG"
+    },
+    {
+      "a": "Dynia zwyczajna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Cucurbita_maxima_04.jpg/960px-Cucurbita_maxima_04.jpg"
+    },
+    {
+      "a": "Dynia piżmowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Courge.jpg"
+    },
+    {
+      "a": "Cebula wielopiętrowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/da/Egyptian_Tree_Onion%2C_Walking_Onion%2C_Topset_Onion_%28Allium_cepa_var._proliferum%29.jpg"
+    },
+    {
+      "a": "Czosnek dęty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Allium_fistulosum_2.JPG/960px-Allium_fistulosum_2.JPG"
+    },
+    {
+      "a": "Czosnek wonny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Allium_ramosum_Czosnek_rozkrzewiony_2020-08-07_04.jpg/960px-Allium_ramosum_Czosnek_rozkrzewiony_2020-08-07_04.jpg"
+    },
+    {
+      "a": "Fasola wielokwiatowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Illustration_Phaseolus_coccineus0_clean.jpg/960px-Illustration_Phaseolus_coccineus0_clean.jpg"
+    },
+    {
+      "a": "Botwina",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Beta_vulgaris.JPG/960px-Beta_vulgaris.JPG"
+    },
+    {
+      "a": "Czyściec bulwiasty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Stachys_sieboldii1.jpg"
+    },
+    {
+      "a": "Fasola adzuki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6d/W_azuki2111.jpg"
+    },
+    {
+      "a": "Fasola mungo",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Black_gram.jpg/960px-Black_gram.jpg"
+    },
+    {
+      "a": "Fasola ostrolistna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Phaseolusacutifolius.jpg/960px-Phaseolusacutifolius.jpg"
+    },
+    {
+      "a": "Fasola półksiężycowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Phaseolus_lunatus_Blanco2.369.png/960px-Phaseolus_lunatus_Blanco2.369.png"
+    },
+    {
+      "a": "Fasola złota",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mung_beans_%28Vigna_radiata%29.jpg/960px-Mung_beans_%28Vigna_radiata%29.jpg"
+    },
+    {
+      "a": "Cebula kartoflanka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/01/Allium_cepa_Aggregatum_Grp.jpg"
+    },
+    {
+      "a": "Dynia figolistna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cucurbita_ficifolia_Courge_de_Siam.jpg/960px-Cucurbita_ficifolia_Courge_de_Siam.jpg"
+    },
+    {
+      "a": "Beninkaza szorstka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/W_tougan4091.jpg"
+    },
+    {
+      "a": "Coccinia grandis",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Coccinia_grandis_Ivy_gourd_compose.jpg"
+    },
+    {
+      "a": "Cebula Red Baron",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Onion_Red_Baron.JPG"
+    },
+    {
+      "a": "Brukiew",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Rutabaga%2C_variety_nadmorska.JPG/960px-Rutabaga%2C_variety_nadmorska.JPG"
+    },
+    {
+      "a": "Cnidoscolus aconitifolius",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Cnidoscolus_chayamansa1_ies.jpg"
+    },
+    {
+      "a": "Brokuły z Torbole",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Broccolo_torbole_1.jpg/960px-Broccolo_torbole_1.jpg"
+    },
+    {
+      "a": "Fasola wrzawska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Smaki_Regionow%2C_Poznan_2016_%28MTP%29_%28fasola_wrzawska%29.jpg/960px-Smaki_Regionow%2C_Poznan_2016_%28MTP%29_%28fasola_wrzawska%29.jpg"
+    },
+    {
+      "a": "Cebula cukrowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cebula_cukrowa_Ailsa_Craig.jpg"
+    },
+    {
+      "a": "Bobik",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Tuinboon_bladrandkever.jpg"
+    },
+    {
+      "a": "Marchew zwyczajna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Daucus_Carota.jpg"
+    },
+    {
+      "a": "Pasternak zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Pastinake-2.jpg/960px-Pastinake-2.jpg"
+    },
+    {
+      "a": "Jarmuż",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Boerenkool.jpg/960px-Boerenkool.jpg"
+    },
+    {
+      "a": "Kapusta warzywna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Ra%C5%A1tika03186.JPG"
+    },
+    {
+      "a": "Kalafior",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Cauliflower.jpg"
+    },
+    {
+      "a": "Kapusta warzywna głowiasta",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Brassica_oleracea2.jpg"
+    },
+    {
+      "a": "Kapusta warzywna włoska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Wirsingkohl.jpg/960px-Wirsingkohl.jpg"
+    },
+    {
+      "a": "Kalarepa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Tigobrasiko.jpg"
+    },
+    {
+      "a": "Kapusta rzepak",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/57/Brassica_napus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-169.jpg"
+    },
+    {
+      "a": "Kapusta warzywna brukselska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Rosenkohl.jpg"
+    },
+    {
+      "a": "Karczoch zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/P1000284_Cynara_scolymus_%28Globe_Artichoke%29_%28Compositae%29.JPG/960px-P1000284_Cynara_scolymus_%28Globe_Artichoke%29_%28Compositae%29.JPG"
+    },
+    {
+      "a": "Papryka chili",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Chilis-1.jpg/960px-Chilis-1.jpg"
+    },
+    {
+      "a": "Papryka roczna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/Paprika%2C_Hungary.jpg"
+    },
+    {
+      "a": "Papryka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Paprikagew%C3%BCrz_20090502_001.JPG/960px-Paprikagew%C3%BCrz_20090502_001.JPG"
+    },
+    {
+      "a": "Maniok jadalny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Manihot_esculenta_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-090.jpg"
+    },
+    {
+      "a": "Ogórek melon",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Mel%C3%B3_d%27or_d%27Ontinyent.jpg"
+    },
+    {
+      "a": "Fasola zwykła",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Snijboon_peulen_Phaseolus_vulgaris.jpg/960px-Snijboon_peulen_Phaseolus_vulgaris.jpg"
+    },
+    {
+      "a": "Kukurydza cukrowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Suikermais_bloeiende_kolf_Zea_mays.jpg"
+    },
+    {
+      "a": "Miechunka peruwiańska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Physalis_peruviana1.jpg"
+    },
+    {
+      "a": "Miechunka pomidorowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kluse_-_Physalis_philadelphica_-_Tomatillo_19_ies.jpg/960px-Kluse_-_Physalis_philadelphica_-_Tomatillo_19_ies.jpg"
+    },
+    {
+      "a": "Kolokazja jadalna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Colocasia_esculenta_CBM.png/960px-Colocasia_esculenta_CBM.png"
+    },
+    {
+      "a": "Marchew uprawna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Carrots_of_many_colors_cutout.jpg/960px-Carrots_of_many_colors_cutout.jpg"
+    },
+    {
+      "a": "Kapusta właściwa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/02/Illustration_sinapis_arvensis.jpg"
+    },
+    {
+      "a": "Ogórecznik",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Borago_officinalis-IMG_4345.jpg/960px-Borago_officinalis-IMG_4345.jpg"
+    },
+    {
+      "a": "Ogórek kiwano",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Horngurke_-_Kiwano_-_Cucumis_metuliferus_im_Garten%2C_flach_03_ies.jpg/960px-Horngurke_-_Kiwano_-_Cucumis_metuliferus_im_Garten%2C_flach_03_ies.jpg"
+    },
+    {
+      "a": "Naga Jolokia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Naga_Jolokia_Peppers.jpg/960px-Naga_Jolokia_Peppers.jpg"
+    },
+    {
+      "a": "Gurdlina ogórkowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/%E0%B4%AA%E0%B4%9F%E0%B4%B5%E0%B4%B2%E0%B4%99%E0%B5%8D%E0%B4%99.JPG"
+    },
+    {
+      "a": "Groch zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Illustration_Pisum_sativum0_clean.jpg/960px-Illustration_Pisum_sativum0_clean.jpg"
+    },
+    {
+      "a": "Ogórek siewny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/114_Cucumis_sativus_L.jpg"
+    },
+    {
+      "a": "Kabaczek",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Courgette_Cucurbita_pepo.jpg/960px-Courgette_Cucurbita_pepo.jpg"
+    },
+    {
+      "a": "Kozibród porolistny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2a/549_Tragopogon_porrifolius.jpg"
+    },
+    {
+      "a": "Papryka jagodowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Capsicum_baccatum0.jpg/960px-Capsicum_baccatum0.jpg"
+    },
+    {
+      "a": "Kolczoch jadalny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Sechium_edule_plantation_Salazie_dsc03252.jpg/960px-Sechium_edule_plantation_Salazie_dsc03252.jpg"
+    },
+    {
+      "a": "Gorczycznik wiosenny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Barbarea_verna_2017-05-05_9591.jpg/960px-Barbarea_verna_2017-05-05_9591.jpg"
+    },
+    {
+      "a": "Kapusta właściwa chińska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/61/Bokchoy.jpg"
+    },
+    {
+      "a": "Kapusta właściwa pekińska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Starr_070730-7855_Brassica_rapa.jpg/960px-Starr_070730-7855_Brassica_rapa.jpg"
+    },
+    {
+      "a": "Modrak morski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/14/Sea-Kale_-_geograph.org.uk_-_814303.jpg"
+    },
+    {
+      "a": "Lasimorpha senegalensis",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lasimorpha_senegalensis_CBM.png/960px-Lasimorpha_senegalensis_CBM.png"
+    },
+    {
+      "a": "Marchew czarna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Betasweet.png/960px-Betasweet.png"
+    },
+    {
+      "a": "Olluco",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/21/Ullucus_tuberosus.jpg"
+    },
+    {
+      "a": "Nikla indyjska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Cajanus_cajan_Blanco1.167.png/960px-Cajanus_cajan_Blanco1.167.png"
+    },
+    {
+      "a": "Kiełki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Bean-sprouts.jpg"
+    },
+    {
+      "a": "Papryka friggitello",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/18/Pickled_friggitelli.jpg"
+    },
+    {
+      "a": "Glony jadalne",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Korean_soup-Miyeokguk-01.jpg/960px-Korean_soup-Miyeokguk-01.jpg"
+    },
+    {
+      "a": "Marek kucmerka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Illustration_Sium_sisarum0_cleaned.jpg/960px-Illustration_Sium_sisarum0_cleaned.jpg"
+    },
+    {
+      "a": "Papryka peperoni",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Capsicum_-Chili_-_Peperoncino_-_Il_Viagra_Calabrese_-_Calabria_-_Italy_-_July_17th_2013_-_01.jpg/960px-Capsicum_-Chili_-_Peperoncino_-_Il_Viagra_Calabrese_-_Calabria_-_Italy_-_July_17th_2013_-_01.jpg"
+    },
+    {
+      "a": "Mikrolistki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mikrolistki_-_broku%C5%82_i_rzodkiewka_na_tacach_plastikowych.jpg/960px-Mikrolistki_-_broku%C5%82_i_rzodkiewka_na_tacach_plastikowych.jpg"
+    },
+    {
+      "a": "Lilia pensylwańska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Lilium_pensylvanicum.jpg"
+    },
+    {
+      "a": "Słonecznik bulwiasty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Helianthus_tuberosus_Maapirn_estonia.JPG/960px-Helianthus_tuberosus_Maapirn_estonia.JPG"
+    },
+    {
+      "a": "Psianka podłużna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Aubergine.jpg"
+    },
+    {
+      "a": "Selery zwyczajne",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Illustration_Apium_graveolens0.jpg/960px-Illustration_Apium_graveolens0.jpg"
+    },
+    {
+      "a": "Pietruszka zwyczajna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Petroselinum_crispum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-103.jpg"
+    },
+    {
+      "a": "Wyka bób",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Illustration_Vicia_faba1.jpg/960px-Illustration_Vicia_faba1.jpg"
+    },
+    {
+      "a": "Pomidor zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Tomato_scanned.jpg/960px-Tomato_scanned.jpg"
+    },
+    {
+      "a": "Por",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Allium_porrum_porrum_HabitusInflorescences_BotGardBln0906.JPG/960px-Allium_porrum_porrum_HabitusInflorescences_BotGardBln0906.JPG"
+    },
+    {
+      "a": "Wężymord czarny korzeń",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Scorzonera_hispanica_001.JPG/960px-Scorzonera_hispanica_001.JPG"
+    },
+    {
+      "a": "Ziemniak",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a3/234_Solanum_tuberosum_L.jpg"
+    },
+    {
+      "a": "Soja warzywna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Glycine_max_plant1_Carol_Rose_%2810220578213%29_%28cropped%29.jpg/960px-Glycine_max_plant1_Carol_Rose_%2810220578213%29_%28cropped%29.jpg"
+    },
+    {
+      "a": "Soczewica jadalna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Prof._Dr._Thom%C3%A9%27s_Flora_von_Deutschland%2C_%C3%96sterreich_und_der_Schweiz%2C_in_Wort_und_Bild%2C_f%C3%BCr_Schule_und_Haus%3B_mit_..._Tafeln_..._von_Walter_M%C3%BCller_%28Pl._450%29_%287982430575%29a.png/960px-thumbnail.png"
+    },
+    {
+      "a": "Seler naciowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Starr_070730-7896_Apium_graveolens_var._dulce.jpg/960px-Starr_070730-7896_Apium_graveolens_var._dulce.jpg"
+    },
+    {
+      "a": "Wilec ziemniaczany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Ipomoea_batatas.jpg"
+    },
+    {
+      "a": "Rzodkiew japońska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Daikon.Japan.jpg"
+    },
+    {
+      "a": "Roszpunka warzywna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Illustration_Valerianella_locusta0.jpg/960px-Illustration_Valerianella_locusta0.jpg"
+    },
+    {
+      "a": "Rabarbar ogrodowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Rheum_rhaponticum_A.jpg/960px-Rheum_rhaponticum_A.jpg"
+    },
+    {
+      "a": "Rokietta siewna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eruca_sativa_sl3.jpg/960px-Eruca_sativa_sl3.jpg"
+    },
+    {
+      "a": "Sałata rzymska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Lettuce_romaine_variety.jpeg/960px-Lettuce_romaine_variety.jpeg"
+    },
+    {
+      "a": "Sałata dębolistna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Lactuca_sativa_var._crispa_Salad_Bowl_.jpg/960px-Lactuca_sativa_var._crispa_Salad_Bowl_.jpg"
+    },
+    {
+      "a": "Szczaw zwyczajny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Rumex_acetosa_%28Billeder_af_nordens_flora_1917ff.%2C_v2_359%2C_BHL-39907%29_clean%2C_no-description.jpg/960px-Rumex_acetosa_%28Billeder_af_nordens_flora_1917ff.%2C_v2_359%2C_BHL-39907%29_clean%2C_no-description.jpg"
+    },
+    {
+      "a": "Sałata siewna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Lactuca_sativa_var._capitata_%27Kr%C3%B3lowa_Majowych%27_kz01.jpg/960px-Lactuca_sativa_var._capitata_%27Kr%C3%B3lowa_Majowych%27_kz01.jpg"
+    },
+    {
+      "a": "Patison",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/USDA_petit_pan_squash.jpg"
+    },
+    {
+      "a": "Tetragonia czterorożna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tetragonia_tetragonioides_plant2_-_Flickr_-_Macleay_Grass_Man.jpg/960px-Tetragonia_tetragonioides_plant2_-_Flickr_-_Macleay_Grass_Man.jpg"
+    },
+    {
+      "a": "Portulaka pospolita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Illustration_Portulaca_oleracea0_cleaned.jpg/960px-Illustration_Portulaca_oleracea0_cleaned.jpg"
+    },
+    {
+      "a": "Rukiew wodna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/198_Radicula_nasturtium_aquaticum.jpg"
+    },
+    {
+      "a": "Pieprzyca siewna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lepidium_sativum_kz02.jpg/960px-Lepidium_sativum_kz02.jpg"
+    },
+    {
+      "a": "Szczypiorek",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Allium_schoenoprasum_a1.jpg/960px-Allium_schoenoprasum_a1.jpg"
+    },
+    {
+      "a": "Rzodkiewka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/2018-06-01_%28132%29_Raphanus_sativus_%28Radish%29_at_Bichlh%C3%A4usl_in_Frankenfels%2C_Austria.jpg/960px-2018-06-01_%28132%29_Raphanus_sativus_%28Radish%29_at_Bichlh%C3%A4usl_in_Frankenfels%2C_Austria.jpg"
+    },
+    {
+      "a": "Rzepa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Brassica_rapa_turnip.jpg/960px-Brassica_rapa_turnip.jpg"
+    },
+    {
+      "a": "Przepękla indochińska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/G%E1%BA%A5c.jpg"
+    },
+    {
+      "a": "Szparag lekarski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Illustration_Asparagus_officinalis0_clean.jpg/960px-Illustration_Asparagus_officinalis0_clean.jpg"
+    },
+    {
+      "a": "Szpinak warzywny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Illustration_Spinacia_oleracea1.jpg/960px-Illustration_Spinacia_oleracea1.jpg"
+    },
+    {
+      "a": "Przepękla ogórkowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Momordica_charantia1.jpg"
+    },
+    {
+      "a": "Przepękla pospolita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Momordica_balsamina_%28blad_en_rank%29.jpg/960px-Momordica_balsamina_%28blad_en_rank%29.jpg"
+    },
+    {
+      "a": "Psianka melonowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Solanum_muricatum_Flower_and_Fruit.jpg/960px-Solanum_muricatum_Flower_and_Fruit.jpg"
+    },
+    {
+      "a": "Trichosanthes cucumeroides",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/27/Trichosanthes_cucumeroides_fruits1.jpg"
+    },
+    {
+      "a": "Soja transgeniczna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sojadepasodelaarena.JPG"
+    },
+    {
+      "a": "Serce palmy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Heart_of_palm.jpg/960px-Heart_of_palm.jpg"
+    },
+    {
+      "a": "Piżmian jadalny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Abelmoschus_esculentus_FruitandFlower.jpg/960px-Abelmoschus_esculentus_FruitandFlower.jpg"
+    },
+    {
+      "a": "Sicana odorifera",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Sicana_odorifera_E_Andre_1890.jpg"
+    },
+    {
+      "a": "Szczawik bulwiasty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ocachezmoi.jpg/960px-Ocachezmoi.jpg"
+    },
+    {
+      "a": "Ziemniara jadalna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Arracacha.jpg"
+    },
+    {
+      "a": "Yacón",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/78/Yacon.jpg"
+    },
+    {
+      "a": "Psianka lulo",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Lulo_pflanze1.jpg/960px-Lulo_pflanze1.jpg"
+    },
+    {
+      "a": "Rabarbar kędzierzawy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rheum_rhabarbarum_kz02.jpg/960px-Rheum_rhabarbarum_kz02.jpg"
+    },
+    {
+      "a": "Sałata łodygowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Celtuce.jpg/960px-Celtuce.jpg"
+    },
+    {
+      "a": "Żółtosocza strzałkowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Xanthosoma_sagittifolium.jpg/960px-Xanthosoma_sagittifolium.jpg"
+    }
+  ]
+}

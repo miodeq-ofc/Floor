@@ -1,0 +1,329 @@
+{
+  "items": [
+    {
+      "a": "Dąb szypułkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Rogalin%2C_D%C4%85b_Lech_-_fotopolska.eu_%28244114%29.jpg"
+    },
+    {
+      "a": "Dąb bezszypułkowy",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Quercus%20petraea%20forest1.jpg?width=1000"
+    },
+    {
+      "a": "Dąb czerwony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/2019-11-26_13_24_38_A_Red_Oak_during_late_autumn_along_a_walking_path_in_the_Franklin_Glen_section_of_Chantilly%2C_Fairfax_County%2C_Virginia.jpg/1280px-2019-11-26_13_24_38_A_Red_Oak_during_late_autumn_along_a_walking_path_in_the_Franklin_Glen_section_of_Chantilly%2C_Fairfax_County%2C_Virginia.jpg"
+    },
+    {
+      "a": "Buk zwyczajny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/European%20beech%20(Fagus%20sylvatica%20L.)%2C%20Planty%20Park%2C%20Krak%C3%B3w%2C%20Poland.jpg?width=1000"
+    },
+    {
+      "a": "Brzoza brodawkowata",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/B.%20pendula%2C%20Koivu%20Birch%20end%20of%20Sept.jpg?width=1000"
+    },
+    {
+      "a": "Brzoza omszona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Betula_pubescens_-_Burgwald_002.jpg/1280px-Betula_pubescens_-_Burgwald_002.jpg"
+    },
+    {
+      "a": "Sosna zwyczajna",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pinus_sylvestris_Beskid_%C5%BBywiecki.JPG/1280px-Pinus_sylvestris_Beskid_%C5%BBywiecki.JPG"
+    },
+    {
+      "a": "Sosna czarna",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Sosna02.jpg?width=1000"
+    },
+    {
+      "a": "Sosna limba",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pinus_cembra20080705.jpg/1280px-Pinus_cembra20080705.jpg"
+    },
+    {
+      "a": "Sosna wejmutka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Pinus_strobus_trees.jpg"
+    },
+    {
+      "a": "Świerk pospolity",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/2015%20G%C3%B3ry%20Sto%C5%82owe%2C%20%C5%9Bwierk%20i%20g%C5%82az%2001.jpg?width=1000"
+    },
+    {
+      "a": "Świerk kłujący",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Picea_pungens2.jpg"
+    },
+    {
+      "a": "Świerk serbski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Mustila_Arboretum.jpg/1280px-Mustila_Arboretum.jpg"
+    },
+    {
+      "a": "Jodła pospolita",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Abies%20alba%2C%20Mount%20Auburn%20Cemetery.JPG?width=1000"
+    },
+    {
+      "a": "Modrzew europejski",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Ecaussinnes-d'Enghien%20AR1aJPG.jpg?width=1000"
+    },
+    {
+      "a": "Klon zwyczajny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Acer%20platanoides%20in%20autumn%20colors.JPG?width=1000"
+    },
+    {
+      "a": "Klon jawor",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Acer_pseudoplatanusAA.jpg"
+    },
+    {
+      "a": "Klon polny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Acer_campestre_TK_2021-05-16_1.jpg/1280px-Acer_campestre_TK_2021-05-16_1.jpg"
+    },
+    {
+      "a": "Klon srebrzysty",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Acer%20saccharinum%20in%20Eastwoodhill%20Arboretum%20(3).jpg?width=1000"
+    },
+    {
+      "a": "Jesion wyniosły",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ask_lindman.jpg"
+    },
+    {
+      "a": "Lipa drobnolistna",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Lime%20tree.jpg?width=1000"
+    },
+    {
+      "a": "Lipa szerokolistna",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Burglinde%20bei%20Ruine%20Schaunberg%20(Photo%208503).jpg?width=1000"
+    },
+    {
+      "a": "Wiąz szypułkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/UlmusLaevis1%2B2.jpg/1280px-UlmusLaevis1%2B2.jpg"
+    },
+    {
+      "a": "Wiąz górski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Ulmus_glabra_nf.jpg"
+    },
+    {
+      "a": "Olsza czarna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Alnus_glutinosa_011.jpg/1280px-Alnus_glutinosa_011.jpg"
+    },
+    {
+      "a": "Olsza szara",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/36/374_Alnus_incana.jpg"
+    },
+    {
+      "a": "Grab zwyczajny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/20130801Hainbuche%20Schwetzinger%20Hardt2.jpg?width=1000"
+    },
+    {
+      "a": "Topola biała",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/20110714Populus_alba1.jpg/1280px-20110714Populus_alba1.jpg"
+    },
+    {
+      "a": "Topola czarna",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Topola%20czarna%20na%20warszawkich%20Bielanach.jpg?width=1000"
+    },
+    {
+      "a": "Topola osika",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Topola%20osika%20651.jpg?width=1000"
+    },
+    {
+      "a": "Wierzba biała",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Kopfweide.JPG?width=1000"
+    },
+    {
+      "a": "Wierzba krucha",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Crack%20willow%20Lodz(Poland)(js).01.jpg?width=1000"
+    },
+    {
+      "a": "Wierzba iwa",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Salix%20caprea.jpg?width=1000"
+    },
+    {
+      "a": "Kasztanowiec zwyczajny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Bergpark%20Wilhelmsh%C3%B6he%20-%20Baum%20106%202020-04-20%20a.JPG?width=1000"
+    },
+    {
+      "a": "Robinia akacjowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Korina_2011-05-20_Robinia_pseudoacacia_3.jpg/1280px-Korina_2011-05-20_Robinia_pseudoacacia_3.jpg"
+    },
+    {
+      "a": "Platan klonolistny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/27/Platanus-hispanica.JPG"
+    },
+    {
+      "a": "Platan wschodni",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Platanus_Tsangarada_hc.JPG/1280px-Platanus_Tsangarada_hc.JPG"
+    },
+    {
+      "a": "Cis pospolity",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Wiewi%C3%B3rka%20pospolita%20(Sciurus%20vulgaris)%20%C5%BCerowanie.jpg?width=1000"
+    },
+    {
+      "a": "Jałowiec pospolity",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1f/396_Juniperus_communis_L.jpg"
+    },
+    {
+      "a": "Daglezja zielona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Pseudotsuga_menziesii_28236.JPG/1280px-Pseudotsuga_menziesii_28236.JPG"
+    },
+    {
+      "a": "Orzech włoski",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Walnut-tree%2020041012%202599.JPG?width=1000"
+    },
+    {
+      "a": "Orzech czarny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Black_Walnut_nut_and_leave_detail.JPG/1280px-Black_Walnut_nut_and_leave_detail.JPG"
+    },
+    {
+      "a": "Grusza pospolita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg"
+    },
+    {
+      "a": "Wiśnia pospolita",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Koeh-113.jpg?width=1000"
+    },
+    {
+      "a": "Śliwa domowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Plum_blossoms.jpg/1280px-Plum_blossoms.jpg"
+    },
+    {
+      "a": "Morela",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Apricots.jpg"
+    },
+    {
+      "a": "Brzoskwinia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Flameprince_peaches.jpg/1280px-Flameprince_peaches.jpg"
+    },
+    {
+      "a": "Jarząb pospolity",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/db/284_Sorbus_aucuparia.jpg"
+    },
+    {
+      "a": "Głóg jednoszyjkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Crataegus_monogyna_egybig%C3%A9s_galagonya.jpg"
+    },
+    {
+      "a": "Leszczyna pospolita",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Corylus%20avellana%20'contorta'%200803a.JPG?width=1000"
+    },
+    {
+      "a": "Morwa biała",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Morus-alba.jpg/1280px-Morus-alba.jpg"
+    },
+    {
+      "a": "Dereń jadalny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Cornus%20mas%20(dere%C5%84%20jadalny).jpg?width=1000"
+    },
+    {
+      "a": "Rokitnik zwyczajny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Coralloid%20root%20nodules.%20Sea%20buckthorn.%20Merthyr%20Mawr%20%2C%20October%201968.%20NB.%20Was%20white%20when%20dug%20up%20(31021734145).jpg?width=1000"
+    },
+    {
+      "a": "Bez czarny",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Sambucus%20nigra%20Aureomarginata%202016-05-31%201406.jpg?width=1000"
+    },
+    {
+      "a": "Kalina koralowa",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Viburnu%20opulus%20autumn%20kz1.jpg?width=1000"
+    },
+    {
+      "a": "Czeremcha amerykańska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Amerikaanse_vogelkers_Prunus_serotina.jpg/1280px-Amerikaanse_vogelkers_Prunus_serotina.jpg"
+    },
+    {
+      "a": "Śliwa tarnina",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus%20spinosa.001%20-%20Serra%20de%20Enci%C3%B1a%20de%20Lastra.JPG?width=1000"
+    },
+    {
+      "a": "Brzoza karłowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Betula-nana-autumn.JPG/1280px-Betula-nana-autumn.JPG"
+    },
+    {
+      "a": "Żywotnik zachodni",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Thuja_occidentalis_001.JPG/1280px-Thuja_occidentalis_001.JPG"
+    },
+    {
+      "a": "Cyprysik Lawsona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chamaecyparis_lawsoniana_Dorena1.jpg"
+    },
+    {
+      "a": "Choina kanadyjska",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsuga%20canadensis%20morton.jpg?width=1000"
+    },
+    {
+      "a": "Kasztanowiec czerwony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b5/HippobP1010089.PNG"
+    },
+    {
+      "a": "Orzesznik",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Eastern_hickory.JPG/1280px-Eastern_hickory.JPG"
+    },
+    {
+      "a": "Jesion pensylwański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Korina_2011-07-05_Fraxinus_pennsylvanica.jpg/1280px-Korina_2011-07-05_Fraxinus_pennsylvanica.jpg"
+    },
+    {
+      "a": "Lipa amerykańska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Tilia_americana%2C_Arnold_Arboretum_-_IMG_5911.JPG/1280px-Tilia_americana%2C_Arnold_Arboretum_-_IMG_5911.JPG"
+    },
+    {
+      "a": "Tulipanowiec amerykański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tulipanowiec_ameryka%C5%84ski_%28HB2%29.jpg/1280px-Tulipanowiec_ameryka%C5%84ski_%28HB2%29.jpg"
+    },
+    {
+      "a": "Perukowiec podolski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Cotinus_coggygria_003.JPG/1280px-Cotinus_coggygria_003.JPG"
+    },
+    {
+      "a": "Sumak octowiec",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Zelen%C3%BD_prales.JPG/1280px-Zelen%C3%BD_prales.JPG"
+    },
+    {
+      "a": "Katalpa bignoniowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Baden-Baden-Catalpa_bignonioides-12-Trompetenbaum_bei_Tennisplatz-2010-gje.jpg/1280px-Baden-Baden-Catalpa_bignonioides-12-Trompetenbaum_bei_Tennisplatz-2010-gje.jpg"
+    },
+    {
+      "a": "Miłorząb dwuklapowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Rama_de_Ginkgo.JPG"
+    },
+    {
+      "a": "Sekwoja wieczniezielona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/US_199_Redwood_Highway.jpg/1280px-US_199_Redwood_Highway.jpg"
+    },
+    {
+      "a": "Baobab afrykański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a0/SenegalBaobab.jpg"
+    },
+    {
+      "a": "Eukaliptus",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Woodland%2C_Nadgigomar_Nature_Reserve.jpg/1280px-Woodland%2C_Nadgigomar_Nature_Reserve.jpg"
+    },
+    {
+      "a": "Sosna górska",
+      "img": "assets/packs/drzewa/sosna-gorska.jpg"
+    },
+    {
+      "a": "Wierzba płacząca",
+      "img": "assets/packs/drzewa/wierzba-p-aczaca.jpg"
+    },
+    {
+      "a": "Jabłoń domowa",
+      "img": "assets/packs/drzewa/jab-on-domowa.jpg"
+    },
+    {
+      "a": "Wiśnia ptasia",
+      "img": "assets/packs/drzewa/wisnia-ptasia.jpg"
+    },
+    {
+      "a": "Orzech laskowy",
+      "img": "assets/packs/drzewa/orzech-laskowy.jpg"
+    },
+    {
+      "a": "Pigwa pospolita",
+      "img": "assets/packs/drzewa/pigwa-pospolita.jpg"
+    },
+    {
+      "a": "Świerk biały",
+      "img": "assets/packs/drzewa/swierk-bialy.jpg"
+    }
+  ],
+  "name": "Drzewa",
+  "group": "Przyroda",
+  "icon": "🌳",
+  "prompt": "Jakie to drzewo?",
+  "source": "ręcznie wybrana lista"
+}

@@ -1,9 +1,9 @@
 import { $, Bus, fmtTime } from './common.js';
-import { shortCategory, sameCategoryNeighbor, mergeInfo, pluralPoles } from './game.js';
+import { shortCategory, sameCategoryNeighbor, mergeInfo, categoryGroup, pluralPoles } from './game.js';
 import { Sound } from './sound.js';
 import { preloadImages, setImageWithFallback } from './images.js';
 
-const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
+const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
 const BLUR_PACKS = new Set(['loga-firm']);
 
 const B = {
@@ -49,7 +49,6 @@ function cache() {
   els.stage = $('#duel-stage');
   els.image = $('#duel-image');
   els.loading = $('#duel-loading');
-  els.fallback = $('#duel-image-fallback');
   els.prompt = $('#duel-prompt');
   els.mini = $('#mini-floor');
   els.miniLegend = $('#mini-legend');
@@ -177,6 +176,7 @@ function renderBoard() {
     els.floor.style.setProperty('--cols', String(s.cols));
     els.floor.style.setProperty('--rows', String(s.rows));
     els.floor.innerHTML = '';
+    const groupSets = groupState(s);
     s.tiles.forEach((tile) => {
       const player = s.players.find((p) => p.id === tile.owner);
       const key = tile.r + ':' + tile.c;
@@ -195,6 +195,10 @@ function renderBoard() {
         if (merge.right) node.classList.add('merge-right');
       }
       if (merge.continuation) node.classList.add('merge-cont');
+
+      markGroup(node, s, tile, key, groupSets.options, 'group-option');
+      markGroup(node, s, tile, key, groupSets.source, 'group-source');
+      markGroup(node, s, tile, key, groupSets.targets, 'group-target');
 
       if (s.phase === 'board') {
         if (tile.owner === s.challengerId && (s.sources || []).includes(key)) node.classList.add('source-option');
@@ -246,6 +250,31 @@ function renderBoard() {
   renderConquest();
 }
 
+function groupState(s) {
+  const out = { options: new Set(), source: new Set(), targets: new Set() };
+  const addGroup = (set, key) => {
+    const tile = s.tiles.find((item) => item.r + ':' + item.c === key);
+    if (!tile) return;
+    categoryGroup(s.tiles, tile, s.rows, s.cols).forEach((item) => set.add(item.r + ':' + item.c));
+  };
+  if (s.phase === 'board') {
+    (s.sources || []).forEach((key) => addGroup(out.options, key));
+    addGroup(out.source, s.sourceKey);
+    (s.targets || []).forEach((key) => addGroup(out.targets, key));
+  }
+  return out;
+}
+
+function markGroup(node, s, tile, key, set, className) {
+  if (!set.has(key)) return;
+  node.classList.add(className);
+  const edge = mergeInfo(s.tiles, tile, s.rows, s.cols);
+  if (!edge.up) node.classList.add('g-edge-top');
+  if (!edge.down) node.classList.add('g-edge-bottom');
+  if (!edge.left) node.classList.add('g-edge-left');
+  if (!edge.right) node.classList.add('g-edge-right');
+}
+
 function renderLegend() {
   const s = B.state;
   els.legend.innerHTML = '';
@@ -275,19 +304,16 @@ function renderDuel() {
   if (!d.q) {
     els.image.hidden = true;
     els.loading.hidden = false;
-    els.fallback.hidden = true;
   } else if (els.image.dataset.key !== d.q.img) {
     els.image.dataset.key = d.q.img;
     els.image.hidden = true;
     els.loading.hidden = false;
-    els.fallback.hidden = true;
     const key = d.q.img;
     preloadImages([key]);
     setImageWithFallback(els.image, key, (ok) => {
       if (els.image.dataset.key !== key) return;
       els.loading.hidden = true;
       els.image.hidden = !ok;
-      els.fallback.hidden = ok;
     });
   }
   const isLogo = LOGO_PACKS.has(d.category.id);

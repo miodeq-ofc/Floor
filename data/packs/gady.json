@@ -1,0 +1,280 @@
+{
+  "items": [
+    {
+      "a": "Żmija zygzakowata",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Benny_Trapp_Vipera_berus.jpg/1280px-Benny_Trapp_Vipera_berus.jpg"
+    },
+    {
+      "a": "Zaskroniec zwyczajny",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Natrix_natrix_%2816669944004%29.jpg/1280px-Natrix_natrix_%2816669944004%29.jpg"
+    },
+    {
+      "a": "Padalec zwyczajny",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Anguis_fragilis_%28curled_up%29.jpg/1280px-Anguis_fragilis_%28curled_up%29.jpg"
+    },
+    {
+      "a": "Jaszczurka zwinka",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/20110612_Lacerta_agilis_0759.jpg/1280px-20110612_Lacerta_agilis_0759.jpg"
+    },
+    {
+      "a": "Jaszczurka żyworodna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Zootoca_vivipara_BS11.jpg"
+    },
+    {
+      "a": "Jaszczurka zielona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Lacerta_bilineata_in_Rovigo.jpg"
+    },
+    {
+      "a": "Krokodyl nilowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Bazoule_sacred_crocodiles_MS_6709cropped.JPG/1280px-Bazoule_sacred_crocodiles_MS_6709cropped.JPG"
+    },
+    {
+      "a": "Krokodyl błotny",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Marsh_crocodile_-_Basking_in_the_sun.jpg/1280px-Marsh_crocodile_-_Basking_in_the_sun.jpg"
+    },
+    {
+      "a": "Aligator amerykański",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/American_Alligator.jpg/1280px-American_Alligator.jpg"
+    },
+    {
+      "a": "Kajman okularowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Kajmany_okularowe_-_wykadrowane.jpg/1280px-Kajmany_okularowe_-_wykadrowane.jpg"
+    },
+    {
+      "a": "Gawial gangesowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Indian_Gharial_Crocodile_Digon3.JPG/1280px-Indian_Gharial_Crocodile_Digon3.JPG"
+    },
+    {
+      "a": "Waran z Komodo",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Komodo_dragon_Varanus_komodoensis_Ragunan_Zoo_2.JPG/1280px-Komodo_dragon_Varanus_komodoensis_Ragunan_Zoo_2.JPG"
+    },
+    {
+      "a": "Waran nilowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Regenwald_nilwaran_Varanus_niloticus.jpg"
+    },
+    {
+      "a": "Legwan zielony",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Iguana_iguana_Portoviejo_01.jpg/1280px-Iguana_iguana_Portoviejo_01.jpg"
+    },
+    {
+      "a": "Kameleon pospolity",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Camaleon_comun.jpg"
+    },
+    {
+      "a": "Kameleon jemeński",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Chamaelio_calyptratus.jpg/1280px-Chamaelio_calyptratus.jpg"
+    },
+    {
+      "a": "Gekon orzęsiony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Gekkoninae_Rhacodactylus_ciliatus_tete.png"
+    },
+    {
+      "a": "Gekon lamparci",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Gecko999.jpg"
+    },
+    {
+      "a": "Agama brodata",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Eastern-Bearded-Dragon-2.2%2C-Vic%2C-3.1.2008.jpg/1280px-Eastern-Bearded-Dragon-2.2%2C-Vic%2C-3.1.2008.jpg"
+    },
+    {
+      "a": "Żółw błotny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Emys.jpg"
+    },
+    {
+      "a": "Żółw grecki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Testudo_hermanni_hermanni3.jpg"
+    },
+    {
+      "a": "Żółw olbrzymi",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Aldabra_Giant_Tortoise_Geochelone_gigantea_edit1.jpg/1280px-Aldabra_Giant_Tortoise_Geochelone_gigantea_edit1.jpg"
+    },
+    {
+      "a": "Żółw zielony",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Green_Sea_Turtle_grazing_seagrass.jpg/1280px-Green_Sea_Turtle_grazing_seagrass.jpg"
+    },
+    {
+      "a": "Karetta",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Caretta_caretta01.jpg"
+    },
+    {
+      "a": "Wąż zbożowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Cornsnake_vs_mouse.jpg"
+    },
+    {
+      "a": "Pyton tygrysi",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Pratik_jain_dahod_python.JPG/1280px-Pratik_jain_dahod_python.JPG"
+    },
+    {
+      "a": "Pyton siatkowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Python_reticulatus_%D1%81%D0%B5%D1%82%D1%87%D0%B0%D1%82%D1%8B%D0%B9_%D0%BF%D0%B8%D1%82%D0%BE%D0%BD-2.jpg/1280px-Python_reticulatus_%D1%81%D0%B5%D1%82%D1%87%D0%B0%D1%82%D1%8B%D0%B9_%D0%BF%D0%B8%D1%82%D0%BE%D0%BD-2.jpg"
+    },
+    {
+      "a": "Anakonda zielona",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Sucuri_verde.jpg/1280px-Sucuri_verde.jpg"
+    },
+    {
+      "a": "Boa dusiciel",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Boa_c.i.jpg/1280px-Boa_c.i.jpg"
+    },
+    {
+      "a": "Kobra królewska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg"
+    },
+    {
+      "a": "Kobra indyjska",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Indian_cobra.jpg/1280px-Indian_cobra.jpg"
+    },
+    {
+      "a": "Mamba czarna",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Black_mamba.jpg/1280px-Black_mamba.jpg"
+    },
+    {
+      "a": "Żmija gabońska",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Gabunviper_Bitis_gabonica.jpg/1280px-Gabunviper_Bitis_gabonica.jpg"
+    },
+    {
+      "a": "Grzechotnik diamentowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Crotalus_adamanteus_cdc2.jpg"
+    },
+    {
+      "a": "Żółw czerwonolicy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/45/Tortoise1_cepolina.jpg"
+    },
+    {
+      "a": "Żółw żółtobrzuchy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Yellow-bellied_Slider_2.jpg/1280px-Yellow-bellied_Slider_2.jpg"
+    },
+    {
+      "a": "Gekon płaczący",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Lepidodactylus_lugubris_150047012.jpg/1280px-Lepidodactylus_lugubris_150047012.jpg"
+    },
+    {
+      "a": "Scynk olbrzymi",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Blue_tongue_lizard.jpg/1280px-Blue_tongue_lizard.jpg"
+    },
+    {
+      "a": "Jaszczurka perłowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Timon_lepidus_a.JPG"
+    },
+    {
+      "a": "Waran paskowany",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Varanus_salvator_-_01.jpg/1280px-Varanus_salvator_-_01.jpg"
+    },
+    {
+      "a": "Krokodyl kubański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Estocolm_2008_163.jpg"
+    },
+    {
+      "a": "Aligator chiński",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/2011_China-Alligator_0491.JPG/1280px-2011_China-Alligator_0491.JPG"
+    },
+    {
+      "a": "Żółw gwiaździsty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Geochelone_elegans.jpg"
+    },
+    {
+      "a": "Żółw egipski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/54/Testudo_kleinmanni.jpg"
+    },
+    {
+      "a": "Pyton królewski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Ball_python_lucy.JPG"
+    },
+    {
+      "a": "Jaszczurka murowa",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Podarcis_muralis01.jpg/1280px-Podarcis_muralis01.jpg"
+    },
+    {
+      "a": "Wąż Eskulapa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Couleuvre_Esculape59.JPG"
+    },
+    {
+      "a": "Wąż tygrysi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Tiger_snake_2.jpg"
+    },
+    {
+      "a": "Krokodyl amerykański",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Crocodylus_acutus_mexico_02-edit1.jpg/1280px-Crocodylus_acutus_mexico_02-edit1.jpg"
+    },
+    {
+      "a": "Kajman karłowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Brauen_Glattstirnkaiman_Paleosuchus_palpebrosus.jpg"
+    },
+    {
+      "a": "Kajman szerokopyski",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Caiman_latirostris_Oliwa.JPG/1280px-Caiman_latirostris_Oliwa.JPG"
+    },
+    {
+      "a": "Waran szary",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Varanus_griseus.JPG/1280px-Varanus_griseus.JPG"
+    },
+    {
+      "a": "Waran papuaski",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Amneville_Varanus_salvadorii_27082010_4.jpg/1280px-Amneville_Varanus_salvadorii_27082010_4.jpg"
+    },
+    {
+      "a": "Legwan morski",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Marine-Iguana-Espanola.jpg/1280px-Marine-Iguana-Espanola.jpg"
+    },
+    {
+      "a": "Legwan nosorogi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6b/RhinoIguanaMay07Pedernales.jpg"
+    },
+    {
+      "a": "Kameleon lamparci",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chameleon02.jpg"
+    },
+    {
+      "a": "Żółw słoniowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Galapagos_giant_tortoise_Geochelone_elephantopus.jpg/1280px-Galapagos_giant_tortoise_Geochelone_elephantopus.jpg"
+    },
+    {
+      "a": "Żółw promienisty",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Geochelone_radiata_%28aka%29.jpg/1280px-Geochelone_radiata_%28aka%29.jpg"
+    },
+    {
+      "a": "Żółw lamparci",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Tortoise_closeup.jpg/1280px-Tortoise_closeup.jpg"
+    },
+    {
+      "a": "Anakonda żółta",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Anaconda_jaune_34.JPG"
+    },
+    {
+      "a": "Boa tęczowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ecc4.jpg"
+    },
+    {
+      "a": "Mamba zielona",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Western_Green_Mamba_12.jpg/1280px-Western_Green_Mamba_12.jpg"
+    },
+    {
+      "a": "Grzechotnik teksaski",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Crotalus_atrox_USFWS.jpg/1280px-Crotalus_atrox_USFWS.jpg"
+    },
+    {
+      "a": "Żółw jaszczurowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Common_Snapping_Turtle_%28Chelydra_serpentina%29.jpg"
+    },
+    {
+      "a": "Żółw piżmowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Sternotherus_odoratus.jpg"
+    },
+    {
+      "a": "Żółw cętkowany",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Spotted_turtle_patuxent_research_refuge_north_tract_4.28.19_DSC_0637.jpg/1280px-Spotted_turtle_patuxent_research_refuge_north_tract_4.28.19_DSC_0637.jpg"
+    },
+    {
+      "a": "Żółw sundajski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Cuora_amboinensis_kamaroma_j.jpg"
+    },
+    {
+      "a": "Waran indyjski",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Varanus_indicus_01.jpg/1280px-Varanus_indicus_01.jpg"
+    },
+    {
+      "a": "Krokodyl gawialowy",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Tomistoma_schlegelii_false_gharial_LA_zoo_01.jpg/1280px-Tomistoma_schlegelii_false_gharial_LA_zoo_01.jpg"
+    }
+  ]
+}

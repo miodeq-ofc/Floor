@@ -1,4 +1,4 @@
-import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast, loadMorePack } from './common.js';
+import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast, answerKey } from './common.js';
 import { preloadImages, setImageWithFallback } from './images.js';
 import {
   COLORS,
@@ -17,11 +17,13 @@ import {
   fmtClock,
   shortCategory,
   sameCategoryNeighbor,
+  categoryGroup,
+  captureDuelTerritory,
   mergeInfo,
   pluralPoles,
 } from './game.js';
 
-const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
+const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
 const BLUR_PACKS = new Set(['loga-firm']);
 
 const SETTINGS_KEY = 'floor:settings';
@@ -111,6 +113,7 @@ function cacheEls() {
   els.clockA = $('#clock-a');
   els.clockB = $('#clock-b');
   els.actionContent = $('#action-content');
+  els.actionCard = $('#action-card');
   els.duelCard = $('#duel-card');
   els.duelCat = $('#duel-cat');
   els.duelImg = $('#duel-img');
@@ -420,6 +423,11 @@ function makeTile(tile, opts = {}) {
   }
   if (merge.continuation) btn.classList.add('merge-cont');
 
+  const groups = groupState();
+  markGroup(btn, tile, key, groups.options, 'group-option');
+  markGroup(btn, tile, key, groups.source, 'group-source');
+  markGroup(btn, tile, key, groups.targets, 'group-target');
+
   if (H.phase === 'board') {
     const ownSources = sourceOptions(H.tiles, H.challengerId, H.rows, H.cols);
     if (tile.owner === H.challengerId && ownSources.some((t) => keyOf(t) === key)) {
@@ -451,6 +459,37 @@ function makeTile(tile, opts = {}) {
 
   if (H.phase === 'gameOver' && tile.owner === H.winnerId) btn.classList.add('winner');
   return btn;
+}
+
+/** Zbiory pól należących do całych grup: opcje ataku, wybrane źródło,
+ *  cele i uczestnicy pojedynku. Dzięki temu obwódka obejmuje cały kształt,
+ *  a nie tylko kafelek, w który kliknięto. */
+function groupState() {
+  const out = { options: new Set(), source: new Set(), targets: new Set() };
+  const addGroup = (set, tile) => {
+    if (!tile) return;
+    categoryGroup(H.tiles, tile, H.rows, H.cols).forEach((item) => set.add(keyOf(item)));
+  };
+  if (H.phase === 'board') {
+    sourceOptions(H.tiles, H.challengerId, H.rows, H.cols).forEach((tile) => addGroup(out.options, tile));
+    addGroup(out.source, H.tiles.find((tile) => keyOf(tile) === H.sourceKey));
+    H.targets.forEach((key) => addGroup(out.targets, H.tiles.find((tile) => keyOf(tile) === key)));
+  }
+  if (H.duel) {
+    addGroup(out.source, H.tiles.find((tile) => keyOf(tile) === H.duel.sourceKey));
+    addGroup(out.targets, H.tiles.find((tile) => keyOf(tile) === H.duel.tileKey));
+  }
+  return out;
+}
+
+function markGroup(node, tile, key, set, className) {
+  if (!set.has(key)) return;
+  node.classList.add(className);
+  const edge = mergeInfo(H.tiles, tile, H.rows, H.cols);
+  if (!edge.up) node.classList.add('g-edge-top');
+  if (!edge.down) node.classList.add('g-edge-bottom');
+  if (!edge.left) node.classList.add('g-edge-left');
+  if (!edge.right) node.classList.add('g-edge-right');
 }
 
 function renderSetupLegend() {
@@ -564,6 +603,9 @@ function shuffleBoard() {
   renderSetup();
   renderAll();
   sendState();
+  // Rozgrzewamy kategorie już po losowaniu planszy, a nie dopiero w chwili
+  // startu. Gracz ma wtedy czas ustawić imiona, zanim zacznie się pojedynek.
+  void warmupGameImages();
   toast('Losowanie gotowe: ' + H.cols + ' × ' + H.rows + ', po ' + grid.per + ' ' + pluralPoles(grid.per) + ' na gracza.');
 }
 
@@ -590,6 +632,27 @@ function startGame() {
   H.overlayKey = '';
   H.turnIndex = Math.floor(Math.random() * H.players.length) - 1;
   nextTurn();
+}
+
+let warmupToken = 0;
+async function warmupGameImages() {
+  const token = ++warmupToken;
+  const seen = new Set();
+  const cats = H.tiles.map((tile) => tile.cat).filter((cat) => cat && !seen.has(cat.id) && seen.add(cat.id));
+  for (const cat of cats) {
+    if (token !== warmupToken) return;
+    try {
+      const pack = await loadPack(cat);
+      if (token !== warmupToken) return;
+      await preloadImages(pack.items.map((q) => q.img), {
+        limit: 120,
+        concurrency: 2,
+        delay: 90,
+      });
+    } catch {
+      // Kategoria z problemem sieciowym nie może zatrzymać gry.
+    }
+  }
 }
 
 /* ---------------- game / duel ---------------- */
@@ -656,6 +719,7 @@ async function startDuel(sourceTile, targetTile) {
     queuePos: 0,
     pack: null,
     qNumber: 0,
+    missing: 0,
     reveal: null,
   };
   renderAll();
@@ -665,26 +729,18 @@ async function startDuel(sourceTile, targetTile) {
     const pack = await loadPack(sourceTile.cat);
     if (token !== H.token) return;
     H.duel.pack = pack;
-    let next = makeQueue(pack, H.used);
-    // Zanim zacznie się odliczanie, upewnij się, że na cały pojedynek
-    // (20 rund) wystarczy pytań — nawet gdy kategoria ma tylko kilka.
-    if (next.queue.length < 20) {
-      try {
-        const extra = await loadMorePack(pack, 40);
-        if (extra.length) {
-          pack.items.push(...extra);
-          next = makeQueue(pack, H.used);
-        }
-      } catch {}
-    }
+    const next = makeQueue(pack, H.used);
     if (token !== H.token) return;
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
     // Wczytujemy zdjęcia całej kolejki pojedynku jeszcze przed odliczaniem.
-    // Dzięki temu kolejne pytania nie pokazują pustego miejsca.
-    // Tylko kilka najbliższych zdjęć: hurtowe pobieranie całej kolejki
-    // powodowało HTTP 429 i właśnie puste pola na ekranie.
-    preloadImages(next.queue.map((item) => item.img), { limit: 4, concurrency: 1, delay: 320 });
+    // cache jest współdzielony z ekranem, więc odpowiedź nie czeka na sieć.
+    // Ograniczamy równoległość, żeby nie dostać HTTP 429 od Wikimedia.
+    preloadImages(next.queue.map((item) => item.img), {
+      limit: Math.min(80, next.queue.length),
+      concurrency: 3,
+      delay: 70,
+    });
     H.phase = 'duelIntro';
     H.introUntil = Date.now() + 3000;
     renderAll();
@@ -716,53 +772,13 @@ async function beginDuel() {
   sendState();
 }
 
-let topupPromise = null;
-
-/** Dociąga pytania w tle, zanim skończy się kolejka. */
-function ensureMore(min = 12) {
-  if (!H.duel?.pack) return Promise.resolve();
-  const d = H.duel;
-  if (d.queue.length - d.queuePos >= min) return Promise.resolve();
-  if (topupPromise) return topupPromise;
-  const token = H.token;
-  topupPromise = (async () => {
-    try {
-      const extra = await loadMorePack(d.pack, Math.max(30, min));
-      if (token !== H.token || !H.duel || H.duel !== d) return;
-      const known = new Set(d.pack.items.map((q) => String(q.a).toLowerCase()));
-      const add = extra.filter(
-        (q) =>
-          q?.a &&
-          !known.has(String(q.a).toLowerCase()) &&
-          !H.used.has(d.pack.id + '|' + q.a),
-      );
-      if (!add.length) return;
-      d.pack.items.push(...add);
-      d.queue.push(...shuffle(add));
-    } catch {
-      // Brak internetu / limit Wikipedii — zostaje to, co już mamy.
-    } finally {
-      topupPromise = null;
-    }
-  })();
-  return topupPromise;
-}
-
 async function advanceQuestion() {
   if (!H.duel?.pack) return;
-  await ensureMore(12);
+  // Paczki są lokalne i sprawdzone. Nie dociągamy już niczego z Wikipedii
+  // w środku pojedynku, bo to właśnie powodowało powtórki i 10-sekundowe
+  // oczekiwanie na zdjęcie.
   if (H.duel.queuePos >= H.duel.queue.length) {
-    let next = makeQueue(H.duel.pack, H.used);
-    const hasUnused = next.queue.some((q) => !H.used.has(H.duel.pack.id + '|' + q.a));
-    if (!hasUnused) {
-      try {
-        const extra = await loadMorePack(H.duel.pack, 40);
-        if (extra.length) {
-          H.duel.pack.items.push(...extra);
-          next = makeQueue(H.duel.pack, H.used);
-        }
-      } catch {}
-    }
+    const next = makeQueue(H.duel.pack, H.used);
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
   }
@@ -771,7 +787,7 @@ async function advanceQuestion() {
   H.duel.q = q;
   if (!q) return;
   H.duel.qNumber += 1;
-  H.used.add(pack.id + '|' + q.a);
+  H.used.add(pack.id + '|' + answerKey(q.a));
   markSeen(pack.id, q.a);
   preloadImages([q.img, H.duel.queue[H.duel.queuePos]?.img]);
 }
@@ -851,13 +867,25 @@ function endDuel(loserId) {
   const targetTile = H.tiles.find((tile) => keyOf(tile) === d.tileKey) || null;
   if (!sourceTile || !targetTile) return;
   const prizeCategory = { ...(d.targetCat || d.category) };
-  sourceTile.cat = { ...prizeCategory };
-  targetTile.cat = { ...prizeCategory };
-  if (winner.id === d.challengerId) targetTile.owner = winner.id;
-  else sourceTile.owner = winner.id;
+  // Przejmujemy całe scalone grupy, nie pojedyncze kafelki. Inaczej duże
+  // pole zostawało częściowo u starego gracza i pojawiało się „dodatkowe”
+  // pole bez nazwy. Grupy liczymy przed zmianą kategorii.
+  const result = captureDuelTerritory(
+    H.tiles,
+    d.sourceKey,
+    d.tileKey,
+    winner.id,
+    prizeCategory,
+    H.rows,
+    H.cols,
+  );
+  if (!result) return;
+  const { sourceGroup, targetGroup, captured } = result;
   const remaining = territory(H.tiles, loser.id).length;
   loser.alive = remaining > 0;
-  const gained = 1;
+  // Pretendent zdobywa grupę atakowaną; obrońca, który wygrał, zdobywa
+  // grupę, z której pretendent atakował.
+  const gained = winner.id === d.challengerId ? targetGroup.length : sourceGroup.length;
   H.result = null;
   H.challengerId = winner.id;
   H.duel = null;
@@ -870,7 +898,7 @@ function endDuel(loserId) {
     loserId: loser.id,
     gained,
     category: { ...prizeCategory },
-    cells: [d.tileKey, d.sourceKey],
+    cells: captured.map(keyOf),
     at: Date.now(),
     until: Date.now() + 2600,
   };
@@ -913,6 +941,9 @@ function renderAll() {
   els.controls.hidden = H.phase !== 'duel';
   els.duelHead.hidden = !H.duel;
   els.duelCard.hidden = !H.duel;
+  // W pojedynku panel z instrukcją zajmował pół ekranu i wypychał
+  // odpowiedź poza widok. Zostaje tylko karta pytania i duża odpowiedź.
+  els.actionCard.hidden = ['duelLoading', 'duelIntro', 'duel', 'conquest'].includes(H.phase);
   renderHeader();
   if (inSetup) {
     renderSetup();
@@ -1038,7 +1069,7 @@ function renderAction() {
       el(
         'p',
         'action-text',
-        'Kategoria: ' + (d?.category?.name || '—') + '. DOBRZE zatrzymuje twój zegar na 3 s i przekazuje pytanie. PASS nie zabiera czasu — zegar leci dalej. Pojedynek kończy się dopiero, gdy czyjś zegar dobiegnie zera.'
+        'Pytania: ' + (d?.category?.name || '—') + '. Nagroda dla zwycięzcy: ' + (d?.targetCat?.name || '—') + '. DOBRZE zatrzymuje twój zegar na 3 s i przekazuje pytanie. PASS nie zabiera czasu — zegar leci dalej. Pojedynek kończy się dopiero, gdy czyjś zegar dobiegnie zera.'
       )
     );
     const note = el('div', 'duel-hint');
@@ -1098,7 +1129,7 @@ function renderPlayerList() {
 function renderDuelCard() {
   if (!H.duel) return;
   const d = H.duel;
-  els.duelCat.textContent = d.category.name;
+  els.duelCat.textContent = 'Pytania: ' + d.category.name + '  ·  Nagroda: ' + (d.targetCat?.name || d.category.name);
   if (els.duelPrompt) els.duelPrompt.textContent = d.category.prompt || 'Co to jest?';
   const q = d.q;
   if (!q) {
@@ -1118,8 +1149,20 @@ function renderDuelCard() {
       els.duelLoading.hidden = true;
       els.duelImg.hidden = !ok;
       if (!ok) {
-        els.duelLoading.hidden = false;
-        els.duelLoading.textContent = 'Zdjęcie chwilowo niedostępne';
+        // Nie pokazujemy komunikatu „zdjęcie niedostępne”. Jeżeli po
+        // ponowieniach nie ma obrazka, pomijamy pytanie i gramy dalej.
+        const duel = H.duel;
+        if (!duel) return;
+        duel.missing = (duel.missing || 0) + 1;
+        if (duel.missing <= 3) {
+          setTimeout(async () => {
+            if (H.phase !== 'duel' || H.duel !== duel) return;
+            await advanceQuestion();
+            if (H.duel !== duel) return;
+            renderAll();
+            sendState();
+          }, 250);
+        }
       }
     });
   }
@@ -1127,7 +1170,8 @@ function renderDuelCard() {
   els.duelImg.parentElement.classList.toggle('logo', LOGO_PACKS.has(d.category.id));
   els.duelImg.classList.toggle('blurred', BLUR_PACKS.has(d.category.id) && H.logoBlur);
   els.duelAnswer.textContent = q.a;
-  els.duelAnswer.style.fontSize = q.a.length > 40 ? 'clamp(28px, 3vw, 44px)' : q.a.length > 26 ? 'clamp(32px, 3.4vw, 50px)' : '';
+  // Odpowiedź musi zmieścić się w panelu bez przewijania, także na laptopie.
+  els.duelAnswer.style.fontSize = q.a.length > 55 ? 'clamp(20px, 1.9vw, 28px)' : q.a.length > 34 ? 'clamp(21px, 2vw, 31px)' : 'clamp(22px, 2.15vw, 34px)';
   els.duelMeta.textContent = 'Pytanie ' + d.qNumber + ' · pula ' + Math.max(0, d.queue.length - d.queuePos);
   // Na ekranie prowadzącego liczy się tylko duża odpowiedź. Bez dopisków
   // o karze, które wcześniej trafiały też na ekran graczy.

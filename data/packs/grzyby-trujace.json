@@ -1,1 +1,562 @@
-{"id":"grzyby-trujace","name":"Grzyby trujące","group":"Kuchnia","icon":"☠️","prompt":"Jaki to grzyb?","source":"Kategoria:Grzyby trujące","items":[{"a":"Grzyby trujące","img":"https://upload.wikimedia.org/wikipedia/commons/a/a6/2009-05_Amanita_phalloides_crop.jpg"},{"a":"Buławinka czerwona","img":"https://upload.wikimedia.org/wikipedia/commons/2/26/Claviceps_purpurea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-185.jpg"},{"a":"Czernidłówka pospolita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Coprinopsis_atramentaria_G3.jpg/960px-Coprinopsis_atramentaria_G3.jpg"},{"a":"Gołąbek wymiotny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Russula_emetica_in_Poland.jpg/960px-Russula_emetica_in_Poland.jpg"},{"a":"Gąska siarkowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/2010-09-17_Tricholoma_sulphureum.jpg/960px-2010-09-17_Tricholoma_sulphureum.jpg"},{"a":"Gąska pieprzna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Tricholoma_virgatum_a1_%283%29.JPG/960px-Tricholoma_virgatum_a1_%283%29.JPG"},{"a":"Gąska tygrysia","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tricholoma_pardinum_112561_cropped.jpg/960px-Tricholoma_pardinum_112561_cropped.jpg"},{"a":"Gołąbek kruchy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Russula_fragilis_G2.3.jpg/960px-Russula_fragilis_G2.3.jpg"},{"a":"Dzwonkówka trująca","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/2005-09-25_Entoloma_sinuatum_cropped.jpg/960px-2005-09-25_Entoloma_sinuatum_cropped.jpg"},{"a":"Czubajeczka brązowoczerwonawa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Lepiota_brunneoincarnata_060823w.jpg/960px-Lepiota_brunneoincarnata_060823w.jpg"},{"a":"Gąska żółtobrunatna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tricholoma_fulvum_a1_%284%29.JPG/960px-Tricholoma_fulvum_a1_%284%29.JPG"},{"a":"Grzybówka fioletowawa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Mycena_pura_a3_%282%29.JPG/960px-Mycena_pura_a3_%282%29.JPG"},{"a":"Amanita ocreata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Amanita_ocreata_79782.jpg/960px-Amanita_ocreata_79782.jpg"},{"a":"Gołąbek buczynowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Russ_nobilis.jpg/960px-Russ_nobilis.jpg"},{"a":"Dzwonkówka wiosenna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Entoloma_vernum_a1_%283%29.JPG/960px-Entoloma_vernum_a1_%283%29.JPG"},{"a":"Gąska mydlana","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Tricholoma_saponaceum_a5_%282%29.jpg/960px-Tricholoma_saponaceum_a5_%282%29.jpg"},{"a":"Gąska białobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tricholoma_albobrunneum_a1_%282%29.JPG/960px-Tricholoma_albobrunneum_a1_%282%29.JPG"},{"a":"Gąska zielonożółta","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/TricholomaSejunctum.JPG/960px-TricholomaSejunctum.JPG"},{"a":"Gąska bukowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tricholoma_ustale_%284%29.JPG/960px-Tricholoma_ustale_%284%29.JPG"},{"a":"Gołąbek agrestowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/2011-07-31_Russula_queletii.jpg/960px-2011-07-31_Russula_queletii.jpg"},{"a":"Gołąbek żółciowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Russula_fellea_G3.jpg/960px-Russula_fellea_G3.jpg"},{"a":"Gołąbek komorowaty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Russula_1_a1_%284%29.JPG/960px-Russula_1_a1_%284%29.JPG"},{"a":"Gołąbek oliwkowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/2009-12-03_Russula_olivacea_%28Schaeff.%29_Fr_67723.jpg/960px-2009-12-03_Russula_olivacea_%28Schaeff.%29_Fr_67723.jpg"},{"a":"Gołąbek czerwonofioletowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Russ.sard.jpg/960px-Russ.sard.jpg"},{"a":"Grzybówka różowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Mycena_rosea_G3.jpg/960px-Mycena_rosea_G3.jpg"},{"a":"Gąska czerwonobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fastberingter_ritterling_Tricholoma_batschii.jpg/960px-Fastberingter_ritterling_Tricholoma_batschii.jpg"},{"a":"Gąska kroplistobrzega","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Tricholoma_pessundatum_176487.jpg/960px-Tricholoma_pessundatum_176487.jpg"},{"a":"Chlorophyllum molybdites","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chlorophyllum_molybdites.jpg/960px-Chlorophyllum_molybdites.jpg"},{"a":"Czubajeczka kasztanowata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Lepiota_castanea_70848.jpg/960px-Lepiota_castanea_70848.jpg"},{"a":"Czubajeczka rzodkiewkowata","img":"https://upload.wikimedia.org/wikipedia/commons/8/87/Lepiota_erminea_588058.jpg"},{"a":"Czubajeczka czarnołuskowa","img":"https://upload.wikimedia.org/wikipedia/commons/5/57/Lepiota_felina_%2833190301802%29.jpg"},{"a":"Czubajeczka szarozielonawa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Lepiota_griseovirens_170903w.JPG/960px-Lepiota_griseovirens_170903w.JPG"},{"a":"Czubajeczka liliowa","img":"https://upload.wikimedia.org/wikipedia/commons/0/0d/Lepiota_lilacea.jpg"},{"a":"Czubajeczka brzuchatozarodnikowa","img":"https://upload.wikimedia.org/wikipedia/commons/e/e8/Lepiota_magnispora_%2833190302702%29.jpg"},{"a":"Czubajeczka łysiejąca","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Lepiota_oreadiformis_170827w.JPG/960px-Lepiota_oreadiformis_170827w.JPG"},{"a":"Czubajeczka różowawa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Lepiota_subincarnata_117620.jpg/960px-Lepiota_subincarnata_117620.jpg"},{"a":"Czubajeczka zamszowata","img":"https://upload.wikimedia.org/wikipedia/commons/d/df/Lepiota_tomentella_1.jpg"},{"a":"Czaszówka czarnobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2012-03-21_Deconica_montana_%28Pers.%29_P.D._Orton_207134.jpg/960px-2012-03-21_Deconica_montana_%28Pers.%29_P.D._Orton_207134.jpg"},{"a":"Agaricus bresadolanus","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Agaricus_bresadolanus_393849.jpg/960px-Agaricus_bresadolanus_393849.jpg"},{"a":"Geopora arenicola","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Geopora_arenicola_24564211.jpg/960px-Geopora_arenicola_24564211.jpg"},{"a":"Czubajeczka różowobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lepiota_pseudohelveola_%2846154855182%29.jpg/960px-Lepiota_pseudohelveola_%2846154855182%29.jpg"},{"a":"Czubajeczka białokremowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/2016-07-23_Lepiota_subalba_K%C3%BChner_ex_P.D._Orton_639611.jpg/960px-2016-07-23_Lepiota_subalba_K%C3%BChner_ex_P.D._Orton_639611.jpg"},{"a":"Czubajeczka cielista","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Lepiota_helveola_%28Qu%C3%A9bec%29.jpg/960px-Lepiota_helveola_%28Qu%C3%A9bec%29.jpg"},{"a":"Entoloma whiteae","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Entoloma_whiteae_782971.jpg/960px-Entoloma_whiteae_782971.jpg"},{"a":"Gąska winnobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/2010-10-29_Tricholoma_bufonium_%28Pers.%29_Gillet_117023.jpg/960px-2010-10-29_Tricholoma_bufonium_%28Pers.%29_Gillet_117023.jpg"},{"a":"Gąska ognista","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/2011-11-28_Tricholoma_focale_%28Fr.%29_Ricken_185798.jpg/960px-2011-11-28_Tricholoma_focale_%28Fr.%29_Ricken_185798.jpg"},{"a":"Amanita bisporigera","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Amanita_bisporigera_17933.jpg/960px-Amanita_bisporigera_17933.jpg"},{"a":"Czubajeczka rudogarbkowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lepiota_boudieri_171002wa.JPG/960px-Lepiota_boudieri_171002wa.JPG"},{"a":"Agaricus hondensis","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Agaricus_hondensis_71317.jpg/960px-Agaricus_hondensis_71317.jpg"},{"a":"Muchomor czerwony","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Amanita_muscaria_3_vliegenzwammen_op_rij.jpg/960px-Amanita_muscaria_3_vliegenzwammen_op_rij.jpg"},{"a":"Muchomor zielonawy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Amanita_phalloides_a1_%281%29.JPG/960px-Amanita_phalloides_a1_%281%29.JPG"},{"a":"Muchomor plamisty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Amanita_pantherina_ts4.jpg/960px-Amanita_pantherina_ts4.jpg"},{"a":"Łysiczka lancetowata","img":"https://upload.wikimedia.org/wikipedia/commons/0/0c/Psilocybe_semilanceata_73941.jpg"},{"a":"Muchomor jadowity","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Amanita_virosa_a1_%287%29.JPG/960px-Amanita_virosa_a1_%287%29.JPG"},{"a":"Muchomor porfirowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Amanita_porphyria_ts1.jpg/960px-Amanita_porphyria_ts1.jpg"},{"a":"Piestrzenica kasztanowata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Gyromitra_esculenta_BPN1.jpg/960px-Gyromitra_esculenta_BPN1.jpg"},{"a":"Krwistoborowik szatański","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Boletus_satanas.JPG/960px-Boletus_satanas.JPG"},{"a":"Kielichowiec pomarańczowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Omphalotus.jpg/960px-Omphalotus.jpg"},{"a":"Krwistoborowik wilczy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Boletus_lupinus.jpg/960px-Boletus_lupinus.jpg"},{"a":"Muchomor narcyzowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Amanita_gemmata_40923.jpg/960px-Amanita_gemmata_40923.jpg"},{"a":"Maślanka wiązkowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Hypholoma_fasciculare_LC0091.jpg/960px-Hypholoma_fasciculare_LC0091.jpg"},{"a":"Muchomor szorstki","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Amanita_franchetii_29026.jpg/960px-Amanita_franchetii_29026.jpg"},{"a":"Krwistoborowik purpurowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Boletus_rhodoxanthus.JPG/960px-Boletus_rhodoxanthus.JPG"},{"a":"Modroborowik ponury","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Boletus_luridus_2011_G1.jpg/960px-Boletus_luridus_2011_G1.jpg"},{"a":"Pieczarka karbolowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/2010-11-13_Agaricus_xanthodermus_Genev_120348_crop.jpg/960px-2010-11-13_Agaricus_xanthodermus_Genev_120348_crop.jpg"},{"a":"Mleczaj płowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Lactarius_helvus_G2.1.jpg/960px-Lactarius_helvus_G2.1.jpg"},{"a":"Jeżoskórka ostrołuskowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Echinoderma_asperum_a1_%281%29.JPG/960px-Echinoderma_asperum_a1_%281%29.JPG"},{"a":"Krowiak podwinięty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Paxillus_involutus_G2.jpg/960px-Paxillus_involutus_G2.jpg"},{"a":"Hełmówka jadowita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Galerina_marginata_61108.jpg/960px-Galerina_marginata_61108.jpg"},{"a":"Lejkówka jadowita","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Clitocybe_rivulosa_G14.JPG/960px-Clitocybe_rivulosa_G14.JPG"},{"a":"Koronica ozdobna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sarcosphaera_coronaria_W1.jpg/960px-Sarcosphaera_coronaria_W1.jpg"},{"a":"Krwistoborowik lubczykowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Boletus_legaliae_warm.jpg/960px-Boletus_legaliae_warm.jpg"},{"a":"Koralówka strojna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Hortus_Haren_18-10-2021._%28actm.%29_05.jpg/960px-Hortus_Haren_18-10-2021._%28actm.%29_05.jpg"},{"a":"Krowiak olszowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Paxilus_rubicundulus_G3.jpg/960px-Paxilus_rubicundulus_G3.jpg"},{"a":"Muchomor królewski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/A_regalis.jpg/960px-A_regalis.jpg"},{"a":"Pieczarka płaska","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Agaricus_placomyces.jpg/960px-Agaricus_placomyces.jpg"},{"a":"Imperator różowopurpurowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/2008-08-04_Boletus_rhodopurpureus_1_18733.jpg/960px-2008-08-04_Boletus_rhodopurpureus_1_18733.jpg"},{"a":"Lejkówka liściowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Clitocybe_phyllophila_T71_%281%29.jpg/960px-Clitocybe_phyllophila_T71_%281%29.jpg"},{"a":"Muchomor wiosenny","img":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Amanita_verna-01.jpg"},{"a":"Mleczaj wełnianka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lactarius_torminosus_G2.jpg/960px-Lactarius_torminosus_G2.jpg"},{"a":"Łysostopek niemiły","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Gymnopus-hariolorum.jpg/960px-Gymnopus-hariolorum.jpg"},{"a":"Kołpaczek pośredni","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/2012-08-13_Panaeolus_cinctulus_%28Bolton%29_Britzelm_248623.jpg/960px-2012-08-13_Panaeolus_cinctulus_%28Bolton%29_Britzelm_248623.jpg"},{"a":"Muchomor białożółtawy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Amanita_eliae_1.png/960px-Amanita_eliae_1.png"},{"a":"Koralówka blada","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ramaria_pallida_a1_%283%29.jpg/960px-Ramaria_pallida_a1_%283%29.jpg"},{"a":"Lejkówka dwubarwna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Clitocybe_metachroa_BW42.jpg/960px-Clitocybe_metachroa_BW42.jpg"},{"a":"Muchomor brązowooliwkowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Amanita_submembranacea_G4%281%29.jpg/960px-Amanita_submembranacea_G4%281%29.jpg"},{"a":"Miękusz rabarbarowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hapalopilus_nidulans_G7_%281%29.JPG/960px-Hapalopilus_nidulans_G7_%281%29.JPG"},{"a":"Kredolejkówka biaława","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Clitocybe_candicans_a3_%281%29.jpg/960px-Clitocybe_candicans_a3_%281%29.jpg"},{"a":"Ostrzępka łuskowata","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Psilocybe_squamosa_a1_%282%29.JPG/960px-Psilocybe_squamosa_a1_%282%29.JPG"},{"a":"Łysak wspaniały","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Gymnopilus_junonius_a1_%284%29.jpg/960px-Gymnopilus_junonius_a1_%284%29.jpg"},{"a":"Muchomor alpejski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Amanita_nivalis_Grev_487508.jpg/960px-Amanita_nivalis_Grev_487508.jpg"},{"a":"Jeżoskórka żółtobrązowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Echinoderma_perplexum_-_Haagse_Bos%2C_The_Hague%2C_South_Holland%2C_NL_-_%28Knudsen%29_Bon_516210.jpg/960px-Echinoderma_perplexum_-_Haagse_Bos%2C_The_Hague%2C_South_Holland%2C_NL_-_%28Knudsen%29_Bon_516210.jpg"},{"a":"Łysiczka błotna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Psilocybe_strictipes_imported_from_iNaturalist_photo_5758429_on_22_February_2023.jpg/960px-Psilocybe_strictipes_imported_from_iNaturalist_photo_5758429_on_22_February_2023.jpg"},{"a":"Łysostopek kapuściany","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Gymnopus_brassicolens_15065529.jpg/960px-Gymnopus_brassicolens_15065529.jpg"},{"a":"Helvella monachella","img":"https://upload.wikimedia.org/wikipedia/commons/0/0e/Leptopodia_monachella.jpg"},{"a":"Lepiota elaiophylla","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Lepiota_elaiophylla_Vellinga_%26_Huijser_607806_crop.jpg/960px-Lepiota_elaiophylla_Vellinga_%26_Huijser_607806_crop.jpg"},{"a":"Koralówka żółtobrązowiejąca","img":"https://upload.wikimedia.org/wikipedia/commons/4/4b/Ramaria_flavobrunnescens2.png"},{"a":"Mleczaj cytrynowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/15.8.2011-Lactarius_citriolens-3.jpg/960px-15.8.2011-Lactarius_citriolens-3.jpg"},{"a":"Lejkówka strumykowa","img":"https://upload.wikimedia.org/wikipedia/commons/7/7c/Clitocybe_dealbata_%2832275792405%29.jpg"},{"a":"Sporysz","img":"https://upload.wikimedia.org/wikipedia/commons/3/39/Rogge_moederkoren_Claviceps_purpurea_on_Secale_cereale.jpg"},{"a":"Tęgoskór cytrynowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Earthballs_%28908565114%29.jpg/960px-Earthballs_%28908565114%29.jpg"},{"a":"Zasłonak rudy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/2013-10-16_Cortinarius_orellanus_1a.jpg/960px-2013-10-16_Cortinarius_orellanus_1a.jpg"},{"a":"Zasłonak rudawy","img":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Cortinarius_rubellus_02.jpg"},{"a":"Strzępiak rzepowaty","img":"https://upload.wikimedia.org/wikipedia/commons/5/5c/Inocybe.napipes.-.lindsey.jpg"},{"a":"Włókniak ceglasty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/2010-04-27_Inocybe_erubescens.jpg/960px-2010-04-27_Inocybe_erubescens.jpg"},{"a":"Wilgotnica żółknąca","img":"https://upload.wikimedia.org/wikipedia/commons/2/20/Hygrocybe_chlorophana.jpg"},{"a":"Wilgotnica czerniejąca","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Hygrocybe_conica_%282005_11_07%29_2.jpg/960px-Hygrocybe_conica_%282005_11_07%29_2.jpg"},{"a":"Rysostrzępiak porysowany","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2011-11-26_Inocybe_rimosa_%28Bull.%29_P._Kumm_185170.jpg/960px-2011-11-26_Inocybe_rimosa_%28Bull.%29_P._Kumm_185170.jpg"},{"a":"Strzępiak gwiaździstozarodnikowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Inocybe_asterospora_a1_%285%29.JPG/960px-Inocybe_asterospora_a1_%285%29.JPG"},{"a":"Strzępiak ziemistoblaszkowy","img":"https://upload.wikimedia.org/wikipedia/commons/5/54/Ino.geo.jpg"},{"a":"Zasłonak purpurowoblaszkowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Cortinarius_semisanguineus_BW38.jpg/960px-Cortinarius_semisanguineus_BW38.jpg"},{"a":"Zasłonak krwisty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortinarius_sanguineus_BS11.JPG/960px-Cortinarius_sanguineus_BS11.JPG"},{"a":"Zasłonak bagienny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Cortinarius_uliginosus.jpg/960px-Cortinarius_uliginosus.jpg"},{"a":"Strzępiak poszarpany","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Inocybe_lacera_T31.jpg/960px-Inocybe_lacera_T31.jpg"},{"a":"Tęgoskór brodawkowany","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Scleroderma_verrucosum_01.JPG/960px-Scleroderma_verrucosum_01.JPG"},{"a":"Włośnianka musztardowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hebeloma_sinapizans_G3.jpg/960px-Hebeloma_sinapizans_G3.jpg"},{"a":"Zasłonak cynamonowofioletowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Cortinarius_cinnomoviolaceus_T66.jpg/960px-Cortinarius_cinnomoviolaceus_T66.jpg"},{"a":"Tęgoskór lamparci","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Scleroderma_areolatum_G2.1.jpg/960px-Scleroderma_areolatum_G2.1.jpg"},{"a":"Włośnianka słodkowonna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Hebeloma_sacchariolens_G3_%283%29.JPG/960px-Hebeloma_sacchariolens_G3_%283%29.JPG"},{"a":"Zasłonak glinkowaty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cortinarius_bolaris_a1_%283%29.JPG/960px-Cortinarius_bolaris_a1_%283%29.JPG"},{"a":"Zasłonak oliwkowobłękitny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortinarius_cyanites_-_20121016-01.jpg/960px-Cortinarius_cyanites_-_20121016-01.jpg"},{"a":"Włókniak słomkowożółty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inocybe_cookei_a1.JPG/960px-Inocybe_cookei_a1.JPG"},{"a":"Zasłonak niebieski","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Cortinarius_caerulescens_a1_%281%29.JPG/960px-Cortinarius_caerulescens_a1_%281%29.JPG"},{"a":"Zasłonak szafranowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Cortinarius_croceus_a1_%281%29.JPG/960px-Cortinarius_croceus_a1_%281%29.JPG"},{"a":"Zasłonak cynamonowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/2009-12-01_Cortinarius_cinnamomeus_%28L.%29_Fr_67448.jpg/960px-2009-12-01_Cortinarius_cinnamomeus_%28L.%29_Fr_67448.jpg"},{"a":"Tęgoskór kurzawkowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Scleroderma_bovista_M2_%285%29.JPG/960px-Scleroderma_bovista_M2_%285%29.JPG"},{"a":"Zasłonak cynamonowożółty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cortinarius_cinnamomeoluteus_a2.jpg/960px-Cortinarius_cinnamomeoluteus_a2.jpg"},{"a":"Strzępiak kosmkowaty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Inocybe_flocculosa_a1_%281%29.JPG/960px-Inocybe_flocculosa_a1_%281%29.JPG"},{"a":"Ziarnówka winnopurpurowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Illustrations_of_British_Fungi_%28Hymenomycetes%29%2C_to_serve_as_an_atlas_to_the_%22Handbook_of_British_Fungi%22_%28Pl._54%29_%288163881463%29.jpg/960px-Illustrations_of_British_Fungi_%28Hymenomycetes%29%2C_to_serve_as_an_atlas_to_the_%22Handbook_of_British_Fungi%22_%28Pl._54%29_%288163881463%29.jpg"},{"a":"Stożkówka cienkotrzonowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Conocybe_filaris.jpg/960px-Conocybe_filaris.jpg"},{"a":"Stożkówka delikatna","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/2008-12-23_Conocybe_tenera_%28Schaeff.%29_Fayod_33117.jpg/960px-2008-12-23_Conocybe_tenera_%28Schaeff.%29_Fayod_33117.jpg"},{"a":"Zasłonak żółtobrzegi","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cortinarius_cf._gentilis_%2815289222316%29.jpg/960px-Cortinarius_cf._gentilis_%2815289222316%29.jpg"},{"a":"Zasłonak cytrynowożółty","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2013-08-14_Cortinarius_limonius_%28Fr.%29_Fr_361132.jpg/960px-2013-08-14_Cortinarius_limonius_%28Fr.%29_Fr_361132.jpg"},{"a":"Zasłonak piękny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Cortinarius_splendens.jpg/960px-Cortinarius_splendens.jpg"},{"a":"Zasłonak zielony","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/2014-09-08_Cortinarius_venetus_%28Fr.%29_Fr_459023.jpg/960px-2014-09-08_Cortinarius_venetus_%28Fr.%29_Fr_459023.jpg"},{"a":"Włośnianka drobniutka","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Hebeloma_birrus_%28Fr.%29_Gillet_3335696562.jpg/960px-Hebeloma_birrus_%28Fr.%29_Gillet_3335696562.jpg"},{"a":"Śluzopępka dwuzarodnikowa","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Fayodia_gracilipes_GBIF_observation_694158363.jpg/960px-Fayodia_gracilipes_GBIF_observation_694158363.jpg"},{"a":"Trichoderma cornu-damae","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Trichoderma_cornu-damae_4542200.jpg/960px-Trichoderma_cornu-damae_4542200.jpg"}]}
+{
+  "id": "grzyby-trujace",
+  "name": "Grzyby trujące",
+  "group": "Kuchnia",
+  "icon": "☠️",
+  "prompt": "Jaki to grzyb?",
+  "source": "Kategoria:Grzyby trujące",
+  "items": [
+    {
+      "a": "Grzyby trujące",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a6/2009-05_Amanita_phalloides_crop.jpg"
+    },
+    {
+      "a": "Buławinka czerwona",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/26/Claviceps_purpurea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-185.jpg"
+    },
+    {
+      "a": "Czernidłówka pospolita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Coprinopsis_atramentaria_G3.jpg/960px-Coprinopsis_atramentaria_G3.jpg"
+    },
+    {
+      "a": "Gołąbek wymiotny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Russula_emetica_in_Poland.jpg/960px-Russula_emetica_in_Poland.jpg"
+    },
+    {
+      "a": "Gąska siarkowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/2010-09-17_Tricholoma_sulphureum.jpg/960px-2010-09-17_Tricholoma_sulphureum.jpg"
+    },
+    {
+      "a": "Gąska pieprzna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Tricholoma_virgatum_a1_%283%29.JPG/960px-Tricholoma_virgatum_a1_%283%29.JPG"
+    },
+    {
+      "a": "Gąska tygrysia",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tricholoma_pardinum_112561_cropped.jpg/960px-Tricholoma_pardinum_112561_cropped.jpg"
+    },
+    {
+      "a": "Gołąbek kruchy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Russula_fragilis_G2.3.jpg/960px-Russula_fragilis_G2.3.jpg"
+    },
+    {
+      "a": "Dzwonkówka trująca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/2005-09-25_Entoloma_sinuatum_cropped.jpg/960px-2005-09-25_Entoloma_sinuatum_cropped.jpg"
+    },
+    {
+      "a": "Czubajeczka brązowoczerwonawa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Lepiota_brunneoincarnata_060823w.jpg/960px-Lepiota_brunneoincarnata_060823w.jpg"
+    },
+    {
+      "a": "Gąska żółtobrunatna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tricholoma_fulvum_a1_%284%29.JPG/960px-Tricholoma_fulvum_a1_%284%29.JPG"
+    },
+    {
+      "a": "Grzybówka fioletowawa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Mycena_pura_a3_%282%29.JPG/960px-Mycena_pura_a3_%282%29.JPG"
+    },
+    {
+      "a": "Amanita ocreata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Amanita_ocreata_79782.jpg/960px-Amanita_ocreata_79782.jpg"
+    },
+    {
+      "a": "Gołąbek buczynowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Russ_nobilis.jpg/960px-Russ_nobilis.jpg"
+    },
+    {
+      "a": "Dzwonkówka wiosenna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Entoloma_vernum_a1_%283%29.JPG/960px-Entoloma_vernum_a1_%283%29.JPG"
+    },
+    {
+      "a": "Gąska mydlana",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Tricholoma_saponaceum_a5_%282%29.jpg/960px-Tricholoma_saponaceum_a5_%282%29.jpg"
+    },
+    {
+      "a": "Gąska białobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tricholoma_albobrunneum_a1_%282%29.JPG/960px-Tricholoma_albobrunneum_a1_%282%29.JPG"
+    },
+    {
+      "a": "Gąska zielonożółta",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/TricholomaSejunctum.JPG/960px-TricholomaSejunctum.JPG"
+    },
+    {
+      "a": "Gąska bukowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tricholoma_ustale_%284%29.JPG/960px-Tricholoma_ustale_%284%29.JPG"
+    },
+    {
+      "a": "Gołąbek agrestowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/2011-07-31_Russula_queletii.jpg/960px-2011-07-31_Russula_queletii.jpg"
+    },
+    {
+      "a": "Gołąbek żółciowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Russula_fellea_G3.jpg/960px-Russula_fellea_G3.jpg"
+    },
+    {
+      "a": "Gołąbek komorowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Russula_1_a1_%284%29.JPG/960px-Russula_1_a1_%284%29.JPG"
+    },
+    {
+      "a": "Gołąbek oliwkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/2009-12-03_Russula_olivacea_%28Schaeff.%29_Fr_67723.jpg/960px-2009-12-03_Russula_olivacea_%28Schaeff.%29_Fr_67723.jpg"
+    },
+    {
+      "a": "Gołąbek czerwonofioletowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Russ.sard.jpg/960px-Russ.sard.jpg"
+    },
+    {
+      "a": "Grzybówka różowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Mycena_rosea_G3.jpg/960px-Mycena_rosea_G3.jpg"
+    },
+    {
+      "a": "Gąska czerwonobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fastberingter_ritterling_Tricholoma_batschii.jpg/960px-Fastberingter_ritterling_Tricholoma_batschii.jpg"
+    },
+    {
+      "a": "Gąska kroplistobrzega",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Tricholoma_pessundatum_176487.jpg/960px-Tricholoma_pessundatum_176487.jpg"
+    },
+    {
+      "a": "Chlorophyllum molybdites",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chlorophyllum_molybdites.jpg/960px-Chlorophyllum_molybdites.jpg"
+    },
+    {
+      "a": "Czubajeczka kasztanowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Lepiota_castanea_70848.jpg/960px-Lepiota_castanea_70848.jpg"
+    },
+    {
+      "a": "Czubajeczka rzodkiewkowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/87/Lepiota_erminea_588058.jpg"
+    },
+    {
+      "a": "Czubajeczka czarnołuskowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/57/Lepiota_felina_%2833190301802%29.jpg"
+    },
+    {
+      "a": "Czubajeczka szarozielonawa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Lepiota_griseovirens_170903w.JPG/960px-Lepiota_griseovirens_170903w.JPG"
+    },
+    {
+      "a": "Czubajeczka liliowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Lepiota_lilacea.jpg"
+    },
+    {
+      "a": "Czubajeczka brzuchatozarodnikowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Lepiota_magnispora_%2833190302702%29.jpg"
+    },
+    {
+      "a": "Czubajeczka łysiejąca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Lepiota_oreadiformis_170827w.JPG/960px-Lepiota_oreadiformis_170827w.JPG"
+    },
+    {
+      "a": "Czubajeczka różowawa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Lepiota_subincarnata_117620.jpg/960px-Lepiota_subincarnata_117620.jpg"
+    },
+    {
+      "a": "Czubajeczka zamszowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/df/Lepiota_tomentella_1.jpg"
+    },
+    {
+      "a": "Czaszówka czarnobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2012-03-21_Deconica_montana_%28Pers.%29_P.D._Orton_207134.jpg/960px-2012-03-21_Deconica_montana_%28Pers.%29_P.D._Orton_207134.jpg"
+    },
+    {
+      "a": "Agaricus bresadolanus",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Agaricus_bresadolanus_393849.jpg/960px-Agaricus_bresadolanus_393849.jpg"
+    },
+    {
+      "a": "Geopora arenicola",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Geopora_arenicola_24564211.jpg/960px-Geopora_arenicola_24564211.jpg"
+    },
+    {
+      "a": "Czubajeczka różowobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lepiota_pseudohelveola_%2846154855182%29.jpg/960px-Lepiota_pseudohelveola_%2846154855182%29.jpg"
+    },
+    {
+      "a": "Czubajeczka białokremowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/2016-07-23_Lepiota_subalba_K%C3%BChner_ex_P.D._Orton_639611.jpg/960px-2016-07-23_Lepiota_subalba_K%C3%BChner_ex_P.D._Orton_639611.jpg"
+    },
+    {
+      "a": "Czubajeczka cielista",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Lepiota_helveola_%28Qu%C3%A9bec%29.jpg/960px-Lepiota_helveola_%28Qu%C3%A9bec%29.jpg"
+    },
+    {
+      "a": "Entoloma whiteae",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Entoloma_whiteae_782971.jpg/960px-Entoloma_whiteae_782971.jpg"
+    },
+    {
+      "a": "Gąska winnobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/2010-10-29_Tricholoma_bufonium_%28Pers.%29_Gillet_117023.jpg/960px-2010-10-29_Tricholoma_bufonium_%28Pers.%29_Gillet_117023.jpg"
+    },
+    {
+      "a": "Gąska ognista",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/2011-11-28_Tricholoma_focale_%28Fr.%29_Ricken_185798.jpg/960px-2011-11-28_Tricholoma_focale_%28Fr.%29_Ricken_185798.jpg"
+    },
+    {
+      "a": "Amanita bisporigera",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Amanita_bisporigera_17933.jpg/960px-Amanita_bisporigera_17933.jpg"
+    },
+    {
+      "a": "Czubajeczka rudogarbkowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lepiota_boudieri_171002wa.JPG/960px-Lepiota_boudieri_171002wa.JPG"
+    },
+    {
+      "a": "Agaricus hondensis",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Agaricus_hondensis_71317.jpg/960px-Agaricus_hondensis_71317.jpg"
+    },
+    {
+      "a": "Muchomor czerwony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Amanita_muscaria_3_vliegenzwammen_op_rij.jpg/960px-Amanita_muscaria_3_vliegenzwammen_op_rij.jpg"
+    },
+    {
+      "a": "Muchomor zielonawy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Amanita_phalloides_a1_%281%29.JPG/960px-Amanita_phalloides_a1_%281%29.JPG"
+    },
+    {
+      "a": "Muchomor plamisty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Amanita_pantherina_ts4.jpg/960px-Amanita_pantherina_ts4.jpg"
+    },
+    {
+      "a": "Łysiczka lancetowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Psilocybe_semilanceata_73941.jpg"
+    },
+    {
+      "a": "Muchomor jadowity",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Amanita_virosa_a1_%287%29.JPG/960px-Amanita_virosa_a1_%287%29.JPG"
+    },
+    {
+      "a": "Muchomor porfirowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Amanita_porphyria_ts1.jpg/960px-Amanita_porphyria_ts1.jpg"
+    },
+    {
+      "a": "Piestrzenica kasztanowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Gyromitra_esculenta_BPN1.jpg/960px-Gyromitra_esculenta_BPN1.jpg"
+    },
+    {
+      "a": "Krwistoborowik szatański",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Boletus_satanas.JPG/960px-Boletus_satanas.JPG"
+    },
+    {
+      "a": "Kielichowiec pomarańczowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Omphalotus.jpg/960px-Omphalotus.jpg"
+    },
+    {
+      "a": "Krwistoborowik wilczy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Boletus_lupinus.jpg/960px-Boletus_lupinus.jpg"
+    },
+    {
+      "a": "Muchomor narcyzowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Amanita_gemmata_40923.jpg/960px-Amanita_gemmata_40923.jpg"
+    },
+    {
+      "a": "Maślanka wiązkowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Hypholoma_fasciculare_LC0091.jpg/960px-Hypholoma_fasciculare_LC0091.jpg"
+    },
+    {
+      "a": "Muchomor szorstki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Amanita_franchetii_29026.jpg/960px-Amanita_franchetii_29026.jpg"
+    },
+    {
+      "a": "Krwistoborowik purpurowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Boletus_rhodoxanthus.JPG/960px-Boletus_rhodoxanthus.JPG"
+    },
+    {
+      "a": "Modroborowik ponury",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Boletus_luridus_2011_G1.jpg/960px-Boletus_luridus_2011_G1.jpg"
+    },
+    {
+      "a": "Pieczarka karbolowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/2010-11-13_Agaricus_xanthodermus_Genev_120348_crop.jpg/960px-2010-11-13_Agaricus_xanthodermus_Genev_120348_crop.jpg"
+    },
+    {
+      "a": "Mleczaj płowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Lactarius_helvus_G2.1.jpg/960px-Lactarius_helvus_G2.1.jpg"
+    },
+    {
+      "a": "Jeżoskórka ostrołuskowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Echinoderma_asperum_a1_%281%29.JPG/960px-Echinoderma_asperum_a1_%281%29.JPG"
+    },
+    {
+      "a": "Krowiak podwinięty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Paxillus_involutus_G2.jpg/960px-Paxillus_involutus_G2.jpg"
+    },
+    {
+      "a": "Hełmówka jadowita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Galerina_marginata_61108.jpg/960px-Galerina_marginata_61108.jpg"
+    },
+    {
+      "a": "Lejkówka jadowita",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Clitocybe_rivulosa_G14.JPG/960px-Clitocybe_rivulosa_G14.JPG"
+    },
+    {
+      "a": "Koronica ozdobna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sarcosphaera_coronaria_W1.jpg/960px-Sarcosphaera_coronaria_W1.jpg"
+    },
+    {
+      "a": "Krwistoborowik lubczykowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Boletus_legaliae_warm.jpg/960px-Boletus_legaliae_warm.jpg"
+    },
+    {
+      "a": "Koralówka strojna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Hortus_Haren_18-10-2021._%28actm.%29_05.jpg/960px-Hortus_Haren_18-10-2021._%28actm.%29_05.jpg"
+    },
+    {
+      "a": "Krowiak olszowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Paxilus_rubicundulus_G3.jpg/960px-Paxilus_rubicundulus_G3.jpg"
+    },
+    {
+      "a": "Muchomor królewski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/A_regalis.jpg/960px-A_regalis.jpg"
+    },
+    {
+      "a": "Pieczarka płaska",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Agaricus_placomyces.jpg/960px-Agaricus_placomyces.jpg"
+    },
+    {
+      "a": "Imperator różowopurpurowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/2008-08-04_Boletus_rhodopurpureus_1_18733.jpg/960px-2008-08-04_Boletus_rhodopurpureus_1_18733.jpg"
+    },
+    {
+      "a": "Lejkówka liściowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Clitocybe_phyllophila_T71_%281%29.jpg/960px-Clitocybe_phyllophila_T71_%281%29.jpg"
+    },
+    {
+      "a": "Muchomor wiosenny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Amanita_verna-01.jpg"
+    },
+    {
+      "a": "Mleczaj wełnianka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lactarius_torminosus_G2.jpg/960px-Lactarius_torminosus_G2.jpg"
+    },
+    {
+      "a": "Łysostopek niemiły",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Gymnopus-hariolorum.jpg/960px-Gymnopus-hariolorum.jpg"
+    },
+    {
+      "a": "Kołpaczek pośredni",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/2012-08-13_Panaeolus_cinctulus_%28Bolton%29_Britzelm_248623.jpg/960px-2012-08-13_Panaeolus_cinctulus_%28Bolton%29_Britzelm_248623.jpg"
+    },
+    {
+      "a": "Muchomor białożółtawy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Amanita_eliae_1.png/960px-Amanita_eliae_1.png"
+    },
+    {
+      "a": "Koralówka blada",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ramaria_pallida_a1_%283%29.jpg/960px-Ramaria_pallida_a1_%283%29.jpg"
+    },
+    {
+      "a": "Lejkówka dwubarwna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Clitocybe_metachroa_BW42.jpg/960px-Clitocybe_metachroa_BW42.jpg"
+    },
+    {
+      "a": "Muchomor brązowooliwkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Amanita_submembranacea_G4%281%29.jpg/960px-Amanita_submembranacea_G4%281%29.jpg"
+    },
+    {
+      "a": "Miękusz rabarbarowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hapalopilus_nidulans_G7_%281%29.JPG/960px-Hapalopilus_nidulans_G7_%281%29.JPG"
+    },
+    {
+      "a": "Kredolejkówka biaława",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Clitocybe_candicans_a3_%281%29.jpg/960px-Clitocybe_candicans_a3_%281%29.jpg"
+    },
+    {
+      "a": "Ostrzępka łuskowata",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Psilocybe_squamosa_a1_%282%29.JPG/960px-Psilocybe_squamosa_a1_%282%29.JPG"
+    },
+    {
+      "a": "Łysak wspaniały",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Gymnopilus_junonius_a1_%284%29.jpg/960px-Gymnopilus_junonius_a1_%284%29.jpg"
+    },
+    {
+      "a": "Muchomor alpejski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Amanita_nivalis_Grev_487508.jpg/960px-Amanita_nivalis_Grev_487508.jpg"
+    },
+    {
+      "a": "Jeżoskórka żółtobrązowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Echinoderma_perplexum_-_Haagse_Bos%2C_The_Hague%2C_South_Holland%2C_NL_-_%28Knudsen%29_Bon_516210.jpg/960px-Echinoderma_perplexum_-_Haagse_Bos%2C_The_Hague%2C_South_Holland%2C_NL_-_%28Knudsen%29_Bon_516210.jpg"
+    },
+    {
+      "a": "Łysiczka błotna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Psilocybe_strictipes_imported_from_iNaturalist_photo_5758429_on_22_February_2023.jpg/960px-Psilocybe_strictipes_imported_from_iNaturalist_photo_5758429_on_22_February_2023.jpg"
+    },
+    {
+      "a": "Łysostopek kapuściany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Gymnopus_brassicolens_15065529.jpg/960px-Gymnopus_brassicolens_15065529.jpg"
+    },
+    {
+      "a": "Helvella monachella",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Leptopodia_monachella.jpg"
+    },
+    {
+      "a": "Lepiota elaiophylla",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Lepiota_elaiophylla_Vellinga_%26_Huijser_607806_crop.jpg/960px-Lepiota_elaiophylla_Vellinga_%26_Huijser_607806_crop.jpg"
+    },
+    {
+      "a": "Koralówka żółtobrązowiejąca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ramaria_flavobrunnescens2.png"
+    },
+    {
+      "a": "Mleczaj cytrynowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/15.8.2011-Lactarius_citriolens-3.jpg/960px-15.8.2011-Lactarius_citriolens-3.jpg"
+    },
+    {
+      "a": "Lejkówka strumykowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Clitocybe_dealbata_%2832275792405%29.jpg"
+    },
+    {
+      "a": "Sporysz",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/39/Rogge_moederkoren_Claviceps_purpurea_on_Secale_cereale.jpg"
+    },
+    {
+      "a": "Tęgoskór cytrynowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Earthballs_%28908565114%29.jpg/960px-Earthballs_%28908565114%29.jpg"
+    },
+    {
+      "a": "Zasłonak rudy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/2013-10-16_Cortinarius_orellanus_1a.jpg/960px-2013-10-16_Cortinarius_orellanus_1a.jpg"
+    },
+    {
+      "a": "Zasłonak rudawy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cortinarius_rubellus_02.jpg"
+    },
+    {
+      "a": "Strzępiak rzepowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Inocybe.napipes.-.lindsey.jpg"
+    },
+    {
+      "a": "Włókniak ceglasty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/2010-04-27_Inocybe_erubescens.jpg/960px-2010-04-27_Inocybe_erubescens.jpg"
+    },
+    {
+      "a": "Wilgotnica żółknąca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/20/Hygrocybe_chlorophana.jpg"
+    },
+    {
+      "a": "Wilgotnica czerniejąca",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Hygrocybe_conica_%282005_11_07%29_2.jpg/960px-Hygrocybe_conica_%282005_11_07%29_2.jpg"
+    },
+    {
+      "a": "Rysostrzępiak porysowany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2011-11-26_Inocybe_rimosa_%28Bull.%29_P._Kumm_185170.jpg/960px-2011-11-26_Inocybe_rimosa_%28Bull.%29_P._Kumm_185170.jpg"
+    },
+    {
+      "a": "Strzępiak gwiaździstozarodnikowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Inocybe_asterospora_a1_%285%29.JPG/960px-Inocybe_asterospora_a1_%285%29.JPG"
+    },
+    {
+      "a": "Strzępiak ziemistoblaszkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/54/Ino.geo.jpg"
+    },
+    {
+      "a": "Zasłonak purpurowoblaszkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Cortinarius_semisanguineus_BW38.jpg/960px-Cortinarius_semisanguineus_BW38.jpg"
+    },
+    {
+      "a": "Zasłonak krwisty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortinarius_sanguineus_BS11.JPG/960px-Cortinarius_sanguineus_BS11.JPG"
+    },
+    {
+      "a": "Zasłonak bagienny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Cortinarius_uliginosus.jpg/960px-Cortinarius_uliginosus.jpg"
+    },
+    {
+      "a": "Strzępiak poszarpany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Inocybe_lacera_T31.jpg/960px-Inocybe_lacera_T31.jpg"
+    },
+    {
+      "a": "Tęgoskór brodawkowany",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Scleroderma_verrucosum_01.JPG/960px-Scleroderma_verrucosum_01.JPG"
+    },
+    {
+      "a": "Włośnianka musztardowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hebeloma_sinapizans_G3.jpg/960px-Hebeloma_sinapizans_G3.jpg"
+    },
+    {
+      "a": "Zasłonak cynamonowofioletowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Cortinarius_cinnomoviolaceus_T66.jpg/960px-Cortinarius_cinnomoviolaceus_T66.jpg"
+    },
+    {
+      "a": "Tęgoskór lamparci",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Scleroderma_areolatum_G2.1.jpg/960px-Scleroderma_areolatum_G2.1.jpg"
+    },
+    {
+      "a": "Włośnianka słodkowonna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Hebeloma_sacchariolens_G3_%283%29.JPG/960px-Hebeloma_sacchariolens_G3_%283%29.JPG"
+    },
+    {
+      "a": "Zasłonak glinkowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cortinarius_bolaris_a1_%283%29.JPG/960px-Cortinarius_bolaris_a1_%283%29.JPG"
+    },
+    {
+      "a": "Zasłonak oliwkowobłękitny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cortinarius_cyanites_-_20121016-01.jpg/960px-Cortinarius_cyanites_-_20121016-01.jpg"
+    },
+    {
+      "a": "Włókniak słomkowożółty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inocybe_cookei_a1.JPG/960px-Inocybe_cookei_a1.JPG"
+    },
+    {
+      "a": "Zasłonak niebieski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Cortinarius_caerulescens_a1_%281%29.JPG/960px-Cortinarius_caerulescens_a1_%281%29.JPG"
+    },
+    {
+      "a": "Zasłonak szafranowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Cortinarius_croceus_a1_%281%29.JPG/960px-Cortinarius_croceus_a1_%281%29.JPG"
+    },
+    {
+      "a": "Zasłonak cynamonowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/2009-12-01_Cortinarius_cinnamomeus_%28L.%29_Fr_67448.jpg/960px-2009-12-01_Cortinarius_cinnamomeus_%28L.%29_Fr_67448.jpg"
+    },
+    {
+      "a": "Tęgoskór kurzawkowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Scleroderma_bovista_M2_%285%29.JPG/960px-Scleroderma_bovista_M2_%285%29.JPG"
+    },
+    {
+      "a": "Zasłonak cynamonowożółty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cortinarius_cinnamomeoluteus_a2.jpg/960px-Cortinarius_cinnamomeoluteus_a2.jpg"
+    },
+    {
+      "a": "Strzępiak kosmkowaty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Inocybe_flocculosa_a1_%281%29.JPG/960px-Inocybe_flocculosa_a1_%281%29.JPG"
+    },
+    {
+      "a": "Ziarnówka winnopurpurowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Illustrations_of_British_Fungi_%28Hymenomycetes%29%2C_to_serve_as_an_atlas_to_the_%22Handbook_of_British_Fungi%22_%28Pl._54%29_%288163881463%29.jpg/960px-Illustrations_of_British_Fungi_%28Hymenomycetes%29%2C_to_serve_as_an_atlas_to_the_%22Handbook_of_British_Fungi%22_%28Pl._54%29_%288163881463%29.jpg"
+    },
+    {
+      "a": "Stożkówka cienkotrzonowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Conocybe_filaris.jpg/960px-Conocybe_filaris.jpg"
+    },
+    {
+      "a": "Stożkówka delikatna",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/2008-12-23_Conocybe_tenera_%28Schaeff.%29_Fayod_33117.jpg/960px-2008-12-23_Conocybe_tenera_%28Schaeff.%29_Fayod_33117.jpg"
+    },
+    {
+      "a": "Zasłonak żółtobrzegi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cortinarius_cf._gentilis_%2815289222316%29.jpg/960px-Cortinarius_cf._gentilis_%2815289222316%29.jpg"
+    },
+    {
+      "a": "Zasłonak cytrynowożółty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2013-08-14_Cortinarius_limonius_%28Fr.%29_Fr_361132.jpg/960px-2013-08-14_Cortinarius_limonius_%28Fr.%29_Fr_361132.jpg"
+    },
+    {
+      "a": "Zasłonak piękny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Cortinarius_splendens.jpg/960px-Cortinarius_splendens.jpg"
+    },
+    {
+      "a": "Zasłonak zielony",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/2014-09-08_Cortinarius_venetus_%28Fr.%29_Fr_459023.jpg/960px-2014-09-08_Cortinarius_venetus_%28Fr.%29_Fr_459023.jpg"
+    },
+    {
+      "a": "Włośnianka drobniutka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Hebeloma_birrus_%28Fr.%29_Gillet_3335696562.jpg/960px-Hebeloma_birrus_%28Fr.%29_Gillet_3335696562.jpg"
+    },
+    {
+      "a": "Śluzopępka dwuzarodnikowa",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Fayodia_gracilipes_GBIF_observation_694158363.jpg/960px-Fayodia_gracilipes_GBIF_observation_694158363.jpg"
+    },
+    {
+      "a": "Trichoderma cornu-damae",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Trichoderma_cornu-damae_4542200.jpg/960px-Trichoderma_cornu-damae_4542200.jpg"
+    }
+  ]
+}

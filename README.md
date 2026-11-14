@@ -14,11 +14,11 @@ Gra w stylu *The Floor* dla **2–8 graczy**: losowa plansza z kategorii, pojedy
    - startujesz grę.
 3. **Przebieg pojedynku**
    - **Tura krąży po kolei** (1 → 2 → 3 → 1…). Aktualny gracz wybiera najpierw **własne pole**, potem **sąsiednie pole przeciwnika** (góra, dół, lewo lub prawo). Może wybrać dowolne swoje pole z frontierem, nie tylko jedno.
-   - Pojedynek odbywa się w **kategorii pola, z którego atakujesz**. Po zakończeniu **oba pola — atakujące i atakowane — przyjmują kategorię atakowanego**, a zwycięzca ma oba. Reszta pól przegranego zostaje u niego, a plansza nie ma pustych miejsc.
+   - Pojedynek odbywa się w **kategorii pola, z którego atakujesz**: z niej pochodzą pytania. Nagrodą jest **kategoria pola atakowanego**. Po zakończeniu oba pola oraz ich całe scalone grupy przyjmują kategorię atakowanego, a zwycięzca je dostaje. Reszta pól przegranego zostaje u niego, a plansza nie ma pustych miejsc.
    - Każdy gracz ma **własny zegar**. Pretendent zaczyna; tylko aktywny zegar leci.
    - **DOBRZE** — odpowiedź poprawna; przez ok. 3 s widać tylko poprawną odpowiedź, a **zegar stoi**. Dopiero po zniknięciu odpowiedzi startuje zegar przeciwnika.
    - **PASS** — **bez kary**: zegar nadal leci, a poprawna odpowiedź jest widoczna ok. 3 s. Nic nie ubywa.
-   - **Koniec pojedynku wyznacza tylko czas** — nie ma przycisku błędnej odpowiedzi. Gdy czyjś zegar dobiegnie zera, drugi gracz wygrywa i przejmuje pole. Po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
+   - **Koniec pojedynku wyznacza tylko czas** — nie ma przycisku błędnej odpowiedzi. Gdy czyjś zegar dobiegnie zera, drugi gracz wygrywa i przejmuje całą scaloną grupę pola. Po pojedynku **tura przechodzi do następnego gracza** — zwycięzca nie dostaje dodatkowego ataku.
    - Gra kończy się, gdy jedna osoba ma całą planszę. Może mieć przy tym kilka różnych kategorii — to jest zamierzone.
 4. **Ekran graczy (`board.html`)** — duża plansza z kategoriami i właścicielami, a w pojedynku: wielkie **VS** z rolami i imionami, dwa zegary, zdjęcie i pytanie. Po DOBRZE/PASS na ok. 3 s pojawia się **tylko odpowiedź** na kolorowym tle — bez dopisków o karze; w trakcie odpytywania ekran nie dostaje jej w synchronizacji. Dźwięki (tik zegara, odliczanie, dobra/zła odpowiedź, PASS) są generowane przez Web Audio i można je wyłączyć przyciskiem 🔊.
 
@@ -40,29 +40,21 @@ Jeżeli przeglądarka zablokuje okno ekranu graczy, bieżąca karta i tak zostaj
 - **Plansza** ma od 4×4 do 7×8 pól; wymiary są dobierane tak, aby liczba pól dzieliła się przez liczbę graczy (6–10 pól na osobę). Przykładowo: 2 → 4×4 (po 8), 3 → 5×6 (po 10), 4 → 6×6 (po 9), 5 → 6×5 (po 6), 6 → 6×6 (po 6), 7 → 7×7 (po 7), 8 → 7×8 (po 7). To najbliższe równe podziały — plansza nigdy nie ma pustych pól.
 - **Terytoria nie muszą być ciągłe**: losowanie przydziela pola równo, ale rozrzuca je po całej planszy. Możesz mieć pole w lewym górnym rogu i drugie w prawym dolnym.
 - **Sąsiednie pola tego samego gracza i tej samej kategorii łączą się w jeden kształt** (poligon): wspólne krawędzie znikają, a etykieta kategorii jest tylko raz. Łączą się wyłącznie pola stykające się bokiem — góra/dół lub lewo/prawo; pola po skosie i oddalone zostają osobne.
-- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 gotowych paczek** i **4483 pytania** oraz **93 dodatkowe kategorie z Wikipedii** (m.in. ptaki, ssaki, architektura, ludzie i miejsca) — łącznie **171 kategorii**. Większe paczki są uzupełniane do **90 pytań**, a kategorie z Wikipedii dociągają pytania przy pierwszym pojedynku i zostają w pamięci przeglądarki.
+- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **59 lokalnych, sprawdzonych paczek** i **3962 pytań**. Każda paczka ma co najmniej 20 pytań, a większe mają 40–150. Pytania i zdjęcia są wczytywane z plików w `data/packs/` — bez losowego dociągania z Wikipedii w środku gry.
 - Pula jest wyszukiwalna; można zaznaczyć tylko wybrane kategorie. Pole na planszy też ma wyszukiwarkę kategorii.
-- Losowanie bez powtórek w całej grze: każde pytanie z kategorii jest oznaczone jako użyte, a kolejka nie resetuje się w środku pojedynku. Przed startem pojedynku gra sprawdza, czy jest co najmniej 20 pytań; jeśli nie — **dociąga je z Wikipedii** (`loadMorePack`: kategoria + podkategorie + wyszukiwanie). W trakcie pojedynku, gdy zostaje mało pytań, robi to samo w tle.
-- Źródłem nie jest wyłącznie plik z paczką: nowe pytania są pobierane automatycznie z kategorii Wikipedii, a nie tylko z gotowej listy. Kategorie oznaczone jako „na żywo” nie mają sztywnej listy — pierwszy pojedynek pobiera strony i zdjęcia, a potem korzysta z cache.
+- Losowanie bez powtórek w całej grze: każde pytanie z kategorii jest oznaczone jako użyte, a kolejka nie resetuje się w środku pojedynku. Nazwy odpowiedzi są porównywane bez wielkości liter, polskich znaków i interakcji, więc „Łoś” i „łoś” to jedno pytanie. Przed pojedynkiem wczytywane są wszystkie zdjęcia kategorii z planszy, a kolejka pojedynku jest rozgrzewana od razu — nie ma czekania 10 s na pojedyncze zdjęcie.
+- Kategorie „na żywo” z Wikipedii zostały wyłączone z planszy. To one wprowadzały łacińskie nazwy, mapy, aktorów w „Filmach” i powtórki. Nowe, lokalne paczki to m.in. **Ssaki** (88 polskich nazw), **Gady** (69), **Drzewa** (81), **Miasta** (156) i **Makaron** (26). „Kraje” to teraz rozpoznawalne flagi państw, bez historycznych królestw i map.
 
-### Automatyczne uzupełnianie i walidacja
+### Baza lokalna i walidacja
 
-Baza nie jest zamkniętą listą. `tools/enrich-packs.mjs` przechodzi **wszystkie** paczki i automatycznie:
+Baza jest zamknięta i wersjonowana razem z grą. `tools/enrich-packs.mjs` i `tools/build-known-packs.mjs` służą tylko do jej odświeżania poza grą; przeglądarka nie odpytuje Wikipedii podczas rozgrywki.
 
-- pobiera strony z kategorii Wikipedii oraz z podkategorii (2 poziomy),
-- jeśli nadal brakuje — korzysta z wyszukiwania Wikipedii,
-- odrzuca duplikaty, listy, disambiguacje, ogólniki typu „Piwo” i puste pytania,
-- odrzuca zdjęcia, które są dokumentem, mapą, plakatem, okładką, nutami albo logotypem w kategorii, gdzie logotypu być nie powinno,
-- zostawia kuratorowane pozycje na początku paczki, a brakujące dokłada do **90 pytań na kategorię**,
-- zapisuje raport `data/packs/quality-report.json` i przebudowuje `index.json`.
+- odpowiedzi są unikalne w paczce (porównanie bez polskich znaków i interakcji),
+- zdjęcia muszą być prawdziwymi plikami z Wikimedia, bez map, herbów, logotypów, dokumentów i okładek w kategoriach, w których ich być nie powinno,
+- paczki z mniej niż 20 pytaniami są usuwane z puli, żeby nie powtarzały się po chwili,
+- każda nowa paczka jest sprawdzana próbką 10 pytań: odpowiedź jest po polsku, zdjęcie odpowiada pojęciu, a nie mapie lub dokumentowi.
 
-Uruchomienie:
-
-```bash
-node tools/enrich-packs.mjs --target=90
-```
-
-Gra dodatkowo dociąga pytania w trakcie pojedynku, więc nawet kategoria z małą liczbą stron Wikipedii nie kończy się po trzech pytaniach. Jeżeli Wikipedia chwilowo ogranicza zapytania (HTTP 429), gra korzysta z tego, co już ma, i nie przerywa pojedynku.
+Jeżeli chcesz przebudować lokalną bazę, użyj `node tools/build-known-packs.mjs`; wymaga to internetu tylko w momencie budowania, nie w grze.
 
 ### Jakość danych
 
@@ -134,6 +126,6 @@ data/packs/quality-report.json  raport automatycznej walidacji
 
 - Dwa ekrany muszą być w **tej samej przeglądarce** (jeden komputer). Osobne urządzenia wymagają WebRTC lub backendu.
 - Przeglądarki blokują wyskakujące okna — zezwól tej stronie na ich otwieranie.
-- Jakość zdjęć z Wikipedii bywa nierówna. Paczki **owoce jadalne**, **aplikacje internetowe**, **marki samochodów**, **kompozytorzy**, **minerały** i **samochody** są kuratorowane pod kątem rozpoznawalnych nazw; resztę można podmienić w edytorze pola. Jest **PASS** i zmiana kategorii.
+- Baza jest lokalna: 59 paczek, 3962 pytań, bez dociągania z Wikipedii w trakcie gry. Zdjęcia i odpowiedzi są filtrowane przy budowaniu oraz przy wczytywaniu paczki; nowe kategorie **Ssaki**, **Gady**, **Drzewa**, **Miasta** i **Makaron** mają polskie nazwy i zdjęcia przedmiotów, a nie mapy. Jest **PASS** i zmiana kategorii.
 - Ekran graczy nie dostaje odpowiedzi w trakcie odpytywania; pojawia się ona dopiero w celowym, ok. 3-sekundowym reveal po DOBRZE/PASS jako sam napis na kolorowym tle (wtedy widać ją też na TV).
 - Gra jest zaprojektowana na jeden komputer z dwoma oknami; nie ma pokoi online.

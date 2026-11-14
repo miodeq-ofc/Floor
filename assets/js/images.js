@@ -156,8 +156,21 @@ export function setImageWithFallback(img, url, onState) {
     return Promise.resolve('');
   }
   return (async () => {
+    // Najpierw korzystamy z wyniku wcześniejszego preloadu. Wcześniej ten
+    // element pobierał zdjęcie od nowa, więc mimo rozgrzania cache pytanie
+    // potrafiło „wisieć” kilka sekund albo pokazać brak zdjęcia.
+    const cached = imageCache.get(candidates[0]);
+    if (cached) {
+      const ready = await cached;
+      if (ready) {
+        img.src = ready;
+        onState?.(true);
+        return ready;
+      }
+    }
     const ok = await loadWithRetry(candidates, 8000, 2);
     if (ok) {
+      imageCache.set(candidates[0], Promise.resolve(ok));
       img.src = ok;
       onState?.(true);
       return ok;
