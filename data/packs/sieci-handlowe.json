@@ -8,11 +8,11 @@
   "items": [
     {
       "a": "IKEA",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/IKEA_%288020223012%29.jpg/960px-IKEA_%288020223012%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d1/IKEA_%288020223012%29.jpg"
     },
     {
       "a": "Ahold",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Albert_Heijn_Headquarters_by_Niels_Kim.jpg/960px-Albert_Heijn_Headquarters_by_Niels_Kim.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Albert_Heijn_Headquarters_by_Niels_Kim.jpg"
     },
     {
       "a": "Centrum Plaza",
@@ -20,83 +20,83 @@
     },
     {
       "a": "M1",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/C.H_M1_w_Cz%C4%99stochowie.JPG/960px-C.H_M1_w_Cz%C4%99stochowie.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e7/C.H_M1_w_Cz%C4%99stochowie.JPG"
     },
     {
       "a": "Oriflame",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Praha_Strasnice_V_olsinach_82_Oriflame.jpg/960px-Praha_Strasnice_V_olsinach_82_Oriflame.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Praha_Strasnice_V_olsinach_82_Oriflame.jpg"
     },
     {
       "a": "Jysk",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Jysk%2C_Hvervenmoveien_60%2C_Ringerike.jpg/960px-Jysk%2C_Hvervenmoveien_60%2C_Ringerike.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Jysk%2C_Hvervenmoveien_60%2C_Ringerike.jpg"
     },
     {
       "a": "Billa",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/17-05-31-Billa-Wien-Schwechat-RalfR-aDSC_1865.jpg/960px-17-05-31-Billa-Wien-Schwechat-RalfR-aDSC_1865.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ae/17-05-31-Billa-Wien-Schwechat-RalfR-aDSC_1865.jpg"
     },
     {
       "a": "Electro World",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/POL_Janki.jpg/960px-POL_Janki.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/71/POL_Janki.jpg"
     },
     {
       "a": "Kappahl",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/KappAhl.JPG/960px-KappAhl.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/KappAhl.JPG"
     },
     {
       "a": "Selgros",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Selgros_bia%C5%82o%C5%82%C4%99ka.jpg/960px-Selgros_bia%C5%82o%C5%82%C4%99ka.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Selgros_bia%C5%82o%C5%82%C4%99ka.jpg"
     },
     {
       "a": "Diverse",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Diverse_clothing_store_in_Tomasz%C3%B3w_Mazowiecki%2C_Poland.jpg/960px-Diverse_clothing_store_in_Tomasz%C3%B3w_Mazowiecki%2C_Poland.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Diverse_clothing_store_in_Tomasz%C3%B3w_Mazowiecki%2C_Poland.jpg"
     },
     {
       "a": "Dunnes",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Dunnes_Stores_Ashbourne_2006-4-30.jpg/960px-Dunnes_Stores_Ashbourne_2006-4-30.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Dunnes_Stores_Ashbourne_2006-4-30.jpg"
     },
     {
       "a": "Primark",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Primark_Warszawa_Galeria_M%C5%82ociny_Listopad_2026.jpg/960px-Primark_Warszawa_Galeria_M%C5%82ociny_Listopad_2026.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Primark_Warszawa_Galeria_M%C5%82ociny_Listopad_2026.jpg"
     },
     {
       "a": "Rema 1000",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/REMA_1000_at_Vestaport_Copenhagen.JPG/960px-REMA_1000_at_Vestaport_Copenhagen.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1c/REMA_1000_at_Vestaport_Copenhagen.JPG"
     },
     {
       "a": "Migros",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Z%C3%BCrich_Migros_Hochhaus1K4A8255.jpg/960px-Z%C3%BCrich_Migros_Hochhaus1K4A8255.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Z%C3%BCrich_Migros_Hochhaus1K4A8255.jpg"
     },
     {
       "a": "Magnit",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Udmurtia_Glazov_asv2019-05_img11.jpg/960px-Udmurtia_Glazov_asv2019-05_img11.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Udmurtia_Glazov_asv2019-05_img11.jpg"
     },
     {
       "a": "Levné knihy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Praha_Vinohrady_Jugoslavska_8_Levne_knihy.jpg/960px-Praha_Vinohrady_Jugoslavska_8_Levne_knihy.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/73/Praha_Vinohrady_Jugoslavska_8_Levne_knihy.jpg"
     },
     {
       "a": "Pingo Doce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Pingo_Doce_Advertising_11_September_2015.JPG/960px-Pingo_Doce_Advertising_11_September_2015.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/58/Pingo_Doce_Advertising_11_September_2015.JPG"
     },
     {
       "a": "Jula",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jula_store_in_%C5%81%C3%B3d%C5%BA%2C_%C5%9Bw._Teresy_od_Dzieci%C4%85tka_Jezus_Street.jpg/960px-Jula_store_in_%C5%81%C3%B3d%C5%BA%2C_%C5%9Bw._Teresy_od_Dzieci%C4%85tka_Jezus_Street.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jula_store_in_%C5%81%C3%B3d%C5%BA%2C_%C5%9Bw._Teresy_od_Dzieci%C4%85tka_Jezus_Street.jpg"
     },
     {
       "a": "Duka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Duka_-_Targ%C3%B3wek01.jpg/960px-Duka_-_Targ%C3%B3wek01.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/01/Duka_-_Targ%C3%B3wek01.jpg"
     },
     {
       "a": "FamilyMart",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sunshine_60.JPG/960px-Sunshine_60.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sunshine_60.JPG"
     },
     {
       "a": "Mere",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Mere_%28shop%29_1.jpg/960px-Mere_%28shop%29_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Mere_%28shop%29_1.jpg"
     },
     {
       "a": "ATB-Market",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/%D0%9E%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%90%D0%A2%D0%91-%D0%9C%D0%B0%D1%80%D0%BA%D0%B5%D1%82.jpg/960px-%D0%9E%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%90%D0%A2%D0%91-%D0%9C%D0%B0%D1%80%D0%BA%D0%B5%D1%82.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/%D0%9E%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%90%D0%A2%D0%91-%D0%9C%D0%B0%D1%80%D0%BA%D0%B5%D1%82.jpg"
     },
     {
       "a": "Alza",
@@ -104,11 +104,11 @@
     },
     {
       "a": "Books Kinokuniya",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kinokuniya_point_card.jpg/960px-Kinokuniya_point_card.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Kinokuniya_point_card.jpg"
     },
     {
       "a": "Action",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Action_2022.jpg/960px-Action_2022.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Action_2022.jpg"
     },
     {
       "a": "Flying Tiger Copenhagen",
@@ -116,43 +116,43 @@
     },
     {
       "a": "Martinus",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Martinus.png/960px-Martinus.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/58/Martinus.png"
     },
     {
       "a": "Kosmas",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Star%C3%A9_M%C4%9Bsto%2C_Perlov%C3%A1_3%2C_knihkupectv%C3%AD_Kosmas.jpg/960px-Star%C3%A9_M%C4%9Bsto%2C_Perlov%C3%A1_3%2C_knihkupectv%C3%AD_Kosmas.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Star%C3%A9_M%C4%9Bsto%2C_Perlov%C3%A1_3%2C_knihkupectv%C3%AD_Kosmas.jpg"
     },
     {
       "a": "Lawson",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Gate_City_Osaki_East_Tower.jpg/960px-Gate_City_Osaki_East_Tower.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Gate_City_Osaki_East_Tower.jpg"
     },
     {
       "a": "Jewroopt",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Office_evrotorg.jpg/960px-Office_evrotorg.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Office_evrotorg.jpg"
     },
     {
       "a": "Life Corporation",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Life_corporation_Rokucho-ekimae_branch_20200531_151310.jpg/960px-Life_corporation_Rokucho-ekimae_branch_20200531_151310.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Life_corporation_Rokucho-ekimae_branch_20200531_151310.jpg"
     },
     {
       "a": "Coles Supermarkets",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/OIC_hawthorn_east_Coles_HQ_from_Tooronga_Rd.jpg/960px-OIC_hawthorn_east_Coles_HQ_from_Tooronga_Rd.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b8/OIC_hawthorn_east_Coles_HQ_from_Tooronga_Rd.jpg"
     },
     {
       "a": "Pick n Pay",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Pick_n_Pay_Store_in_Cape_Town.jpg/960px-Pick_n_Pay_Store_in_Cape_Town.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/17/Pick_n_Pay_Store_in_Cape_Town.jpg"
     },
     {
       "a": "Pieriekriostok",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD_%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%BE%D0%BA_%D0%B2_%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%D0%B5_14_%D0%B8%D1%8E%D0%BD%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0.jpg/960px-%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD_%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%BE%D0%BA_%D0%B2_%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%D0%B5_14_%D0%B8%D1%8E%D0%BD%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD_%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%BE%D0%BA_%D0%B2_%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%D0%B5_14_%D0%B8%D1%8E%D0%BD%D1%8F_2020_%D0%B3%D0%BE%D0%B4%D0%B0.jpg"
     },
     {
       "a": "Piatioroczka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/5_%D0%9F%D1%8F%D1%82%D1%91%D1%80%D0%BE%D1%87%D0%BA%D0%B0...5_F%C3%BCnfchen...2H1A1993OB.jpg/960px-5_%D0%9F%D1%8F%D1%82%D1%91%D1%80%D0%BE%D1%87%D0%BA%D0%B0...5_F%C3%BCnfchen...2H1A1993OB.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0d/5_%D0%9F%D1%8F%D1%82%D1%91%D1%80%D0%BE%D1%87%D0%BA%D0%B0...5_F%C3%BCnfchen...2H1A1993OB.jpg"
     },
     {
       "a": "Checkers",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Checkers_Entrance_in_Durbanville%2C_Cape_Town.jpg/960px-Checkers_Entrance_in_Durbanville%2C_Cape_Town.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Checkers_Entrance_in_Durbanville%2C_Cape_Town.jpg"
     },
     {
       "a": "Bieriozka",
@@ -160,7 +160,7 @@
     },
     {
       "a": "Super-Pharm",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Super_Pharm_heaquarters_2.JPG/960px-Super_Pharm_heaquarters_2.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/af/Super_Pharm_heaquarters_2.JPG"
     },
     {
       "a": "Stockmann",
@@ -168,179 +168,179 @@
     },
     {
       "a": "Tiendas Ara",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tienda_d_naranja_ara_Bog_-_1.jpg/960px-Tienda_d_naranja_ara_Bog_-_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/04/Tienda_d_naranja_ara_Bog_-_1.jpg"
     },
     {
       "a": "Woolworths Supermarkets",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Roselea_Estate_shops_Woolworths.jpg/960px-Roselea_Estate_shops_Woolworths.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Roselea_Estate_shops_Woolworths.jpg"
     },
     {
       "a": "Shoprite",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Shoprite%2C_Zeerust.jpg/960px-Shoprite%2C_Zeerust.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Shoprite%2C_Zeerust.jpg"
     },
     {
       "a": "Woolworths Holdings",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Woolworths_Food_Store_in_Mongague_Gardens%2C_Cape_Town.jpg/960px-Woolworths_Food_Store_in_Mongague_Gardens%2C_Cape_Town.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Woolworths_Food_Store_in_Mongague_Gardens%2C_Cape_Town.jpg"
     },
     {
       "a": "Żabka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2023_Warszawa_Przejazd_4%2C_%C5%BBabka%2C_1.jpg/800px-2023_Warszawa_Przejazd_4%2C_%C5%BBabka%2C_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/2023_Warszawa_Przejazd_4%2C_%C5%BBabka%2C_1.jpg"
     },
     {
       "a": "Media Expert",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kamienna_G%C3%B3ra%2C_Media_Expert%2C_ul._Papie%C5%BCa_Jana_Paw%C5%82a_II_10_-_2023.08.12.jpg/800px-Kamienna_G%C3%B3ra%2C_Media_Expert%2C_ul._Papie%C5%BCa_Jana_Paw%C5%82a_II_10_-_2023.08.12.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Kamienna_G%C3%B3ra%2C_Media_Expert%2C_ul._Papie%C5%BCa_Jana_Paw%C5%82a_II_10_-_2023.08.12.jpg"
     },
     {
       "a": "Kaufland",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Kaufland_Deutschland.png/800px-Kaufland_Deutschland.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/65/Kaufland_Deutschland.png"
     },
     {
       "a": "Circle K",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Circle_K_and_Valero_at_Corner_of_Bellaire_Drive_South_and_Bryant_Irvin_Road.jpg/800px-Circle_K_and_Valero_at_Corner_of_Bellaire_Drive_South_and_Bryant_Irvin_Road.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Circle_K_and_Valero_at_Corner_of_Bellaire_Drive_South_and_Bryant_Irvin_Road.jpg"
     },
     {
       "a": "Empik",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pawilon_Cepelii_w_Warszawie_2025a.jpg/800px-Pawilon_Cepelii_w_Warszawie_2025a.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Pawilon_Cepelii_w_Warszawie_2025a.jpg"
     },
     {
       "a": "Spar",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Spar_Bredevoort.JPG/800px-Spar_Bredevoort.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Spar_Bredevoort.JPG"
     },
     {
       "a": "MediaMarkt",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Bydgoszcz_Media_Markt_ulica_Jagiello%C5%84ska.jpg/800px-Bydgoszcz_Media_Markt_ulica_Jagiello%C5%84ska.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/76/Bydgoszcz_Media_Markt_ulica_Jagiello%C5%84ska.jpg"
     },
     {
       "a": "Auchan",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Auchan_Bia%C5%82ystok_%281%29.jpg/800px-Auchan_Bia%C5%82ystok_%281%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Auchan_Bia%C5%82ystok_%281%29.jpg"
     },
     {
       "a": "Pepco",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Sklep_Pepco_w_Poznaniu.jpg/800px-Sklep_Pepco_w_Poznaniu.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Sklep_Pepco_w_Poznaniu.jpg"
     },
     {
       "a": "Obi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Favoriten_%28Wien%29_-_OBI_Baumarkt.JPG/800px-Favoriten_%28Wien%29_-_OBI_Baumarkt.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/70/Favoriten_%28Wien%29_-_OBI_Baumarkt.JPG"
     },
     {
       "a": "Modivo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Trutnov_Obchodni_136_CCC.jpg/800px-Trutnov_Obchodni_136_CCC.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Trutnov_Obchodni_136_CCC.jpg"
     },
     {
       "a": "Rossmann",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rossmann_Burgwedel.jpg/800px-Rossmann_Burgwedel.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Rossmann_Burgwedel.jpg"
     },
     {
       "a": "Saturn",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Saturn_Hamburg-Altstadt%2C_M%C3%B6nckebergstra%C3%9Fe_1_%282006%29.jpg/800px-Saturn_Hamburg-Altstadt%2C_M%C3%B6nckebergstra%C3%9Fe_1_%282006%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/01/Saturn_Hamburg-Altstadt%2C_M%C3%B6nckebergstra%C3%9Fe_1_%282006%29.jpg"
     },
     {
       "a": "Bi1",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Bi1.png/800px-Bi1.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Bi1.png"
     },
     {
       "a": "Castorama",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Castorama_w_Siedlcach.jpg/800px-Castorama_w_Siedlcach.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Castorama_w_Siedlcach.jpg"
     },
     {
       "a": "Piotr i Paweł",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Gda%C5%84sk_Centrum_Handlowe_Familia_sklep_Piotr_i_Pawe%C5%82.JPG/800px-Gda%C5%84sk_Centrum_Handlowe_Familia_sklep_Piotr_i_Pawe%C5%82.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Gda%C5%84sk_Centrum_Handlowe_Familia_sklep_Piotr_i_Pawe%C5%82.JPG"
     },
     {
       "a": "Sinsay",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sinsay_2022.jpg/800px-Sinsay_2022.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Sinsay_2022.jpg"
     },
     {
       "a": "Agata",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/W%C5%82oc%C5%82awek-Agata_Meble.jpg/800px-W%C5%82oc%C5%82awek-Agata_Meble.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/57/W%C5%82oc%C5%82awek-Agata_Meble.jpg"
     },
     {
       "a": "Walmart",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Walmart_Modesto%2C_California.jpg/800px-Walmart_Modesto%2C_California.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Walmart_Modesto%2C_California.jpg"
     },
     {
       "a": "Reserved",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Gda%C5%84sk_Alfa_Centrum_sklep_Reserved.JPG/800px-Gda%C5%84sk_Alfa_Centrum_sklep_Reserved.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Gda%C5%84sk_Alfa_Centrum_sklep_Reserved.JPG"
     },
     {
       "a": "RTV Euro AGD",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Prudnik%2C_2025.07.02_04.jpg/800px-Prudnik%2C_2025.07.02_04.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Prudnik%2C_2025.07.02_04.jpg"
     },
     {
       "a": "Cropp",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cropp_in_Tripla.jpg/800px-Cropp_in_Tripla.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cropp_in_Tripla.jpg"
     },
     {
       "a": "Bricomarché",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kolbuszowa_%28ul._Tarnobrzeska_25A%29_-_Bricomarch%C3%A9.jpg/800px-Kolbuszowa_%28ul._Tarnobrzeska_25A%29_-_Bricomarch%C3%A9.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Kolbuszowa_%28ul._Tarnobrzeska_25A%29_-_Bricomarch%C3%A9.jpg"
     },
     {
       "a": "Decathlon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Decathlon_w_Toruniu.jpg/800px-Decathlon_w_Toruniu.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Decathlon_w_Toruniu.jpg"
     },
     {
       "a": "Martes Sport",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Martes_Sport_01.jpg/800px-Martes_Sport_01.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Martes_Sport_01.jpg"
     },
     {
       "a": "Małpka Express",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sklep_Ma%C5%82pka_Express.jpg/800px-Sklep_Ma%C5%82pka_Express.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Sklep_Ma%C5%82pka_Express.jpg"
     },
     {
       "a": "Delikatesy Centrum",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/G%C5%82og%C3%B3w_Ma%C5%82opolski_%28Rynek%29_-_Delikatesy_Centrum.jpg/800px-G%C5%82og%C3%B3w_Ma%C5%82opolski_%28Rynek%29_-_Delikatesy_Centrum.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/G%C5%82og%C3%B3w_Ma%C5%82opolski_%28Rynek%29_-_Delikatesy_Centrum.jpg"
     },
     {
       "a": "Avans",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Salon-avans-w-sieradzu-polska.jpg/800px-Salon-avans-w-sieradzu-polska.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Salon-avans-w-sieradzu-polska.jpg"
     },
     {
       "a": "House",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/House_store_in_Tripla.jpg/800px-House_store_in_Tripla.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/House_store_in_Tripla.jpg"
     },
     {
       "a": "Intermarché",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Intermarch%C3%A9_Serres-Castet.jpg/800px-Intermarch%C3%A9_Serres-Castet.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Intermarch%C3%A9_Serres-Castet.jpg"
     },
     {
       "a": "Abc",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Przemy%C5%9Bl_%28ul._Borelowskiego_10%29_-_sklep_ABC.jpg/800px-Przemy%C5%9Bl_%28ul._Borelowskiego_10%29_-_sklep_ABC.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Przemy%C5%9Bl_%28ul._Borelowskiego_10%29_-_sklep_ABC.jpg"
     },
     {
       "a": "Euro Sklep",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kolbuszowa_%28ul._Wolska_1%29_-_Euro_Sklep.jpg/800px-Kolbuszowa_%28ul._Wolska_1%29_-_Euro_Sklep.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Kolbuszowa_%28ul._Wolska_1%29_-_Euro_Sklep.jpg"
     },
     {
       "a": "Lancerto",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Lancerto-BonarkaCityCenter-Podg%C3%B3rzeDuchackie-POL%2C_Krak%C3%B3w.jpg/800px-Lancerto-BonarkaCityCenter-Podg%C3%B3rzeDuchackie-POL%2C_Krak%C3%B3w.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/58/Lancerto-BonarkaCityCenter-Podg%C3%B3rzeDuchackie-POL%2C_Krak%C3%B3w.jpg"
     },
     {
       "a": "E.Leclerc",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/2015_Hipermarket_E.Leclerc_w_K%C5%82odzku.JPG/800px-2015_Hipermarket_E.Leclerc_w_K%C5%82odzku.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e5/2015_Hipermarket_E.Leclerc_w_K%C5%82odzku.JPG"
     },
     {
       "a": "Smyk",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Warszawa_DH_Smyk_2009.jpg/800px-Warszawa_DH_Smyk_2009.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/57/Warszawa_DH_Smyk_2009.jpg"
     },
     {
       "a": "Tesco",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/TescoHouseCheshunt.jpg/800px-TescoHouseCheshunt.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ee/TescoHouseCheshunt.jpg"
     },
     {
       "a": "Sephora",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sephora_Store_at_Toronto_Eaton_Centre.jpg/800px-Sephora_Store_at_Toronto_Eaton_Centre.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Sephora_Store_at_Toronto_Eaton_Centre.jpg"
     },
     {
       "a": "Bershka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bershka_shibuya_tokyo.jpg/800px-Bershka_shibuya_tokyo.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/10/Bershka_shibuya_tokyo.jpg"
     },
     {
       "a": "Groszek",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Sklep_Groszek_.jpg/800px-Sklep_Groszek_.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Sklep_Groszek_.jpg"
     },
     {
       "a": "Praktiker",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Praktiker_Opole_%28Turawa_Park%29.JPG/800px-Praktiker_Opole_%28Turawa_Park%29.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Praktiker_Opole_%28Turawa_Park%29.JPG"
     }
   ]
 }

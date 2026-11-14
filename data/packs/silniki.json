@@ -1,1 +1,86 @@
-{"id":"silniki","name":"Silniki","group":"Technika","icon":"⚙️","prompt":"Jaki to silnik?","source":"Kategoria:Silniki","items":[{"a":"Silnik modelarski","img":"https://upload.wikimedia.org/wikipedia/commons/c/c6/Jaskolka_1_poj._2%2C5_silnik_samozaplonowy_1.jpg"},{"a":"Silnik żywy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Krowy_SK.jpg/960px-Krowy_SK.jpg"},{"a":"Silnik na dwutlenek węgla","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Silnik_co2_0211.jpg/960px-Silnik_co2_0211.jpg"},{"a":"Napęd hybrydowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/2009_Toyota_Prius_%28ZVW30R%29_liftback_%282011-12-06%29_01.jpg/960px-2009_Toyota_Prius_%28ZVW30R%29_liftback_%282011-12-06%29_01.jpg"},{"a":"Silnik tłokowy","img":"https://upload.wikimedia.org/wikipedia/commons/a/ab/Radial_engine.gif"},{"a":"Silnik dwusuwowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/S15-150.jpg/800px-S15-150.jpg"},{"a":"Silnik lotniczy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Engine_cowling_of_a_Spitfire%2C_Under_the.jpg/800px-Engine_cowling_of_a_Spitfire%2C_Under_the.jpg"},{"a":"S42","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Silnik_Star_S42_%282%29.jpg/800px-Silnik_Star_S42_%282%29.jpg"},{"a":"Silnik liniowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Linear_motor_by_Zureks.jpg/800px-Linear_motor_by_Zureks.jpg"},{"a":"Silnik rotacyjny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Rotary_engine_-_animation_slower.gif/800px-Rotary_engine_-_animation_slower.gif"},{"a":"Silnik prądu stałego","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Motore_elettrico_giocattolo.jpg/800px-Motore_elettrico_giocattolo.jpg"},{"a":"Silnik odrzutowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Pratt_%26_Whitney_F100_F-15_engine_undergoing_testing.jpg/800px-Pratt_%26_Whitney_F100_F-15_engine_undergoing_testing.jpg"},{"a":"Bezszczotkowy silnik elektryczny prądu stałego","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Floppy_drive_spindle_motor_open.jpg/800px-Floppy_drive_spindle_motor_open.jpg"},{"a":"V6","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/IC_engine.JPG/800px-IC_engine.JPG"},{"a":"SW-400","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Silnik_Orkan_Z340.jpg/800px-Silnik_Orkan_Z340.jpg"},{"a":"Silnik żarowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Super_Sokol-3_silnik_zarowy_1.jpg/800px-Super_Sokol-3_silnik_zarowy_1.jpg"},{"a":"R6","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/M20B25_block.jpg/800px-M20B25_block.jpg"},{"a":"Silnik rakietowy","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RS-68_Rocket_Engine.jpg/800px-RS-68_Rocket_Engine.jpg"},{"a":"Silnik główny","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/MainEngine1.JPG/800px-MainEngine1.JPG"}]}
+{
+  "id": "silniki",
+  "name": "Silniki",
+  "group": "Technika",
+  "icon": "⚙️",
+  "prompt": "Jaki to silnik?",
+  "source": "Kategoria:Silniki",
+  "items": [
+    {
+      "a": "Silnik modelarski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Jaskolka_1_poj._2%2C5_silnik_samozaplonowy_1.jpg"
+    },
+    {
+      "a": "Silnik żywy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Krowy_SK.jpg"
+    },
+    {
+      "a": "Silnik na dwutlenek węgla",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Silnik_co2_0211.jpg"
+    },
+    {
+      "a": "Napęd hybrydowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/01/2009_Toyota_Prius_%28ZVW30R%29_liftback_%282011-12-06%29_01.jpg"
+    },
+    {
+      "a": "Silnik tłokowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Radial_engine.gif"
+    },
+    {
+      "a": "Silnik dwusuwowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/66/S15-150.jpg"
+    },
+    {
+      "a": "Silnik lotniczy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Engine_cowling_of_a_Spitfire%2C_Under_the.jpg"
+    },
+    {
+      "a": "S42",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Silnik_Star_S42_%282%29.jpg"
+    },
+    {
+      "a": "Silnik liniowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Linear_motor_by_Zureks.jpg"
+    },
+    {
+      "a": "Silnik rotacyjny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Rotary_engine_-_animation_slower.gif"
+    },
+    {
+      "a": "Silnik prądu stałego",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Motore_elettrico_giocattolo.jpg"
+    },
+    {
+      "a": "Silnik odrzutowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Pratt_%26_Whitney_F100_F-15_engine_undergoing_testing.jpg"
+    },
+    {
+      "a": "Bezszczotkowy silnik elektryczny prądu stałego",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Floppy_drive_spindle_motor_open.jpg"
+    },
+    {
+      "a": "V6",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/10/IC_engine.JPG"
+    },
+    {
+      "a": "SW-400",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/95/Silnik_Orkan_Z340.jpg"
+    },
+    {
+      "a": "Silnik żarowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Super_Sokol-3_silnik_zarowy_1.jpg"
+    },
+    {
+      "a": "R6",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e1/M20B25_block.jpg"
+    },
+    {
+      "a": "Silnik rakietowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/RS-68_Rocket_Engine.jpg"
+    },
+    {
+      "a": "Silnik główny",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/MainEngine1.JPG"
+    }
+  ]
+}

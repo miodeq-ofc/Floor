@@ -1,1 +1,42 @@
-{"id":"znaczki","name":"Znaczki pocztowe","group":"Inne","icon":"📮","prompt":"Jaki to znaczek?","source":"Kategoria:Znaczki pocztowe","items":[{"a":"Penny Black","img":"https://upload.wikimedia.org/wikipedia/commons/3/36/Penny_black.jpg"},{"a":"Mauritius „Post Office”","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mauritius_stamp.jpg/960px-Mauritius_stamp.jpg"},{"a":"Znaczek bożonarodzeniowy","img":"https://upload.wikimedia.org/wikipedia/commons/5/52/1919-2_Christmas_Seal.jpg"},{"a":"Znaczki pocztowe i historia poczty Malty","img":"https://upload.wikimedia.org/wikipedia/commons/3/33/Malta1860.jpg"},{"a":"Halfpenny Yellow","img":"https://upload.wikimedia.org/wikipedia/commons/3/33/Malta1860.jpg"},{"a":"Overrun Countries","img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Overrun_Countries_postage_stamps.png/960px-Overrun_Countries_postage_stamps.png"},{"a":"Znaczki skarbowe Malty","img":"https://upload.wikimedia.org/wikipedia/commons/7/7c/1899_Malta_5s_revenue_stamp.jpg"},{"a":"Machin","img":"https://upload.wikimedia.org/wikipedia/commons/2/22/Stamp-GB_Machin_4d_red.jpg"}]}
+{
+  "id": "znaczki",
+  "name": "Znaczki pocztowe",
+  "group": "Inne",
+  "icon": "📮",
+  "prompt": "Jaki to znaczek?",
+  "source": "Kategoria:Znaczki pocztowe",
+  "items": [
+    {
+      "a": "Penny Black",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/36/Penny_black.jpg"
+    },
+    {
+      "a": "Mauritius „Post Office”",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/13/Mauritius_stamp.jpg"
+    },
+    {
+      "a": "Znaczek bożonarodzeniowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/1919-2_Christmas_Seal.jpg"
+    },
+    {
+      "a": "Znaczki pocztowe i historia poczty Malty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/Malta1860.jpg"
+    },
+    {
+      "a": "Halfpenny Yellow",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/Malta1860.jpg"
+    },
+    {
+      "a": "Overrun Countries",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Overrun_Countries_postage_stamps.png"
+    },
+    {
+      "a": "Znaczki skarbowe Malty",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/1899_Malta_5s_revenue_stamp.jpg"
+    },
+    {
+      "a": "Machin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Stamp-GB_Machin_4d_red.jpg"
+    }
+  ]
+}

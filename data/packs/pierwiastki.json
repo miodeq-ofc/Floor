@@ -8,339 +8,412 @@
   "items": [
     {
       "a": "Azot",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Liquid_nitrogen_dsc04496.jpg/960px-Liquid_nitrogen_dsc04496.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Liquid_nitrogen_dsc04496.jpg",
+      "hint": "N"
     },
     {
       "a": "Beryl",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Be-140g.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Be-140g.jpg",
+      "hint": "Be"
     },
     {
       "a": "Bor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bor_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Bor_1.jpg",
+      "hint": "B"
     },
     {
       "a": "Brom",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bromine_vial_in_acrylic_cube.jpg/960px-Bromine_vial_in_acrylic_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/35/Bromine_vial_in_acrylic_cube.jpg",
+      "hint": "Br"
     },
     {
       "a": "Chlor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chlorine-sample-flip.jpg/960px-Chlorine-sample-flip.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Chlorine-sample-flip.jpg",
+      "hint": "Cl"
     },
     {
       "a": "Chrom",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Chromium_crystals_and_1cm3_cube.jpg/960px-Chromium_crystals_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/08/Chromium_crystals_and_1cm3_cube.jpg",
+      "hint": "Cr"
     },
     {
       "a": "Fluor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Liquid_fluorine_tighter_crop.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Liquid_fluorine_tighter_crop.jpg",
+      "hint": "F"
     },
     {
       "a": "Glin",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Aluminium-4.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Aluminium-4.jpg",
+      "hint": "Al"
     },
     {
       "a": "Jod",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Iodine_crystals%2C_99.9%25_purity.jpg/960px-Iodine_crystals%2C_99.9%25_purity.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Iodine_crystals%2C_99.9%25_purity.jpg",
+      "hint": "I"
     },
     {
       "a": "Kobalt",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Kobalt_electrolytic_and_1cm3_cube.jpg/960px-Kobalt_electrolytic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Kobalt_electrolytic_and_1cm3_cube.jpg",
+      "hint": "Co"
     },
     {
       "a": "Kadm",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cadmium-crystal_bar.jpg/960px-Cadmium-crystal_bar.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Cadmium-crystal_bar.jpg",
+      "hint": "Cd"
     },
     {
       "a": "Itr",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Yttrium_sublimed_dendritic_and_1cm3_cube.jpg/960px-Yttrium_sublimed_dendritic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/19/Yttrium_sublimed_dendritic_and_1cm3_cube.jpg",
+      "hint": "Y"
     },
     {
       "a": "Antymon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Antimony-4.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Antimony-4.jpg",
+      "hint": "Sb"
     },
     {
       "a": "Cyna",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sn-Alpha-Beta.jpg/960px-Sn-Alpha-Beta.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Sn-Alpha-Beta.jpg",
+      "hint": "Sn"
     },
     {
       "a": "Cyrkon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Zirconium_crystal_bar_and_1cm3_cube.jpg/960px-Zirconium_crystal_bar_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/92/Zirconium_crystal_bar_and_1cm3_cube.jpg",
+      "hint": "Zr"
     },
     {
       "a": "Ind",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Indium.jpg/960px-Indium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Indium.jpg",
+      "hint": "In"
     },
     {
       "a": "Cez",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/CsCrystals.JPG/960px-CsCrystals.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/11/CsCrystals.JPG",
+      "hint": "Cs"
     },
     {
       "a": "Gal",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Gallium_crystals.jpg/960px-Gallium_crystals.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/92/Gallium_crystals.jpg",
+      "hint": "Ga"
     },
     {
       "a": "Fosfor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/88/PhosphComby.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/88/PhosphComby.jpg",
+      "hint": "P"
     },
     {
       "a": "Arsen",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Arsen_1a.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Arsen_1a.jpg",
+      "hint": "As"
     },
     {
       "a": "German",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Germanium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Germanium.jpg",
+      "hint": "Ge"
     },
     {
       "a": "Bar",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/1/16/Barium_unter_Argon_Schutzgas_Atmosph%C3%A4re.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/16/Barium_unter_Argon_Schutzgas_Atmosph%C3%A4re.jpg",
+      "hint": "Ba"
     },
     {
       "a": "Cer",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Cer_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Cer_1.jpg",
+      "hint": "Ce"
     },
     {
       "a": "Europ",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Europium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Europium.jpg",
+      "hint": "Eu"
     },
     {
       "a": "Gadolin",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Gadolinium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Gadolinium.jpg",
+      "hint": "Gd"
     },
     {
       "a": "Dysproz",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Dysprosium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Dysprosium.jpg",
+      "hint": "Dy"
     },
     {
       "a": "Holm",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Holmium2.jpg/960px-Holmium2.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Holmium2.jpg",
+      "hint": "Ho"
     },
     {
       "a": "Erb",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Erbium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Erbium.jpg",
+      "hint": "Er"
     },
     {
       "a": "Iterb",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Ytterbium-3.jpg"
-    },
-    {
-      "a": "Kalendarium odkryć pierwiastków chemicznych",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Berkeley_60-inch_cyclotron.jpg/960px-Berkeley_60-inch_cyclotron.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Ytterbium-3.jpg",
+      "hint": "Yb"
     },
     {
       "a": "Iryd",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Iridium_foil.jpg/960px-Iridium_foil.jpg"
-    },
-    {
-      "a": "Blok d",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Coloured-transition-metal-solutions.jpg/960px-Coloured-transition-metal-solutions.jpg"
-    },
-    {
-      "a": "Wyspa stabilności",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Island-of-Stability.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/76/Iridium_foil.jpg",
+      "hint": "Ir"
     },
     {
       "a": "Lit",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Crystalline_lithium_3.jpg/960px-Crystalline_lithium_3.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Crystalline_lithium_3.jpg",
+      "hint": "Li"
     },
     {
       "a": "Magnez",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Magnesium.jpg/960px-Magnesium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Magnesium.jpg",
+      "hint": "Mg"
     },
     {
       "a": "Mangan",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mangan_1.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mangan_1.jpg",
+      "hint": "Mn"
     },
     {
       "a": "Miedź",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/NatCopper.jpg/960px-NatCopper.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f0/NatCopper.jpg",
+      "hint": "Cu"
     },
     {
       "a": "Nikiel",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nickel_electrolytic_and_1cm3_cube.jpg/960px-Nickel_electrolytic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Nickel_electrolytic_and_1cm3_cube.jpg",
+      "hint": "Ni"
     },
     {
       "a": "Potas",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Potassium.JPG/960px-Potassium.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Potassium.JPG",
+      "hint": "K"
     },
     {
       "a": "Rtęć",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Hg_Mercury.jpg/960px-Hg_Mercury.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/63/Hg_Mercury.jpg",
+      "hint": "Hg"
     },
     {
       "a": "Selen",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/SeBlackRed.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/SeBlackRed.jpg",
+      "hint": "Se"
     },
     {
       "a": "Sód",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Na_%28Sodium%29.jpg/960px-Na_%28Sodium%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/27/Na_%28Sodium%29.jpg",
+      "hint": "Na"
     },
     {
       "a": "Siarka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sulfur-sample.jpg/960px-Sulfur-sample.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/44/Sulfur-sample.jpg",
+      "hint": "S"
     },
     {
       "a": "Tlen",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_oxygen_in_a_beaker_4.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_oxygen_in_a_beaker_4.jpg",
+      "hint": "O"
     },
     {
       "a": "Tytan",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Titan-crystal_bar.JPG/960px-Titan-crystal_bar.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/db/Titan-crystal_bar.JPG",
+      "hint": "Ti"
     },
     {
       "a": "Wodór",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hydrogen_discharge_tube.jpg/960px-Hydrogen_discharge_tube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/83/Hydrogen_discharge_tube.jpg",
+      "hint": "H"
     },
     {
       "a": "Wapń",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg/960px-Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Calcium_unter_Argon_Schutzgasatmosph%C3%A4re.jpg",
+      "hint": "Ca"
     },
     {
       "a": "Wanad",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Vanadium_etched.jpg/960px-Vanadium_etched.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/98/Vanadium_etched.jpg",
+      "hint": "V"
     },
     {
       "a": "Rod",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Rhodium_powder_pressed_melted.jpg/960px-Rhodium_powder_pressed_melted.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/98/Rhodium_powder_pressed_melted.jpg",
+      "hint": "Rh"
     },
     {
       "a": "Węgiel",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Diamond-and-graphite-with-scale.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Diamond-and-graphite-with-scale.jpg",
+      "hint": "C"
     },
     {
       "a": "Skand",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Scandium_sublimed_dendritic_and_1cm3_cube.jpg/960px-Scandium_sublimed_dendritic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Scandium_sublimed_dendritic_and_1cm3_cube.jpg",
+      "hint": "Sc"
     },
     {
       "a": "Platyna",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Platinum_crystals.jpg/960px-Platinum_crystals.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Platinum_crystals.jpg",
+      "hint": "Pt"
     },
     {
       "a": "Pallad",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/23/Palladium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/23/Palladium.jpg",
+      "hint": "Pd"
     },
     {
       "a": "Rubid",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Rb5.JPG/960px-Rb5.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Rb5.JPG",
+      "hint": "Rb"
     },
     {
       "a": "Stront",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Strontium_destilled_crystals.jpg/960px-Strontium_destilled_crystals.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/Strontium_destilled_crystals.jpg",
+      "hint": "Sr"
     },
     {
       "a": "Srebro",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/960px-Silver_crystal.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/55/Silver_crystal.jpg",
+      "hint": "Ag"
     },
     {
       "a": "Niob",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Niobium_crystals_and_1cm3_cube.jpg/960px-Niobium_crystals_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Niobium_crystals_and_1cm3_cube.jpg",
+      "hint": "Nb"
     },
     {
       "a": "Ruten",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ruthenium_a_half_bar.jpg/960px-Ruthenium_a_half_bar.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Ruthenium_a_half_bar.jpg",
+      "hint": "Ru"
     },
     {
       "a": "Tellur",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tellurium_crystal.jpg/960px-Tellurium_crystal.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Tellurium_crystal.jpg",
+      "hint": "Te"
     },
     {
       "a": "Lantan",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Lanthan_1-cropflipped.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Lanthan_1-cropflipped.jpg",
+      "hint": "La"
     },
     {
       "a": "Prazeodym",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Praseodymium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Praseodymium.jpg",
+      "hint": "Pr"
     },
     {
       "a": "Neodym",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Neodym_1-crop.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Neodym_1-crop.jpg",
+      "hint": "Nd"
     },
     {
       "a": "Samar",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Samarium_1-cropflipped.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Samarium_1-cropflipped.jpg",
+      "hint": "Sm"
     },
     {
       "a": "Terb",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Terbium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Terbium.jpg",
+      "hint": "Tb"
     },
     {
       "a": "Tul",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Thulium_sublimed_dendritic_and_1cm3_cube.jpg/960px-Thulium_sublimed_dendritic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Thulium_sublimed_dendritic_and_1cm3_cube.jpg",
+      "hint": "Tm"
     },
     {
       "a": "Lutet",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Lutetium_sublimed_dendritic_and_1cm3_cube.jpg/960px-Lutetium_sublimed_dendritic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/74/Lutetium_sublimed_dendritic_and_1cm3_cube.jpg",
+      "hint": "Lu"
     },
     {
       "a": "Tantal",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tantalum_single_crystal_and_1cm3_cube.jpg/960px-Tantalum_single_crystal_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/83/Tantalum_single_crystal_and_1cm3_cube.jpg",
+      "hint": "Ta"
     },
     {
       "a": "Ren",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Rhenium_single_crystal_bar_and_1cm3_cube.jpg/960px-Rhenium_single_crystal_bar_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/71/Rhenium_single_crystal_bar_and_1cm3_cube.jpg",
+      "hint": "Re"
     },
     {
       "a": "Osm",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Osmium_crystals.jpg/960px-Osmium_crystals.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Osmium_crystals.jpg",
+      "hint": "Os"
     },
     {
       "a": "Tal",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/36/Thallium.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/36/Thallium.jpg",
+      "hint": "Tl"
     },
     {
       "a": "Ołów",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Lead_electrolytic_and_1cm3_cube.jpg/960px-Lead_electrolytic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Lead_electrolytic_and_1cm3_cube.jpg",
+      "hint": "Pb"
     },
     {
       "a": "Wolfram",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Wolfram_evaporated_crystals_and_1cm3_cube.jpg/960px-Wolfram_evaporated_crystals_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Wolfram_evaporated_crystals_and_1cm3_cube.jpg",
+      "hint": "W"
     },
     {
       "a": "Żelazo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iron_electrolytic_and_1cm3_cube.jpg/960px-Iron_electrolytic_and_1cm3_cube.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Iron_electrolytic_and_1cm3_cube.jpg",
+      "hint": "Fe"
     },
     {
       "a": "Złoto",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Gold-crystals.jpg/960px-Gold-crystals.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Gold-crystals.jpg",
+      "hint": "Au"
     },
     {
       "a": "Uran",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/HEUraniumC.jpg/800px-HEUraniumC.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d8/HEUraniumC.jpg",
+      "hint": "U"
     },
     {
       "a": "Rad",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radium226.jpg/800px-Radium226.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Radium226.jpg",
+      "hint": "Ra"
     },
     {
       "a": "Pluton",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Pu%2C94.jpg/800px-Pu%2C94.jpg"
-    },
-    {
-      "a": "Berylowce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Be-140g.jpg/800px-Be-140g.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Pu%2C94.jpg",
+      "hint": "Pu"
     },
     {
       "a": "Tor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Thorium_sample_0.1g.jpg/800px-Thorium_sample_0.1g.jpg"
-    },
-    {
-      "a": "Litowce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Lithium_paraffin.jpg/800px-Lithium_paraffin.jpg"
-    },
-    {
-      "a": "Fluorowce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Halogene.jpg/800px-Halogene.jpg"
-    },
-    {
-      "a": "Alotropia",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/DiamanteEZ.jpg/800px-DiamanteEZ.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/13/Thorium_sample_0.1g.jpg",
+      "hint": "Th"
     },
     {
       "a": "Hel",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Helium-glow.jpg/800px-Helium-glow.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/00/Helium-glow.jpg",
+      "hint": "He"
     },
     {
       "a": "Aktyn",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Actinium_sample_%2831481701837%29.png/800px-Actinium_sample_%2831481701837%29.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/27/Actinium_sample_%2831481701837%29.png",
+      "hint": "Ac"
+    },
+    {
+      "a": "Argon",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/Argon-glow.jpg",
+      "hint": "",
+      "q": "Jaki to pierwiastek?"
+    },
+    {
+      "a": "Krypton",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Krypton-glow.jpg",
+      "hint": "",
+      "q": "Jaki to pierwiastek?"
+    },
+    {
+      "a": "Ksenon",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Xenon-glow.jpg",
+      "hint": "",
+      "q": "Jaki to pierwiastek?"
+    },
+    {
+      "a": "Astat",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Glow_from_a_sample_of_astatine_%28cropped%29.jpg",
+      "hint": "",
+      "q": "Jaki to pierwiastek?"
     }
   ]
 }

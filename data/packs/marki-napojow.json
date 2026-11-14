@@ -20,19 +20,19 @@
     },
     {
       "a": "Nestea",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Nestea_bottle.jpg/960px-Nestea_bottle.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Nestea_bottle.jpg"
     },
     {
       "a": "Nesquik",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Bottles_of_Nesquik.JPG/960px-Bottles_of_Nesquik.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Bottles_of_Nesquik.JPG"
     },
     {
       "a": "Inka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Opakowanie_po_kawie_Inka_-_wczesne_lata_70-te_XX_wieku.JPG/960px-Opakowanie_po_kawie_Inka_-_wczesne_lata_70-te_XX_wieku.JPG"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Opakowanie_po_kawie_Inka_-_wczesne_lata_70-te_XX_wieku.JPG"
     },
     {
       "a": "Monster Energy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Monster_Energy_drinks_12.jpg/960px-Monster_Energy_drinks_12.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/de/Monster_Energy_drinks_12.jpg"
     },
     {
       "a": "Black Energy",
@@ -40,55 +40,102 @@
     },
     {
       "a": "Burn",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Burn_250.jpg/960px-Burn_250.jpg"
-    },
-    {
-      "a": "PG Tips",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/PG_tips_Tea.jpg/960px-PG_tips_Tea.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/71/Burn_250.jpg"
     },
     {
       "a": "Dr Pepper",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Dr_Pepper_Dose_2024.jpg/800px-Dr_Pepper_Dose_2024.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Dr_Pepper_Dose_2024.jpg"
     },
     {
       "a": "Orangina",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/025l_MW_Orangina_Original.png/800px-025l_MW_Orangina_Original.png"
-    },
-    {
-      "a": "Lift",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Lift_on_sale_at_New_World.jpg/800px-Lift_on_sale_at_New_World.jpg"
-    },
-    {
-      "a": "Inca Kola",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/IncaKolaBottleGlass.jpg/800px-IncaKolaBottleGlass.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c6/025l_MW_Orangina_Original.png"
     },
     {
       "a": "Frugo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Frugo_Czarne.jpg/800px-Frugo_Czarne.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Frugo_Czarne.jpg"
     },
     {
       "a": "Kofola",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Sklenice_Kofola.jpg/800px-Sklenice_Kofola.jpg"
-    },
-    {
-      "a": "Vinea",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vinea-_nap%C3%B3j_bezalkoholowy.jpg/800px-Vinea-_nap%C3%B3j_bezalkoholowy.jpg"
-    },
-    {
-      "a": "Club-Mate",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Club-MateFlasche.jpg/800px-Club-MateFlasche.jpg"
-    },
-    {
-      "a": "Tarchuna",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/%E9%BE%99%E8%92%BF%E6%B1%BD%E6%B0%B4.jpg/800px-%E9%BE%99%E8%92%BF%E6%B1%BD%E6%B0%B4.jpg"
-    },
-    {
-      "a": "Finlandia",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Finlandia_Vodka_Classic.jpg/800px-Finlandia_Vodka_Classic.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/85/Sklenice_Kofola.jpg"
     },
     {
       "a": "Tyskie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Butelka_Tyskie_bez_cienia.png/800px-Butelka_Tyskie_bez_cienia.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Butelka_Tyskie_bez_cienia.png"
+    },
+    {
+      "a": "Coca-Cola",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/15-09-26-RalfR-WLC-0098_-_Coca-Cola_glass_bottle_%28Germany%29.jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Pepsi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Fanta",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Fanta_2023.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Sprite",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Sprite_2022.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Tymbark",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/12/Z%C4%99z%C3%B3w_a2.jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Hortex",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hortex_fruits_1973.jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Cappy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Cappy_%C3%A9glise_1.jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Tchibo",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/85/Tchibo_Logo_Kachel_Ohne_Schutzzone_2017.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Żywiec",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Zywiec_Beer.JPG",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Lech",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Lech_Premium.jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Warka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Warka..jpg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Schweppes",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/09/Schweppes_Logo_2016.png",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Mirinda",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Mirinda_logo_2023.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "7 Up",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/aa/7_Up_Logo_Pepsi.svg",
+      "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Powerade",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Powerade_logo.png",
+      "q": "Jaka to marka napoju?"
     }
   ]
 }

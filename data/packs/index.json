@@ -1,1 +1,470 @@
-{"generated":"2026-11-14T22:34:31.657Z","packs":[{"id":"marki-samochodow","name":"Marki samochodów","group":"Motoryzacja","icon":"🚗","prompt":"Jaka to marka samochodu?","count":28},{"id":"motocykle","name":"Motocykle","group":"Motoryzacja","icon":"🏍️","prompt":"Jaki to motocykl?","count":30},{"id":"samochody","name":"Samochody","group":"Motoryzacja","icon":"🚘","prompt":"Jaki to model samochodu? Podaj markę i model.","count":40},{"id":"samochody-terenowe","name":"Samochody terenowe","group":"Motoryzacja","icon":"🛻","prompt":"Jaki to samochód terenowy?","count":107},{"id":"samochody-wyscigowe","name":"Samochody wyścigowe","group":"Motoryzacja","icon":"🏎️","prompt":"Jaki to samochód wyścigowy?","count":22},{"id":"makaron","name":"Makaron","group":"Kuchnia","icon":"🍝","prompt":"Jaki to makaron?","count":67},{"id":"ciasta-deserowe","name":"Ciasta deserowe","group":"Kuchnia","icon":"🍰","prompt":"Jaki to wypiek?","count":82},{"id":"desery","name":"Desery","group":"Kuchnia","icon":"🍮","prompt":"Jaki to deser?","count":104},{"id":"grzyby-jadalne","name":"Grzyby jadalne","group":"Kuchnia","icon":"🍄","prompt":"Jaki to grzyb?","count":148},{"id":"grzyby-trujace","name":"Grzyby trujące","group":"Kuchnia","icon":"☠️","prompt":"Jaki to grzyb?","count":138},{"id":"herbaty","name":"Herbaty","group":"Kuchnia","icon":"🍵","prompt":"Jaka to herbata?","count":22},{"id":"koktajle","name":"Koktajle","group":"Kuchnia","icon":"🍹","prompt":"Jaki to koktajl?","count":46},{"id":"miesa","name":"Mięsa i wędliny","group":"Kuchnia","icon":"🥩","prompt":"Jaki to rodzaj mięsa lub wędliny?","count":30},{"id":"napoje-bezalkoholowe","name":"Napoje bezalkoholowe","group":"Kuchnia","icon":"🥤","prompt":"Jaki to napój?","count":41},{"id":"owoce-jadalne","name":"Owoce jadalne","group":"Kuchnia","icon":"🍎","prompt":"Jaki to owoc?","count":42},{"id":"owoce-morza","name":"Owoce morza","group":"Kuchnia","icon":"🦐","prompt":"Jaki to owoc morza?","count":22},{"id":"pierogi","name":"Pierogi","group":"Kuchnia","icon":"🥟","prompt":"Jaki to rodzaj pierogów?","count":33},{"id":"piwo","name":"Piwo","group":"Kuchnia","icon":"🍺","prompt":"Jaka to marka lub gatunek piwa?","count":54},{"id":"przekaski","name":"Przekąski","group":"Kuchnia","icon":"🥨","prompt":"Jaka to przekąska?","count":52},{"id":"przyprawy","name":"Przyprawy","group":"Kuchnia","icon":"🌶️","prompt":"Jaka to przyprawa?","count":79},{"id":"slodycze","name":"Słodycze","group":"Kuchnia","icon":"🍬","prompt":"Jaki to słodycz?","count":55},{"id":"warzywa","name":"Warzywa","group":"Kuchnia","icon":"🥕","prompt":"Jaka to roślina warzywna?","count":135},{"id":"wina","name":"Wina","group":"Kuchnia","icon":"🍷","prompt":"Jakie to wino?","count":43},{"id":"wedliny","name":"Wędliny","group":"Kuchnia","icon":"🥓","prompt":"Jaka to wędlina?","count":29},{"id":"zupy","name":"Zupy","group":"Kuchnia","icon":"🍲","prompt":"Jaka to zupa?","count":89},{"id":"drzewa","name":"Drzewa","group":"Przyroda","icon":"🌳","prompt":"Jakie to drzewo?","count":80},{"id":"gady","name":"Gady","group":"Przyroda","icon":"🦎","prompt":"Jaki to gad?","count":69},{"id":"ssaki","name":"Ssaki","group":"Przyroda","icon":"🦌","prompt":"Jaki to ssak?","count":88},{"id":"rasy-golebi","name":"Rasy gołębi","group":"Przyroda","icon":"🕊️","prompt":"Jaka to rasa gołębia?","count":32},{"id":"rasy-koni","name":"Rasy koni","group":"Przyroda","icon":"🐎","prompt":"Jaka to rasa konia?","count":90},{"id":"rasy-kotow","name":"Rasy kotów","group":"Przyroda","icon":"🐈","prompt":"Jaka to rasa kota?","count":64},{"id":"rasy-psow","name":"Rasy psów","group":"Przyroda","icon":"🐕","prompt":"Jaka to rasa psa?","count":150},{"id":"miasta","name":"Miasta","group":"Geografia","icon":"🏙️","prompt":"Jakie to miasto?","count":156},{"id":"flagi-panstw","name":"Kraje","group":"Geografia","icon":"🌍","prompt":"Jaki to kraj?","count":201},{"id":"herby-panstw","name":"Herby państw","group":"Geografia","icon":"🛡️","prompt":"Jakiego państwa to herb?","count":204},{"id":"parki-narodowe","name":"Parki narodowe","group":"Geografia","icon":"🌲","prompt":"Jaki to park narodowy?","count":35},{"id":"zamki","name":"Zamki","group":"Geografia","icon":"🏰","prompt":"Jaki to zamek?","count":90},{"id":"cesarze-rzymscy","name":"Cesarze rzymscy","group":"Historia","icon":"🏛️","prompt":"Jaki to cesarz rzymski?","count":99},{"id":"pomniki","name":"Pomniki","group":"Historia","icon":"🗿","prompt":"Jaki to pomnik?","count":25},{"id":"prezydenci-usa","name":"Prezydenci USA","group":"Historia","icon":"🇺🇸","prompt":"Jaki to prezydent USA?","count":51},{"id":"wladcy-polski","name":"Władcy Polski","group":"Historia","icon":"👑","prompt":"Jaki to władca Polski?","count":69},{"id":"gatunki-muzyczne","name":"Gatunki muzyczne","group":"Muzyka","icon":"🎵","prompt":"Jaki to gatunek muzyczny?","count":30},{"id":"kompozytorzy","name":"Kompozytorzy","group":"Muzyka","icon":"🎼","prompt":"Kto jest na zdjęciu? Podaj imię i nazwisko kompozytora.","count":35},{"id":"tance","name":"Tańce","group":"Muzyka","icon":"💃","prompt":"Jaki to taniec?","count":55},{"id":"pociagi","name":"Pociągi","group":"Technika","icon":"🚆","prompt":"Jaki to pociąg?","count":58},{"id":"roboty","name":"Roboty","group":"Technika","icon":"🤖","prompt":"Jaki to robot?","count":31},{"id":"rowery","name":"Rowery","group":"Technika","icon":"🚲","prompt":"Jaki to rower?","count":64},{"id":"mineraly","name":"Minerały","group":"Nauka","icon":"💎","prompt":"Jaki to minerał? Podaj polską nazwę.","count":32},{"id":"pierwiastki","name":"Pierwiastki chemiczne","group":"Nauka","icon":"🧪","prompt":"Jaki to pierwiastek?","count":84},{"id":"hotele","name":"Hotele","group":"Marki","icon":"🏨","prompt":"Jaki to hotel?","count":63},{"id":"loga-firm","name":"Logotypy znanych marek","group":"Marki","icon":"🏷️","prompt":"Czyj to logotyp?","count":93},{"id":"marki-napojow","name":"Marki napojów","group":"Marki","icon":"🥤","prompt":"Jaka to marka napoju?","count":21},{"id":"marki-odziezowe","name":"Marki odzieżowe","group":"Marki","icon":"👕","prompt":"Jaka to marka odzieży?","count":25},{"id":"sieci-handlowe","name":"Sieci handlowe","group":"Marki","icon":"🛒","prompt":"Jaka to sieć sklepów?","count":84},{"id":"gry-planszowe","name":"Gry planszowe","group":"Zabawa","icon":"🎲","prompt":"Jaka to gra planszowa?","count":54},{"id":"zabawki","name":"Zabawki","group":"Zabawa","icon":"🧸","prompt":"Jaka to zabawka?","count":77},{"id":"zegarki","name":"Zegarki","group":"Inne","icon":"⌚","prompt":"Jaki to zegarek?","count":23},{"id":"aplikacje-internetowe","name":"Aplikacje internetowe","group":"Internet","icon":"📱","prompt":"Jaka to aplikacja lub serwis?","count":80}],"total":3950}
+{
+  "generated": "2026-11-14T23:43:51.168Z",
+  "packs": [
+    {
+      "id": "marki-samochodow",
+      "name": "Marki samochodów",
+      "group": "Motoryzacja",
+      "icon": "🚗",
+      "prompt": "Jaka to marka samochodu?",
+      "count": 80
+    },
+    {
+      "id": "motocykle",
+      "name": "Motocykle",
+      "group": "Motoryzacja",
+      "icon": "🏍️",
+      "prompt": "Jaki to motocykl?",
+      "count": 30
+    },
+    {
+      "id": "samochody",
+      "name": "Samochody",
+      "group": "Motoryzacja",
+      "icon": "🚘",
+      "prompt": "Jaki to model samochodu? Podaj markę i model.",
+      "count": 40
+    },
+    {
+      "id": "samochody-terenowe",
+      "name": "Samochody terenowe",
+      "group": "Motoryzacja",
+      "icon": "🛻",
+      "prompt": "Jaki to samochód terenowy?",
+      "count": 107
+    },
+    {
+      "id": "samochody-wyscigowe",
+      "name": "Samochody wyścigowe",
+      "group": "Motoryzacja",
+      "icon": "🏎️",
+      "prompt": "Jaki to samochód wyścigowy?",
+      "count": 22
+    },
+    {
+      "id": "makaron",
+      "name": "Makaron",
+      "group": "Kuchnia",
+      "icon": "🍝",
+      "prompt": "Jaki to makaron?",
+      "count": 80
+    },
+    {
+      "id": "ciasta-deserowe",
+      "name": "Ciasta deserowe",
+      "group": "Kuchnia",
+      "icon": "🍰",
+      "prompt": "Jaki to wypiek?",
+      "count": 82
+    },
+    {
+      "id": "desery",
+      "name": "Desery",
+      "group": "Kuchnia",
+      "icon": "🍮",
+      "prompt": "Jaki to deser?",
+      "count": 104
+    },
+    {
+      "id": "grzyby-jadalne",
+      "name": "Grzyby jadalne",
+      "group": "Kuchnia",
+      "icon": "🍄",
+      "prompt": "Jaki to grzyb?",
+      "count": 148
+    },
+    {
+      "id": "grzyby-trujace",
+      "name": "Grzyby trujące",
+      "group": "Kuchnia",
+      "icon": "☠️",
+      "prompt": "Jaki to grzyb?",
+      "count": 138
+    },
+    {
+      "id": "herbaty",
+      "name": "Herbaty",
+      "group": "Kuchnia",
+      "icon": "🍵",
+      "prompt": "Jaka to herbata?",
+      "count": 22
+    },
+    {
+      "id": "koktajle",
+      "name": "Koktajle",
+      "group": "Kuchnia",
+      "icon": "🍹",
+      "prompt": "Jaki to koktajl?",
+      "count": 46
+    },
+    {
+      "id": "miesa",
+      "name": "Mięsa i wędliny",
+      "group": "Kuchnia",
+      "icon": "🥩",
+      "prompt": "Jaki to rodzaj mięsa lub wędliny?",
+      "count": 30
+    },
+    {
+      "id": "napoje-bezalkoholowe",
+      "name": "Napoje bezalkoholowe",
+      "group": "Kuchnia",
+      "icon": "🥤",
+      "prompt": "Jaki to napój?",
+      "count": 41
+    },
+    {
+      "id": "owoce-jadalne",
+      "name": "Owoce jadalne",
+      "group": "Kuchnia",
+      "icon": "🍎",
+      "prompt": "Jaki to owoc?",
+      "count": 80
+    },
+    {
+      "id": "owoce-morza",
+      "name": "Owoce morza",
+      "group": "Kuchnia",
+      "icon": "🦐",
+      "prompt": "Jaki to owoc morza?",
+      "count": 22
+    },
+    {
+      "id": "pierogi",
+      "name": "Pierogi",
+      "group": "Kuchnia",
+      "icon": "🥟",
+      "prompt": "Jaki to rodzaj pierogów?",
+      "count": 33
+    },
+    {
+      "id": "piwo",
+      "name": "Piwo",
+      "group": "Kuchnia",
+      "icon": "🍺",
+      "prompt": "Jaka to marka lub gatunek piwa?",
+      "count": 54
+    },
+    {
+      "id": "przekaski",
+      "name": "Przekąski",
+      "group": "Kuchnia",
+      "icon": "🥨",
+      "prompt": "Jaka to przekąska?",
+      "count": 51
+    },
+    {
+      "id": "przyprawy",
+      "name": "Przyprawy",
+      "group": "Kuchnia",
+      "icon": "🌶️",
+      "prompt": "Jaka to przyprawa?",
+      "count": 80
+    },
+    {
+      "id": "slodycze",
+      "name": "Słodycze",
+      "group": "Kuchnia",
+      "icon": "🍬",
+      "prompt": "Jaki to słodycz?",
+      "count": 55
+    },
+    {
+      "id": "warzywa",
+      "name": "Warzywa",
+      "group": "Kuchnia",
+      "icon": "🥕",
+      "prompt": "Jaka to roślina warzywna?",
+      "count": 135
+    },
+    {
+      "id": "wina",
+      "name": "Wina",
+      "group": "Kuchnia",
+      "icon": "🍷",
+      "prompt": "Jakie to wino?",
+      "count": 43
+    },
+    {
+      "id": "wedliny",
+      "name": "Wędliny",
+      "group": "Kuchnia",
+      "icon": "🥓",
+      "prompt": "Jaka to wędlina?",
+      "count": 29
+    },
+    {
+      "id": "zupy",
+      "name": "Zupy",
+      "group": "Kuchnia",
+      "icon": "🍲",
+      "prompt": "Jaka to zupa?",
+      "count": 89
+    },
+    {
+      "id": "drzewa",
+      "name": "Drzewa",
+      "group": "Przyroda",
+      "icon": "🌳",
+      "prompt": "Jakie to drzewo?",
+      "count": 80
+    },
+    {
+      "id": "gady",
+      "name": "Gady",
+      "group": "Przyroda",
+      "icon": "🦎",
+      "prompt": "Jaki to gad?",
+      "count": 80
+    },
+    {
+      "id": "ssaki",
+      "name": "Ssaki",
+      "group": "Przyroda",
+      "icon": "🦌",
+      "prompt": "Jaki to ssak?",
+      "count": 88
+    },
+    {
+      "id": "rasy-golebi",
+      "name": "Rasy gołębi",
+      "group": "Przyroda",
+      "icon": "🕊️",
+      "prompt": "Jaka to rasa gołębia?",
+      "count": 32
+    },
+    {
+      "id": "rasy-koni",
+      "name": "Rasy koni",
+      "group": "Przyroda",
+      "icon": "🐎",
+      "prompt": "Jaka to rasa konia?",
+      "count": 90
+    },
+    {
+      "id": "rasy-kotow",
+      "name": "Rasy kotów",
+      "group": "Przyroda",
+      "icon": "🐈",
+      "prompt": "Jaka to rasa kota?",
+      "count": 64
+    },
+    {
+      "id": "rasy-psow",
+      "name": "Rasy psów",
+      "group": "Przyroda",
+      "icon": "🐕",
+      "prompt": "Jaka to rasa psa?",
+      "count": 150
+    },
+    {
+      "id": "miasta",
+      "name": "Miasta",
+      "group": "Geografia",
+      "icon": "🏙️",
+      "prompt": "Jakie to miasto?",
+      "count": 93
+    },
+    {
+      "id": "flagi-panstw",
+      "name": "Kraje",
+      "group": "Geografia",
+      "icon": "🌍",
+      "prompt": "Jaki to kraj?",
+      "count": 201
+    },
+    {
+      "id": "herby-panstw",
+      "name": "Herby państw",
+      "group": "Geografia",
+      "icon": "🛡️",
+      "prompt": "Jakiego państwa to herb?",
+      "count": 204
+    },
+    {
+      "id": "parki-narodowe",
+      "name": "Parki narodowe",
+      "group": "Geografia",
+      "icon": "🌲",
+      "prompt": "Jaki to park narodowy?",
+      "count": 88
+    },
+    {
+      "id": "zamki",
+      "name": "Zamki",
+      "group": "Geografia",
+      "icon": "🏰",
+      "prompt": "Jaki to zamek?",
+      "count": 90
+    },
+    {
+      "id": "cesarze-rzymscy",
+      "name": "Cesarze rzymscy",
+      "group": "Historia",
+      "icon": "🏛️",
+      "prompt": "Jaki to cesarz rzymski?",
+      "count": 99
+    },
+    {
+      "id": "pomniki",
+      "name": "Pomniki",
+      "group": "Historia",
+      "icon": "🗿",
+      "prompt": "Jaki to pomnik?",
+      "count": 25
+    },
+    {
+      "id": "prezydenci-usa",
+      "name": "Prezydenci USA",
+      "group": "Historia",
+      "icon": "🇺🇸",
+      "prompt": "Jaki to prezydent USA?",
+      "count": 51
+    },
+    {
+      "id": "wladcy-polski",
+      "name": "Władcy Polski",
+      "group": "Historia",
+      "icon": "👑",
+      "prompt": "Jaki to władca Polski?",
+      "count": 69
+    },
+    {
+      "id": "gatunki-muzyczne",
+      "name": "Gatunki muzyczne",
+      "group": "Muzyka",
+      "icon": "🎵",
+      "prompt": "Jaki to gatunek muzyczny?",
+      "count": 30
+    },
+    {
+      "id": "kompozytorzy",
+      "name": "Kompozytorzy",
+      "group": "Muzyka",
+      "icon": "🎼",
+      "prompt": "Kto jest na zdjęciu? Podaj imię i nazwisko kompozytora.",
+      "count": 80
+    },
+    {
+      "id": "tance",
+      "name": "Tańce",
+      "group": "Muzyka",
+      "icon": "💃",
+      "prompt": "Jaki to taniec?",
+      "count": 68
+    },
+    {
+      "id": "pociagi",
+      "name": "Pociągi",
+      "group": "Technika",
+      "icon": "🚆",
+      "prompt": "Jaki to pociąg?",
+      "count": 58
+    },
+    {
+      "id": "roboty",
+      "name": "Roboty",
+      "group": "Technika",
+      "icon": "🤖",
+      "prompt": "Jaki to robot?",
+      "count": 31
+    },
+    {
+      "id": "rowery",
+      "name": "Rowery",
+      "group": "Technika",
+      "icon": "🚲",
+      "prompt": "Jaki to rower?",
+      "count": 64
+    },
+    {
+      "id": "mineraly",
+      "name": "Minerały",
+      "group": "Nauka",
+      "icon": "💎",
+      "prompt": "Jaki to minerał? Podaj polską nazwę.",
+      "count": 32
+    },
+    {
+      "id": "pierwiastki",
+      "name": "Pierwiastki chemiczne",
+      "group": "Nauka",
+      "icon": "🧪",
+      "prompt": "Jaki to pierwiastek?",
+      "count": 84
+    },
+    {
+      "id": "hotele",
+      "name": "Hotele",
+      "group": "Marki",
+      "icon": "🏨",
+      "prompt": "Jaki to hotel?",
+      "count": 59
+    },
+    {
+      "id": "loga-firm",
+      "name": "Logotypy znanych marek",
+      "group": "Marki",
+      "icon": "🏷️",
+      "prompt": "Czyj to logotyp?",
+      "count": 93
+    },
+    {
+      "id": "marki-napojow",
+      "name": "Marki napojów",
+      "group": "Marki",
+      "icon": "🥤",
+      "prompt": "Jaka to marka napoju?",
+      "count": 21
+    },
+    {
+      "id": "marki-odziezowe",
+      "name": "Marki odzieżowe",
+      "group": "Marki",
+      "icon": "👕",
+      "prompt": "Jaka to marka odzieży?",
+      "count": 25
+    },
+    {
+      "id": "sieci-handlowe",
+      "name": "Sieci handlowe",
+      "group": "Marki",
+      "icon": "🛒",
+      "prompt": "Jaka to sieć sklepów?",
+      "count": 84
+    },
+    {
+      "id": "gry-planszowe",
+      "name": "Gry planszowe",
+      "group": "Zabawa",
+      "icon": "🎲",
+      "prompt": "Jaka to gra planszowa?",
+      "count": 54
+    },
+    {
+      "id": "zabawki",
+      "name": "Zabawki",
+      "group": "Zabawa",
+      "icon": "🧸",
+      "prompt": "Jaka to zabawka?",
+      "count": 80
+    },
+    {
+      "id": "zegarki",
+      "name": "Zegarki",
+      "group": "Inne",
+      "icon": "⌚",
+      "prompt": "Jaki to zegarek?",
+      "count": 23
+    },
+    {
+      "id": "aplikacje-internetowe",
+      "name": "Aplikacje internetowe",
+      "group": "Internet",
+      "icon": "📱",
+      "prompt": "Jaka to aplikacja lub serwis?",
+      "count": 80
+    }
+  ],
+  "total": 3950
+}

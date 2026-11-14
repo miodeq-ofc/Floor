@@ -24,7 +24,7 @@ import {
 } from './game.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
-const BLUR_PACKS = new Set(['loga-firm']);
+const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow']);
 
 const SETTINGS_KEY = 'floor:settings';
 const H = {
@@ -124,6 +124,7 @@ function cacheEls() {
   els.btnOk = $('#btn-ok');
   els.btnPass = $('#btn-pass');
   els.duelPrompt = $('#duel-host-prompt');
+  els.duelHint = $('#duel-host-hint');
   els.overlay = $('#overlay');
   els.overlayCard = $('#overlay-card');
   els.phaseKicker = $('#phase-kicker');
@@ -1135,8 +1136,13 @@ function renderDuelCard() {
   if (!q) {
     els.duelImg.hidden = true;
     els.duelLoading.hidden = false;
+    els.duelHint.hidden = true;
     els.duelAnswer.textContent = '—';
     return;
+  }
+  if (els.duelHint) {
+    els.duelHint.textContent = q.hint || '';
+    els.duelHint.hidden = !q.hint;
   }
   if (els.duelImg.dataset.key !== q.img) {
     els.duelImg.dataset.key = q.img;
@@ -1346,7 +1352,7 @@ function publicState() {
           challengerId: d.challengerId,
           defenderId: d.defenderId,
           category: { id: d.category.id, name: d.category.name, icon: d.category.icon, prompt: d.category.prompt },
-          q: d.q ? { img: d.q.img } : null,
+          q: d.q ? { img: d.q.img, hint: d.q.hint || '' } : null,
           active: d.active,
           clocks: { ...d.clocks },
           deadline: d.deadline,

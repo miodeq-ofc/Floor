@@ -8,59 +8,59 @@
   "items": [
     {
       "a": "Ludwig van Beethoven",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Beethoven.jpg/960px-Beethoven.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beethoven.jpg"
     },
     {
       "a": "Wolfgang Amadeus Mozart",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg/960px-The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg"
     },
     {
       "a": "Fryderyk Chopin",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Frederic_Chopin_photo.jpeg/960px-Frederic_Chopin_photo.jpeg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Frederic_Chopin_photo.jpeg"
     },
     {
       "a": "Johann Sebastian Bach",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Johann_Sebastian_Bach.png/960px-Johann_Sebastian_Bach.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Johann_Sebastian_Bach.png"
     },
     {
       "a": "Antonio Vivaldi",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Onbekend_-_Antonio_Vivaldi_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-050.jpg/960px-Onbekend_-_Antonio_Vivaldi_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-050.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/40/Onbekend_-_Antonio_Vivaldi_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-050.jpg"
     },
     {
       "a": "Piotr Czajkowski",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Tchaikovsky_by_Reutlinger_%28cropped%29.jpg/960px-Tchaikovsky_by_Reutlinger_%28cropped%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/20/Tchaikovsky_by_Reutlinger_%28cropped%29.jpg"
     },
     {
       "a": "Johannes Brahms",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/JohannesBrahms.jpg/960px-JohannesBrahms.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/15/JohannesBrahms.jpg"
     },
     {
       "a": "Franz Schubert",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Franz_Schubert.jpg/960px-Franz_Schubert.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/24/Franz_Schubert.jpg"
     },
     {
       "a": "Georg Friedrich Händel",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/George_Frideric_Handel_by_Balthasar_Denner.jpg/960px-George_Frideric_Handel_by_Balthasar_Denner.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fa/George_Frideric_Handel_by_Balthasar_Denner.jpg"
     },
     {
       "a": "Joseph Haydn",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Joseph_Haydn.jpg/960px-Joseph_Haydn.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Joseph_Haydn.jpg"
     },
     {
       "a": "Gustav Mahler",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Gustav_Mahler_1909.jpg/960px-Gustav_Mahler_1909.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Gustav_Mahler_1909.jpg"
     },
     {
       "a": "Claude Debussy",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Claude_Debussy_ca_1908%2C_foto_av_F%C3%A9lix_Nadar.jpg/960px-Claude_Debussy_ca_1908%2C_foto_av_F%C3%A9lix_Nadar.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Claude_Debussy_ca_1908%2C_foto_av_F%C3%A9lix_Nadar.jpg"
     },
     {
       "a": "Maurice Ravel",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Maurice_Ravel_1925.jpg/960px-Maurice_Ravel_1925.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/78/Maurice_Ravel_1925.jpg"
     },
     {
       "a": "Siergiej Rachmaninow",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Sergei_Rachmaninoff%2C_pianist_%28SAYRE_1608%29_%28restored%29.jpg/960px-Sergei_Rachmaninoff%2C_pianist_%28SAYRE_1608%29_%28restored%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/18/Sergei_Rachmaninoff%2C_pianist_%28SAYRE_1608%29_%28restored%29.jpg"
     },
     {
       "a": "Edvard Grieg",
@@ -72,11 +72,11 @@
     },
     {
       "a": "Felix Mendelssohn-Bartholdy",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Felix_Mendelssohn_Bartholdy_by_Eduard_Magnus_%281833%29.jpg/960px-Felix_Mendelssohn_Bartholdy_by_Eduard_Magnus_%281833%29.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Felix_Mendelssohn_Bartholdy_by_Eduard_Magnus_%281833%29.jpg"
     },
     {
       "a": "Igor Strawiński",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Igor_Stravinsky_LOC_32392u.jpg/960px-Igor_Stravinsky_LOC_32392u.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/Igor_Stravinsky_LOC_32392u.jpg"
     },
     {
       "a": "Dmitrij Szostakowicz",
@@ -84,7 +84,7 @@
     },
     {
       "a": "Siergiej Prokofjew",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Sergei_Prokofiev_circa_1918_over_Chair_Bain.jpg/960px-Sergei_Prokofiev_circa_1918_over_Chair_Bain.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/Sergei_Prokofiev_circa_1918_over_Chair_Bain.jpg"
     },
     {
       "a": "Jean Sibelius",
@@ -92,15 +92,15 @@
     },
     {
       "a": "Krzysztof Penderecki",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Krzysztof_Penderecki_20080706.jpg/960px-Krzysztof_Penderecki_20080706.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/66/Krzysztof_Penderecki_20080706.jpg"
     },
     {
       "a": "Henryk Mikołaj Górecki",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Henryk_Miko%C5%82aj_G%C3%B3recki_Polish_composer.jpg/960px-Henryk_Miko%C5%82aj_G%C3%B3recki_Polish_composer.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Henryk_Miko%C5%82aj_G%C3%B3recki_Polish_composer.jpg"
     },
     {
       "a": "Wojciech Kilar",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Wojciech_Kilar_2.jpg/960px-Wojciech_Kilar_2.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/60/Wojciech_Kilar_2.jpg"
     },
     {
       "a": "Stanisław Moniuszko",
@@ -128,23 +128,248 @@
     },
     {
       "a": "Antonín Dvořák",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Dvorak.jpg/960px-Dvorak.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/12/Dvorak.jpg"
     },
     {
       "a": "Camille Saint-Saëns",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/SaintSaens.jpg/960px-SaintSaens.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/69/SaintSaens.jpg"
     },
     {
       "a": "Georges Bizet",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Georges_bizet.jpg/960px-Georges_bizet.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Georges_bizet.jpg"
     },
     {
       "a": "Giuseppe Verdi",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Giuseppe_Verdi_by_Ferdinand_Mulnier_BW.jpg/960px-Giuseppe_Verdi_by_Ferdinand_Mulnier_BW.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Giuseppe_Verdi_by_Ferdinand_Mulnier_BW.jpg"
     },
     {
       "a": "Richard Wagner",
-      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/RichardWagner.jpg/960px-RichardWagner.jpg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9d/RichardWagner.jpg"
+    },
+    {
+      "a": "Antonio Salieri",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/07/Antonio_Salieri_painted_by_Joseph_Willibrord_M%C3%A4hler.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Gioachino Rossini",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/Composer_Rossini_G_1865_by_Carjat.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Gaetano Donizetti",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Gaetano_Donizetti_%28portrait_by_Giuseppe_Rillosi%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Vincenzo Bellini",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Vincenzo_bellini.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Giacomo Puccini",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/49/Puccini1908.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Henry Purcell",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/df/Henry_Purcell_Closterman.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Christoph Willibald Gluck",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Joseph_Siffred_Duplessis_-_Christoph_Willibald_Gluck_-_Google_Art_Project.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Carl Philipp Emanuel Bach",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Carl_Philipp_Emanuel_Bach.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Johann Christian Bach",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/45/Johann_Christian_Bach_by_Thomas_Gainsborough.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Robert Schumann",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Robert_Schumann.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Anton Bruckner",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Joseph_Anton_Bruckner_%281868%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Bedřich Smetana",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/74/FriedrichSmetana.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Leoš Janáček",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Leo%C5%A1_Jan%C3%A1%C4%8Dek_el_1914.png",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Béla Bartók",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Bart%C3%B3k_B%C3%A9la_1927_%28cropped%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Zoltán Kodály",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Zolt%C3%A1n_Kod%C3%A1ly_%281928%2C_P%C3%A1l_M._Vajda%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Heitor Villa-Lobos",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Heitor_Villa-Lobos_%28c._1922%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Aaron Copland",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Aaron_Copland_1970.JPG",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Leonard Bernstein",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/11/Leonard_Bernstein_by_Jack_Mitchell_%28high_quality%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "George Gershwin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/George_Gershwin_1937.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Benjamin Britten",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/Benjamin_Britten%2C_London_Records_1968_publicity_photo_for_Wikipedia.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Edward Elgar",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Edward_Elgar_1857_-_1934.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Ralph Vaughan Williams",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Ralph_Vaughan_Williams_1913.jpeg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Carl Nielsen",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/59/Carl_Nielsen_1931.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Jean-Philippe Rameau",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/98/Attribu%C3%A9_%C3%A0_Joseph_Aved%2C_Portrait_de_Jean-Philippe_Rameau_%28vers_1728%29_-_001.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "François Couperin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/54/Fran%C3%A7ois_Couperin.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Erik Satie",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Marcellin_Desboutin_-_Portrait_Erik_Satie.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Gabriel Fauré",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/de/Gabriel_Faure.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Hector Berlioz",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Hector-berlioz-135.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Modest Musorgski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/db/Modest_Musorgskiy%2C_1870.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Nikołaj Rimski-Korsakow",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Nikolay_A_Rimsky_Korsakov_1897.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Aleksandr Borodin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/70/Borodin.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Michaił Glinka",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/Michail_Ivanovi%C4%8D_Glinka.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Aram Chaczaturian",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/37/Aram_Khachaturian_1971.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Karol Szymanowski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Karol_Szymanowski.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Witold Lutosławski",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Lutoslawski3.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Grażyna Bacewicz",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Grazyna_bacewicz.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Krzysztof Komeda",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/39/Krzysztof_Komeda_by_Zbigniew_Kresowaty_2.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "John Cage",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/23/John_Cage_%281988%29.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Philip Glass",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Philip_Glass_in_Florence%2C_Italy_-_1993.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Steve Reich",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Steve_Reich2.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Ennio Morricone",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Ennio_Morricone_Cannes_2007.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Danny Elfman",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e9/DANNY_ELFMAN_2022.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Howard Shore",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Howard_Shore%2C_Canadian_Film_Centre%2C_2013-1.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Alexandre Desplat",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/86/AlexandreDesplat-gros-plan.jpg",
+      "q": "Jaki to kompozytor?"
+    },
+    {
+      "a": "Michael Giacchino",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Michael_Giacchino_Sep_2017.jpg",
+      "q": "Jaki to kompozytor?"
     }
   ]
 }

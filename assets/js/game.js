@@ -1,5 +1,8 @@
 // Wspólne helpery planszy i pojedynków.
-export const COLORS = ['#f6c453', '#63a4ff', '#2fd67c', '#ff7a90', '#b18cff', '#ffa94d', '#4dd6c1', '#f06bd4'];
+// Kolory graczy muszą być rozróżnialne również na małych kafelkach.
+// Gracz 1 (złoto) i 6 (róż/magenta) oraz gracz 3 (zieleń) i 7 (cyjan)
+// miały wcześniej zbyt podobne odcienie.
+export const COLORS = ['#f6c453', '#63a4ff', '#2fd67c', '#ff6b6b', '#b18cff', '#ec4899', '#22d3ee', '#cbd5e1'];
 
 // Kategorie z pytaniami o konkretne modele sprzętu odpadają z planszy —
 // w teleturnieju pytania są o rozpoznawalne rzeczy, nie o model telefonu.

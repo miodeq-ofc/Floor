@@ -1,122 +1,336 @@
 {
-  "id": "marki-samochodow",
+  "items": [
+    {
+      "a": "Volkswagen",
+      "img": "assets/packs/marki-samochodow/volkswagen.jpg"
+    },
+    {
+      "a": "Skoda",
+      "img": "assets/packs/marki-samochodow/skoda.jpg"
+    },
+    {
+      "a": "Ford",
+      "img": "assets/packs/marki-samochodow/ford.jpg"
+    },
+    {
+      "a": "Opel",
+      "img": "assets/packs/marki-samochodow/opel.jpg"
+    },
+    {
+      "a": "Renault",
+      "img": "assets/packs/marki-samochodow/renault.jpg"
+    },
+    {
+      "a": "Fiat",
+      "img": "assets/packs/marki-samochodow/fiat.jpg"
+    },
+    {
+      "a": "Peugeot",
+      "img": "assets/packs/marki-samochodow/peugeot.jpg"
+    },
+    {
+      "a": "Citroën",
+      "img": "assets/packs/marki-samochodow/citroen.jpg"
+    },
+    {
+      "a": "BMW",
+      "img": "assets/packs/marki-samochodow/bmw.jpg"
+    },
+    {
+      "a": "Audi",
+      "img": "assets/packs/marki-samochodow/audi.jpg"
+    },
+    {
+      "a": "Kia",
+      "img": "assets/packs/marki-samochodow/kia.jpg"
+    },
+    {
+      "a": "Hyundai",
+      "img": "assets/packs/marki-samochodow/hyundai.jpg"
+    },
+    {
+      "a": "Dacia",
+      "img": "assets/packs/marki-samochodow/dacia.jpg"
+    },
+    {
+      "a": "SEAT",
+      "img": "assets/packs/marki-samochodow/seat.jpg"
+    },
+    {
+      "a": "Volvo",
+      "img": "assets/packs/marki-samochodow/volvo.jpg"
+    },
+    {
+      "a": "Honda",
+      "img": "assets/packs/marki-samochodow/honda.jpg"
+    },
+    {
+      "a": "Nissan",
+      "img": "assets/packs/marki-samochodow/nissan.jpg"
+    },
+    {
+      "a": "Mazda",
+      "img": "assets/packs/marki-samochodow/mazda.jpg"
+    },
+    {
+      "a": "Suzuki",
+      "img": "assets/packs/marki-samochodow/suzuki.jpg"
+    },
+    {
+      "a": "Tesla",
+      "img": "assets/packs/marki-samochodow/tesla.jpg"
+    },
+    {
+      "a": "Cupra",
+      "img": "assets/packs/marki-samochodow/cupra.jpg"
+    },
+    {
+      "a": "Jeep",
+      "img": "assets/packs/marki-samochodow/jeep.jpg"
+    },
+    {
+      "a": "Mitsubishi",
+      "img": "assets/packs/marki-samochodow/mitsubishi.jpg"
+    },
+    {
+      "a": "Lexus",
+      "img": "assets/packs/marki-samochodow/lexus.jpg"
+    },
+    {
+      "a": "Mini",
+      "img": "assets/packs/marki-samochodow/mini.jpg"
+    },
+    {
+      "a": "Land Rover",
+      "img": "assets/packs/marki-samochodow/land-rover.jpg"
+    },
+    {
+      "a": "Porsche",
+      "img": "assets/packs/marki-samochodow/porsche.jpg"
+    },
+    {
+      "a": "Alfa Romeo",
+      "img": "assets/packs/marki-samochodow/alfa-romeo.jpg"
+    },
+    {
+      "a": "Toyota",
+      "img": "assets/packs/marki-samochodow/toyota.jpg"
+    },
+    {
+      "a": "Aston Martin",
+      "img": "assets/packs/marki-samochodow/aston-martin.jpg"
+    },
+    {
+      "a": "Mercedes-Benz",
+      "img": "assets/packs/marki-samochodow/mercedes-benz.jpg"
+    },
+    {
+      "a": "Dodge",
+      "img": "assets/packs/marki-samochodow/dodge.jpg"
+    },
+    {
+      "a": "Chevrolet",
+      "img": "assets/packs/marki-samochodow/chevrolet.jpg"
+    },
+    {
+      "a": "Chrysler",
+      "img": "assets/packs/marki-samochodow/chrysler.jpg"
+    },
+    {
+      "a": "Jaguar",
+      "img": "assets/packs/marki-samochodow/jaguar.jpg"
+    },
+    {
+      "a": "Bentley",
+      "img": "assets/packs/marki-samochodow/bentley.jpg"
+    },
+    {
+      "a": "Bugatti",
+      "img": "assets/packs/marki-samochodow/bugatti-veyron.jpg"
+    },
+    {
+      "a": "Subaru",
+      "img": "assets/packs/marki-samochodow/subaru.jpg"
+    },
+    {
+      "a": "Genesis",
+      "img": "assets/packs/marki-samochodow/genesis.jpg"
+    },
+    {
+      "a": "Infiniti",
+      "img": "assets/packs/marki-samochodow/infiniti.jpg"
+    },
+    {
+      "a": "Lancia",
+      "img": "assets/packs/marki-samochodow/lancia.jpg"
+    },
+    {
+      "a": "Smart",
+      "img": "assets/packs/marki-samochodow/smart.jpg"
+    },
+    {
+      "a": "Proton",
+      "img": "assets/packs/marki-samochodow/proton.jpg"
+    },
+    {
+      "a": "Holden",
+      "img": "assets/packs/marki-samochodow/holden.jpg"
+    },
+    {
+      "a": "Pontiac",
+      "img": "assets/packs/marki-samochodow/pontiac.jpg"
+    },
+    {
+      "a": "Buick",
+      "img": "assets/packs/marki-samochodow/buick.jpg"
+    },
+    {
+      "a": "GMC",
+      "img": "assets/packs/marki-samochodow/gmc.jpg"
+    },
+    {
+      "a": "Plymouth",
+      "img": "assets/packs/marki-samochodow/plymouth.jpg"
+    },
+    {
+      "a": "Wartburg",
+      "img": "assets/packs/marki-samochodow/wartburg.jpg"
+    },
+    {
+      "a": "Trabant",
+      "img": "assets/packs/marki-samochodow/trabant.jpg"
+    },
+    {
+      "a": "FSO",
+      "img": "assets/packs/marki-samochodow/fso.jpg"
+    },
+    {
+      "a": "Isuzu",
+      "img": "assets/packs/marki-samochodow/isuzu.jpg"
+    },
+    {
+      "a": "Daihatsu",
+      "img": "assets/packs/marki-samochodow/daihatsu.jpg"
+    },
+    {
+      "a": "Lada",
+      "img": "assets/packs/marki-samochodow/lada.jpg"
+    },
+    {
+      "a": "Moskwicz",
+      "img": "assets/packs/marki-samochodow/moskwicz.jpg"
+    },
+    {
+      "a": "UAZ",
+      "img": "assets/packs/marki-samochodow/uaz.jpg"
+    },
+    {
+      "a": "GAZ",
+      "img": "assets/packs/marki-samochodow/gaz-tigr.jpg"
+    },
+    {
+      "a": "Lamborghini",
+      "img": "assets/packs/marki-samochodow/lamborghini.jpg"
+    },
+    {
+      "a": "Maserati",
+      "img": "assets/packs/marki-samochodow/maserati-tipo.jpg"
+    },
+    {
+      "a": "Ferrari",
+      "img": "assets/packs/marki-samochodow/ferrari.jpg"
+    },
+    {
+      "a": "Rover",
+      "img": "assets/packs/marki-samochodow/rover.jpg"
+    },
+    {
+      "a": "Polestar",
+      "img": "assets/packs/marki-samochodow/polestar.jpg"
+    },
+    {
+      "a": "Tata",
+      "img": "assets/packs/marki-samochodow/tata.jpg"
+    },
+    {
+      "a": "Mahindra",
+      "img": "assets/packs/marki-samochodow/mahindra.jpg"
+    },
+    {
+      "a": "Warszawa",
+      "img": "assets/packs/marki-samochodow/warszawa.jpg"
+    },
+    {
+      "a": "Yugo",
+      "img": "assets/packs/marki-samochodow/yugo.jpg"
+    },
+    {
+      "a": "Alpine",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Alpine_A310.jpg"
+    },
+    {
+      "a": "Abarth",
+      "img": "assets/packs/marki-samochodow/abarth.jpg"
+    },
+    {
+      "a": "Lotus",
+      "img": "assets/packs/marki-samochodow/lotus.jpg"
+    },
+    {
+      "a": "Morgan",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Morgan_Jap%2CBj.1932.jpg"
+    },
+    {
+      "a": "Vauxhall",
+      "img": "assets/packs/marki-samochodow/vauxhall.jpg"
+    },
+    {
+      "a": "SsangYong",
+      "img": "assets/packs/marki-samochodow/ssangyong.jpg"
+    },
+    {
+      "a": "BYD",
+      "img": "assets/packs/marki-samochodow/byd.jpg"
+    },
+    {
+      "a": "McLaren",
+      "img": "assets/packs/marki-samochodow/mclaren.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Koenigsegg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/White_Koenigsegg_CCGT_Goodwood_2007.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Ascari",
+      "img": "assets/packs/marki-samochodow/ascari.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Panoz",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Panoz_GTR1.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Gumpert",
+      "img": "assets/packs/marki-samochodow/gumpert.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Dauer",
+      "img": "assets/packs/marki-samochodow/dauer.jpg",
+      "q": "Jaka to marka samochodu?"
+    },
+    {
+      "a": "Rolls-Royce",
+      "img": "assets/packs/marki-samochodow/rolls-royce-phantom.jpg",
+      "q": "Jaka to marka samochodu?"
+    }
+  ],
   "name": "Marki samochodów",
   "group": "Motoryzacja",
   "icon": "🚗",
   "prompt": "Jaka to marka samochodu?",
-  "source": "Kategoria:Marki samochodów",
-  "items": [
-    {
-      "a": "Volkswagen",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2020_Volkswagen_Golf_Style_1.5_Front.jpg/960px-2020_Volkswagen_Golf_Style_1.5_Front.jpg"
-    },
-    {
-      "a": "Skoda",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Skoda_Octavia_IV_liftback_%28cropped%29.jpg/960px-Skoda_Octavia_IV_liftback_%28cropped%29.jpg"
-    },
-    {
-      "a": "Ford",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2018_Ford_Focus_ST-Line_X_1.0.jpg/960px-2018_Ford_Focus_ST-Line_X_1.0.jpg"
-    },
-    {
-      "a": "Opel",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Opel_Astra_1.2_Turbo_Ultimate_%28L%29_%E2%80%93_f_13122024.jpg/960px-Opel_Astra_1.2_Turbo_Ultimate_%28L%29_%E2%80%93_f_13122024.jpg"
-    },
-    {
-      "a": "Renault",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Renault_Clio_%28V%2C_Facelift%29_%E2%80%93_f_02092025.jpg/960px-Renault_Clio_%28V%2C_Facelift%29_%E2%80%93_f_02092025.jpg"
-    },
-    {
-      "a": "Fiat",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/1970_Fiat_500_L_--_2011_DC_1.jpg/960px-1970_Fiat_500_L_--_2011_DC_1.jpg"
-    },
-    {
-      "a": "Peugeot",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Peugeot_208_PureTech_130_EAT8_Allure_GT-Line_%28II%29_%E2%80%93_f_17102021.jpg/960px-Peugeot_208_PureTech_130_EAT8_Allure_GT-Line_%28II%29_%E2%80%93_f_17102021.jpg"
-    },
-    {
-      "a": "Citroën",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Citro%C3%ABn_C3_Hybrid_110_%C3%AB-DSC6_Max_%28IV%29_%E2%80%93_f_05042026.jpg/960px-Citro%C3%ABn_C3_Hybrid_110_%C3%AB-DSC6_Max_%28IV%29_%E2%80%93_f_05042026.jpg"
-    },
-    {
-      "a": "BMW",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/BMW_G20_%282022%29_IMG_7316_%282%29.jpg/960px-BMW_G20_%282022%29_IMG_7316_%282%29.jpg"
-    },
-    {
-      "a": "Audi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Audi_A4_B9_sedans_%28FL%29_1X7A2441.jpg/960px-Audi_A4_B9_sedans_%28FL%29_1X7A2441.jpg"
-    },
-    {
-      "a": "Kia",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2025_Kia_Sportage_S_front_only.jpg/960px-2025_Kia_Sportage_S_front_only.jpg"
-    },
-    {
-      "a": "Hyundai",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Hyundai_Tucson_1.6_T-GDI_PHEV_Prime_%28IV%29_%E2%80%93_f_05072025.jpg/960px-Hyundai_Tucson_1.6_T-GDI_PHEV_Prime_%28IV%29_%E2%80%93_f_05072025.jpg"
-    },
-    {
-      "a": "Dacia",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Dacia_Duster_TCe_130_Extreme_%28III%29_%E2%80%93_f_13102024.jpg/960px-Dacia_Duster_TCe_130_Extreme_%28III%29_%E2%80%93_f_13102024.jpg"
-    },
-    {
-      "a": "SEAT",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/2020_SEAT_Leon_FR_TSi_Evo_1.5_Front.jpg/960px-2020_SEAT_Leon_FR_TSi_Evo_1.5_Front.jpg"
-    },
-    {
-      "a": "Volvo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/2018_Volvo_XC60_R-Design_D5_P-Pulse_2.0_Front.jpg/960px-2018_Volvo_XC60_R-Design_D5_P-Pulse_2.0_Front.jpg"
-    },
-    {
-      "a": "Honda",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg/960px-Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg"
-    },
-    {
-      "a": "Nissan",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/2024_Nissan_Qashqai_e-Power_IMG_2187.jpg/960px-2024_Nissan_Qashqai_e-Power_IMG_2187.jpg"
-    },
-    {
-      "a": "Mazda",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mazda3_SKYACTIV-G.jpg/960px-Mazda3_SKYACTIV-G.jpg"
-    },
-    {
-      "a": "Suzuki",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Suzuki_Swift_%282024%29_hybrid_DSC_6076.jpg/960px-Suzuki_Swift_%282024%29_hybrid_DSC_6076.jpg"
-    },
-    {
-      "a": "Tesla",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Tesla_Model_3_%282023%29_Autofr%C3%BChling_Ulm_IMG_9282.jpg/960px-Tesla_Model_3_%282023%29_Autofr%C3%BChling_Ulm_IMG_9282.jpg"
-    },
-    {
-      "a": "Cupra",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cupra_Formentor_IMG_9668.jpg/960px-Cupra_Formentor_IMG_9668.jpg"
-    },
-    {
-      "a": "Jeep",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Jeep_Renegade_1.6_MultiJet_2WD_Longitude_%E2%80%93_Frontansicht%2C_9._November_2014%2C_D%C3%BCsseldorf.jpg/960px-Jeep_Renegade_1.6_MultiJet_2WD_Longitude_%E2%80%93_Frontansicht%2C_9._November_2014%2C_D%C3%BCsseldorf.jpg"
-    },
-    {
-      "a": "Mitsubishi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/2025_Mitsubishi_Outlander_PHEV_%28fourth_generation%29_IMG_3129.jpg/960px-2025_Mitsubishi_Outlander_PHEV_%28fourth_generation%29_IMG_3129.jpg"
-    },
-    {
-      "a": "Lexus",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lexus_RX_500h_F_SPORT%2B_%28V%29_%E2%80%93_f_14072024.jpg/960px-Lexus_RX_500h_F_SPORT%2B_%28V%29_%E2%80%93_f_14072024.jpg"
-    },
-    {
-      "a": "Mini",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mini_Hatch_%28J01%29_Ditzingen_Mobil_IMG_9772_%28cropped%29.jpg/960px-Mini_Hatch_%28J01%29_Ditzingen_Mobil_IMG_9772_%28cropped%29.jpg"
-    },
-    {
-      "a": "Land Rover",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/2015_Land_Rover_Defender_%28L316_MY15%29_90_3-door_wagon_%282015-10-24%29_01.jpg/960px-2015_Land_Rover_Defender_%28L316_MY15%29_90_3-door_wagon_%282015-10-24%29_01.jpg"
-    },
-    {
-      "a": "Porsche",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg/960px-Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg"
-    },
-    {
-      "a": "Alfa Romeo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/1960_Alfa_Romeo_Giulietta_Berlina_Normale_%282nd_series%29_fR.jpg/960px-1960_Alfa_Romeo_Giulietta_Berlina_Normale_%282nd_series%29_fR.jpg"
-    }
-  ]
+  "source": "Commons — ręczna lista, zdjęcia lokalne"
 }

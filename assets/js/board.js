@@ -4,7 +4,7 @@ import { Sound } from './sound.js';
 import { preloadImages, setImageWithFallback } from './images.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
-const BLUR_PACKS = new Set(['loga-firm']);
+const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow']);
 
 const B = {
   state: null,
@@ -61,6 +61,8 @@ function cache() {
   els.overlay = $('#board-overlay');
   els.overlayCard = $('#board-overlay-card');
   els.waiting = $('#waiting-card');
+  els.setup = $('#board-setup');
+  els.clue = $('#duel-clue');
 }
 
 function updateSoundButton() {
@@ -227,6 +229,10 @@ function renderBoard() {
     });
   }
 
+  const setupMode = s.phase === 'setup' && !s.tiles.length;
+  els.setup.hidden = !setupMode;
+  if (setupMode) renderSetupPlayers(s);
+
   if (s.phase === 'setup') {
     els.caption.textContent = 'Prowadzący ustawia grę…';
   } else if (s.phase === 'board') {
@@ -248,6 +254,35 @@ function renderBoard() {
   }
   renderLegend();
   renderConquest();
+}
+
+function renderSetupPlayers(s) {
+  els.setup.innerHTML = '';
+  const kicker = document.createElement('div');
+  kicker.className = 'board-setup-kicker';
+  kicker.textContent = 'USTAWIENIE GRY';
+  const title = document.createElement('h2');
+  title.className = 'board-setup-title';
+  title.textContent = 'GRACZE';
+  const sub = document.createElement('p');
+  sub.className = 'board-setup-sub';
+  sub.textContent = 'Prowadzący wybiera zawodników. Plansza pojawi się tutaj po wylosowaniu pól.';
+  const grid = document.createElement('div');
+  grid.className = 'board-setup-players';
+  s.players.forEach((player, index) => {
+    const card = document.createElement('div');
+    card.className = 'board-setup-player';
+    card.style.setProperty('--pc', player.color);
+    const dot = document.createElement('div');
+    dot.className = 'board-setup-dot';
+    const name = document.createElement('b');
+    name.textContent = player.name || 'Gracz ' + (index + 1);
+    const role = document.createElement('span');
+    role.textContent = 'Gracz ' + (index + 1);
+    card.append(dot, name, role);
+    grid.appendChild(card);
+  });
+  els.setup.append(kicker, title, sub, grid);
 }
 
 function groupState(s) {
@@ -304,6 +339,7 @@ function renderDuel() {
   if (!d.q) {
     els.image.hidden = true;
     els.loading.hidden = false;
+    if (els.clue) els.clue.hidden = true;
   } else if (els.image.dataset.key !== d.q.img) {
     els.image.dataset.key = d.q.img;
     els.image.hidden = true;
@@ -315,6 +351,10 @@ function renderDuel() {
       els.loading.hidden = true;
       els.image.hidden = !ok;
     });
+  }
+  if (els.clue) {
+    els.clue.textContent = d.q.hint || '';
+    els.clue.hidden = !d.q.hint;
   }
   const isLogo = LOGO_PACKS.has(d.category.id);
   const blur = BLUR_PACKS.has(d.category.id) && s.logoBlur;
@@ -502,7 +542,12 @@ function tick() {
   if (s?.duel) {
     const reveal = s.duel.reveal;
     els.banner.classList.toggle('hidden', !reveal?.answer);
-    if (reveal?.answer) els.bannerText.textContent = reveal.answer;
+    if (reveal?.answer) {
+      els.bannerText.textContent = reveal.answer;
+      // Typ musi się aktualizować także w ticku: inaczej po DOBRZE kolejny
+      // PASS potrafił zostać zielony, bo zmieniał się tylko tekst.
+      els.banner.dataset.type = reveal.type || 'pass';
+    }
   }
 }
 

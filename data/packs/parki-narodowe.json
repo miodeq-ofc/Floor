@@ -1,150 +1,361 @@
 {
-  "id": "parki-narodowe",
+  "items": [
+    {
+      "a": "Park Narodowy Banff",
+      "img": "assets/packs/parki-narodowe/park-narodowy-banff.jpg"
+    },
+    {
+      "a": "Park Narodowy Jasper",
+      "img": "assets/packs/parki-narodowe/park-narodowy-jasper.jpg"
+    },
+    {
+      "a": "Park Narodowy Lake District",
+      "img": "assets/packs/parki-narodowe/park-narodowy-lake-district.jpg"
+    },
+    {
+      "a": "Park Narodowy Redwood",
+      "img": "assets/packs/parki-narodowe/park-narodowy-redwood.jpg"
+    },
+    {
+      "a": "Park Narodowy Badlands",
+      "img": "assets/packs/parki-narodowe/park-narodowy-badlands.jpg"
+    },
+    {
+      "a": "Park Narodowy Carlsbad Caverns",
+      "img": "assets/packs/parki-narodowe/park-narodowy-carlsbad-caverns.jpg"
+    },
+    {
+      "a": "Park Narodowy Serengeti",
+      "img": "assets/packs/parki-narodowe/park-narodowy-serengeti.jpg"
+    },
+    {
+      "a": "Park Narodowy Yellowstone",
+      "img": "assets/packs/parki-narodowe/park-narodowy-yellowstone.jpg"
+    },
+    {
+      "a": "Park Narodowy Paklenica",
+      "img": "assets/packs/parki-narodowe/park-narodowy-paklenica.jpg"
+    },
+    {
+      "a": "Park Narodowy Gór Skalistych",
+      "img": "assets/packs/parki-narodowe/park-narodowy-gor-skalistych.jpg"
+    },
+    {
+      "a": "Park Narodowy Mount Rainier",
+      "img": "assets/packs/parki-narodowe/park-narodowy-mount-rainier.jpg"
+    },
+    {
+      "a": "Park Narodowy Grand Teton",
+      "img": "assets/packs/parki-narodowe/park-narodowy-grand-teton.jpg"
+    },
+    {
+      "a": "Park Narodowy Krka",
+      "img": "assets/packs/parki-narodowe/park-narodowy-krka.jpg"
+    },
+    {
+      "a": "Park Narodowy Eryri",
+      "img": "assets/packs/parki-narodowe/park-narodowy-eryri.jpg"
+    },
+    {
+      "a": "Park Narodowy Mesa Verde",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mesa_Verde.jpg"
+    },
+    {
+      "a": "Park Narodowy Wulkany Hawaiʻi",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/97/HVNPcalderaOverlook.JPG"
+    },
+    {
+      "a": "Park Narodowy Wielkiej Kotliny",
+      "img": "assets/packs/parki-narodowe/park-narodowy-wielkiej-kotliny.jpg"
+    },
+    {
+      "a": "Park Narodowy Calanques",
+      "img": "assets/packs/parki-narodowe/park-narodowy-calanques.jpg"
+    },
+    {
+      "a": "Park Narodowy Bryce Canyon",
+      "img": "assets/packs/parki-narodowe/park-narodowy-bryce-canyon.jpg"
+    },
+    {
+      "a": "Park Narodowy Rondane",
+      "img": "assets/packs/parki-narodowe/park-narodowy-rondane.jpg"
+    },
+    {
+      "a": "Park Narodowy Saskiej Szwajcarii",
+      "img": "assets/packs/parki-narodowe/park-narodowy-saskiej-szwajcarii.jpg"
+    },
+    {
+      "a": "Park Narodowy Everglades",
+      "img": "assets/packs/parki-narodowe/park-narodowy-everglades.jpg"
+    },
+    {
+      "a": "Park Narodowy Skamieniałego Lasu",
+      "img": "assets/packs/parki-narodowe/park-narodowy-skamienia-ego-lasu.jpg"
+    },
+    {
+      "a": "Park Narodowy Lençóis Maranhenses",
+      "img": "assets/packs/parki-narodowe/park-narodowy-lencois-maranhenses.jpg"
+    },
+    {
+      "a": "Park Narodowy Pukaskwa",
+      "img": "assets/packs/parki-narodowe/park-narodowy-pukaskwa.jpg"
+    },
+    {
+      "a": "Park Narodowy Yosemite",
+      "img": "assets/packs/parki-narodowe/park-narodowy-yosemite.jpg"
+    },
+    {
+      "a": "Pieniński Park Narodowy",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/56/Dunajec_and_Lesnica.jpg"
+    },
+    {
+      "a": "Park Narodowy Etoszy",
+      "img": "assets/packs/parki-narodowe/park-narodowy-etoszy.jpg"
+    },
+    {
+      "a": "Park Narodowy Nahuelbuta",
+      "img": "assets/packs/parki-narodowe/park-narodowy-nahuelbuta.jpg"
+    },
+    {
+      "a": "Park Narodowy Doliny Śmierci",
+      "img": "assets/packs/parki-narodowe/park-narodowy-doliny-smierci.jpg"
+    },
+    {
+      "a": "Bieszczadzki Park Narodowy",
+      "img": "assets/packs/parki-narodowe/bieszczadzki-park-narodowy.jpg"
+    },
+    {
+      "a": "Biebrzański Park Narodowy",
+      "img": "assets/packs/parki-narodowe/biebrzanski-park-narodowy.jpg"
+    },
+    {
+      "a": "Białowieski Park Narodowy",
+      "img": "assets/packs/parki-narodowe/bia-owieski-park-narodowy.jpg"
+    },
+    {
+      "a": "Babiogórski Park Narodowy",
+      "img": "assets/packs/parki-narodowe/babiogorski-park-narodowy.jpg"
+    },
+    {
+      "a": "Magurski Park Narodowy",
+      "img": "assets/packs/parki-narodowe/magurski-park-narodowy.jpg"
+    },
+    {
+      "a": "Słowiński Park Narodowy",
+      "img": "assets/packs/parki-narodowe/s-owinski-park-narodowy.jpg"
+    },
+    {
+      "a": "Park Narodowy Gór Stołowych",
+      "img": "assets/packs/parki-narodowe/park-narodowy-gor-sto-owych.jpg"
+    },
+    {
+      "a": "Drawieński Park Narodowy",
+      "img": "assets/packs/parki-narodowe/drawienski-park-narodowy.jpg"
+    },
+    {
+      "a": "Park Narodowy Glacier",
+      "img": "assets/packs/parki-narodowe/park-narodowy-glacier.jpg"
+    },
+    {
+      "a": "Park Narodowy Arches",
+      "img": "assets/packs/parki-narodowe/park-narodowy-arches.jpg"
+    },
+    {
+      "a": "Park Narodowy Acadia",
+      "img": "assets/packs/parki-narodowe/park-narodowy-acadia.jpg"
+    },
+    {
+      "a": "Park Narodowy Canyonlands",
+      "img": "assets/packs/parki-narodowe/park-narodowy-canyonlands.jpg"
+    },
+    {
+      "a": "Park Narodowy Capitol Reef",
+      "img": "assets/packs/parki-narodowe/park-narodowy-capitol-reef.jpg"
+    },
+    {
+      "a": "Park Narodowy Sekwoi",
+      "img": "assets/packs/parki-narodowe/park-narodowy-sekwoi.jpg"
+    },
+    {
+      "a": "Park Narodowy Kings Canyon",
+      "img": "assets/packs/parki-narodowe/park-narodowy-kings-canyon.jpg"
+    },
+    {
+      "a": "Park Narodowy Olympic",
+      "img": "assets/packs/parki-narodowe/park-narodowy-olympic.jpg"
+    },
+    {
+      "a": "Park Narodowy North Cascades",
+      "img": "assets/packs/parki-narodowe/park-narodowy-north-cascades.jpg"
+    },
+    {
+      "a": "Park Narodowy Shenandoah",
+      "img": "assets/packs/parki-narodowe/park-narodowy-shenandoah.jpg"
+    },
+    {
+      "a": "Park Narodowy Great Smoky Mountains",
+      "img": "assets/packs/parki-narodowe/park-narodowy-great-smoky-mountains.jpg"
+    },
+    {
+      "a": "Park Narodowy Biscayne",
+      "img": "assets/packs/parki-narodowe/park-narodowy-biscayne.jpg"
+    },
+    {
+      "a": "Park Narodowy Big Bend",
+      "img": "assets/packs/parki-narodowe/park-narodowy-big-bend.jpg"
+    },
+    {
+      "a": "Park Narodowy Wind Cave",
+      "img": "assets/packs/parki-narodowe/park-narodowy-wind-cave.jpg"
+    },
+    {
+      "a": "Park Narodowy Theodore Roosevelt",
+      "img": "assets/packs/parki-narodowe/park-narodowy-theodore-roosevelt.jpg"
+    },
+    {
+      "a": "Park Narodowy Voyageurs",
+      "img": "assets/packs/parki-narodowe/park-narodowy-voyageurs.jpg"
+    },
+    {
+      "a": "Park Narodowy Isle Royale",
+      "img": "assets/packs/parki-narodowe/park-narodowy-isle-royale.jpg"
+    },
+    {
+      "a": "Park Narodowy Mammoth Cave",
+      "img": "assets/packs/parki-narodowe/park-narodowy-mammoth-cave.jpg"
+    },
+    {
+      "a": "Park Narodowy Congaree",
+      "img": "assets/packs/parki-narodowe/park-narodowy-congaree.jpg"
+    },
+    {
+      "a": "Park Narodowy Yoho",
+      "img": "assets/packs/parki-narodowe/park-narodowy-yoho.jpg"
+    },
+    {
+      "a": "Park Narodowy Kootenay",
+      "img": "assets/packs/parki-narodowe/park-narodowy-kootenay.jpg"
+    },
+    {
+      "a": "Park Narodowy Elk Island",
+      "img": "assets/packs/parki-narodowe/park-narodowy-elk-island.jpg"
+    },
+    {
+      "a": "Park Narodowy Nairobi",
+      "img": "assets/packs/parki-narodowe/park-narodowy-nairobi.jpg"
+    },
+    {
+      "a": "Park Narodowy Chobe",
+      "img": "assets/packs/parki-narodowe/park-narodowy-chobe.jpg"
+    },
+    {
+      "a": "Park Narodowy Okavango",
+      "img": "assets/packs/parki-narodowe/park-narodowy-okavango.jpg"
+    },
+    {
+      "a": "Park Narodowy Virunga",
+      "img": "assets/packs/parki-narodowe/park-narodowy-virunga.jpg"
+    },
+    {
+      "a": "Park Narodowy Bwindi",
+      "img": "assets/packs/parki-narodowe/park-narodowy-bwindi.jpg"
+    },
+    {
+      "a": "Park Narodowy Torres del Paine",
+      "img": "assets/packs/parki-narodowe/park-narodowy-torres-del-paine.jpg"
+    },
+    {
+      "a": "Park Narodowy Pantanal",
+      "img": "assets/packs/parki-narodowe/park-narodowy-pantanal.jpg"
+    },
+    {
+      "a": "Park Narodowy Jezior Plitwickich",
+      "img": "assets/packs/parki-narodowe/park-narodowy-jezior-plitwickich.jpg"
+    },
+    {
+      "a": "Park Narodowy Durmitor",
+      "img": "assets/packs/parki-narodowe/park-narodowy-durmitor.jpg"
+    },
+    {
+      "a": "Park Narodowy Dolomitów",
+      "img": "assets/packs/parki-narodowe/park-narodowy-dolomitow.jpg"
+    },
+    {
+      "a": "Park Narodowy Ordesa y Monte Perdido",
+      "img": "assets/packs/parki-narodowe/park-narodowy-ordesa-y-monte-perdido.jpg"
+    },
+    {
+      "a": "Park Narodowy Picos de Europa",
+      "img": "assets/packs/parki-narodowe/park-narodowy-picos-de-europa.jpg"
+    },
+    {
+      "a": "Park Narodowy Doñana",
+      "img": "assets/packs/parki-narodowe/park-narodowy-donana.jpg"
+    },
+    {
+      "a": "Park Narodowy Teide",
+      "img": "assets/packs/parki-narodowe/park-narodowy-teide.jpg"
+    },
+    {
+      "a": "Park Narodowy Peneda-Gerês",
+      "img": "assets/packs/parki-narodowe/park-narodowy-peneda-geres.jpg"
+    },
+    {
+      "a": "Park Narodowy Lasu Bawarskiego",
+      "img": "assets/packs/parki-narodowe/park-narodowy-lasu-bawarskiego.jpg"
+    },
+    {
+      "a": "Park Narodowy Göreme",
+      "img": "assets/packs/parki-narodowe/park-narodowy-goreme.jpg"
+    },
+    {
+      "a": "Park Narodowy Zhangjiajie",
+      "img": "assets/packs/parki-narodowe/park-narodowy-zhangjiajie.jpg"
+    },
+    {
+      "a": "Park Narodowy Jiuzhaigou",
+      "img": "assets/packs/parki-narodowe/park-narodowy-jiuzhaigou.jpg"
+    },
+    {
+      "a": "Park Narodowy Huangshan",
+      "img": "assets/packs/parki-narodowe/park-narodowy-huangshan.jpg"
+    },
+    {
+      "a": "Park Narodowy Fuji-Hakone-Izu",
+      "img": "assets/packs/parki-narodowe/park-narodowy-fuji-hakone-izu.jpg"
+    },
+    {
+      "a": "Park Narodowy Nikko",
+      "img": "assets/packs/parki-narodowe/park-narodowy-nikko.jpg"
+    },
+    {
+      "a": "Park Narodowy Komodo",
+      "img": "assets/packs/parki-narodowe/park-narodowy-komodo.jpg"
+    },
+    {
+      "a": "Park Narodowy Kakadu",
+      "img": "assets/packs/parki-narodowe/park-narodowy-kakadu.jpg"
+    },
+    {
+      "a": "Park Narodowy Uluru-Kata Tjuta",
+      "img": "assets/packs/parki-narodowe/park-narodowy-uluru-kata-tjuta.jpg"
+    },
+    {
+      "a": "Park Narodowy Fiordland",
+      "img": "assets/packs/parki-narodowe/park-narodowy-fiordland.jpg"
+    },
+    {
+      "a": "Park Narodowy Tongariro",
+      "img": "assets/packs/parki-narodowe/park-narodowy-tongariro.jpg"
+    },
+    {
+      "a": "Park Narodowy Abel Tasman",
+      "img": "assets/packs/parki-narodowe/park-narodowy-abel-tasman.jpg"
+    }
+  ],
   "name": "Parki narodowe",
   "group": "Geografia",
   "icon": "🌲",
   "prompt": "Jaki to park narodowy?",
-  "source": "Kategoria:Parki narodowe w Polsce",
-  "items": [
-    {
-      "a": "Park Narodowy Banff",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/800px-Moraine_Lake_17092005.jpg"
-    },
-    {
-      "a": "Park Narodowy Jasper",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Athabasca_Glacier_from_the_valley_floor%2C_Jasper_National_Park%2C_Alberta%2C_Canada.jpg/800px-Athabasca_Glacier_from_the_valley_floor%2C_Jasper_National_Park%2C_Alberta%2C_Canada.jpg"
-    },
-    {
-      "a": "Park Narodowy Lake District",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Windermere_and_Beyond_-_cumbria.jpg/800px-Windermere_and_Beyond_-_cumbria.jpg"
-    },
-    {
-      "a": "Park Narodowy Redwood",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Redwood_National_Park%2C_fog_in_the_forest.jpg/800px-Redwood_National_Park%2C_fog_in_the_forest.jpg"
-    },
-    {
-      "a": "Park Narodowy Badlands",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Badlands_05.jpg/800px-Badlands_05.jpg"
-    },
-    {
-      "a": "Park Narodowy Carlsbad Caverns",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Carlsbad_Caverns_National_Park_CAVE2770.jpg/800px-Carlsbad_Caverns_National_Park_CAVE2770.jpg"
-    },
-    {
-      "a": "Park Narodowy Serengeti",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Zebras%2C_Serengeti_savana_plains%2C_Tanzania.jpg/800px-Zebras%2C_Serengeti_savana_plains%2C_Tanzania.jpg"
-    },
-    {
-      "a": "Park Narodowy Yellowstone",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Grand_Prismatic_Spring_2013.jpg/800px-Grand_Prismatic_Spring_2013.jpg"
-    },
-    {
-      "a": "Tatrzański Park Narodowy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Observatory_Skalnate_pleso.jpg/800px-Observatory_Skalnate_pleso.jpg"
-    },
-    {
-      "a": "Park Narodowy Paklenica",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/CRO_Paklenica_NP.jpg/800px-CRO_Paklenica_NP.jpg"
-    },
-    {
-      "a": "Park Narodowy Gór Skalistych",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Rocky_Mountain_National_Park.jpg/800px-Rocky_Mountain_National_Park.jpg"
-    },
-    {
-      "a": "Park Narodowy Hortobágy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Hortob%C3%A1gy_National_Park_kz08.jpg/800px-Hortob%C3%A1gy_National_Park_kz08.jpg"
-    },
-    {
-      "a": "Park Narodowy Wielkiego Kanionu",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Grand_Canyon_National_Park%2C_South_Rim_sign.jpg/800px-Grand_Canyon_National_Park%2C_South_Rim_sign.jpg"
-    },
-    {
-      "a": "Park Narodowy Krugera",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Impalas_and_Zebras_at_Duke%27s_Waterhole_%2816589771331%29.jpg/800px-Impalas_and_Zebras_at_Duke%27s_Waterhole_%2816589771331%29.jpg"
-    },
-    {
-      "a": "Park Narodowy Mount Rainier",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Tolmie_Peak.jpg/800px-Tolmie_Peak.jpg"
-    },
-    {
-      "a": "Park Narodowy Grand Teton",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Barns_grand_tetons.jpg/800px-Barns_grand_tetons.jpg"
-    },
-    {
-      "a": "Park Narodowy Krka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Krka_National_Park.JPG/800px-Krka_National_Park.JPG"
-    },
-    {
-      "a": "Park Narodowy Eryri",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Llyn_Llydaw_from_Crib_Goch_2.jpg/800px-Llyn_Llydaw_from_Crib_Goch_2.jpg"
-    },
-    {
-      "a": "Park Narodowy Mesa Verde",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mesa_Verde.jpg/800px-Mesa_Verde.jpg"
-    },
-    {
-      "a": "Park Narodowy Wulkany Hawaiʻi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/HVNPcalderaOverlook.JPG/800px-HVNPcalderaOverlook.JPG"
-    },
-    {
-      "a": "Park Narodowy Wielkiej Kotliny",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Stella_Lake_Great_Basin.jpg/800px-Stella_Lake_Great_Basin.jpg"
-    },
-    {
-      "a": "Park Narodowy Calanques",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/En-Vau_calanque_1.jpg/800px-En-Vau_calanque_1.jpg"
-    },
-    {
-      "a": "Park Narodowy Bryce Canyon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/USA_10654_Bryce_Canyon_Luca_Galuzzi_2007.jpg/800px-USA_10654_Bryce_Canyon_Luca_Galuzzi_2007.jpg"
-    },
-    {
-      "a": "Park Narodowy Rondane",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rondane_National_Park.jpg/800px-Rondane_National_Park.jpg"
-    },
-    {
-      "a": "Park Narodowy Saskiej Szwajcarii",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Affensteine1.jpg/800px-Affensteine1.jpg"
-    },
-    {
-      "a": "Park Narodowy Everglades",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Everglades_%28Sea_of_grass%29.jpg/800px-Everglades_%28Sea_of_grass%29.jpg"
-    },
-    {
-      "a": "Park Narodowy Skamieniałego Lasu",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Jasper_Forest_at_Petrified_Forest_NP_in_AZ_12.jpg/800px-Jasper_Forest_at_Petrified_Forest_NP_in_AZ_12.jpg"
-    },
-    {
-      "a": "Park Narodowy Lençóis Maranhenses",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Vista_5_dos_Len%C3%A7ois_Maranhenses.jpg/800px-Vista_5_dos_Len%C3%A7ois_Maranhenses.jpg"
-    },
-    {
-      "a": "Park Narodowy Pukaskwa",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Pukaskwa_National_Park_southern_headland_trail.JPG/800px-Pukaskwa_National_Park_southern_headland_trail.JPG"
-    },
-    {
-      "a": "Park Narodowy Los Glaciares",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Emblema_Parque_Nacional_Los_Glaciares.jpg/800px-Emblema_Parque_Nacional_Los_Glaciares.jpg"
-    },
-    {
-      "a": "Park Narodowy Yosemite",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg/800px-Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg"
-    },
-    {
-      "a": "Pieniński Park Narodowy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Dunajec_and_Lesnica.jpg/800px-Dunajec_and_Lesnica.jpg"
-    },
-    {
-      "a": "Park Narodowy Etoszy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Zebras_Etosha_Namibia%281%29.jpg/800px-Zebras_Etosha_Namibia%281%29.jpg"
-    },
-    {
-      "a": "Park Narodowy Nahuelbuta",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/P.N.Nahuelbuta2.jpg/800px-P.N.Nahuelbuta2.jpg"
-    },
-    {
-      "a": "Park Narodowy Doliny Śmierci",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aguereberry_Point_-_View_South_%283811736781%29.jpg/800px-Aguereberry_Point_-_View_South_%283811736781%29.jpg"
-    }
-  ]
+  "source": "rozpoznawalne parki; lokalne zdjęcia z artykułów"
 }

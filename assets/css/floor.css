@@ -384,7 +384,12 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 }
 .duel-question-img { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; margin: auto; display: block; }
 .duel-question-img[hidden], .duel-image[hidden] { display: none; }
-.duel-question-img.blurred, .duel-image.blurred { filter: blur(6px) saturate(1.08); }
+.duel-question-img.blurred, .duel-image.blurred {
+  /* Logotypy mają nazwę w środku. Delikatny blur nadal ją zdradzał, więc
+     rozmycie jest teraz naprawdę mocne — bez czytelnych liter. */
+  filter: blur(22px) saturate(0.5) brightness(0.9);
+  transform: scale(1.04);
+}
 .duel-question-wrap.logo { background: #f3f5fa; border-color: rgba(255, 255, 255, 0.4); }
 .duel-question-wrap.logo .duel-question-img { width: auto; height: auto; max-width: 82%; max-height: 82%; object-fit: contain; padding: 8px; }
 .duel-answer { font-size: clamp(22px, 2.15vw, 34px); line-height: 1.02; max-width: 100%; overflow-wrap: anywhere; }
@@ -443,6 +448,40 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   container-type: size;
 }
 .board-floor { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
+.board-setup {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: clamp(14px, 2.5vh, 28px);
+  padding: clamp(16px, 3vw, 40px);
+  text-align: center;
+  background:
+    radial-gradient(700px 360px at 50% 42%, rgba(246, 196, 83, 0.10), transparent 68%),
+    rgba(5, 8, 15, 0.72);
+  backdrop-filter: blur(3px);
+}
+.board-setup[hidden] { display: none; }
+.board-setup-kicker { font-size: clamp(10px, 1vw, 13px); font-weight: 800; letter-spacing: 0.2em; color: var(--gold); }
+.board-setup-title { margin: -8px 0 0; font-family: var(--display); font-size: clamp(30px, 4.6vw, 64px); line-height: 0.9; letter-spacing: 0.02em; }
+.board-setup-sub { margin: 0; max-width: 620px; color: var(--muted); font-size: clamp(11px, 1.1vw, 14px); line-height: 1.5; }
+.board-setup-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 40vw), 1fr)); gap: clamp(8px, 1.2vw, 14px); width: min(1100px, 92vw); margin-top: 2px; }
+.board-setup-player {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: clamp(12px, 1.6vw, 20px) clamp(10px, 1.4vw, 18px);
+  border: 1px solid color-mix(in srgb, var(--pc) 62%, transparent);
+  border-radius: clamp(12px, 1.5vw, 18px);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--pc) 22%, #0b1120), color-mix(in srgb, var(--pc) 7%, #080d18));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pc) 14%, transparent), 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+.board-setup-dot { width: clamp(18px, 2.3vw, 28px); height: clamp(18px, 2.3vw, 28px); border-radius: 50%; background: var(--pc); box-shadow: 0 0 0 5px color-mix(in srgb, var(--pc) 14%, transparent), 0 0 22px color-mix(in srgb, var(--pc) 40%, transparent); }
+.board-setup-player b { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--display); font-size: clamp(20px, 2.6vw, 34px); line-height: 1; letter-spacing: 0.02em; }
+.board-setup-player span { font-size: clamp(8px, 0.85vw, 11px); font-weight: 800; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
 .host-floor-card .floor-grid { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
 .board-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 0 4px; min-height: 24px; }
 .board-caption { font-family: var(--display); font-size: clamp(15px, 1.8vw, 23px); letter-spacing: 0.04em; color: #d9e1f3; }
@@ -516,6 +555,27 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   overflow: hidden;
 }
 .duel-stage::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.55); pointer-events: none; }
+.duel-clue {
+  position: absolute;
+  z-index: 3;
+  top: clamp(10px, 1.5vw, 18px);
+  left: clamp(10px, 1.5vw, 18px);
+  min-width: 54px;
+  padding: 7px 12px 6px;
+  border: 1px solid rgba(246, 196, 83, 0.55);
+  border-radius: 10px;
+  background: rgba(7, 11, 20, 0.86);
+  box-shadow: 0 0 0 1px rgba(246, 196, 83, 0.08), 0 8px 24px rgba(0, 0, 0, 0.35);
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  text-align: center;
+  pointer-events: none;
+}
+.duel-clue[hidden] { display: none; }
+.duel-clue small { display: block; margin-top: 4px; font-family: var(--sans); font-size: 8px; font-weight: 800; letter-spacing: 0.12em; color: var(--muted); }
 .duel-image { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; position: relative; z-index: 1; animation: qIn 0.3s ease both; }
 .duel-stage.logo-stage::before {
   content: '';
@@ -614,18 +674,20 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   transform: translateX(-50%);
   min-width: min(560px, 88vw);
   max-width: 92vw;
-  background: linear-gradient(180deg, #ffe291, #f6c453 55%, #e4a932);
-  color: #1d1507;
+  /* Czysty panel: ciemne tło, sama obwódka i poświata w kolorze wyniku. */
+  background: rgba(7, 10, 17, 0.96);
+  color: #f2f5fb;
+  border: 2px solid rgba(246, 196, 83, 0.9);
   border-radius: 16px;
   padding: 12px 22px;
   text-align: center;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 34px rgba(246, 196, 83, 0.18);
   animation: bannerIn 0.22s cubic-bezier(0.2, 1.2, 0.3, 1) both;
 }
 .answer-banner.hidden { display: none; }
-.answer-banner-kicker { font-size: 9.5px; font-weight: 900; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(29, 21, 7, 0.65); }
+.answer-banner-kicker { font-size: 9.5px; font-weight: 900; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(246, 196, 83, 0.78); }
 .answer-banner-text { font-family: var(--display); font-size: clamp(30px, 4.6vw, 58px); line-height: 1; letter-spacing: 0.015em; overflow-wrap: anywhere; }
-.answer-banner-note { font-size: 10px; font-weight: 700; color: rgba(29, 21, 7, 0.6); margin-top: 2px; }
+.answer-banner-note { font-size: 10px; font-weight: 700; color: rgba(220, 226, 240, 0.62); margin-top: 2px; }
 @keyframes bannerIn { from { opacity: 0; transform: translate(-50%, 16px) scale(0.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 
 .waiting-card {
@@ -764,11 +826,19 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .answer-banner-kicker { font-size: 11px; }
 .answer-banner-note { font-size: 12px; margin-top: 4px; }
 .answer-banner[data-type='correct'] {
-  background: linear-gradient(180deg, #b9ffd8, #59e39a 55%, #20b96a);
-  color: #052015;
+  border-color: #32d583;
+  color: #eafff4;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 38px rgba(50, 213, 131, 0.3);
 }
-.answer-banner[data-type='correct'] .answer-banner-kicker,
-.answer-banner[data-type='correct'] .answer-banner-note { color: rgba(5, 32, 21, 0.68); }
+.answer-banner[data-type='correct'] .answer-banner-kicker { color: rgba(123, 240, 181, 0.9); }
+.answer-banner[data-type='correct'] .answer-banner-note { color: rgba(211, 244, 228, 0.62); }
+.answer-banner[data-type='pass'] {
+  border-color: #ff8a3d;
+  color: #fff1e7;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 38px rgba(255, 138, 61, 0.32);
+}
+.answer-banner[data-type='pass'] .answer-banner-kicker { color: rgba(255, 174, 118, 0.92); }
+.answer-banner[data-type='pass'] .answer-banner-note { color: rgba(255, 217, 193, 0.6); }
 
 .conquest-banner {
   position: fixed;
@@ -780,10 +850,12 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   max-width: 94vw;
   padding: 14px 26px;
   border-radius: 18px;
-  color: #10131b;
+  color: #f2f5fb;
   text-align: center;
-  background: linear-gradient(180deg, #fff2c4, var(--pc, #f6c453) 55%, #dca72e);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+  /* Ten sam czysty język co popup wyniku: ciemny panel, obwódka i poświata. */
+  background: rgba(7, 10, 17, 0.96);
+  border: 2px solid rgba(246, 196, 83, 0.9);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 34px rgba(246, 196, 83, 0.22);
   animation: bannerIn 0.24s cubic-bezier(0.2, 1.2, 0.3, 1) both;
 }
 .conquest-banner.hidden { display: none; }
@@ -908,14 +980,16 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .duel-question-wrap,
 .duel-stage { background-color: #05070d; }
 .duel-question-img,
-.duel-image {
+.duel-image,
+.board-image {
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: contain !important;
+  object-position: center !important;
   margin: auto;
+  display: block;
 }
 .duel-question-wrap.logo .duel-question-img {
   width: 100%;
