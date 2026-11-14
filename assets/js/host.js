@@ -1,4 +1,5 @@
 import { $, Bus, loadIndex, loadPack, makeQueue, markSeen, toast, loadMorePack } from './common.js';
+import { preloadImages, setImageWithFallback } from './images.js';
 import {
   COLORS,
   EXCLUDED,
@@ -16,6 +17,7 @@ import {
   fmtClock,
   shortCategory,
   sameCategoryNeighbor,
+  mergeInfo,
   pluralPoles,
 } from './game.js';
 
@@ -339,7 +341,7 @@ function renderPool() {
     name.textContent = pack.name;
     const meta = document.createElement('span');
     meta.className = 'pool-meta';
-    meta.textContent = pack.group + ' · ' + pack.count + ' pytań';
+    meta.textContent = pack.live ? pack.group + ' · z Wikipedii na żywo' : pack.group + ' · ' + pack.count + ' pytań';
     body.append(name, meta);
     btn.append(icon, body);
     btn.addEventListener('click', () => {
@@ -412,6 +414,15 @@ function makeTile(tile, opts = {}) {
   }
 
   if (sameCategoryNeighbor(H.tiles, tile, H.rows, H.cols)) btn.classList.add('same-cat');
+  const merge = mergeInfo(H.tiles, tile, H.rows, H.cols);
+  if (merge.merged) {
+    btn.classList.add('merged');
+    if (merge.up) btn.classList.add('merge-up');
+    if (merge.down) btn.classList.add('merge-down');
+    if (merge.left) btn.classList.add('merge-left');
+    if (merge.right) btn.classList.add('merge-right');
+  }
+  if (merge.continuation) btn.classList.add('merge-cont');
 
   if (H.phase === 'board') {
     const ownSources = sourceOptions(H.tiles, H.challengerId, H.rows, H.cols);
@@ -493,7 +504,7 @@ function renderEditorResults() {
     const name = document.createElement('span');
     name.textContent = (pack.icon || '🎯') + ' ' + pack.name;
     const meta = document.createElement('small');
-    meta.textContent = pack.group + ' · ' + pack.count;
+    meta.textContent = pack.live ? pack.group + ' · z Wikipedii' : pack.group + ' · ' + pack.count;
     btn.append(name, meta);
     btn.addEventListener('click', () => {
       tile.cat = { ...pack };
@@ -671,6 +682,11 @@ async function startDuel(sourceTile, targetTile) {
     if (token !== H.token) return;
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
+    // Wczytujemy zdjęcia całej kolejki pojedynku jeszcze przed odliczaniem.
+    // Dzięki temu kolejne pytania nie pokazują pustego miejsca.
+    // Tylko kilka najbliższych zdjęć: hurtowe pobieranie całej kolejki
+    // powodowało HTTP 429 i właśnie puste pola na ekranie.
+    preloadImages(next.queue.map((item) => item.img), { limit: 4, concurrency: 1, delay: 320 });
     H.phase = 'duelIntro';
     H.introUntil = Date.now() + 3000;
     renderAll();
@@ -759,15 +775,12 @@ async function advanceQuestion() {
   H.duel.qNumber += 1;
   H.used.add(pack.id + '|' + q.a);
   markSeen(pack.id, q.a);
-  preloadNext();
+  preloadImages([q.img, H.duel.queue[H.duel.queuePos]?.img]);
 }
 
 function preloadNext() {
   const next = H.duel?.queue[H.duel.queuePos];
-  if (next?.img) {
-    const img = new Image();
-    img.src = next.img;
-  }
+  if (next?.img) preloadImages([next.img]);
 }
 
 function correct() {
@@ -940,7 +953,7 @@ function renderHeader() {
   const labels = {
     setup: ['KONFIGURACJA', 'Ustaw grę'],
     board: ['RUNDA POJEDYNKÓW', 'Wybór pola'],
-    duelLoading: ['POJEDYNEK', 'Wczytywanie'],
+    duelLoading: ['POJEDYNEK', 'Przygotowanie'],
     duelIntro: ['POJEDYNEK', 'Za chwilę'],
     duel: ['POJEDYNEK', 'Walka na zegary'],
     conquest: ['POJEDYNEK', 'Przejęcie terenu'],
@@ -1124,15 +1137,19 @@ function renderDuelCard() {
     els.duelImg.dataset.key = q.img;
     els.duelImg.hidden = true;
     els.duelLoading.hidden = false;
-    els.duelImg.onload = () => {
+    els.duelLoading.textContent = 'Przygotowuję zdjęcie…';
+    const key = q.img;
+    setImageWithFallback(els.duelImg, q.img, (ok) => {
+      if (els.duelImg.dataset.key !== key) return;
       els.duelLoading.hidden = true;
-      els.duelImg.hidden = false;
-    };
-    els.duelImg.onerror = () => {
-      els.duelLoading.hidden = true;
-    };
-    els.duelImg.src = q.img;
+      els.duelImg.hidden = !ok;
+      if (!ok) {
+        els.duelLoading.hidden = false;
+        els.duelLoading.textContent = 'Zdjęcie chwilowo niedostępne';
+      }
+    });
   }
+  els.duelImg.alt = q.img ? 'Zdjęcie do pytania' : 'Brak zdjęcia';
   els.duelImg.parentElement.classList.toggle('logo', LOGO_PACKS.has(d.category.id));
   els.duelImg.classList.toggle('blurred', BLUR_PACKS.has(d.category.id) && H.logoBlur);
   els.duelAnswer.textContent = q.a;
@@ -1195,7 +1212,7 @@ function renderOverlay() {
 
   if (H.phase === 'duelLoading') {
     els.overlay.classList.remove('hidden');
-    card.append(el('div', 'overlay-kicker', 'The Floor'), el('div', 'overlay-title', 'GOTUJEMY'), spinnerBlock('Wczytuję kategorię…'));
+    card.append(el('div', 'overlay-kicker', 'The Floor'), el('div', 'overlay-title', 'PRZYGOTOWUJEMY'), spinnerBlock('Przygotowuję pytanie…'));
     return;
   }
   if (H.phase === 'duelIntro') {

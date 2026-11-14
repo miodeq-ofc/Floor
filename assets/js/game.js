@@ -209,6 +209,32 @@ export function sameCategoryNeighbor(tiles, tile, rows, cols) {
   });
 }
 
+/**
+ * Krawędzie, którymi pole łączy się z sąsiednim polem tego samego gracza
+ * i tej samej kategorii. Służy do rysowania jednego kształtu (poligonu)
+ * zamiast kilku osobnych kafelków.
+ */
+export function mergeInfo(tiles, tile, rows, cols) {
+  const same = (dr, dc) => {
+    const next = tileAt(tiles, tile.r + dr, tile.c + dc);
+    return Boolean(next && next.owner === tile.owner && next.cat?.id === tile.cat?.id);
+  };
+  const up = tile.r > 0 && same(-1, 0);
+  const down = tile.r < rows - 1 && same(1, 0);
+  const left = tile.c > 0 && same(0, -1);
+  const right = tile.c < cols - 1 && same(0, 1);
+  return {
+    up,
+    down,
+    left,
+    right,
+    merged: up || down || left || right,
+    // Etykietę zostawiamy tylko na pierwszym polu grupy, żeby nie powtarzać
+    // „Herbaty” w każdym kafelku jednego kształtu.
+    continuation: up || left,
+  };
+}
+
 export function frontier(tiles, ownerId) {
   const own = new Set(territory(tiles, ownerId).map(keyOf));
   const out = [];

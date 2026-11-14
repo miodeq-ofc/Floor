@@ -39,10 +39,11 @@ Jeżeli przeglądarka zablokuje okno ekranu graczy, bieżąca karta i tak zostaj
 
 - **Plansza** ma od 4×4 do 7×8 pól; wymiary są dobierane tak, aby liczba pól dzieliła się przez liczbę graczy (6–10 pól na osobę). Przykładowo: 2 → 4×4 (po 8), 3 → 5×6 (po 10), 4 → 6×6 (po 9), 5 → 6×5 (po 6), 6 → 6×6 (po 6), 7 → 7×7 (po 7), 8 → 7×8 (po 7). To najbliższe równe podziały — plansza nigdy nie ma pustych pól.
 - **Terytoria nie muszą być ciągłe**: losowanie przydziela pola równo, ale rozrzuca je po całej planszy. Możesz mieć pole w lewym górnym rogu i drugie w prawym dolnym.
-- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 kategorii** i **4451 pytań**; każda paczka jest automatycznie uzupełniana do **90 pytań** (kategorie z małą liczbą stron Wikipedii mają mniej, ale grę i tak dociąga ona w trakcie).
+- **Sąsiednie pola tego samego gracza i tej samej kategorii łączą się w jeden kształt** (poligon): wspólne krawędzie znikają, a etykieta kategorii jest tylko raz. Łączą się wyłącznie pola stykające się bokiem — góra/dół lub lewo/prawo; pola po skosie i oddalone zostają osobne.
+- **Kategorie** to konkretne, węższe tematy (np. „Przyprawy”, „Rasy psów”, „Logotypy znanych marek”, „Zamki”), a nie szerokie działy. W puli jest **78 gotowych paczek** i **4451 pytań** oraz **96 dodatkowych kategorii z Wikipedii** (m.in. ptaki, sery, kawa, instrumenty, architektura, ludzie) — łącznie **174 kategorie**. Gotowe paczki są uzupełniane do **90 pytań**; kategorie z Wikipedii dociągają pytania przy pierwszym pojedynku i zostają w pamięci przeglądarki.
 - Pula jest wyszukiwalna; można zaznaczyć tylko wybrane kategorie. Pole na planszy też ma wyszukiwarkę kategorii.
 - Losowanie bez powtórek w całej grze: każde pytanie z kategorii jest oznaczone jako użyte, a kolejka nie resetuje się w środku pojedynku. Przed startem pojedynku gra sprawdza, czy jest co najmniej 20 pytań; jeśli nie — **dociąga je z Wikipedii** (`loadMorePack`: kategoria + podkategorie + wyszukiwanie). W trakcie pojedynku, gdy zostaje mało pytań, robi to samo w tle.
-- Źródłem nie jest wyłącznie plik z paczką: nowe pytania są pobierane automatycznie z kategorii Wikipedii, a nie tylko z gotowej listy.
+- Źródłem nie jest wyłącznie plik z paczką: nowe pytania są pobierane automatycznie z kategorii Wikipedii, a nie tylko z gotowej listy. Kategorie oznaczone jako „na żywo” nie mają sztywnej listy — pierwszy pojedynek pobiera strony i zdjęcia, a potem korzysta z cache.
 
 ### Automatyczne uzupełnianie i walidacja
 
@@ -76,6 +77,7 @@ Baza jest generowana z polskiej Wikipedii i Wikidata (`tools/build-packs.mjs`), 
 - **marki samochodów** — 30 modeli spotykanych w Polsce, zdjęcia aut z przodu lub z boku; usunięty Brabus i logotypy na ciemnym tle,
 - **tłumaczenia** — poprawione m.in. „baba wielkanocna” → **„babka wielkanocna”**,
 - **walidacja** — automatyczna kontrola wszystkich paczek: unikalne odpowiedzi, sensowny tytuł, zdjęcie z Wikimedia/Simple Icons, brak dokumentów, list, wydarzeń i pojęć niezwiązanych z kategorią; wynik w `data/packs/quality-report.json`.
+- **zdjęcia tematyczne** — odrzucane są pliki będące siedzibami firm, sklepami, półkami, fabrykami, mapami i reklamami w kategoriach, w których powinien być produkt/obiekt (m.in. marki napojów, napoje, samochody, herbaty). Odpowiedzi typu „face lifting” albo „tuning” nie trafiają do pytań „Jaki to samochód?”. Ładowanie ma kilka wariantów miniatur, fallback na Commons i ponowną próbę po chwilowym błędzie/HTTP 429, więc pojedyncze zdjęcie nie zostawia pustego pola.
 
 Źródła: Wikipedia (CC BY-SA), Wikidata (CC0), zdjęcia z Wikimedia Commons. Do gry prywatnej bez problemu; przy publicznej publikacji zachowaj informację o źródle i licencjach.
 
@@ -114,6 +116,7 @@ board.html              ekran graczy: plansza, pytanie, zegary
 assets/css/style.css    bazowy wygląd
 assets/css/floor.css    plansza, edytor pól, pojedynek
 assets/js/common.js     dane, kanał synchronizacji, kolejki pytań
+assets/js/images.js     odporne ładowanie zdjęć (warianty miniatur + cache)
 assets/js/game.js       plansza, terytoria, sąsiedztwo, zegary
 assets/js/host.js       konfiguracja + przebieg pojedynków
 assets/js/board.js      render ekranu graczy

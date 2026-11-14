@@ -1,4 +1,6 @@
 // Wspólny silnik: dane, kanał synchronizacji, kolejki pytań.
+import { normalizeImageUrl } from './images.js';
+
 export const $ = (sel, root = document) => root.querySelector(sel);
 export const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
@@ -113,6 +115,88 @@ export async function loadIndex() {
 
 const packCache = new Map();
 
+// Kategorie, w których zdjęcie musi pokazywać produkt/obiekt, a nie siedzibę
+// firmy, sklep, wnętrze albo dokument. To najczęstszy powód „pustych” lub
+// niepasujących obrazków w materiale pobranym automatycznie z Wikipedii.
+const IMAGE_RULES = {
+  'marki-napojow': /(headquarter|headquarters|hq[a-z]|office|store|shop|factory|building|distribution|shelf|mollinsburn|sugarland|warehouse|market|restaurant|street|avenue|advertisement)/i,
+  'napoje-bezalkoholowe': /(shelf|shop|store|factory|building|headquarter|hq[a-z]|market|restaurant|\bbar\b|collecting|birch|tree|forest|plantation|walmart|wallmart|cafe|coffeehouse|kiosk)/i,
+  'samochody': /(museum|factory|interior|navigation|\boil\b|industry|assembly|plant|headquarter|hq[a-z]|engine|showroom|dealership|street_food|car_wash|wash|detailing|parking|dashboard|electronics|radio|display|screen|bots?|robot)/i,
+  'marki-samochodow': /(logo|badge|emblem|factory|headquarter|hq[a-z]|office|store|dealer|museum|gallery|american-motors|multia_log|facility|plant)/i,
+  'herbaty': /(teahouse|tea_house|ceremony|chashitsu|boston|advertisement|botanical|sasanqua|sinensis|museum|shop|plantation|matchsafe|monk)/i,
+  'owoce-jadalne': /(factory|processing|seafood|pasta|market|shop|plantation)/i,
+  'owoce-morza': /(pasta|restaurant|market|shop)/i,
+  'piwo': /(browar|brewery|factory|building|award|museum|drone|dron|headquarter|hq[a-z])/i,
+  'marki-kosmetykow': /(shop|store|interior|building|headquarter|hq[a-z]|shelf)/i,
+  'restauracje': /(ghost|wirtualna|street_food|menu|billboard|advertisement)/i,
+  'zupy': /(restaurant|street_food|shop|market|menu)/i,
+  'przekaski': /(street_food|shop|market|restaurant|menu)/i,
+  'ciasta-deserowe': /(shop|store|restaurant|market|menu)/i,
+  'ciasta-wytrawne': /(shop|store|restaurant|market|menu)/i,
+  'desery': /(shop|store|restaurant|market|menu)/i,
+  'samochody-wyscigowe': /(headquarter|hq[a-z]|museum|gallery|speed_tape|factory|showroom)/i,
+};
+
+// Odpowiedzi, które nie są rzeczami z kategorii (np. „Face lifting”
+// w pytaniu „Jaki to samochód?”), odpadają jeszcze przed losowaniem.
+const ANSWER_RULES = {
+  'samochody': /(face ?lifting|tuning|samochodzik|elektronika|muzeum|auto detailing|g-power|navigation|radio navigation|przemysł|dynamiczna wymiana oleju|historia samochodu|oklejanie)/i,
+  'samochody-wyscigowe': /^(speed tape|formuła 1|scg)$/i,
+  'napoje-bezalkoholowe': /^(napój bezalkoholowy|napój|fusy)$/i,
+  'herbaty': /^(kamelia|herbatka bostońska|japońska ceremonia picia herbaty|chashitsu)$/i,
+};
+
+const GENERIC_DOCUMENT_IMAGE = /(screenshot|zrzut|diagram|schemat|wykres|chart|mapa|map_|_map|map-|plan\b|logo|logotyp|wordmark|icon|ikona|cover|okładka|poster|plakat|sheet|score|partytura|nuty|menu|ulotka|reklama|advertisement)/i;
+const IMAGE_SPECIAL_PACKS = new Set(['loga-firm', 'flagi-panstw', 'herby-panstw', 'aplikacje-internetowe']);
+
+function imageFile(url) {
+  try {
+    return decodeURIComponent(new URL(url).pathname.split('/').pop() || '').toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+function answerLooksUsable(cat, answer) {
+  const value = String(answer || '').trim();
+  if (!value) return false;
+  const rule = ANSWER_RULES[cat?.id];
+  return !rule || !rule.test(value);
+}
+
+export function imageLooksUsable(cat, img) {
+  if (!img) return false;
+  img = normalizeImageUrl(img);
+  const special = IMAGE_SPECIAL_PACKS.has(cat?.id);
+  if (special && /^https:\/\/cdn\.simpleicons\.org\//i.test(img)) return true;
+  if (!/^https:\/\/(upload|thumb)\.wikimedia\.org\//i.test(img) && !(special && /^https:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\//i.test(img))) {
+    return false;
+  }
+  const file = imageFile(img);
+  if (!file || !/\.(jpe?g|png|webp|gif|svg)(?:\.|$)/i.test(file)) return false;
+  if (!special && /\.svg(?:\.|$)/i.test(file)) return false;
+  if (!special && GENERIC_DOCUMENT_IMAGE.test(file)) return false;
+  const rule = IMAGE_RULES[cat?.id];
+  if (rule && rule.test(file)) return false;
+  return true;
+}
+
+function sanitizePack(cat, pack) {
+  if (!pack?.items?.length) return pack;
+  const seen = new Set();
+  const images = new Set();
+  pack.items = pack.items.filter((q) => {
+    if (!q?.a || !q.img || !answerLooksUsable(cat, q.a)) return false;
+    q.img = normalizeImageUrl(q.img);
+    const key = String(q.a).toLowerCase();
+    if (seen.has(key) || images.has(q.img) || !imageLooksUsable(cat, q.img)) return false;
+    seen.add(key);
+    images.add(q.img);
+    return true;
+  });
+  return pack;
+}
+
 export async function loadPack(cat) {
   if (packCache.has(cat.id)) return packCache.get(cat.id);
   let pack;
@@ -123,7 +207,8 @@ export async function loadPack(cat) {
     if (!res.ok) throw new Error('Brak danych kategorii ' + cat.name);
     pack = await res.json();
   }
-  if (!pack.items || !pack.items.length) throw new Error('Kategoria ' + cat.name + ' jest pusta');
+  pack = sanitizePack(cat, pack);
+  if (!pack.items || !pack.items.length) throw new Error('Kategoria ' + cat.name + ' nie ma zdjęć, które pasują do tematu');
   packCache.set(cat.id, pack);
   return pack;
 }
@@ -161,36 +246,36 @@ export async function loadLivePack(cat) {
   if (cached && cached.items?.length >= 5 && Date.now() - cached.at < 12 * 3600 * 1000) {
     return { ...cat, items: cached.items, live: true };
   }
-  const items = [];
-  const seen = new Set();
-  let cont = null;
-  for (let round = 0; round < 3 && items.length < 120; round++) {
+  // Kategorie Wikipedii często mają same podkategorie. loadMorePack umie
+  // zejść poziom niżej i dociągnąć strony także wtedy, gdy bezpośrednia
+  // kategoria jest prawie pusta.
+  let items = [];
+  try {
+    items = await loadMorePack({ ...cat, items: [] }, 36);
+  } catch {
+    items = [];
+  }
+  if (!items.length) {
+    // Awaryjnie: pojedyncze zapytanie o strony kategorii (bez podkategorii).
     const data = await wikiJson({
       action: 'query',
       generator: 'categorymembers',
       gcmtitle: cat.cat,
       gcmtype: 'page',
       gcmlimit: '50',
-      ...(cont || {}),
       prop: 'pageimages',
       pilimit: '50',
       piprop: 'thumbnail',
       pithumbsize: '800',
     });
-    const pages = Object.values(data?.query?.pages || {});
-    for (const page of pages) {
-      if (!page.thumbnail?.source) continue;
-      if (!titleOk(page.title)) continue;
+    for (const page of Object.values(data?.query?.pages || {})) {
+      if (!page.thumbnail?.source || !titleOk(page.title)) continue;
       const answer = cleanTitle(page.title);
-      const key = answer.toLowerCase();
-      if (!answer || seen.has(key)) continue;
-      seen.add(key);
+      if (!answer || items.some((x) => x.a.toLowerCase() === answer.toLowerCase())) continue;
       items.push({ a: answer, img: page.thumbnail.source.split('?')[0] });
     }
-    cont = data?.continue ? { gcmcontinue: data.continue.gcmcontinue } : null;
-    if (!cont) break;
-    await new Promise((r) => setTimeout(r, 350));
   }
+  items = sanitizePack(cat, { items }).items;
   if (items.length < 5) throw new Error('Ta kategoria ma za mało zdjęć. Wybierz inną.');
   storeSet(cacheKey, { at: Date.now(), items });
   return { ...cat, items, live: true };
@@ -287,36 +372,18 @@ function moreTitleOk(cat, title) {
 }
 
 function moreImageOk(cat, img) {
-  if (!img) return false;
-  if (cat?.id === 'aplikacje-internetowe' && /^https:\/\/cdn\.simpleicons\.org\//i.test(img)) return true;
-  if (!/^https:\/\/(upload|thumb)\.wikimedia\.org\//i.test(img)) return false;
-  let file = '';
-  try {
-    file = decodeURIComponent(new URL(img).pathname.split('/').pop() || '').toLowerCase();
-  } catch {
-    return false;
-  }
-  if (!/\.(jpe?g|png|webp|gif|svg)$/i.test(file)) return false;
-  const special = new Set(['loga-firm', 'flagi-panstw', 'herby-panstw', 'aplikacje-internetowe']).has(cat?.id);
-  if (!special && /\.svg$/i.test(file)) return false;
-  const documentImage =
-    /(screenshot|zrzut|diagram|schemat|wykres|chart|mapa|map_|_map|plan\b|logo|logotyp|icon|ikona|cover|okładka|poster|plakat|sheet|score|partytura|nuty|rag|schallplatte|record|album|naczynia|kuchenne|menu|ulotka|reklama)/i.test(
-      file,
-    );
-  if (!special && documentImage) return false;
-  if (special && /(screenshot|diagram|schemat|wykres|chart|mapa|sheet|score|naczynia|kuchenne|poster|plakat)/i.test(file)) return false;
-  return true;
+  return imageLooksUsable(cat, img);
 }
 
 function moreCategory(cat) {
-  let source = String(cat?.source || '').replace(/\s*\(.*$/, '').trim();
+  let source = String(cat?.source || cat?.cat || '').replace(/\s*\(.*$/, '').trim();
   if (source.startsWith('Kategoria:')) return source;
   return 'Kategoria:' + String(cat?.name || '').trim();
 }
 
 function addMorePage(cat, page, known, knownImages, items) {
   if (!page || page.missing || !page.thumbnail?.source) return;
-  if (!moreTitleOk(cat, page.title)) return;
+  if (!moreTitleOk(cat, page.title) || !answerLooksUsable(cat, cleanTitle(page.title))) return;
   const answer = cleanTitle(page.title);
   const key = answer.toLowerCase();
   if (known.has(key)) return;

@@ -26,6 +26,10 @@
         <span class="t2" id="board-title">Czekam na prowadzącego</span>
       </div>
       <div class="board-cat" id="board-cat" hidden>—</div>
+      <div class="board-turn" id="board-turn" aria-live="polite" hidden>
+        <span>WYBIERA:</span>
+        <b id="board-turn-name">—</b>
+      </div>
       <div class="top-spacer"></div>
       <div class="top-actions">
         <span class="conn"><span class="dot" id="board-dot"></span><span id="board-conn">Łączę…</span></span>
@@ -50,7 +54,11 @@
         <div class="duel-players" id="duel-players"></div>
         <div class="duel-stage" id="duel-stage">
           <img class="duel-image" id="duel-image" alt="" hidden />
-          <div class="duel-loading" id="duel-loading"><div class="spinner"></div><span>Losuję pytanie…</span></div>
+          <div class="duel-image-fallback" id="duel-image-fallback" hidden>
+            <span>🖼️</span>
+            <b>Zdjęcie chwilowo niedostępne</b>
+          </div>
+          <div class="duel-loading" id="duel-loading"><div class="spinner"></div><span>Przygotowuję pytanie…</span></div>
           <div class="duel-prompt" id="duel-prompt">—</div>
         </div>
         <div class="mini-board-wrap">

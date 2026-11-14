@@ -1,6 +1,7 @@
 import { $, Bus, fmtTime } from './common.js';
-import { shortCategory, sameCategoryNeighbor, pluralPoles } from './game.js';
+import { shortCategory, sameCategoryNeighbor, mergeInfo, pluralPoles } from './game.js';
 import { Sound } from './sound.js';
+import { preloadImages, setImageWithFallback } from './images.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe']);
 const BLUR_PACKS = new Set(['loga-firm']);
@@ -40,12 +41,15 @@ function cache() {
   els.kicker = $('#board-kicker');
   els.title = $('#board-title');
   els.cat = $('#board-cat');
+  els.turn = $('#board-turn');
+  els.turnName = $('#board-turn-name');
   els.dot = $('#board-dot');
   els.conn = $('#board-conn');
   els.players = $('#duel-players');
   els.stage = $('#duel-stage');
   els.image = $('#duel-image');
   els.loading = $('#duel-loading');
+  els.fallback = $('#duel-image-fallback');
   els.prompt = $('#duel-prompt');
   els.mini = $('#mini-floor');
   els.miniLegend = $('#mini-legend');
@@ -139,6 +143,10 @@ function renderHeader() {
   const showCat = s.duel && ['duelLoading', 'duelIntro', 'duel'].includes(s.phase);
   els.cat.hidden = !showCat;
   if (showCat) els.cat.textContent = s.duel.category.name;
+
+  const turnPlayer = s.phase === 'board' ? s.players.find((p) => p.id === s.challengerId) : null;
+  els.turn.hidden = !turnPlayer;
+  if (turnPlayer) els.turnName.textContent = turnPlayer.name;
 }
 
 function renderScreens() {
@@ -178,6 +186,15 @@ function renderBoard() {
       node.title = tile.cat.name + ' · ' + (player?.name || '');
 
       if (sameCategoryNeighbor(s.tiles, tile, s.rows, s.cols)) node.classList.add('same-cat');
+      const merge = mergeInfo(s.tiles, tile, s.rows, s.cols);
+      if (merge.merged) {
+        node.classList.add('merged');
+        if (merge.up) node.classList.add('merge-up');
+        if (merge.down) node.classList.add('merge-down');
+        if (merge.left) node.classList.add('merge-left');
+        if (merge.right) node.classList.add('merge-right');
+      }
+      if (merge.continuation) node.classList.add('merge-cont');
 
       if (s.phase === 'board') {
         if (tile.owner === s.challengerId && (s.sources || []).includes(key)) node.classList.add('source-option');
@@ -212,10 +229,10 @@ function renderBoard() {
     const ch = s.players.find((p) => p.id === s.challengerId);
     const source = s.tiles.find((t) => t.r + ':' + t.c === s.sourceKey);
     els.caption.textContent = !ch
-      ? 'Tura'
+      ? 'Wybór pola'
       : source
-        ? 'Tura: ' + ch.name + ' · atak z „' + source.cat.name + '”'
-        : 'Tura: ' + ch.name + ' — wybierz swoje pole';
+        ? 'Atak z „' + source.cat.name + '” · wybierz sąsiednie pole'
+        : 'Wybierz swoje pole · zaatakuj sąsiada';
   } else if (s.phase === 'conquest' && s.conquest) {
     const w = s.players.find((p) => p.id === s.conquest.winnerId);
     els.caption.textContent = (w?.name || '') + ' zdobywa ' + s.conquest.gained + ' ' + pluralPoles(s.conquest.gained) + ' · ' + s.conquest.category.name;
@@ -258,19 +275,20 @@ function renderDuel() {
   if (!d.q) {
     els.image.hidden = true;
     els.loading.hidden = false;
+    els.fallback.hidden = true;
   } else if (els.image.dataset.key !== d.q.img) {
     els.image.dataset.key = d.q.img;
     els.image.hidden = true;
     els.loading.hidden = false;
-    els.image.onload = () => {
+    els.fallback.hidden = true;
+    const key = d.q.img;
+    preloadImages([key]);
+    setImageWithFallback(els.image, key, (ok) => {
+      if (els.image.dataset.key !== key) return;
       els.loading.hidden = true;
-      els.image.hidden = false;
-    };
-    els.image.onerror = () => {
-      els.loading.hidden = true;
-      els.image.hidden = true;
-    };
-    els.image.src = d.q.img;
+      els.image.hidden = !ok;
+      els.fallback.hidden = ok;
+    });
   }
   const isLogo = LOGO_PACKS.has(d.category.id);
   const blur = BLUR_PACKS.has(d.category.id) && s.logoBlur;
@@ -371,7 +389,7 @@ function renderOverlay() {
   let html = '';
   let key = s.phase + '|' + (s.winnerId || '') + '|' + (s.duel?.tileKey || '') + '|' + (s.conquest?.at || '');
   if (s.phase === 'duelLoading') {
-    html = '<div class="overlay-kicker">The Floor</div><div class="overlay-title">GOTUJEMY</div><div class="wait-card"><div class="spinner"></div><p>Wczytuję kategorię…</p></div>';
+    html = '<div class="overlay-kicker">The Floor</div><div class="overlay-title">PRZYGOTOWUJEMY</div><div class="wait-card"><div class="spinner"></div><p>Przygotowuję pytanie…</p></div>';
   } else if (s.phase === 'duelIntro') {
     const ch = s.players.find((p) => p.id === s.duel?.challengerId);
     const de = s.players.find((p) => p.id === s.duel?.defenderId);
