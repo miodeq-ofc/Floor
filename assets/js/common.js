@@ -390,7 +390,18 @@ export function makeQueue(pack, used = null) {
   // bieżącej rozgrywki — najpierw wykorzystaj pytania nieużyte w tej grze.
   if (!fresh.length) fresh = pack.items.filter((q) => !used || !used.has(pack.id + '|' + answerKey(q.a)));
   if (!fresh.length) fresh = [...pack.items];
-  return { queue: shuffle(fresh), total: pack.items.length };
+  const queue = shuffle(fresh);
+  // Nie zaczynaj kolejnego pojedynku od tej samej odpowiedzi, która była
+  // pierwsza ostatnio. Sama losowa kolejność potrafiła kilka razy pod rząd
+  // trafić na tę samą markę (np. Skodę albo Opla).
+  const firstKey = 'last-first:' + pack.id;
+  const previousFirst = storeGet(firstKey, '');
+  if (queue.length > 1 && previousFirst && answerKey(queue[0]?.a) === previousFirst) {
+    const swapAt = 1 + Math.floor(Math.random() * (queue.length - 1));
+    [queue[0], queue[swapAt]] = [queue[swapAt], queue[0]];
+  }
+  storeSet(firstKey, answerKey(queue[0]?.a));
+  return { queue, total: pack.items.length };
 }
 
 const GENERIC_ANSWERS = new Set(

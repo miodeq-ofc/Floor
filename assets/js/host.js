@@ -701,7 +701,11 @@ async function startDuel(sourceTile, targetTile) {
   const defender = H.players.find((p) => p.id === targetTile.owner);
   if (!challenger || !defender) return;
 
-  H.phase = 'duelLoading';
+  // Odliczanie zaczyna się od razu po wybraniu pola. Wczytywanie paczki
+  // może jeszcze chwilę trwać, ale gracze nie patrzą wtedy na sam napis
+  // „Przygotowuję pytanie…” — widzą już pojedynek i 3-2-1.
+  H.phase = 'duelIntro';
+  H.introUntil = Date.now() + 3000;
   H.targets = [];
   H.duel = {
     tileKey: keyOf(targetTile),
@@ -727,6 +731,9 @@ async function startDuel(sourceTile, targetTile) {
   };
   renderAll();
   sendState();
+  setTimeout(() => {
+    if (token === H.token && H.phase === 'duelIntro') beginDuel();
+  }, 3000);
 
   try {
     const pack = await loadPack(sourceTile.cat);
@@ -736,21 +743,18 @@ async function startDuel(sourceTile, targetTile) {
     if (token !== H.token) return;
     H.duel.queue = next.queue;
     H.duel.queuePos = 0;
-    // Wczytujemy zdjęcia całej kolejki pojedynku jeszcze przed odliczaniem.
-    // cache jest współdzielony z ekranem, więc odpowiedź nie czeka na sieć.
-    // Ograniczamy równoległość, żeby nie dostać HTTP 429 od Wikimedia.
+    // Wczytujemy zdjęcia całej kolejki pojedynku w tle. Odliczanie już
+    // trwa, więc nie blokujemy nim ekranu graczy.
     preloadImages(next.queue.map((item) => item.img), {
       limit: Math.min(80, next.queue.length),
       concurrency: 3,
       delay: 70,
     });
-    H.phase = 'duelIntro';
-    H.introUntil = Date.now() + 3000;
     renderAll();
     sendState();
-    setTimeout(() => {
-      if (token === H.token && H.phase === 'duelIntro') beginDuel();
-    }, 3000);
+    // Jeżeli wczytywanie trwało dłużej niż 3 sekundy, startujemy od razu;
+    // w przeciwnym razie zrobi to wcześniej ustawiony timer odliczania.
+    if (H.phase === 'duelIntro' && Date.now() >= H.introUntil) beginDuel();
   } catch (error) {
     if (token !== H.token) return;
     H.phase = 'board';
@@ -765,6 +769,9 @@ async function startDuel(sourceTile, targetTile) {
 
 async function beginDuel() {
   if (!H.duel || H.phase !== 'duelIntro') return;
+  // Timer może minąć przed końcem pobierania paczki. Wtedy poczekamy na
+  // wywołanie z startDuel po załadowaniu kolejki, zamiast zaczynać bez pytań.
+  if (!H.duel.pack || !H.duel.queue?.length) return;
   H.phase = 'duel';
   H.introUntil = 0;
   await advanceQuestion();
