@@ -563,13 +563,14 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: rgba(246, 196, 83, 0.08);
   border-radius: 999px;
   padding: 6px 12px;
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 800;
   color: #ffe3a1;
   white-space: nowrap;
   max-width: 40vw;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 60px;
 }
 
 .duel-screen {
