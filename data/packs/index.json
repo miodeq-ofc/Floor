@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T09:56:55.300Z",
+  "generated": "2026-11-15T10:02:32.477Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -15,7 +15,7 @@
       "group": "Motoryzacja",
       "icon": "🏍️",
       "prompt": "Jaki to motocykl?",
-      "count": 30
+      "count": 24
     },
     {
       "id": "samochody",
@@ -480,7 +480,15 @@
       "icon": "🧩",
       "prompt": "Co to za rebus?",
       "count": 25
+    },
+    {
+      "id": "rosliny",
+      "name": "Rośliny",
+      "group": "Przyroda",
+      "icon": "🌿",
+      "prompt": "Jaka to roślina?",
+      "count": 30
     }
   ],
-  "total": 4106
+  "total": 4130
 }

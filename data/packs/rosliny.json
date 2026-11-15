@@ -1,0 +1,129 @@
+{
+  "id": "rosliny",
+  "name": "Rośliny",
+  "group": "Przyroda",
+  "icon": "🌿",
+  "prompt": "Jaka to roślina?",
+  "items": [
+    {
+      "a": "Róża",
+      "clue": "Królowa ogrodu: ma kolce i pachnące kwiaty."
+    },
+    {
+      "a": "Tulipan",
+      "clue": "Wiosenny kwiat wyrastający z cebuli, często czerwony lub żółty."
+    },
+    {
+      "a": "Stokrotka",
+      "clue": "Drobny biały kwiat z żółtym środkiem, rośnie na łąkach."
+    },
+    {
+      "a": "Słonecznik",
+      "clue": "Wysoka roślina z dużym żółtym koszyczkiem, obraca się do słońca."
+    },
+    {
+      "a": "Lawenda",
+      "clue": "Fioletowe kłosy o intensywnym zapachu, często sadzone w ogrodach."
+    },
+    {
+      "a": "Bazylia",
+      "clue": "Zielna przyprawa o słodkim aromacie, jej liście pasują do pomidorów."
+    },
+    {
+      "a": "Mięta",
+      "clue": "Ma chłodzące liście, często dodawane do herbaty."
+    },
+    {
+      "a": "Aloes",
+      "clue": "Sukulent z grubymi liśćmi; jego sok łagodzi oparzenia."
+    },
+    {
+      "a": "Kaktus",
+      "clue": "Roślina z kolcami, która magazynuje wodę."
+    },
+    {
+      "a": "Monstera",
+      "clue": "Doniczkowa roślina z dużymi, dziurawymi liśćmi."
+    },
+    {
+      "a": "Fikus",
+      "clue": "Popularna roślina doniczkowa o okrągłych, skórzastych liściach."
+    },
+    {
+      "a": "Paproć",
+      "clue": "Cieniolubna roślina o pierzastych liściach."
+    },
+    {
+      "a": "Bluszcz",
+      "clue": "Zimozielone pnącze, często porastające ściany."
+    },
+    {
+      "a": "Geranium",
+      "clue": "Balkonowy kwiat o kolorowych baldachach."
+    },
+    {
+      "a": "Piwonia",
+      "clue": "Ma duże, pełne kwiaty i kwitnie wiosną."
+    },
+    {
+      "a": "Hortensja",
+      "clue": "Krzew z kulistymi kwiatami, które bywają niebieskie lub różowe."
+    },
+    {
+      "a": "Magnolia",
+      "clue": "Drzewo z dużymi różowymi kwiatami, kwitnące wczesną wiosną."
+    },
+    {
+      "a": "Jaśmin",
+      "clue": "Pnącze o białych, mocno pachnących kwiatach."
+    },
+    {
+      "a": "Bez czarny",
+      "clue": "Krzew z białymi baldachami i czarnymi owocami."
+    },
+    {
+      "a": "Wrzos",
+      "clue": "Tworzy fioletowe kobierce na wrzosowiskach."
+    },
+    {
+      "a": "Mak",
+      "clue": "Czerwony kwiat z czarnym środkiem, rośnie na polach."
+    },
+    {
+      "a": "Chaber",
+      "clue": "Niebieski kwiat polny, często w zbożu."
+    },
+    {
+      "a": "Narcyz",
+      "clue": "Wiosenny kwiat z żółtym środkiem i białymi płatkami."
+    },
+    {
+      "a": "Hiacynt",
+      "clue": "Wiosenna roślina o pachnących, gęstych kwiatostanach."
+    },
+    {
+      "a": "Dalia",
+      "clue": "Kolorowe kwiaty ogrodowe, kwitnące latem."
+    },
+    {
+      "a": "Begonia",
+      "clue": "Kwiat doniczkowy o mięsistych liściach."
+    },
+    {
+      "a": "Storczyk",
+      "clue": "Egzotyczna roślina doniczkowa o długich kwiatostanach."
+    },
+    {
+      "a": "Sansewieria",
+      "clue": "Roślina o sztywnych, pionowych liściach, zwana językiem teściowej."
+    },
+    {
+      "a": "Zamiokulkas",
+      "clue": "Roślina doniczkowa o ciemnych, błyszczących liściach."
+    },
+    {
+      "a": "Skrzydłokwiat",
+      "clue": "Roślina doniczkowa z białymi kwiatami i szerokimi liśćmi."
+    }
+  ]
+}
