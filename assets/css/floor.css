@@ -499,7 +499,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .board-setup[hidden] { display: none; }
 .board-setup-kicker { font-size: clamp(10px, 1vw, 13px); font-weight: 800; letter-spacing: 0.2em; color: var(--gold); }
 .board-setup-title { margin: -8px 0 0; font-family: var(--display); font-size: clamp(30px, 4.6vw, 64px); line-height: 0.9; letter-spacing: 0.02em; }
-.board-setup-sub { margin: 0; max-width: 620px; color: var(--muted); font-size: clamp(13px, 1.1vw, 17px); line-height: 1.5; }
+.board-setup-sub { margin: 0; max-width: 620px; color: var(--muted); font-size: clamp(11px, 1.1vw, 14px); line-height: 1.5; }
 .board-setup-players {
   --setup-gap: clamp(8px, 1.2vw, 14px);
   display: flex;
