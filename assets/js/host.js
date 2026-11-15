@@ -117,6 +117,7 @@ function cacheEls() {
   els.duelCard = $('#duel-card');
   els.duelCat = $('#duel-cat');
   els.duelImg = $('#duel-img');
+  els.duelBg = $('#duel-host-bg');
   els.duelLoading = $('#duel-loading');
   els.duelAnswer = $('#duel-answer');
   els.duelMeta = $('#duel-meta');
@@ -1137,6 +1138,7 @@ function renderDuelCard() {
     els.duelImg.hidden = true;
     els.duelLoading.hidden = false;
     els.duelHint.hidden = true;
+    if (els.duelBg) els.duelBg.hidden = true;
     els.duelAnswer.textContent = '—';
     return;
   }
@@ -1174,6 +1176,10 @@ function renderDuelCard() {
   }
   els.duelImg.alt = q.img ? 'Zdjęcie do pytania' : 'Brak zdjęcia';
   els.duelImg.parentElement.classList.toggle('logo', LOGO_PACKS.has(d.category.id));
+  if (els.duelBg) {
+    els.duelBg.style.backgroundImage = q.img ? 'url("' + q.img.replace(/"/g, '%22') + '")' : '';
+    els.duelBg.hidden = !q.img || LOGO_PACKS.has(d.category.id);
+  }
   els.duelImg.classList.toggle('blurred', BLUR_PACKS.has(d.category.id) && H.logoBlur);
   els.duelAnswer.textContent = q.a;
   // Odpowiedź musi zmieścić się w panelu bez przewijania, także na laptopie.

@@ -63,6 +63,7 @@ function cache() {
   els.waiting = $('#waiting-card');
   els.setup = $('#board-setup');
   els.clue = $('#duel-clue');
+  els.imageBg = $('#duel-image-bg');
 }
 
 function updateSoundButton() {
@@ -340,6 +341,7 @@ function renderDuel() {
     els.image.hidden = true;
     els.loading.hidden = false;
     if (els.clue) els.clue.hidden = true;
+    if (els.imageBg) els.imageBg.hidden = true;
   } else if (els.image.dataset.key !== d.q.img) {
     els.image.dataset.key = d.q.img;
     els.image.hidden = true;
@@ -357,6 +359,10 @@ function renderDuel() {
     els.clue.hidden = !d.q.hint;
   }
   const isLogo = LOGO_PACKS.has(d.category.id);
+  if (els.imageBg) {
+    els.imageBg.style.backgroundImage = d.q?.img ? 'url("' + d.q.img.replace(/"/g, '%22') + '")' : '';
+    els.imageBg.hidden = !d.q?.img || isLogo;
+  }
   const blur = BLUR_PACKS.has(d.category.id) && s.logoBlur;
   els.stage.classList.toggle('logo-stage', isLogo);
   els.image.classList.toggle('blurred', blur);

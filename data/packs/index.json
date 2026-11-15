@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T23:51:50.947Z",
+  "generated": "2026-11-15T00:03:34.785Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -415,7 +415,7 @@
       "group": "Marki",
       "icon": "🥤",
       "prompt": "Jaka to marka napoju?",
-      "count": 29
+      "count": 30
     },
     {
       "id": "marki-odziezowe",

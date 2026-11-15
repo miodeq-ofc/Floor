@@ -382,7 +382,19 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   place-items: center;
   padding: 0;
 }
-.duel-question-img { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; margin: auto; display: block; }
+.duel-question-img { position: absolute; inset: 0; width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; margin: auto; display: block; z-index: 1; }
+.duel-question-bg, .duel-image-bg {
+  position: absolute;
+  inset: -7%;
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(24px) brightness(0.38) saturate(0.78);
+  transform: scale(1.04);
+  pointer-events: none;
+}
+.duel-question-bg[hidden], .duel-image-bg[hidden] { display: none; }
 .duel-question-img[hidden], .duel-image[hidden] { display: none; }
 .duel-question-img.blurred, .duel-image.blurred {
   /* Logotypy mają nazwę w środku. Delikatny blur nadal ją zdradzał, więc
@@ -467,11 +479,22 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .board-setup-kicker { font-size: clamp(10px, 1vw, 13px); font-weight: 800; letter-spacing: 0.2em; color: var(--gold); }
 .board-setup-title { margin: -8px 0 0; font-family: var(--display); font-size: clamp(30px, 4.6vw, 64px); line-height: 0.9; letter-spacing: 0.02em; }
 .board-setup-sub { margin: 0; max-width: 620px; color: var(--muted); font-size: clamp(11px, 1.1vw, 14px); line-height: 1.5; }
-.board-setup-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 40vw), 1fr)); gap: clamp(8px, 1.2vw, 14px); width: min(1100px, 92vw); margin-top: 2px; }
+.board-setup-players {
+  --setup-gap: clamp(8px, 1.2vw, 14px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--setup-gap);
+  width: min(1100px, 92vw);
+  margin-top: 2px;
+}
 .board-setup-player {
   display: grid;
   justify-items: center;
   gap: 7px;
+  flex: 0 1 calc((100% - 3 * var(--setup-gap)) / 4);
+  max-width: calc((100% - 3 * var(--setup-gap)) / 4);
   min-width: 0;
   padding: clamp(12px, 1.6vw, 20px) clamp(10px, 1.4vw, 18px);
   border: 1px solid color-mix(in srgb, var(--pc) 62%, transparent);
@@ -482,6 +505,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .board-setup-dot { width: clamp(18px, 2.3vw, 28px); height: clamp(18px, 2.3vw, 28px); border-radius: 50%; background: var(--pc); box-shadow: 0 0 0 5px color-mix(in srgb, var(--pc) 14%, transparent), 0 0 22px color-mix(in srgb, var(--pc) 40%, transparent); }
 .board-setup-player b { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--display); font-size: clamp(20px, 2.6vw, 34px); line-height: 1; letter-spacing: 0.02em; }
 .board-setup-player span { font-size: clamp(8px, 0.85vw, 11px); font-weight: 800; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+
 .host-floor-card .floor-grid { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
 .board-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 0 4px; min-height: 24px; }
 .board-caption { font-family: var(--display); font-size: clamp(15px, 1.8vw, 23px); letter-spacing: 0.04em; color: #d9e1f3; }
@@ -576,7 +600,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 }
 .duel-clue[hidden] { display: none; }
 .duel-clue small { display: block; margin-top: 4px; font-family: var(--sans); font-size: 8px; font-weight: 800; letter-spacing: 0.12em; color: var(--muted); }
-.duel-image { width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; position: relative; z-index: 1; animation: qIn 0.3s ease both; }
+.duel-image { position: absolute; inset: 0; width: 100%; height: 100%; min-width: 0; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center; z-index: 1; animation: qIn 0.3s ease both; }
 .duel-stage.logo-stage::before {
   content: '';
   position: absolute;
@@ -585,7 +609,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: #f3f5fa;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
-.logo-stage .duel-image { width: auto; height: auto; max-width: 64%; max-height: 64%; object-fit: contain; padding: 1%; }
+.logo-stage .duel-image { inset: 0; width: auto; height: auto; max-width: 64%; max-height: 64%; object-fit: contain; padding: 1%; margin: auto; }
 .duel-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 13px; z-index: 2; }
 .duel-loading[hidden] { display: none; }
 .duel-image-fallback {
@@ -677,11 +701,11 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   /* Czysty panel: ciemne tło, sama obwódka i poświata w kolorze wyniku. */
   background: rgba(7, 10, 17, 0.96);
   color: #f2f5fb;
-  border: 2px solid rgba(246, 196, 83, 0.9);
+  border: 3px solid rgba(246, 196, 83, 0.98);
   border-radius: 16px;
   padding: 12px 22px;
   text-align: center;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 34px rgba(246, 196, 83, 0.18);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.72), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(246, 196, 83, 0.22), 0 0 52px rgba(246, 196, 83, 0.34);
   animation: bannerIn 0.22s cubic-bezier(0.2, 1.2, 0.3, 1) both;
 }
 .answer-banner.hidden { display: none; }
@@ -827,15 +851,17 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .answer-banner-note { font-size: 12px; margin-top: 4px; }
 .answer-banner[data-type='correct'] {
   border-color: #32d583;
+  border-width: 3px;
   color: #eafff4;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 38px rgba(50, 213, 131, 0.3);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.72), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(50, 213, 131, 0.28), 0 0 58px rgba(50, 213, 131, 0.5);
 }
 .answer-banner[data-type='correct'] .answer-banner-kicker { color: rgba(123, 240, 181, 0.9); }
 .answer-banner[data-type='correct'] .answer-banner-note { color: rgba(211, 244, 228, 0.62); }
 .answer-banner[data-type='pass'] {
   border-color: #ff8a3d;
+  border-width: 3px;
   color: #fff1e7;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 38px rgba(255, 138, 61, 0.32);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.72), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 138, 61, 0.3), 0 0 58px rgba(255, 138, 61, 0.52);
 }
 .answer-banner[data-type='pass'] .answer-banner-kicker { color: rgba(255, 174, 118, 0.92); }
 .answer-banner[data-type='pass'] .answer-banner-note { color: rgba(255, 217, 193, 0.6); }
@@ -854,8 +880,8 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   text-align: center;
   /* Ten sam czysty język co popup wyniku: ciemny panel, obwódka i poświata. */
   background: rgba(7, 10, 17, 0.96);
-  border: 2px solid rgba(246, 196, 83, 0.9);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 34px rgba(246, 196, 83, 0.22);
+  border: 3px solid rgba(246, 196, 83, 0.98);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.72), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(246, 196, 83, 0.2), 0 0 52px rgba(246, 196, 83, 0.32);
   animation: bannerIn 0.24s cubic-bezier(0.2, 1.2, 0.3, 1) both;
 }
 .conquest-banner.hidden { display: none; }
@@ -992,6 +1018,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   display: block;
 }
 .duel-question-wrap.logo .duel-question-img {
+  inset: 0;
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -1000,11 +1027,13 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   padding: 7%;
 }
 .logo-stage .duel-image {
+  inset: 0;
   width: auto;
   height: auto;
   max-width: 62%;
   max-height: 62%;
   object-fit: contain;
   padding: 0;
+  margin: auto;
 }
 .duel-image-fallback { display: none !important; }

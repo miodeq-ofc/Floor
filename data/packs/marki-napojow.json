@@ -136,6 +136,11 @@
       "a": "Powerade",
       "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Powerade_logo.png",
       "q": "Jaka to marka napoju?"
+    },
+    {
+      "a": "Loyd",
+      "img": "assets/packs/marki-napojow/loyd.png",
+      "q": "Jaka to marka napoju?"
     }
   ]
 }
