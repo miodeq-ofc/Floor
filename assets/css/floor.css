@@ -561,9 +561,9 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   white-space: nowrap;
 }
 .board-turn span {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 900;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: var(--muted);
 }
 .board-turn b {
@@ -578,13 +578,14 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: rgba(246, 196, 83, 0.08);
   border-radius: 999px;
   padding: 6px 12px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 800;
   color: #ffe3a1;
   white-space: nowrap;
   max-width: 40vw;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 60px;
 }
 
 .duel-screen {
@@ -857,7 +858,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .setup-board-card .legend { justify-content: flex-end; gap: 8px; }
 .board-legend .legend-chip { font-size: 15px; padding: 7px 14px; }
 .board-caption { letter-spacing: 0.03em; }
-.board-cat { font-size: 15px; }
 
 .duel-player { padding: 10px 18px; }
 .duel-player .clock-name { font-size: clamp(26px, 2.6vw, 40px); }
