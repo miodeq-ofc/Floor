@@ -7,102 +7,6 @@
   "source": "Kategoria:Gry planszowe",
   "items": [
     {
-      "a": "Go",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Go_board.jpg"
-    },
-    {
-      "a": "Latrunculi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Complutum_%28RPS_21-12-2024%29_tablero_y_fichas_del_Latr%C3%BAnculus_o_juego_de_los_soldados.png"
-    },
-    {
-      "a": "Senet",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Maler_der_Grabkammer_der_Nefertari_003.jpg"
-    },
-    {
-      "a": "Pachisi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Pachisi-real.jpg"
-    },
-    {
-      "a": "Arimaa",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/70/Arimaa_egb74.png"
-    },
-    {
-      "a": "Gra Roku",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/73/Pozna%C5%84_Pyrkon_2015_Gra_Roku_Labyrinth.JPG"
-    },
-    {
-      "a": "Kości",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/89/Yahtzee.jpg"
-    },
-    {
-      "a": "Piłkarzyki na sprężynkach",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Table_soccer_P9040571.JPG"
-    },
-    {
-      "a": "Królewska gra z Ur",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Royal_game_of_Ur%2Cat_the_British_Museum.jpg"
-    },
-    {
-      "a": "Lis i gęsi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/The_fox_game.jpg"
-    },
-    {
-      "a": "Mapa heksagonalna",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Wesnoth-1.4-1.jpg"
-    },
-    {
-      "a": "Filary Ziemi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Hry_a_hlavolamy_2008_-_Pil%C3%AD%C5%99e_zem%C4%9B_1.jpg"
-    },
-    {
-      "a": "Gęś",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/El_juego_de_la_Oca_-_Juan_Francisco_Piferrer_-_Barcelona.jpg"
-    },
-    {
-      "a": "Surakarta",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Surakarta.jpg"
-    },
-    {
-      "a": "Gry tafl",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/ZHNEFA.jpg"
-    },
-    {
-      "a": "Patolli",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Patolli.jpg"
-    },
-    {
-      "a": "Stronghold",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Pyrkon_2017_Stronghold_Board_Game.jpg"
-    },
-    {
-      "a": "Kooperacyjna gra planszowa",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Pandemic_Legacy_%2833870877603%29.jpg"
-    },
-    {
-      "a": "Alquerque",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Alquerque_in_Libro_de_los_juegos.jpg"
-    },
-    {
-      "a": "Puluc",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f5/The_game_of_Puluc.jpg"
-    },
-    {
-      "a": "Boże Igrzysko",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/04/Bozeigrzysko.JPG"
-    },
-    {
-      "a": "Mr. Jack",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hry_a_hlavolamy_2008_-_Mr._Jack_1.jpg"
-    },
-    {
-      "a": "Kontorniat",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Apuleius-Kontorniat.jpg"
-    },
-    {
-      "a": "Ameritrash",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Twilight_Imperium%2C_third_edition%2C_early_to_mid_game%2C_Mecatol_Rex_at_centre_frame.jpg"
-    },
-    {
       "a": "Warcaby",
       "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/International_draughts.jpg"
     },
@@ -115,64 +19,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/0/07/Backgammon-set_from_American_civil_war.jpeg"
     },
     {
-      "a": "Szo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/%E8%A5%BF%E8%97%8F%E9%9B%99%E5%85%AD.JPG"
-    },
-    {
-      "a": "Wari",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Owari-front.jpg"
-    },
-    {
-      "a": "Yut",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Korea_yut_pan.jpg"
-    },
-    {
-      "a": "Wilk i owce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Foxandhounds.png"
-    },
-    {
-      "a": "Trylma",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3e/ChineseCheckersboard.jpeg"
-    },
-    {
-      "a": "Mastermind",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Mastermind.jpg"
-    },
-    {
-      "a": "Gra komputerowa",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Gamescom_2016_%2828946194562%29.jpg"
-    },
-    {
-      "a": "Nemesis",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/83/Playing_board_game_-_Play_213_1681550178485.jpg"
-    },
-    {
-      "a": "Hex",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Hex_zig-zag.jpg"
-    },
-    {
-      "a": "Scythe",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Scythe_set-up_1.jpg"
-    },
-    {
-      "a": "Hazard",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Gambling_image.jpg"
-    },
-    {
-      "a": "Agricola",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Agricola_board_game.jpg"
-    },
-    {
-      "a": "Eurobusiness",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Eurobusiness6.JPG"
-    },
-    {
       "a": "Monopoly",
       "img": "https://upload.wikimedia.org/wikipedia/commons/d/df/German_Monopoly_board_in_the_middle_of_a_game.jpg"
-    },
-    {
-      "a": "Niagara",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Nepomuk_027_-_Niagara_a_Trans_Evropa.jpg"
     },
     {
       "a": "Osadnicy z Catanu",
@@ -191,28 +39,12 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pozna%C5%84_Pyrkon_2015_7_Cud%C3%B3w_%C5%9Awiata_7_Wonders.JPG"
     },
     {
-      "a": "Assarmot",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Assarmot_-_plansza_1861r.jpg"
-    },
-    {
       "a": "Azul",
       "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/A_game_of_Azul_in_progress.jpg"
     },
     {
-      "a": "Gra wojenna",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Warhammer_game.jpg"
-    },
-    {
-      "a": "Talisman: Magia i Miecz",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Talisman12.jpg"
-    },
-    {
       "a": "Dixit",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/97/Dixit_game_0001.jpg"
-    },
-    {
-      "a": "Boss",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/78/Supertux_boss.png"
     },
     {
       "a": "Tajniacy",
@@ -221,6 +53,70 @@
     {
       "a": "Ryzyko",
       "img": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Playing-risk.jpg"
+    },
+    {
+      "a": "Scrabble",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Turniejowa_plansza_scrabble.jpg"
+    },
+    {
+      "a": "Domino",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Dominospiel.JPG"
+    },
+    {
+      "a": "Jenga",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Jenga.gif"
+    },
+    {
+      "a": "Twister",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/84/Yoga-twister.jpg"
+    },
+    {
+      "a": "Kalambury",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Game_of_Charades_-_05.jpg"
+    },
+    {
+      "a": "Bierki",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/Bierki.JPG"
+    },
+    {
+      "a": "Młynek",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Nine_Men%27s_Morris_board.svg"
+    },
+    {
+      "a": "Boggle",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Boggle.jpg"
+    },
+    {
+      "a": "Rummikub",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Rummikub1.jpg"
+    },
+    {
+      "a": "Qwirkle",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/Qwirkle.jpg"
+    },
+    {
+      "a": "Quarto",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Chiesa_di_Santa_Maria_Libera_Nos_a_Scandalis_Quarto_%28cropped%29.jpg"
+    },
+    {
+      "a": "Carcassonne",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/25/1_carcassonne_aerial_2016.jpg"
+    },
+    {
+      "a": "Munchkin",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Munchkin.JPG"
+    },
+    {
+      "a": "Chińczyk",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Brettspiel_Mensch_%C3%A4rger_dich_nicht.jpg"
+    },
+    {
+      "a": "Uno",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/2/28/Baraja_de_UNO.JPG"
+    },
+    {
+      "a": "Jumanji",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/MegaCon_2010_-_Jumanji_%284571417377%29.jpg"
     }
   ]
 }
