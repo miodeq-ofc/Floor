@@ -546,9 +546,9 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   white-space: nowrap;
 }
 .board-turn span {
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 900;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: var(--muted);
 }
 .board-turn b {
@@ -807,9 +807,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   .mini-board-wrap { height: 42px; }
   .board .overlay-title, .host .overlay-title { font-size: clamp(36px, 12vw, 70px); }
 }
-/* ============================================================
-   Czytelność planszy / TV / nowe stany pojedynku
-   ============================================================ */
+
 .tile-cat {
   font-size: clamp(11px, 1.85cqh, 18px);
   line-height: 1.12;
@@ -1014,7 +1012,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   width: 100%;
   /* cqw liczy się od szerokości planszy, więc przy 8 kolumnach napisy
      same się zmniejszają zamiast łamać „Kompozytorzy” na „Kompozyt orzy”. */
-  font-size: clamp(8px, 1.06cqw, 14px);
+  font-size: clamp(14px, 1.06cqw, 19px);
   line-height: 1.12;
   overflow-wrap: break-word;
   word-break: normal;
