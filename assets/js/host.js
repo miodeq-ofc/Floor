@@ -118,6 +118,7 @@ function cacheEls() {
   els.duelCat = $('#duel-cat');
   els.duelImg = $('#duel-img');
   els.duelBg = $('#duel-host-bg');
+  els.duelText = $('#duel-host-text');
   els.duelLoading = $('#duel-loading');
   els.duelAnswer = $('#duel-answer');
   els.duelMeta = $('#duel-meta');
@@ -791,7 +792,7 @@ async function advanceQuestion() {
   H.duel.qNumber += 1;
   H.used.add(pack.id + '|' + answerKey(q.a));
   markSeen(pack.id, q.a);
-  preloadImages([q.img, H.duel.queue[H.duel.queuePos]?.img]);
+  preloadImages([q.img, H.duel.queue[H.duel.queuePos]?.img].filter(Boolean));
 }
 
 function preloadNext() {
@@ -1139,6 +1140,7 @@ function renderDuelCard() {
     els.duelLoading.hidden = false;
     els.duelHint.hidden = true;
     if (els.duelBg) els.duelBg.hidden = true;
+    if (els.duelText) els.duelText.hidden = true;
     els.duelAnswer.textContent = '—';
     return;
   }
@@ -1146,7 +1148,16 @@ function renderDuelCard() {
     els.duelHint.textContent = q.hint || '';
     els.duelHint.hidden = !q.hint;
   }
-  if (els.duelImg.dataset.key !== q.img) {
+  const textMode = !q.img && Boolean(q.clue || q.text);
+  if (els.duelText) {
+    els.duelText.textContent = textMode ? q.clue || q.text : '';
+    els.duelText.hidden = !textMode;
+  }
+  if (textMode) {
+    els.duelImg.hidden = true;
+    els.duelLoading.hidden = true;
+    if (els.duelBg) els.duelBg.hidden = true;
+  } else if (els.duelImg.dataset.key !== q.img) {
     els.duelImg.dataset.key = q.img;
     els.duelImg.hidden = true;
     els.duelLoading.hidden = false;
@@ -1360,7 +1371,7 @@ function publicState() {
           challengerId: d.challengerId,
           defenderId: d.defenderId,
           category: { id: d.category.id, name: d.category.name, icon: d.category.icon, prompt: d.category.prompt },
-          q: d.q ? { img: d.q.img, hint: d.q.hint || '' } : null,
+          q: d.q ? { img: d.q.img || '', hint: d.q.hint || '', clue: d.q.clue || d.q.text || '' } : null,
           active: d.active,
           clocks: { ...d.clocks },
           deadline: d.deadline,

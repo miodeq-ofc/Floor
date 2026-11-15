@@ -1,0 +1,109 @@
+{
+  "id": "rebusy",
+  "name": "Rebusy",
+  "group": "Zabawa",
+  "icon": "🧩",
+  "prompt": "Co to za rebus?",
+  "items": [
+    {
+      "a": "Klawiatura",
+      "clue": "KLAWISZ bez „sz” + A + T + URA"
+    },
+    {
+      "a": "Kotlet",
+      "clue": "KOT + „let”"
+    },
+    {
+      "a": "Wodospad",
+      "clue": "WODA + „spad”"
+    },
+    {
+      "a": "Samolot",
+      "clue": "SAM + litera O + LOT"
+    },
+    {
+      "a": "Makaron",
+      "clue": "MAK + „aron”"
+    },
+    {
+      "a": "Serce",
+      "clue": "SER + „ce”"
+    },
+    {
+      "a": "Rowerzysta",
+      "clue": "ROWER + „zysta”"
+    },
+    {
+      "a": "Lekarz",
+      "clue": "LEK + „arz”"
+    },
+    {
+      "a": "Gracz",
+      "clue": "GRA + „cz”"
+    },
+    {
+      "a": "Piłkarz",
+      "clue": "PIŁKA + „rz”"
+    },
+    {
+      "a": "Cukiernia",
+      "clue": "CUKIER + „nia”"
+    },
+    {
+      "a": "Domek",
+      "clue": "DOM + „ek”"
+    },
+    {
+      "a": "Lasek",
+      "clue": "LAS + „ek”"
+    },
+    {
+      "a": "Kwiatek",
+      "clue": "KWIAT + „ek”"
+    },
+    {
+      "a": "Stolik",
+      "clue": "STÓŁ + „ik”"
+    },
+    {
+      "a": "Rybak",
+      "clue": "RYBA + „k”"
+    },
+    {
+      "a": "Słońce",
+      "clue": "SŁOŃ + „ce”"
+    },
+    {
+      "a": "Ząbek",
+      "clue": "ZĄB + „ek”"
+    },
+    {
+      "a": "Chlebek",
+      "clue": "CHLEB + „ek”"
+    },
+    {
+      "a": "Oko",
+      "clue": "Litera O + KOT bez litery T"
+    },
+    {
+      "a": "Latarka",
+      "clue": "LATO bez O + „arka”"
+    },
+    {
+      "a": "Pomidor",
+      "clue": "POMIOT bez „ot” + „dor”"
+    },
+    {
+      "a": "Książka",
+      "clue": "KSI + „ążka”"
+    },
+    {
+      "a": "Telefon",
+      "clue": "TELE + „fon”"
+    },
+    {
+      "a": "Parasol",
+      "clue": "PARA + „sol”"
+    }
+  ]
+}

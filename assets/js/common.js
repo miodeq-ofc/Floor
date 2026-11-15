@@ -251,12 +251,17 @@ function sanitizePack(cat, pack) {
   const seen = new Set();
   const images = new Set();
   pack.items = pack.items.filter((q) => {
-    if (!q?.a || !q.img || !answerLooksUsable(cat, q.a)) return false;
-    q.img = normalizeImageUrl(q.img);
+    // Kategorie tekstowe (piosenki, rebusy) nie mają zdjęcia, tylko clue.
+    const hasText = Boolean(q?.clue || q?.text);
+    if (!q?.a || (!q.img && !hasText) || !answerLooksUsable(cat, q.a)) return false;
     const key = answerKey(q.a);
-    if (seen.has(key) || images.has(q.img) || !imageLooksUsable(cat, q.img)) return false;
+    if (seen.has(key)) return false;
+    if (q.img) {
+      q.img = normalizeImageUrl(q.img);
+      if (images.has(q.img) || !imageLooksUsable(cat, q.img)) return false;
+      images.add(q.img);
+    }
     seen.add(key);
-    images.add(q.img);
     return true;
   });
   return pack;

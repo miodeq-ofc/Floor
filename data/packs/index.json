@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T00:08:48.995Z",
+  "generated": "2026-11-15T00:20:36.010Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -359,7 +359,7 @@
       "group": "Technika",
       "icon": "🚆",
       "prompt": "Jaki to pociąg?",
-      "count": 58
+      "count": 34
     },
     {
       "id": "roboty",
@@ -464,7 +464,23 @@
       "icon": "📱",
       "prompt": "Jaka to aplikacja lub serwis?",
       "count": 80
+    },
+    {
+      "id": "piosenki",
+      "name": "Piosenki",
+      "group": "Muzyka",
+      "icon": "🎵",
+      "prompt": "Jaka to piosenka? Podaj tytuł i wykonawcę.",
+      "count": 25
+    },
+    {
+      "id": "rebusy",
+      "name": "Rebusy",
+      "group": "Zabawa",
+      "icon": "🧩",
+      "prompt": "Co to za rebus?",
+      "count": 25
     }
   ],
-  "total": 3950
+  "total": 4117
 }

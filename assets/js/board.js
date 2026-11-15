@@ -64,6 +64,7 @@ function cache() {
   els.setup = $('#board-setup');
   els.clue = $('#duel-clue');
   els.imageBg = $('#duel-image-bg');
+  els.text = $('#duel-text');
 }
 
 function updateSoundButton() {
@@ -342,10 +343,20 @@ function renderDuel() {
     els.loading.hidden = false;
     if (els.clue) els.clue.hidden = true;
     if (els.imageBg) els.imageBg.hidden = true;
+    if (els.text) els.text.hidden = true;
+  } else if (!d.q.img) {
+    els.image.hidden = true;
+    els.loading.hidden = true;
+    if (els.imageBg) els.imageBg.hidden = true;
+    if (els.text) {
+      els.text.textContent = d.q.clue || '';
+      els.text.hidden = !d.q.clue;
+    }
   } else if (els.image.dataset.key !== d.q.img) {
     els.image.dataset.key = d.q.img;
     els.image.hidden = true;
     els.loading.hidden = false;
+    if (els.text) els.text.hidden = true;
     const key = d.q.img;
     preloadImages([key]);
     setImageWithFallback(els.image, key, (ok) => {
@@ -353,6 +364,8 @@ function renderDuel() {
       els.loading.hidden = true;
       els.image.hidden = !ok;
     });
+  } else if (els.text) {
+    els.text.hidden = true;
   }
   if (els.clue) {
     els.clue.textContent = d.q.hint || '';

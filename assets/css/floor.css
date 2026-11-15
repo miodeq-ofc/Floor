@@ -395,6 +395,27 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   pointer-events: none;
 }
 .duel-question-bg[hidden], .duel-image-bg[hidden] { display: none; }
+.duel-text, .duel-question-text {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 3vw, 54px);
+  overflow: auto;
+  color: #f7f2e6;
+  text-align: center;
+  white-space: pre-line;
+  font-family: var(--sans);
+  font-size: clamp(20px, 2.35vw, 38px);
+  font-weight: 800;
+  line-height: 1.38;
+  letter-spacing: 0.01em;
+  background:
+    radial-gradient(620px 360px at 50% 48%, rgba(246, 196, 83, 0.10), transparent 72%),
+    #080c15;
+}
+.duel-text[hidden], .duel-question-text[hidden] { display: none; }
 .duel-question-img[hidden], .duel-image[hidden] { display: none; }
 .duel-question-img.blurred, .duel-image.blurred {
   /* Logotypy mają nazwę w środku. Delikatny blur nadal ją zdradzał, więc

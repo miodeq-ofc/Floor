@@ -1,0 +1,109 @@
+{
+  "id": "piosenki",
+  "name": "Piosenki",
+  "group": "Muzyka",
+  "icon": "🎵",
+  "prompt": "Jaka to piosenka? Podaj tytuł i wykonawcę.",
+  "items": [
+    {
+      "a": "Małgośka — Maryla Rodowicz",
+      "clue": "„Małgośka, Małgośka,\ntańcz dla mnie, tańcz…”"
+    },
+    {
+      "a": "Dni, których nie znamy — Marek Grechuta",
+      "clue": "„Dni, których nie znamy,\ndni, których nie znamy,\nsą nasze…”"
+    },
+    {
+      "a": "Kocham cię jak Irlandię — Kobranocka",
+      "clue": "„Kocham cię jak Irlandię,\nkocham cię jak Irlandię,\ngdziekolwiek jesteś…”"
+    },
+    {
+      "a": "Chłopaki nie płaczą — T.Love",
+      "clue": "„Chłopaki nie płaczą,\nchłopaki nie płaczą,\nmy tylko tak…”"
+    },
+    {
+      "a": "Warszawa — T.Love",
+      "clue": "„Warszawa, Warszawa,\nja tu wrócę, ty tu wróć…”"
+    },
+    {
+      "a": "Długość dźwięku samotności — Myslovitz",
+      "clue": "„I nawet jeśli nie ma nas,\nto jest długość dźwięku samotności…”"
+    },
+    {
+      "a": "Mniej niż zero — Lady Pank",
+      "clue": "„Mniej niż zero,\nmniej niż zero,\ntyle dla mnie znaczysz…”"
+    },
+    {
+      "a": "Kryzysowa narzeczona — Lady Pank",
+      "clue": "„Kryzysowa narzeczona,\nkryzysowa narzeczona,\nznowu mnie zostawia…”"
+    },
+    {
+      "a": "Jolka, Jolka pamiętasz — Budka Suflera",
+      "clue": "„Jolka, Jolka pamiętasz,\njak to było wtedy…”"
+    },
+    {
+      "a": "Takie tango — Budka Suflera",
+      "clue": "„Takie tango,\ntakie tango,\ntańczymy razem…”"
+    },
+    {
+      "a": "Sen o Warszawie — Czesław Niemen",
+      "clue": "„Sen o Warszawie,\nsen o Warszawie,\nwciąż mi się śni…”"
+    },
+    {
+      "a": "Dziwny jest ten świat — Czesław Niemen",
+      "clue": "„Dziwny jest ten świat,\ndziwny jest ten świat,\nale ja go kocham…”"
+    },
+    {
+      "a": "Autobiografia — Perfect",
+      "clue": "„Autobiografia,\nto moja gra,\nto moje życie…”"
+    },
+    {
+      "a": "Szklana pogoda — Lombard",
+      "clue": "„Szklana pogoda,\nszklana pogoda,\nznowu pada…”"
+    },
+    {
+      "a": "Mamona — Republika",
+      "clue": "„Mamona, mamona,\nwszystko za mamona…”"
+    },
+    {
+      "a": "Cykady na Cykladach — Maanam",
+      "clue": "„Cykady na Cykladach,\ncykady na Cykladach,\nśpiewają dla nas…”"
+    },
+    {
+      "a": "Lubię wracać tam, gdzie byłem — Zbigniew Wodecki",
+      "clue": "„Lubię wracać tam,\ngdzie byłem,\ngdzie moje miejsce…”"
+    },
+    {
+      "a": "Zacznij od Bacha — Zbigniew Wodecki",
+      "clue": "„Zacznij od Bacha,\npotem będzie łatwiej…”"
+    },
+    {
+      "a": "Przez twe oczy zielone — Akcent",
+      "clue": "„Przez twe oczy zielone,\nprzez twe oczy szalone…”"
+    },
+    {
+      "a": "Ona tańczy dla mnie — Weekend",
+      "clue": "„Ona tańczy dla mnie,\nona tańczy dla mnie,\ncałą noc…”"
+    },
+    {
+      "a": "Ruda tańczy jak szalona — Czadoman",
+      "clue": "„Ruda tańczy jak szalona,\nruda tańczy jak szalona…”"
+    },
+    {
+      "a": "Bałkanica — Piersi",
+      "clue": "„Bałkanica, bałkanica,\ntańczy cała okolica…”"
+    },
+    {
+      "a": "My Słowianie — Donatan i Cleo",
+      "clue": "„My Słowianie,\ntak mamy,\nmy się nie damy…”"
+    },
+    {
+      "a": "Nie pytaj o Polskę — Obywatel G.C.",
+      "clue": "„Nie pytaj o Polskę,\nnie pytaj, nie pytaj…”"
+    },
+    {
+      "a": "Cichosza — Grzegorz Turnau",
+      "clue": "„Cichosza, cichosza,\nnikt nie woła…”"
+    }
+  ]
+}
