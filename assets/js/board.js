@@ -4,7 +4,7 @@ import { Sound } from './sound.js';
 import { preloadImages, setImageWithFallback } from './images.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
-const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow']);
+const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow', 'piwo']);
 
 const B = {
   state: null,
@@ -80,6 +80,8 @@ function cache() {
   els.clue = $('#duel-clue');
   els.imageBg = $('#duel-image-bg');
   els.text = $('#duel-text');
+  els.stageIntro = $('#duel-stage-intro');
+  els.stageIntroCount = $('#duel-stage-intro-count');
 }
 
 function updateSoundButton() {
@@ -365,12 +367,25 @@ function renderLegend() {
     });
 }
 
+function duelIntroActive(s) {
+  if (!s?.duel) return false;
+  if (s.phase === 'duelIntro') return true;
+  return s.phase === 'duel' && B.localIntroUntil > Date.now() && B.localIntroKey === s.duel.tileKey;
+}
+
 function renderDuel() {
   const s = B.state;
   const d = s.duel;
   const ch = s.players.find((p) => p.id === d.challengerId);
   const de = s.players.find((p) => p.id === d.defenderId);
   if (!ch || !de) return;
+  if (els.stageIntro) {
+    els.stageIntro.hidden = !duelIntroActive(s);
+    if (!els.stageIntro.hidden && els.stageIntroCount) {
+      const until = s.phase === 'duelIntro' ? s.introUntil : B.localIntroUntil;
+      els.stageIntroCount.textContent = String(Math.max(1, Math.ceil((until - Date.now()) / 1000)));
+    }
+  }
   const key = d.tileKey + d.challengerId + d.defenderId;
   if (key !== B.lastDuelKey) {
     B.lastDuelKey = key;
@@ -510,11 +525,7 @@ function renderConquest() {
 
 function renderOverlay() {
   const s = B.state;
-  const localIntro = Boolean(
-    s.phase === 'duel' &&
-    B.localIntroUntil > Date.now() &&
-    B.localIntroKey === s.duel?.tileKey
-  );
+  const localIntro = duelIntroActive(s) && s.phase === 'duel';
   let html = '';
   let key =
     (localIntro ? 'localIntro' : s.phase) +
@@ -587,6 +598,7 @@ function tick() {
     const node = document.getElementById('big-countdown');
     const sec = Math.max(1, Math.ceil((until - now) / 1000));
     if (node) node.textContent = String(sec);
+    if (els.stageIntroCount) els.stageIntroCount.textContent = String(sec);
     if (sec !== B.lastIntroSecond) {
       B.lastIntroSecond = sec;
       Sound.countdown(sec);
@@ -595,6 +607,7 @@ function tick() {
     B.lastIntroSecond = 0;
     if (B.localIntroUntil && now >= B.localIntroUntil) {
       B.localIntroUntil = 0;
+      if (els.stageIntro) els.stageIntro.hidden = true;
       renderOverlay();
     }
   }

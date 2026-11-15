@@ -24,7 +24,7 @@ import {
 } from './game.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
-const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow']);
+const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow', 'piwo']);
 
 const SETTINGS_KEY = 'floor:settings';
 const H = {

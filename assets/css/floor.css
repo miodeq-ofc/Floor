@@ -649,6 +649,22 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .logo-stage .duel-image { inset: 0; width: auto; height: auto; max-width: 64%; max-height: 64%; object-fit: contain; padding: 1%; margin: auto; }
 .duel-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 13px; z-index: 2; }
 .duel-loading[hidden] { display: none; }
+/* Awaryjne odliczanie wewnątrz sceny: działa nawet wtedy, gdy osobna
+   nakładka intro nie zdąży się pokazać na boardzie. */
+.duel-stage-intro {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: clamp(2px, 1vh, 10px);
+  text-align: center;
+  background: radial-gradient(650px 380px at 50% 45%, rgba(246, 196, 83, 0.12), transparent 70%), rgba(5, 8, 15, 0.95);
+}
+.duel-stage-intro[hidden] { display: none; }
+.duel-stage-intro-kicker { font-size: clamp(13px, 1.4vw, 20px); font-weight: 900; letter-spacing: 0.28em; color: var(--gold); }
+.duel-stage-intro-count { font-family: var(--display); font-size: clamp(100px, 18vw, 210px); line-height: 0.8; color: var(--gold); text-shadow: 0 0 55px rgba(246, 196, 83, 0.4); }
 .duel-image-fallback {
   position: absolute;
   inset: 0;
