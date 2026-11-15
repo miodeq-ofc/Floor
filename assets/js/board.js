@@ -547,7 +547,12 @@ function renderOverlay() {
       escapeHtml(winner?.name || '') +
       '</div><p class="overlay-sub">Ostatni gracz na The Floor.</p>';
   }
-  if (key === B.overlayKey) return;
+  if (key === B.overlayKey) {
+    // Ten sam klucz nie może zostawić nakładki ukrytej, jeśli wcześniejszy
+    // render zdążył ją schować. Dotyczy szczególnie odliczania po starcie.
+    if (html) els.overlay.classList.remove('hidden');
+    return;
+  }
   B.overlayKey = key;
   els.overlayCard.innerHTML = html;
   els.overlay.classList.toggle('hidden', !html);
