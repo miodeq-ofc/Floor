@@ -27,9 +27,21 @@ function boot() {
   cache();
   bind();
   render();
-  bus.send('hello');
-  setInterval(() => bus.send('hello'), 2200);
+  // Ostatni znany stan z localStorage pozwala od razu pokazać planszę,
+  // nawet jeśli BroadcastChannel jest chwilowo niedostępny.
+  bus.replay();
+  hello();
+  setInterval(hello, 2200);
   setInterval(tick, 100);
+}
+
+function hello() {
+  bus.send('hello');
+  if (window.opener && window.opener !== window) {
+    try {
+      window.opener.postMessage({ t: 'hello' }, location.origin);
+    } catch {}
+  }
 }
 
 function cache() {
@@ -81,6 +93,11 @@ function bind() {
     else document.documentElement.requestFullscreen?.().catch(() => {});
   });
   const unlock = () => Sound.unlock();
+  window.addEventListener('message', (event) => {
+    if (event.origin !== location.origin) return;
+    if (event.data?.t !== 'state' || !event.data.state) return;
+    onMessage(event.data);
+  });
   document.addEventListener('pointerdown', unlock, { once: true });
   document.addEventListener('keydown', unlock, { once: true });
   els.sound?.addEventListener('click', () => {

@@ -68,35 +68,57 @@ export class Bus {
     this.handler = handler;
     this.id = Math.random().toString(36).slice(2, 10);
     this.name = 'the-floor-' + gameId;
+    this.stateName = this.name + ':state';
     this.bc = null;
     this.onStorage = null;
+    // BroadcastChannel nie działa w każdym oknie/telewizorze i potrafi być
+    // zablokowany przez podgląd. Dlatego równolegle nasłuchujemy storage:
+    // to ta sama przeglądarka, ale inna, awaryjna droga dla stanu gry.
+    this.onStorage = (event) => {
+      if ((event.key !== this.name && event.key !== this.stateName) || !event.newValue) return;
+      try {
+        const data = JSON.parse(event.newValue);
+        if (data && data.from !== this.id) handler(data);
+      } catch {}
+    };
+    window.addEventListener('storage', this.onStorage);
     if ('BroadcastChannel' in window) {
       this.bc = new BroadcastChannel(this.name);
       this.bc.onmessage = (event) => {
         const data = event.data;
         if (data && data.from !== this.id) handler(data);
       };
-    } else {
-      this.onStorage = (event) => {
-        if (event.key !== this.name || !event.newValue) return;
-        try {
-          const data = JSON.parse(event.newValue);
-          if (data.from !== this.id) handler(data);
-        } catch {}
-      };
-      window.addEventListener('storage', this.onStorage);
     }
   }
 
   send(t, payload = {}) {
     const msg = { t, ...payload, from: this.id, at: Date.now() };
     if (this.bc) {
-      this.bc.postMessage(msg);
-      return;
+      try {
+        this.bc.postMessage(msg);
+      } catch {}
     }
     try {
-      localStorage.setItem(this.name, JSON.stringify({ ...msg, n: Math.random() }));
+      // Stan i hello mają osobne klucze. Inaczej samo hello boardu
+      // nadpisywało ostatni stan i odświeżony board nie miał czego odtworzyć.
+      const key = t === 'state' ? this.stateName : this.name;
+      localStorage.setItem(key, JSON.stringify({ ...msg, n: Math.random() }));
     } catch {}
+  }
+
+  // Ostatni stan zostaje w localStorage. Dzięki temu board otwarty później
+  // (albo po odświeżeniu) nie wisi na „czekam na prowadzącego”.
+  replay() {
+    try {
+      const raw = localStorage.getItem(this.stateName) || localStorage.getItem(this.name);
+      if (!raw) return false;
+      const data = JSON.parse(raw);
+      if (!data || data.from === this.id) return false;
+      this.handler(data);
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   close() {

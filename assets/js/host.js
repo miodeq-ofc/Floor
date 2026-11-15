@@ -61,6 +61,7 @@ const H = {
 
 const els = {};
 let bus = null;
+let boardWindow = null;
 
 /* ---------------- start ---------------- */
 function boot() {
@@ -170,6 +171,13 @@ function buildPlayers() {
 
 /* ---------------- bind ---------------- */
 function bind() {
+  // Bezpośredni kanał dla okna boardu otwartego z tego przycisku.
+  window.addEventListener('message', (event) => {
+    if (event.origin !== location.origin) return;
+    if (event.data?.t !== 'hello') return;
+    H.boardSeen = Date.now();
+    sendState();
+  });
   $('#count-seg').addEventListener('click', (event) => {
     const btn = event.target.closest('button[data-count]');
     if (!btn) return;
@@ -1397,7 +1405,18 @@ function publicState() {
 function sendState() {
   if (!bus) return;
   H.lastSent = Date.now();
-  bus.send('state', { state: publicState() });
+  const state = publicState();
+  bus.send('state', { state });
+  // Dodatkowa, bezpośrednia droga dla okna otwartego przyciskiem
+  // „Ekran graczy”. Działa nawet wtedy, gdy przeglądarka blokuje
+  // BroadcastChannel między oknami podglądu.
+  if (boardWindow && !boardWindow.closed) {
+    try {
+      boardWindow.postMessage({ t: 'state', state }, location.origin);
+    } catch {}
+  } else if (boardWindow?.closed) {
+    boardWindow = null;
+  }
 }
 
 /* ---------------- helpers ---------------- */
@@ -1417,7 +1436,10 @@ function spinnerBlock(text) {
 
 function openBoard() {
   const win = window.open('board.html', 'floor-board', 'popup=yes,width=1360,height=820');
-  if (win) win.focus();
+  if (win) {
+    boardWindow = win;
+    win.focus();
+  }
   else toast('Przeglądarka zablokowała okno. Zezwól na wyskakujące okna.', true, 5000);
 }
 

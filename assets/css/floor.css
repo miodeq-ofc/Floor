@@ -198,10 +198,17 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 }
 
 .tile-emoji { font-size: clamp(9px, 1.8cqh, 16px); line-height: 1; opacity: 0.9; flex: none; }
+/* Jeden wspólny styl podpisu kafelka. Wcześniej ten sam selektor był
+   powtarzany kilka razy z mniejszymi rozmiarami i ostatnia reguła
+   sprowadzała nazwy kategorii do 7–14 px. */
 .tile-cat {
-  font-size: clamp(8px, 1.55cqh, 13.5px);
+  width: 100%;
+  max-width: 100%;
+  /* Fallback dla starszych telewizorów bez jednostek kontenera. */
+  font-size: clamp(12px, 1.45vw, 22px);
+  font-size: clamp(12px, 1.45cqw, 22px);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.14;
   letter-spacing: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -209,8 +216,9 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   -webkit-box-orient: vertical;
   overflow-wrap: break-word;
   word-break: normal;
-  hyphens: auto;
-  max-width: 100%;
+  hyphens: none;
+  text-align: center;
+  text-wrap: balance;
 }
 .tile-attack {
   position: absolute;
@@ -497,9 +505,9 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   backdrop-filter: blur(3px);
 }
 .board-setup[hidden] { display: none; }
-.board-setup-kicker { font-size: clamp(10px, 1vw, 13px); font-weight: 800; letter-spacing: 0.2em; color: var(--gold); }
-.board-setup-title { margin: -8px 0 0; font-family: var(--display); font-size: clamp(30px, 4.6vw, 64px); line-height: 0.9; letter-spacing: 0.02em; }
-.board-setup-sub { margin: 0; max-width: 620px; color: var(--muted); font-size: clamp(11px, 1.1vw, 14px); line-height: 1.5; }
+.board-setup-kicker { font-size: clamp(14px, 1.25vw, 20px); font-weight: 800; letter-spacing: 0.2em; color: var(--gold); }
+.board-setup-title { margin: -8px 0 0; font-family: var(--display); font-size: clamp(52px, 5.8vw, 96px); line-height: 0.9; letter-spacing: 0.02em; }
+.board-setup-sub { margin: 0; max-width: 780px; color: var(--muted); font-size: clamp(16px, 1.45vw, 24px); line-height: 1.5; }
 .board-setup-players {
   --setup-gap: clamp(8px, 1.2vw, 14px);
   display: flex;
@@ -525,14 +533,21 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 }
 .board-setup-dot { width: clamp(18px, 2.3vw, 28px); height: clamp(18px, 2.3vw, 28px); border-radius: 50%; background: var(--pc); box-shadow: 0 0 0 5px color-mix(in srgb, var(--pc) 14%, transparent), 0 0 22px color-mix(in srgb, var(--pc) 40%, transparent); }
 .board-setup-player b { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--display); font-size: clamp(20px, 2.6vw, 34px); line-height: 1; letter-spacing: 0.02em; }
-.board-setup-player span { font-size: clamp(8px, 0.85vw, 11px); font-weight: 800; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+.board-setup-player span { font-size: clamp(12px, 1vw, 16px); font-weight: 800; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
 
 .host-floor-card .floor-grid { width: 100%; height: 100%; max-height: 100%; aspect-ratio: auto; }
 .board-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 0 4px; min-height: 24px; }
-.board-caption { font-family: var(--display); font-size: clamp(15px, 1.8vw, 23px); letter-spacing: 0.04em; color: #d9e1f3; }
+.board-caption { font-family: var(--display); font-size: clamp(18px, 2vw, 28px); letter-spacing: 0.04em; color: #d9e1f3; }
 .board-caption::before { content: '●'; color: var(--gold); font-size: 0.55em; margin-right: 8px; vertical-align: 0.18em; }
 .board-legend { justify-content: flex-end; }
 .board-top { position: relative; }
+/* Ekran boardu jest często oglądany z kilku metrów. Nagłówek, tytuł
+   i podpis stanu nie mogą być mikroskopijne tylko dlatego, że mieszczą
+   się w pasku obok logo. */
+.floor-board .turn-label .t1 { font-size: 12.5px; }
+.floor-board .turn-label .t2 { font-size: clamp(24px, 2.8vw, 38px); }
+.floor-board .conn { font-size: 13px; }
+.floor-board .brand-name { font-size: 24px; }
 .board-turn {
   position: absolute;
   left: 50%;
@@ -546,14 +561,14 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   white-space: nowrap;
 }
 .board-turn span {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.2em;
   color: var(--muted);
 }
 .board-turn b {
   font-family: var(--display);
-  font-size: clamp(20px, 2.4vw, 34px);
+  font-size: clamp(30px, 2.8vw, 44px);
   letter-spacing: 0.04em;
   color: var(--gold);
   line-height: 1;
@@ -563,7 +578,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: rgba(246, 196, 83, 0.08);
   border-radius: 999px;
   padding: 6px 12px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 800;
   color: #ffe3a1;
   white-space: nowrap;
@@ -664,7 +679,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   backdrop-filter: blur(10px);
   border-radius: 999px;
   padding: 7px 16px;
-  font-size: clamp(11px, 1.3vw, 14px);
+  font-size: clamp(15px, 1.45vw, 20px);
   font-weight: 700;
   color: #e6ebf7;
 }
@@ -681,7 +696,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
 }
-.mini-label { align-self: stretch; font-size: 8.5px; letter-spacing: 0.2em; color: var(--muted); font-weight: 800; }
+.mini-label { align-self: stretch; font-size: 11px; letter-spacing: 0.2em; color: var(--muted); font-weight: 800; }
 .mini {
   flex: 0 0 auto;
   width: 100%;
@@ -696,7 +711,7 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .mini .floor-tile.duel-tile { box-shadow: inset 0 0 0 2px var(--gold), 0 0 10px rgba(246, 196, 83, 0.6); }
 .mini .floor-tile.dim { opacity: 0.9; filter: brightness(0.82); }
 .mini-legend { align-self: stretch; display: grid; gap: 4px; width: 100%; margin-top: 2px; max-height: 40%; overflow: auto; scrollbar-width: thin; }
-.mini-legend-row { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--muted); }
+.mini-legend-row { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
 .mini-legend-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pc); flex: none; }
 .mini-legend-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #d8dfef; font-weight: 700; }
 .mini-legend-count { white-space: nowrap; }
@@ -810,15 +825,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 /* ============================================================
    Czytelność planszy / TV / nowe stany pojedynku
    ============================================================ */
-.tile-cat {
-  font-size: clamp(11px, 1.85cqh, 18px);
-  line-height: 1.12;
-  width: 100%;
-  -webkit-line-clamp: 3;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
-  text-align: center;
-}
 .duel-host-prompt {
   font-size: 12px;
   line-height: 1.35;
@@ -849,15 +855,15 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
 .legend-chip { font-size: 13px; padding: 6px 12px; gap: 8px; }
 .legend-chip::before { width: 9px; height: 9px; }
 .setup-board-card .legend { justify-content: flex-end; gap: 8px; }
-.board-legend .legend-chip { font-size: 13px; padding: 6px 12px; }
+.board-legend .legend-chip { font-size: 15px; padding: 7px 14px; }
 .board-caption { letter-spacing: 0.03em; }
-.board-cat { font-size: 13px; }
+.board-cat { font-size: 15px; }
 
-.duel-player { padding: 9px 16px; }
-.duel-player .clock-name { font-size: clamp(22px, 2.3vw, 34px); }
-.duel-player .clock-role { font-size: 10px; }
-.duel-player .clock-tiles { font-size: 11px; }
-.duel-player .clock-time { font-size: clamp(40px, 5.5vw, 76px); }
+.duel-player { padding: 10px 18px; }
+.duel-player .clock-name { font-size: clamp(26px, 2.6vw, 40px); }
+.duel-player .clock-role { font-size: 12px; }
+.duel-player .clock-tiles { font-size: 13px; }
+.duel-player .clock-time { font-size: clamp(48px, 5.8vw, 84px); }
 
 .duel-answer { font-size: clamp(22px, 2.15vw, 34px); line-height: 1.02; }
 .answer-meta { font-size: 11px; }
@@ -1009,18 +1015,6 @@ button.floor-tile:hover { border-color: rgba(255, 255, 255, 0.4); transform: tra
   aspect-ratio: auto;
 }
 .host-floor-card .floor-grid { min-height: 0; }
-.setup-floor-stage .tile-cat { font-size: clamp(7px, 0.95cqw, 11px); }
-.tile-cat {
-  width: 100%;
-  /* cqw liczy się od szerokości planszy, więc przy 8 kolumnach napisy
-     same się zmniejszają zamiast łamać „Kompozytorzy” na „Kompozyt orzy”. */
-  font-size: clamp(8px, 1.06cqw, 14px);
-  line-height: 1.12;
-  overflow-wrap: break-word;
-  word-break: normal;
-  hyphens: none;
-  text-wrap: balance;
-}
 
 /* Zdjęcia zawsze w całości, wyśrodkowane, bez wychodzenia z kadru.
    Czarny pas jest lepszy niż ucięta odpowiedź albo fragment krajobrazu. */
