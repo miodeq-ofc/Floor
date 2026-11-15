@@ -18,6 +18,9 @@ const B = {
   lastActiveId: null,
   lastTickSecond: null,
   lastIntroSecond: 0,
+  seenIntroKey: '',
+  localIntroKey: '',
+  localIntroUntil: 0,
 };
 
 const els = {};
@@ -113,6 +116,25 @@ function onMessage(message) {
   if (message.t === 'state' && message.state) {
     B.hostSeenAt = Date.now();
     B.state = message.state;
+    const s = message.state;
+    const duelKey = s.duel?.tileKey || '';
+    if (s.phase === 'duelIntro' && duelKey) {
+      B.seenIntroKey = duelKey;
+      B.localIntroUntil = 0;
+    } else if (
+      s.phase === 'duel' &&
+      duelKey &&
+      (s.duel?.qNumber || 0) <= 1 &&
+      B.seenIntroKey !== duelKey &&
+      B.localIntroKey !== duelKey
+    ) {
+      // Kiedy board wczyta się tuż po starcie albo zgubi jedną wiadomość,
+      // dostaje od razu fazę duel i widzi tylko spinner. W takim wypadku
+      // odtwarzamy odliczanie lokalnie, zamiast pokazywać samo ładowanie.
+      B.seenIntroKey = duelKey;
+      B.localIntroKey = duelKey;
+      B.localIntroUntil = Date.now() + 3000;
+    }
     render();
   }
 }
@@ -488,11 +510,23 @@ function renderConquest() {
 
 function renderOverlay() {
   const s = B.state;
+  const localIntro = Boolean(
+    s.phase === 'duel' &&
+    B.localIntroUntil > Date.now() &&
+    B.localIntroKey === s.duel?.tileKey
+  );
   let html = '';
-  let key = s.phase + '|' + (s.winnerId || '') + '|' + (s.duel?.tileKey || '') + '|' + (s.conquest?.at || '');
+  let key =
+    (localIntro ? 'localIntro' : s.phase) +
+    '|' +
+    (s.winnerId || '') +
+    '|' +
+    (s.duel?.tileKey || '') +
+    '|' +
+    (s.conquest?.at || '');
   if (s.phase === 'duelLoading') {
     html = '<div class="overlay-kicker">The Floor</div><div class="overlay-title">PRZYGOTOWUJEMY</div><div class="wait-card"><div class="spinner"></div><p>Przygotowuję pytanie…</p></div>';
-  } else if (s.phase === 'duelIntro') {
+  } else if (s.phase === 'duelIntro' || localIntro) {
     const ch = s.players.find((p) => p.id === s.duel?.challengerId);
     const de = s.players.find((p) => p.id === s.duel?.defenderId);
     html =
@@ -543,9 +577,10 @@ function tick() {
   const now = Date.now();
   renderConnection();
   if (s?.duel) updateClocks();
-  if (s?.phase === 'duelIntro') {
+  if (s?.phase === 'duelIntro' || (s?.phase === 'duel' && B.localIntroUntil > now)) {
+    const until = s.phase === 'duelIntro' ? s.introUntil : B.localIntroUntil;
     const node = document.getElementById('big-countdown');
-    const sec = Math.max(1, Math.ceil((s.introUntil - now) / 1000));
+    const sec = Math.max(1, Math.ceil((until - now) / 1000));
     if (node) node.textContent = String(sec);
     if (sec !== B.lastIntroSecond) {
       B.lastIntroSecond = sec;
@@ -553,6 +588,10 @@ function tick() {
     }
   } else {
     B.lastIntroSecond = 0;
+    if (B.localIntroUntil && now >= B.localIntroUntil) {
+      B.localIntroUntil = 0;
+      renderOverlay();
+    }
   }
 
   if (s?.phase === 'duel' && s.duel) {
