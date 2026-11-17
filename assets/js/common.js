@@ -148,6 +148,7 @@ const OBJECT_IMAGE = /(museum|muzeum|gallery|galeria|exhibition|wystawa|collecti
 const OBJECT_ANSWER = /(muzeum|museum|gallery|galeria|wystaw|exhibition|kolekcj|collection|showroom|sklep|shop|factory|fabryk|warehouse|magazyn|parking|depot|zajezdnia|siedzib|headquarter|hall of fame|motocyklista)/i;
 
 const IMAGE_RULES = {
+  'zamki': /(map|mapa|powiat|okres|gmina|district|location|locator|administrative)/i,
   'motocykle': OBJECT_IMAGE,
   'rowery': OBJECT_IMAGE,
   'rasy-kotow': OBJECT_IMAGE,
@@ -223,9 +224,12 @@ function imageFile(url) {
   }
 }
 
+const GENERIC_ANSWER = /^(prezydent miasta|powiat\b|gmina\b|kancelaria\b|skład kancelarii|kategoria\b|zespół\b|lista\b|palatium|dwór obronny|wieża rycerska|zamek na wodzie|przedzamcze|biała dama|orle gniazda|jaki)$/i;
+
 function answerLooksUsable(cat, answer) {
   const value = String(answer || '').trim();
   if (!value) return false;
+  if (GENERIC_ANSWER.test(value)) return false;
   // Tytuły filmów, albumów i innych dzieł potrafią trafić do kategorii
   // „Kompozytorzy” przez kategorię Wikipedii. To nie jest odpowiedź na
   // pytanie o osobę/rzecz z planszy.
