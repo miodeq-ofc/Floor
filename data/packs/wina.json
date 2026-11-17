@@ -119,10 +119,6 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/aa/A_glass_of_Tokaji.jpg"
     },
     {
-      "a": "Wina francuskie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Cartes_des_vins_de_france.png"
-    },
-    {
       "a": "Dionizos",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/64/Dionysos_Mosaic.jpg"
     },
@@ -137,10 +133,6 @@
     {
       "a": "Winnica",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Aerial_View_-_Landschaft_Markgr%C3%A4flerland1.jpg"
-    },
-    {
-      "a": "Enologia",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/67/Amancio_Fern%C3%A1ndez_catando_de_una_barrica_de_La_Bienquerida.jpg"
     },
     {
       "a": "Wino lodowe",
@@ -173,10 +165,6 @@
     {
       "a": "Langwedocja-Roussillon",
       "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Frontignan_vue_generale_vignes.JPG"
-    },
-    {
-      "a": "Wina włoskie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Italy.geohive.gif"
     }
   ]
 }
