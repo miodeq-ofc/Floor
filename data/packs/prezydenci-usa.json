@@ -179,36 +179,12 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg"
     },
     {
+      "a": "Joe Biden",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg"
+    },
+    {
       "a": "Barack Obama",
       "img": "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"
-    },
-    {
-      "a": "Prezydent miasta stołecznego Warszawy",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a1/EPP_Congress_Bucharest_-_Day_1_IMG_8903_%2853571547784%29_%28cropped%29.jpg"
-    },
-    {
-      "a": "Kancelaria Prezydenta Rzeczypospolitej Polskiej",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Budynek_Kancelarii_Prezydenta_Rzeczypospolitej_Polskiej_2023.jpg"
-    },
-    {
-      "a": "Ignacy Mościcki",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/51/Ignacy_Mo%C5%9Bcicki_%28-1934%29.jpg"
-    },
-    {
-      "a": "Pełniący obowiązki prezydenta Stanów Zjednoczonych",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Bush_reagan.jpg"
-    },
-    {
-      "a": "Karol Nawrocki",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/89/Karol_Nawrocki_i_Roberta_Metsola_%282026%29_%28cropped_%26_flipped%29.jpg"
-    },
-    {
-      "a": "Skład Kancelarii Prezydenta Karola Nawrockiego",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Polish_President_Karol_Nawrocki_Visits_Arlington_National_Cemetery_at_Arlington_National_Cemetery%2C_Arlington%2C_Virginia_on_September_3%2C_2025_-_54.jpg"
-    },
-    {
-      "a": "Prezydent miasta",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Stefan_Starzynski.jpg"
     }
   ]
 }

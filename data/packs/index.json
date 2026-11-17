@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T20:58:09.218Z",
+  "generated": "2026-11-17T20:59:58.919Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -15,7 +15,7 @@
       "group": "Motoryzacja",
       "icon": "🏍️",
       "prompt": "Jaki to motocykl?",
-      "count": 24
+      "count": 23
     },
     {
       "id": "samochody",
@@ -319,7 +319,7 @@
       "group": "Historia",
       "icon": "🇺🇸",
       "prompt": "Jaki to prezydent USA?",
-      "count": 51
+      "count": 45
     },
     {
       "id": "wladcy-polski",
@@ -351,7 +351,7 @@
       "group": "Muzyka",
       "icon": "💃",
       "prompt": "Jaki to taniec?",
-      "count": 68
+      "count": 67
     },
     {
       "id": "pociagi",
@@ -490,5 +490,5 @@
       "count": 30
     }
   ],
-  "total": 4072
+  "total": 4064
 }
