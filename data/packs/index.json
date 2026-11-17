@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T21:04:41.091Z",
+  "generated": "2026-11-17T21:11:04.228Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -47,7 +47,7 @@
       "group": "Kuchnia",
       "icon": "🍝",
       "prompt": "Jaki to makaron?",
-      "count": 80
+      "count": 79
     },
     {
       "id": "ciasta-deserowe",
@@ -207,7 +207,7 @@
       "group": "Przyroda",
       "icon": "🌳",
       "prompt": "Jakie to drzewo?",
-      "count": 80
+      "count": 79
     },
     {
       "id": "gady",
@@ -447,7 +447,7 @@
       "group": "Zabawa",
       "icon": "🧸",
       "prompt": "Jaka to zabawka?",
-      "count": 80
+      "count": 79
     },
     {
       "id": "zegarki",
@@ -490,5 +490,5 @@
       "count": 30
     }
   ],
-  "total": 4042
+  "total": 4039
 }
