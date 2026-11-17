@@ -8,103 +8,91 @@
   "items": [
     {
       "a": "Burger King",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/Burger_King_1969_logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Burger_King_2020.svg/1920px-Burger_King_2020.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Pepsi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Pepsi_2023.svg/1920px-Pepsi_2023.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Pizza Hut",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pizza_Hut_%282019%29.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Pizza_Hut_2025.svg/1920px-Pizza_Hut_2025.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Lego",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1920px-LEGO_logo.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "ASUS",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Asus_31_Years.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/ASUSTeK_Computer_headquarters_20150711.jpg/1920px-ASUSTeK_Computer_headquarters_20150711.jpg?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "H&M",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg"
-    },
-    {
-      "a": "Sony Music Entertainment",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Sony_Music_Entertainment_Logo_2023.svg"
-    },
-    {
-      "a": "Rolls-Royce",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/52/Rolls-Royce_Motor_Cars_logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1920px-H%26M-Logo.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Chevron Corporation",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/86/Chevron_Logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Chevron_Logo.svg/1920px-Chevron_Logo.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Lidl",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Lidl-Logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Lidl-Logo.svg/1920px-Lidl-Logo.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Aldi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f0/AldiNord-WorldwideLogo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Aldiaequator.svg/1920px-Aldiaequator.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "7-Eleven",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/7-Eleven_logo_2021.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/7-Eleven_logo_2021.svg/1920px-7-Eleven_logo_2021.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Atari",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/58/Atari_Official_2012_Logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Atari_Official_2012_Logo.svg/1920px-Atari_Official_2012_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Taco Bell",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/1984TacoBellSign.svg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tacobellsunnyvale.jpg?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "a": "7 Up",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fb/7-up_Logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/7_Up_Logo_Pepsi.svg/1920px-7_Up_Logo_Pepsi.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "SM Entertainment",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/SM_Entertainment_Logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/SM_Entertainment_Logo.svg/1920px-SM_Entertainment_Logo.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Tabasco",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/80/Tabasco_Logo.svg"
-    },
-    {
-      "a": "Converse",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/Converse_logo.svg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Villahermosa_La_Venta_Park.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "a": "Mountain Dew",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/97/Mountain_Dew_2025_logo.svg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/7/70/Mountain_Dew_logo_%28international%29.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "a": "Nivea",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d3/NIVEA_logo_2021.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/NIVEA_Polska.JPG/1920px-NIVEA_Polska.JPG?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Kit Kat",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_of_the_KitKat.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo_of_the_KitKat.svg/1920px-Logo_of_the_KitKat.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Whataburger",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Whataburger_logo.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Whataburger_logo.svg/1920px-Whataburger_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Pringles",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/Pringles_logo.png"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/8/89/Pringles_chips.JPG?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "a": "Schweppes",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/40/Schweppes_wordmark.svg"
+      "img": "https://upload.wikimedia.org/wikipedia/commons/0/09/Schweppes_Logo_2016.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     },
     {
       "a": "Ray-Ban",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Ray-Ban_logo_2.svg"
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Ray-Ban_logo_2.svg/1920px-Ray-Ban_logo_2.svg.png?utm_source=pl.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
     },
     {
       "a": "Target Corporation",
