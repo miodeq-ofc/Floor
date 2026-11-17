@@ -7,22 +7,6 @@
   "source": "Kategoria:Zamki",
   "items": [
     {
-      "a": "Palatium",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Goslar_kaiserpfalz.jpg"
-    },
-    {
-      "a": "Casa Loma",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Casa_Loma.JPG"
-    },
-    {
-      "a": "Wieża rycerska",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/1/19/2015_Wie%C5%BCa_mieszkalna_w_%C5%BBela%C5%BAnie_04.JPG"
-    },
-    {
-      "a": "Dwór obronny",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/63/Szymbark_1.jpg"
-    },
-    {
       "a": "Fasil Ghebbi",
       "img": "https://upload.wikimedia.org/wikipedia/commons/e/e1/ET_Gondar_asv2018-02_img03_Fasil_Ghebbi.jpg"
     },
@@ -33,34 +17,6 @@
     {
       "a": "Duwisib Castle",
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/55/Namibie_Duwisib_Castle_01.JPG"
-    },
-    {
-      "a": "Zamek chłopski",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Rosenauer_Burg.jpg"
-    },
-    {
-      "a": "Château Frontenac",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Ch%C3%A2teau_Frontenac_02.jpg"
-    },
-    {
-      "a": "Biała dama",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Apparition_DB.JPG"
-    },
-    {
-      "a": "Zamek na wodzie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/Schk%C3%B6len_2015-04_3511_Wasserburg.jpg"
-    },
-    {
-      "a": "Przedzamcze",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/BurgPyrmont01.jpg"
-    },
-    {
-      "a": "Hodidjed",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Ostaci_austrougarskog_bunkera.jpg"
-    },
-    {
-      "a": "Nowe Zamki",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Novezamky01.jpg"
     },
     {
       "a": "Zamek Książ",
@@ -105,10 +61,6 @@
     {
       "a": "Zamek w Pińczowie",
       "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Zamek_w_Pi%C5%84czowie.JPG"
-    },
-    {
-      "a": "Powiat Nowe Zamki",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Okres_zamky.png"
     },
     {
       "a": "Zamek w Kwidzynie",
@@ -203,16 +155,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Siewierz%2C_Zamek_-_fotopolska.eu_%28120822%29.jpg"
     },
     {
-      "a": "Orle Gniazda",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/ed/OrleGniazda.png"
-    },
-    {
       "a": "Zamek w Raciążku",
       "img": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Raciazek_ruiny_zamku_02.jpg"
-    },
-    {
-      "a": "Zamek w Tucholi",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Tuchola_Urz%C4%85d_Miejski_2024.jpg"
     },
     {
       "a": "Zamek Dunajec",
@@ -243,16 +187,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/3/34/Melsztyn%2C_zamek_%28HB1%29.jpg"
     },
     {
-      "a": "Zamek w Węgorzewie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Wegorzewo.jpg"
-    },
-    {
       "a": "Zamek Odrzański",
       "img": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Oderburg.jpg"
-    },
-    {
-      "a": "Zamek w Prudniku",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Model_of_castle_in_Prudnik%2C_2019.07.05_%2806%29.jpg"
     },
     {
       "a": "Zamek Gryf",
@@ -295,20 +231,12 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/56/SM_Wojnowice_pa%C5%82ac_%2810%29_ID_597199.jpg"
     },
     {
-      "a": "Zamek w Mielniku",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2c/G%C3%B3ra_zamkowa_w_Mielniku_w_2010_r..jpg"
-    },
-    {
       "a": "Zamek w Karpnikach",
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/a9/2016_Zamek_w_Karpnikach_1.jpg"
     },
     {
       "a": "Zamek w Pilicy",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/44/Pa%C5%82ac_w_Pilicy4.jpg"
-    },
-    {
-      "a": "Zamek w Szarleju",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b0/01973_Szarlej_Gord.jpg"
     },
     {
       "a": "Zamek w Pęzinie",
@@ -321,18 +249,6 @@
     {
       "a": "Zamek w Bobrku",
       "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/BOBREK_pa%C5%82ac_i_park%2C_fot._K._Fidyk_MIK_2014_%2829%29_%2830050125443%29.jpg"
-    },
-    {
-      "a": "Drugi zamek lewobrzeżny we Wrocławiu",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Wroclaw_second_left-bank_castle_reconstruction.jpg"
-    },
-    {
-      "a": "Zamki Orawskie",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/40/Oravsk%C3%BD_Podz%C3%A1mok_WF11.jpg"
-    },
-    {
-      "a": "Zamek w Surażu",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sura%C5%BC_strongold_gr%C3%B3d_gard.jpg"
     },
     {
       "a": "Stary Zamek w Żywcu",

@@ -128,8 +128,10 @@ export class Bus {
 }
 
 /* ---------------- dane kategorii ---------------- */
+const DATA_VERSION = Date.now();
+
 export async function loadIndex() {
-  const res = await fetch('data/packs/index.json', { cache: 'no-cache' });
+  const res = await fetch('data/packs/index.json?v=' + DATA_VERSION, { cache: 'no-store' });
   if (!res.ok) throw new Error('Nie udało się wczytać bazy kategorii (' + res.status + ')');
   const data = await res.json();
   return data.packs || [];
@@ -295,7 +297,7 @@ export async function loadPack(cat) {
   if (cat.live) {
     pack = await loadLivePack(cat);
   } else {
-    const res = await fetch('data/packs/' + encodeURIComponent(cat.id) + '.json', { cache: 'no-cache' });
+    const res = await fetch('data/packs/' + encodeURIComponent(cat.id) + '.json?v=' + DATA_VERSION, { cache: 'no-store' });
     if (!res.ok) throw new Error('Brak danych kategorii ' + cat.name);
     pack = await res.json();
   }
