@@ -27,10 +27,6 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Diverse_clothing_store_in_Tomasz%C3%B3w_Mazowiecki%2C_Poland.jpg"
     },
     {
-      "a": "Gloria Vanderbilt",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Gloria_Vanderbilt_1959.JPG"
-    },
-    {
       "a": "Christian Dior",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/60/Christian_Dior_Store_in_Ginza.jpg"
     },
@@ -55,16 +51,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/4f/20260820_122142_Tatuum_shop%2C_Tomasz%C3%B3w_Mazowiecki%2C_Poland.jpg"
     },
     {
-      "a": "Roberto Cavalli",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/00/Roberto_Cavalli_Photographed_by_Ed_Kavishe.jpg"
-    },
-    {
       "a": "A Bathing Ape",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/97/Bape_Store_Harajuku_2015.jpg"
-    },
-    {
-      "a": "Peek & Cloppenburg",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Weltstadthaus_K%C3%B6ln_-_Ansicht_von_der_Schildergasse_%284013-15%29.jpg"
     },
     {
       "a": "Sinsay",
@@ -95,16 +83,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/60/A_Carhartt_work_jacket_with_grey_fabric.png"
     },
     {
-      "a": "LPP",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Gdansk_LPP_3.jpg"
-    },
-    {
       "a": "Jack & Jones",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/64/Jack_%26_Jones%2C_Leeuwarden_%282018%29.jpg"
-    },
-    {
-      "a": "Lancerto",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/58/Lancerto-BonarkaCityCenter-Podg%C3%B3rzeDuchackie-POL%2C_Krak%C3%B3w.jpg"
     }
   ]
 }

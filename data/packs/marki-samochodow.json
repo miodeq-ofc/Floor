@@ -129,10 +129,6 @@
       "img": "assets/packs/marki-samochodow/dodge.jpg"
     },
     {
-      "a": "Chevrolet",
-      "img": "assets/packs/marki-samochodow/chevrolet.jpg"
-    },
-    {
       "a": "Chrysler",
       "img": "assets/packs/marki-samochodow/chrysler.jpg"
     },
@@ -251,10 +247,6 @@
     {
       "a": "Tata",
       "img": "assets/packs/marki-samochodow/tata.jpg"
-    },
-    {
-      "a": "Mahindra",
-      "img": "assets/packs/marki-samochodow/mahindra.jpg"
     },
     {
       "a": "Warszawa",

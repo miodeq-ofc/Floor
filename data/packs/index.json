@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T10:02:32.477Z",
+  "generated": "2026-11-17T20:58:09.218Z",
   "packs": [
     {
       "id": "marki-samochodow",
@@ -7,7 +7,7 @@
       "group": "Motoryzacja",
       "icon": "🚗",
       "prompt": "Jaka to marka samochodu?",
-      "count": 80
+      "count": 78
     },
     {
       "id": "motocykle",
@@ -407,7 +407,7 @@
       "group": "Marki",
       "icon": "🏷️",
       "prompt": "Czyj to logotyp?",
-      "count": 93
+      "count": 44
     },
     {
       "id": "marki-napojow",
@@ -423,7 +423,7 @@
       "group": "Marki",
       "icon": "👕",
       "prompt": "Jaka to marka odzieży?",
-      "count": 25
+      "count": 20
     },
     {
       "id": "sieci-handlowe",
@@ -463,7 +463,7 @@
       "group": "Internet",
       "icon": "📱",
       "prompt": "Jaka to aplikacja lub serwis?",
-      "count": 80
+      "count": 78
     },
     {
       "id": "piosenki",
@@ -490,5 +490,5 @@
       "count": 30
     }
   ],
-  "total": 4130
+  "total": 4072
 }

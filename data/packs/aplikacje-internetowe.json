@@ -51,10 +51,6 @@
       "img": "assets/apps/allegro.svg"
     },
     {
-      "a": "OLX",
-      "img": "assets/apps/OLX_logo.svg"
-    },
-    {
       "a": "Gmail",
       "img": "assets/apps/gmail.svg"
     },
@@ -105,10 +101,6 @@
     {
       "a": "Amazon",
       "img": "assets/apps/amazon.svg"
-    },
-    {
-      "a": "eBay",
-      "img": "assets/apps/ebay.svg"
     },
     {
       "a": "PayPal",

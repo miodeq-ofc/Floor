@@ -4,7 +4,7 @@ import { Sound } from './sound.js';
 import { preloadImages, setImageWithFallback } from './images.js';
 
 const LOGO_PACKS = new Set(['loga-firm', 'aplikacje-internetowe', 'flagi-panstw', 'herby-panstw']);
-const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow', 'piwo']);
+const BLUR_PACKS = new Set(['loga-firm', 'marki-napojow', 'marki-odziezowe', 'piwo']);
 
 const B = {
   state: null,

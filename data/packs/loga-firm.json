@@ -19,14 +19,6 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pizza_Hut_%282019%29.svg"
     },
     {
-      "a": "Opel",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Opel_logo_2023.svg"
-    },
-    {
-      "a": "Mazda",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/43/Mazda_logo_2024_%28vertical%29.svg"
-    },
-    {
       "a": "Lego",
       "img": "https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg"
     },
@@ -37,10 +29,6 @@
     {
       "a": "H&M",
       "img": "https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg"
-    },
-    {
-      "a": "Mitsubishi Group",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mitsubishi_logo.svg"
     },
     {
       "a": "Sony Music Entertainment",
@@ -59,40 +47,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Lidl-Logo.svg"
     },
     {
-      "a": "SEAT S.A.",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7e/SEAT_S.A._logo.svg"
-    },
-    {
       "a": "Aldi",
       "img": "https://upload.wikimedia.org/wikipedia/commons/f/f0/AldiNord-WorldwideLogo.svg"
-    },
-    {
-      "a": "Columbia Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Columbia_Records_Colored_Logo.svg"
-    },
-    {
-      "a": "Volvo Car Corporation",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Volvo-Iron-Mark-Black.svg"
-    },
-    {
-      "a": "Atlantic Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/df/Atlantic_Records_logo_2005.svg"
-    },
-    {
-      "a": "Lada",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Lada_company_logo_image.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
-      "a": "Buick",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/Buick_logo_1980.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
-      "a": "Interscope Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Interscope_Records.svg"
-    },
-    {
-      "a": "Motown Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/be/Motown_logo_with_wordmark.svg"
     },
     {
       "a": "7-Eleven",
@@ -105,10 +61,6 @@
     {
       "a": "Taco Bell",
       "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/1984TacoBellSign.svg"
-    },
-    {
-      "a": "Virgin Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Virgin-logo.svg"
     },
     {
       "a": "7 Up",
@@ -127,10 +79,6 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/3/30/Converse_logo.svg"
     },
     {
-      "a": "Parlophone",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Parlophone_logo.svg"
-    },
-    {
       "a": "Mountain Dew",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/97/Mountain_Dew_2025_logo.svg"
     },
@@ -143,52 +91,20 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_of_the_KitKat.svg"
     },
     {
-      "a": "Epic Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Epic_Records.svg"
-    },
-    {
       "a": "Whataburger",
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/Whataburger_logo.svg"
-    },
-    {
-      "a": "Intel Pentium",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/Intel_Pentium_Processor.svg"
     },
     {
       "a": "Pringles",
       "img": "https://upload.wikimedia.org/wikipedia/commons/3/33/Pringles_logo.png"
     },
     {
-      "a": "Vauxhall",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/43/Vauxhall_logo_2026.svg"
-    },
-    {
-      "a": "Pontiac",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Pontiac_logo_and_wordmark_1981.svg"
-    },
-    {
-      "a": "metro w Sofii",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/73/Sofia_Metro_Logo.svg"
-    },
-    {
       "a": "Schweppes",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/40/Schweppes_wordmark.svg"
     },
     {
-      "a": "Geffen Record",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Geffen_Records_logo.svg"
-    },
-    {
-      "a": "T-Series",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7d/T-series-logo.svg"
-    },
-    {
       "a": "Ray-Ban",
       "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Ray-Ban_logo_2.svg"
-    },
-    {
-      "a": "Elektra Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Elektra_Records_EE_logo_2022_%28modified%29.svg"
     },
     {
       "a": "Target Corporation",
@@ -207,20 +123,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/8/87/Ferrerorocher_brand_logo.png"
     },
     {
-      "a": "Def Jam Recordings",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/64/Def_Jam_Recordings.svg"
-    },
-    {
-      "a": "Apple Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/a/a8/BEATLES_MANZANA.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
       "a": "Pilsner Urquell",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/Pilsner_Urquell_logo.svg"
-    },
-    {
-      "a": "Celeron",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/23/Intel_Celeron_2020_logo.svg"
     },
     {
       "a": "Lucky Strike",
@@ -239,48 +143,12 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/d/de/Telefunken.svg"
     },
     {
-      "a": "Intel Core",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/28/Intel_Core_2023_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
-      "a": "Reprise Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Reprise_Records_logo.svg"
-    },
-    {
-      "a": "Itanium",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/1/15/Intel_Itanium_logo.svg"
-    },
-    {
-      "a": "Oldsmobile",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Oldsmobile_logo_used_from_1981_until_1997.svg"
-    },
-    {
       "a": "Tetra Pak",
       "img": "https://upload.wikimedia.org/wikipedia/commons/0/03/TetraPak-Logo_EN.svg"
     },
     {
-      "a": "Proton",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/02/PROTON_Holdings.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
       "a": "Home Depot",
       "img": "https://upload.wikimedia.org/wikipedia/commons/f/f6/The_Home_Depot_logo.svg"
-    },
-    {
-      "a": "XL Recordings",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/4b/XL_Recordings_Logo.svg"
-    },
-    {
-      "a": "Mój mały kucyk",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/2d/My_little_pony_logo22.svg"
-    },
-    {
-      "a": "DS Automobiles",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/DS_Automobiles_2009_logo.svg"
-    },
-    {
-      "a": "Shady Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Shady_Records_logo.svg"
     },
     {
       "a": "Stella Artois",
@@ -295,88 +163,24 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Holiday_Inn_by_IHG_logo.svg"
     },
     {
-      "a": "Sire Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Sire_Records_logo.svg"
-    },
-    {
-      "a": "Spinnin' Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/70/Spinnin%27_Records_logo.svg"
-    },
-    {
-      "a": "MAZ",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Minsky_automoblie_plant.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
-      "a": "Verve Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Verve_%28logo%29.svg"
-    },
-    {
       "a": "Edeka",
       "img": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Edeka_Logo_Aktuell.svg"
-    },
-    {
-      "a": "Fueled by Ramen",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Fueled_by_Ramen_black_logo.svg"
-    },
-    {
-      "a": "Pony Canyon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/8/80/Pony_Canyon_logo.svg"
-    },
-    {
-      "a": "Death Row Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Death-Row-Records-logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-    },
-    {
-      "a": "Wkusno i toczka",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Vkusno_I_Tochka_symbol.svg"
-    },
-    {
-      "a": "Intel Core i7",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Intel-Core-7-Badge-2023.png"
-    },
-    {
-      "a": "Radeon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/c/cf/AMD_Radeon_graphics_logo_2016.svg"
     },
     {
       "a": "Tic Tac",
       "img": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Tic_Tac_logo_2022-present.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
     },
     {
-      "a": "Jive Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Jive_Records_logo.svg"
-    },
-    {
-      "a": "Epitaph Records",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Epitaph_Records_Logo.svg"
-    },
-    {
       "a": "Arby’s",
       "img": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Arby%27s_logo.svg"
-    },
-    {
-      "a": "NoCopyrightSounds",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/NCS_logo.svg"
     },
     {
       "a": "Energizer",
       "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Energizer_holdings_inc_logo.svg"
     },
     {
-      "a": "Polestar Racing",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/7/71/Polestar_logo_2020.svg"
-    },
-    {
-      "a": "National Rail",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/3/31/National_Rail_logo.svg"
-    },
-    {
       "a": "vaseline",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Vaseline_new_logo.png"
-    },
-    {
-      "a": "Talbot",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/Talbot_Automotive_Brand_Logo.svg"
     }
   ]
 }
